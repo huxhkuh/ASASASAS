@@ -1,0 +1,372 @@
++    <value>פתח לוח מחוונים</value>
++  </data>
++  <data name="ConfigPage_ReconnectDialogTitle" xml:space="preserve">
++    <value>שומר תצורה</value>
++  </data>
++  <data name="ConfigPage_ReconnectDialogBody" xml:space="preserve">
++    <value>OpenClaw מיישם את העריכות שלך. ייתכן ש- Gateway יופעל מחדש לזמן קצר ויתחבר מחדש באופן אוטומטי.</value>
++  </data>
++  <data name="ConfigPage_ReconnectDialogAccepted" xml:space="preserve">
++    <value>Gateway מופעל מחדש...</value>
++  </data>
++  <data name="ConfigPage_ReconnectDialogWaiting" xml:space="preserve">
++    <value>מתחבר מחדש...</value>
++  </data>
++  <data name="SaveButton.Content" xml:space="preserve">
++    <value>שמור שינויים</value>
++  </data>
++  <data name="SaveButtonText.Text" xml:space="preserve">
++    <value>שמור שינויים</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_10.Text" xml:space="preserve">
++    <value>🔗 חיבור</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_11.Text" xml:space="preserve">
++    <value>נקודת קצה Gateway המשמשת הן את לקוח המפעיל והן את שירות Node.</value>
++  </data>
++  <data name="StatusText.Text" xml:space="preserve">
++    <value>מנותק</value>
++  </data>
++  <data name="ReconnectButton.Content" xml:space="preserve">
++    <value>התחבר מחדש</value>
++  </data>
++  <data name="OperatorStatusText.Text" xml:space="preserve">
++    <value>מפעיל: …</value>
++  </data>
++  <data name="ConnectToggle.Header" xml:space="preserve">
++    <value>חיבור</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_76.Text" xml:space="preserve">
++    <value>📡 שערים זמינים</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_84.Text" xml:space="preserve">
++    <value>סריקה</value>
++  </data>
++  <data name="TokenPromptText.Text" xml:space="preserve">
++    <value>Gateway זה דורש token כדי להתחבר.</value>
++  </data>
++  <data name="ConnectionPage_Button_105.Content" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="TokenPromptConnectBtn.Content" xml:space="preserve">
++    <value>התחברות</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_111.Text" xml:space="preserve">
++    <value>הפעל את 'openclaw qr' על המארח Gateway עבור קוד הגדרה, או מצא את token בתצורה של Gateway.</value>
++  </data>
++  <data name="GatewayEmptyText.Text" xml:space="preserve">
++    <value>לא נמצאו שערים. לחץ על סרוק כדי לחפש.</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_128.Text" xml:space="preserve">
++    <value>🔑 קוד הגדרה</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_129.Text" xml:space="preserve">
++    <value>הדבק קוד הגדרה מ- openclaw qr</value>
++  </data>
++  <data name="ApplySetupCodeButton.Content" xml:space="preserve">
++    <value>החל</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_152.Text" xml:space="preserve">
++    <value>הגדרות חיבור מתקדמות</value>
++  </data>
++  <data name="GatewayUrlTextBox.Header" xml:space="preserve">
++    <value>Gateway URL</value>
++  </data>
++  <data name="TokenTextBox.Header" xml:space="preserve">
++    <value>Token</value>
++  </data>
++  <data name="TestButton.Content" xml:space="preserve">
++    <value>בדיקה</value>
++  </data>
++  <data name="SshToggle.Header" xml:space="preserve">
++    <value>מנהרת SSH</value>
++  </data>
++  <data name="SshUserBox.Header" xml:space="preserve">
++    <value>משתמש SSH</value>
++  </data>
++  <data name="SshUserBox.PlaceholderText" xml:space="preserve">
++    <value>משתמש</value>
++  </data>
++  <data name="SshHostBox.Header" xml:space="preserve">
++    <value>מארח SSH</value>
++  </data>
++  <data name="SshHostBox.PlaceholderText" xml:space="preserve">
++    <value>שם מכונה</value>
++  </data>
++  <data name="SshRemotePortBox.Header" xml:space="preserve">
++    <value>יציאה מרוחקת</value>
++  </data>
++  <data name="SshLocalPortBox.Header" xml:space="preserve">
++    <value>פורט מקומי</value>
++  </data>
++  <data name="ConnectionPage_Button_190.Content" xml:space="preserve">
++    <value>שמירה</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_200.Text" xml:space="preserve">
++    <value>🪪 התקן זה</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_207.Text" xml:space="preserve">
++    <value>התקן ID:</value>
++  </data>
++  <data name="CopyDeviceIdButton.Content" xml:space="preserve">
++    <value>העתק</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_219.Text" xml:space="preserve">
++    <value>הפעל פקודה זו על המארח Gateway כדי לאשר:</value>
++  </data>
++  <data name="CopyApprovalButton.Content" xml:space="preserve">
++    <value>העתק</value>
++  </data>
++  <data name="ConnectionPage_TextBlock_243.Text" xml:space="preserve">
++    <value>📋 יומן חיבורים</value>
++  </data>
++  <data name="ConnectionLogEmpty.Text" xml:space="preserve">
++    <value>אין אירועי חיבור אחרונים.</value>
++  </data>
++  <data name="ConversationsPage_TextBlock_16.Text" xml:space="preserve">
++    <value>שיחות</value>
++  </data>
++  <data name="ConversationsPage_ComboBoxItem_29.Content" xml:space="preserve">
++    <value>הכל</value>
++  </data>
++  <data name="ConversationsPage_ComboBoxItem_30.Content" xml:space="preserve">
++    <value>לפי ערוץ</value>
++  </data>
++  <data name="ConversationsPage_ComboBoxItem_31.Content" xml:space="preserve">
++    <value>לפי סטטוס</value>
++  </data>
++  <data name="ConversationsPage_TextBlock_37.Text" xml:space="preserve">
++    <value>רענון</value>
++  </data>
++  <data name="CronPage_TextBlock_10.Text" xml:space="preserve">
++    <value>⏱️ משימות Cron</value>
++  </data>
++  <data name="CronPage_TextBlock_29.Text" xml:space="preserve">
++    <value>סטטוס מתזמן</value>
++  </data>
++  <data name="SchedulerStatusText.Text" xml:space="preserve">
++    <value>מופעל</value>
++  </data>
++  <data name="StorePathText.Text" xml:space="preserve">
++    <value>אחסון: ~/.openclaw/Cron.db</value>
++  </data>
++  <data name="NextWakeText.Text" xml:space="preserve">
++    <value>התעוררות הבאה: …</value>
++  </data>
++  <data name="CronPage_Button_80.Content" xml:space="preserve">
++    <value>הפעל עכשיו</value>
++  </data>
++  <data name="CronPage_TextBlock_90.Text" xml:space="preserve">
++    <value>הפעלה אחרונה:</value>
++  </data>
++  <data name="CronPage_TextBlock_104.Text" xml:space="preserve">
++    <value>הפעלה הבאה:</value>
++  </data>
++  <data name="CronPage_TextBlock_120.Text" xml:space="preserve">
++    <value>לא הוגדרו משימות Cron</value>
++  </data>
++  <data name="DebugPage_TextBlock_8.Text" xml:space="preserve">
++    <value>🐛 ניפוי שגיאות</value>
++  </data>
++  <data name="DebugPage_TextBlock_14.Text" xml:space="preserve">
++    <value>מציג יומנים</value>
++  </data>
++  <data name="DebugPage_Button_18.Content" xml:space="preserve">
++    <value>⟳ רענן</value>
++  </data>
++  <data name="DebugPage_Button_19.Content" xml:space="preserve">
++    <value>📋 העתקת יומן</value>
++  </data>
++  <data name="LogText.Text" xml:space="preserve">
++    <value>טוען...</value>
++  </data>
++  <data name="DebugPage_TextBlock_38.Text" xml:space="preserve">
++    <value>סטטוס חיבור</value>
++  </data>
++  <data name="DebugPage_TextBlock_52.Text" xml:space="preserve">
++    <value>סטטוס מפעיל</value>
++  </data>
++  <data name="DebugPage_TextBlock_56.Text" xml:space="preserve">
++    <value>Gateway URL</value>
++  </data>
++  <data name="DebugPage_TextBlock_61.Text" xml:space="preserve">
++    <value>Node מצב</value>
++  </data>
++  <data name="DebugPage_TextBlock_72.Text" xml:space="preserve">
++    <value>זהות מכשיר</value>
++  </data>
++  <data name="DebugPage_TextBlock_86.Text" xml:space="preserve">
++    <value>מכשיר ID</value>
++  </data>
++  <data name="DebugPage_Button_91.Content" xml:space="preserve">
++    <value>📋 העתק</value>
++  </data>
++  <data name="DebugPage_TextBlock_94.Text" xml:space="preserve">
++    <value>מפתח ציבורי</value>
++  </data>
++  <data name="DebugPage_TextBlock_108.Text" xml:space="preserve">
++    <value>פעולות ניפוי באגים</value>
++  </data>
++  <data name="DebugPage_Button_111.Content" xml:space="preserve">
++    <value>📄 פתיחת קובץ יומן</value>
++  </data>
++  <data name="DebugPage_Button_112.Content" xml:space="preserve">
++    <value>📁 פתיחת תיקיית תצורה</value>
++  </data>
++  <data name="DebugPage_Button_113.Content" xml:space="preserve">
++    <value>📁 פתיחת תיקיית אבחון</value>
++  </data>
++  <data name="DebugPage_Button_114.Content" xml:space="preserve">
++    <value>📋 העתקת הקשר תמיכה</value>
++  </data>
++  <data name="StatusHeadline.Text" xml:space="preserve">
++    <value>לא מחובר ל־Gateway</value>
++  </data>
++  <data name="ScanButton.Content" xml:space="preserve">
++    <value>סרוק עבור שערים</value>
++  </data>
++  <data name="DashboardButton.Content" xml:space="preserve">
++    <value>פתח לוח מחוונים</value>
++  </data>
++  <data name="ChatButton.Content" xml:space="preserve">
++    <value>פתח צ'אט</value>
++  </data>
++  <data name="HealthCheckButton.Content" xml:space="preserve">
++    <value>בדיקת תקינות</value>
++  </data>
++  <data name="RefreshButton.Content" xml:space="preserve">
++    <value>⟳ רענן</value>
++  </data>
++  <data name="NodesPage_Action_Rename" xml:space="preserve">
++    <value>שינוי שם</value>
++  </data>
++  <data name="NodesPage_Action_Forget" xml:space="preserve">
++    <value>שכח</value>
++  </data>
++  <data name="NodesPage_Action_MoreOptions" xml:space="preserve">
++    <value>אפשרויות נוספות</value>
++  </data>
++  <data name="NodesPage_Label_Version" xml:space="preserve">
++    <value>גרסה</value>
++  </data>
++  <data name="NodesPage_Label_Hardware" xml:space="preserve">
++    <value>חומרה</value>
++  </data>
++  <data name="NodesPage_Label_Network" xml:space="preserve">
++    <value>רשת</value>
++  </data>
++  <data name="NodesPage_Label_Approved" xml:space="preserve">
++    <value>אושר</value>
++  </data>
++  <data name="NodesPage_Label_Connected" xml:space="preserve">
++    <value>מחובר</value>
++  </data>
++  <data name="NodesPage_Label_LastSeen" xml:space="preserve">
++    <value>נצפה</value>
++  </data>
++  <data name="NodesPage_Label_Capabilities" xml:space="preserve">
++    <value>יכולות</value>
++  </data>
++  <data name="NodesPage_Label_Permissions" xml:space="preserve">
++    <value>הרשאות</value>
++  </data>
++  <data name="NodesPage_Label_PathEnv" xml:space="preserve">
++    <value>נתיב</value>
++  </data>
++  <data name="NodesPage_Commands_Header" xml:space="preserve">
++    <value>פקודות ({0})</value>
++  </data>
++  <data name="NodesPage_Command_DisabledSuffix" xml:space="preserve">
++    <value>(מושבת)</value>
++  </data>
++  <data name="NodesPage_Rename_Title" xml:space="preserve">
++    <value>שינוי שם Node</value>
++  </data>
++  <data name="NodesPage_Rename_Body" xml:space="preserve">
++    <value>בחר שם תצוגה חדש עבור {0}.</value>
++  </data>
++  <data name="NodesPage_Rename_Placeholder" xml:space="preserve">
++    <value>שם תצוגה</value>
++  </data>
++  <data name="NodesPage_Rename_Primary" xml:space="preserve">
++    <value>שינוי שם</value>
++  </data>
++  <data name="NodesPage_Rename_Error_Empty" xml:space="preserve">
++    <value>שם תצוגה אינו יכול להיות ריק.</value>
++  </data>
++  <data name="NodesPage_Rename_Error_Generic" xml:space="preserve">
++    <value>שינוי השם נכשל.</value>
++  </data>
++  <data name="NodesPage_Forget_Title" xml:space="preserve">
++    <value>שכחת את Node?</value>
++  </data>
++  <data name="NodesPage_Forget_Body" xml:space="preserve">
++    <value>פעולה זו תמחק את הרשומה של Gateway של Node למטה. Node יצטרך להתחבר מחדש לפני שיוכל להתחבר מחדש.</value>
++  </data>
++  <data name="NodesPage_Forget_Warning" xml:space="preserve">
++    <value>מפעילים וצ'אטים פעילים המכוונים ל־Node זה יאבדו גישה באופן מיידי.</value>
++  </data>
++  <data name="NodesPage_Forget_Primary" xml:space="preserve">
++    <value>שכחת את Node</value>
++  </data>
++  <data name="NodesPage_Forget_Error_Generic" xml:space="preserve">
++    <value>לא ניתן היה לשכוח את Node: Gateway לא ניתן להשגה או שההרשות נדחתה.</value>
++  </data>
++  <data name="NodesPage_Common_Cancel" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="PermissionsPage_TextBlock_8.Text" xml:space="preserve">
++    <value>🔐 הרשאות</value>
++  </data>
++  <data name="PermissionsPage_TextBlock_14.Text" xml:space="preserve">
++    <value>מדיניות ביצוע</value>
++  </data>
++  <data name="PermissionsPage_TextBlock_17.Text" xml:space="preserve">
++    <value>שולט באילו קבצי הרצה הסוכן יכול להפעיל ב־Node זה. רשימת ההיתרים של נתיב הרצה מתחילה להיות ריקה.</value>
++  </data>
++  <data name="DefaultActionCombo.Header" xml:space="preserve">
++    <value>פעולת ברירת מחדל</value>
++  </data>
++  <data name="PermissionsPage_ComboBoxItem_23.Content" xml:space="preserve">
++    <value>דחה</value>
++  </data>
++  <data name="PermissionsPage_ComboBoxItem_24.Content" xml:space="preserve">
++    <value>אפשר</value>
++  </data>
++  <data name="PermissionsPage_ComboBoxItem_25.Content" xml:space="preserve">
++    <value>שאל</value>
++  </data>
++  <data name="PermissionsPage_TextBlock_28.Text" xml:space="preserve">
++    <value>רשימת ההיתרים של נתיב הרצה</value>
++  </data>
++  <data name="NewRulePattern.PlaceholderText" xml:space="preserve">
++    <value>תבנית נתיב הרצה (לדוגמה **/hostname.exe)</value>
++  </data>
++  <data name="PermissionsPage_ExecAllowlistPatternValidation.Text" xml:space="preserve">
++    <value>הזן תבנית נתיב הרצה כגון **/hostname.exe. תבניות שם בסיס או טקסט פקודה כגון hostname אינן חוקיות.</value>
++  </data>
++  <data name="PermissionsPage_ComboBoxItem_54.Content" xml:space="preserve">
++    <value>דחה</value>
++  </data>
++  <data name="PermissionsPage_ComboBoxItem_56.Content" xml:space="preserve">
++    <value>שאל</value>
++  </data>
++  <data name="PermissionsPage_Button_57.Content" xml:space="preserve">
++    <value>הוסף ערך</value>
++  </data>
++  <data name="PermissionsPage_TextBlock_69.Text" xml:space="preserve">
++    <value>Node רשימת היתרים</value>
++  </data>
++  <data name="PermissionsPage_TextBlock_72.Text" xml:space="preserve">
++    <value>פקודות המותרות על ידי Gateway עבור צמתים מחוברים. רשימה זו היא לקריאה בלבד: עריכה דרך דף התצורה.</value>
++  </data>
++  <data name="AllowlistEmpty.Text" xml:space="preserve">
++    <value>אין נתוני רשימת היתרים זמינים. התחבר תחילה ל־Gateway.</value>
++  </data>
++  <data name="PermissionsPage_TextBlock_92.Text" xml:space="preserve">
++    <value>הרשאות מערכת</value>
++  </data>
++  <data name="PermissionsPage_TextBlock_95.Text" xml:space="preserve">
++    <value>הרשאות מערכת למצלמה, מיקרופון ולכידת מסך. אלה מנוהלות על ידי Windows הגדרות פרטיות.</value>
++  </data>
++  <data name="PermissionsPage_TextBlock_110.Text" xml:space="preserve">
