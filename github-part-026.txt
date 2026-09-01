@@ -1,0 +1,388 @@
++  </data>
++  <data name="StatusConnectedText.Text" xml:space="preserve">
++    <value>מחובר</value>
++  </data>
++  <data name="StatusNoSessions.Text" xml:space="preserve">
++    <value>אין הפעלות פעילות</value>
++  </data>
++  <data name="StatusNoNodes.Text" xml:space="preserve">
++    <value>לא דווחו צמתים</value>
++  </data>
++  <data name="StatusNoRecentActivity.Text" xml:space="preserve">
++    <value>אין פעילות אחרונה</value>
++  </data>
++  <data name="StatusExtensibilityDescription.Text" xml:space="preserve">
++    <value>הגדרת ערוץ, מיומנויות ואוטומציות מתוזמנות הן משטחים בבעלות Gateway. השתמש בקישורים אלה כאשר Gateway המחובר חושף את דפי לוח המחוונים התואמים.</value>
++  </data>
++  <data name="StatusChannelSetupTitle.Text" xml:space="preserve">
++    <value>הגדרת ערוץ / סכמות</value>
++  </data>
++  <data name="StatusChannelSetupDescription.Text" xml:space="preserve">
++    <value>הגדרת ערוץ פתוחה עבור זרימות אימות, QR, התחברות ולוח מחוונים מונחות סכמות, במידת האפשר.</value>
++  </data>
++  <data name="StatusSkillsTitle.Text" xml:space="preserve">
++    <value>מיומנויות</value>
++  </data>
++  <data name="StatusSkillsDescription.Text" xml:space="preserve">
++    <value>פתח את תצורת המיומנויות של Gateway כאשר ה־Gateway המחובר תומך בכך.</value>
++  </data>
++  <data name="StatusCronTitle.Text" xml:space="preserve">
++    <value>Cron / לוחות זמנים</value>
++  </data>
++  <data name="StatusCronDescription.Text" xml:space="preserve">
++    <value>פתח בקרות אוטומציה מתוזמנות כאשר ה־Gateway המחובר תומך בהן.</value>
++  </data>
++  <data name="StatusRefreshButton.Content" xml:space="preserve">
++    <value>רענון</value>
++  </data>
++  <data name="StatusOpenLogsButton.Content" xml:space="preserve">
++    <value>פתיחת יומנים</value>
++  </data>
++  <data name="StatusOpenConfigButton.Content" xml:space="preserve">
++    <value>פתיחת תצורה</value>
++  </data>
++  <data name="StatusRefreshHealthButton.Content" xml:space="preserve">
++    <value>רענון תקינות</value>
++  </data>
++  <data name="StatusOpenDiagnosticsJsonlButton.Content" xml:space="preserve">
++    <value>פתיחת אבחון JSONL</value>
++  </data>
++  <data name="StatusCopySupportContextButton.Content" xml:space="preserve">
++    <value>העתקת הקשר תמיכה</value>
++  </data>
++  <data name="StatusRestartSshTunnelButton.Content" xml:space="preserve">
++    <value>הפעלה מחדש SSH מנהרה</value>
++  </data>
++  <data name="StatusCopyBrowserSetupButton.Content" xml:space="preserve">
++    <value>העתקת הגדרת דפדפן</value>
++  </data>
++  <data name="StatusCopyDebugBundleButton.Content" xml:space="preserve">
++    <value>העתקת חבילת ניפוי שגיאות</value>
++  </data>
++  <data name="StatusCheckUpdatesButton.Content" xml:space="preserve">
++    <value>בדיקת עדכונים</value>
++  </data>
++  <data name="StatusCopyPortDiagnosticsButton.Content" xml:space="preserve">
++    <value>העתקת אבחון פורטים</value>
++  </data>
++  <data name="StatusCopyButton.Content" xml:space="preserve">
++    <value>העתק</value>
++  </data>
++  <data name="StatusSettingsButton.Content" xml:space="preserve">
++    <value>הגדרות</value>
++  </data>
++  <data name="StatusOpenButton.Content" xml:space="preserve">
++    <value>פתיחה</value>
++  </data>
++  <data name="StatusCopyNodeInventoryButton.Content" xml:space="preserve">
++    <value>העתקת Node מלאי</value>
++  </data>
++  <data name="StatusOpenStreamButton.Content" xml:space="preserve">
++    <value>פתיחה זרם</value>
++  </data>
++  <data name="ActivityStreamTitle.Text" xml:space="preserve">
++    <value>⚡ זרם פעילות</value>
++  </data>
++  <data name="ActivityFilterAll.Content" xml:space="preserve">
++    <value>כל הפעילות</value>
++  </data>
++  <data name="ActivityFilterSessions.Content" xml:space="preserve">
++    <value>סשנים</value>
++  </data>
++  <data name="ActivityFilterUsage.Content" xml:space="preserve">
++    <value>שימוש</value>
++  </data>
++  <data name="ActivityFilterNodes.Content" xml:space="preserve">
++    <value>צמתים</value>
++  </data>
++  <data name="ActivityFilterNotifications.Content" xml:space="preserve">
++    <value>התראות</value>
++  </data>
++  <data name="ActivityEmptyText.Text" xml:space="preserve">
++    <value>אין עדיין פעילות</value>
++  </data>
++  <data name="ActivityOpenDashboardButton.Content" xml:space="preserve">
++    <value>פתח לוח מחוונים</value>
++  </data>
++  <data name="ActivityClearAllButton.Content" xml:space="preserve">
++    <value>נקה הכל</value>
++  </data>
++  <data name="ActivityCloseButton.Content" xml:space="preserve">
++    <value>סגור</value>
++  </data>
++  <data name="NotificationHistoryTitle.Text" xml:space="preserve">
++    <value>📋 היסטוריית התראות</value>
++  </data>
++  <data name="NotificationEmptyText.Text" xml:space="preserve">
++    <value>אין עדיין התראות</value>
++  </data>
++  <data name="NotificationClearAllButton.Content" xml:space="preserve">
++    <value>נקה הכל</value>
++  </data>
++  <data name="NotificationCloseButton.Content" xml:space="preserve">
++    <value>סגור</value>
++  </data>
++  <data name="WindowTitle_Settings" xml:space="preserve">
++    <value>הגדרות — OpenClaw Tray</value>
++  </data>
++  <data name="WindowTitle_Status" xml:space="preserve">
++    <value>מצב — OpenClaw Tray</value>
++  </data>
++  <data name="WindowTitle_ActivityStream" xml:space="preserve">
++    <value>זרם פעילות — OpenClaw Tray</value>
++  </data>
++  <data name="WindowTitle_NotificationHistory" xml:space="preserve">
++    <value>היסטוריית התראות — OpenClaw Tray</value>
++  </data>
++  <data name="WindowTitle_WebChat" xml:space="preserve">
++    <value>צ׳אט OpenClaw</value>
++  </data>
++  <data name="WindowTitle_Welcome" xml:space="preserve">
++    <value>ברוכים הבאים ל-OpenClaw</value>
++  </data>
++  <data name="WindowTitle_Update" xml:space="preserve">
++    <value>עדכון OpenClaw</value>
++  </data>
++  <data name="Status_Testing" xml:space="preserve">
++    <value>בדיקה...</value>
++  </data>
++  <data name="Status_Connected" xml:space="preserve">
++    <value>✅ מחובר!</value>
++  </data>
++  <data name="Status_ConnectionFailed" xml:space="preserve">
++    <value>❌ החיבור נכשל</value>
++  </data>
++  <data name="Welcome_Title" xml:space="preserve">
++    <value>ברוכים הבאים ל-OpenClaw!</value>
++  </data>
++  <data name="Welcome_Description" xml:space="preserve">
++    <value>OpenClaw Tray הוא בן הלוויה Windows שלכם עבור OpenClaw, העוזר האישי המופעל על ידי בינה מלאכותית.</value>
++  </data>
++  <data name="Welcome_GettingStarted" xml:space="preserve">
++    <value>כדי להתחיל, תצטרכו:</value>
++  </data>
++  <data name="Welcome_NeedGateway" xml:space="preserve">
++    <value>• גרסה פעילה של OpenClaw Gateway</value>
++  </data>
++  <data name="Welcome_NeedToken" xml:space="preserve">
++    <value>• הגרסה שלכם של API token מלוח המחוונים</value>
++  </data>
++  <data name="Welcome_ViewDocs" xml:space="preserve">
++    <value>📚 צפה בתיעוד</value>
++  </data>
++  <data name="Welcome_LaterButton" xml:space="preserve">
++    <value>מאוחר יותר</value>
++  </data>
++  <data name="Welcome_OpenSettingsButton" xml:space="preserve">
++    <value>פתח את ההגדרות</value>
++  </data>
++  <data name="Update_VersionAvailable" xml:space="preserve">
++    <value>🎉 גרסה {0} זמינה!</value>
++  </data>
++  <data name="Update_CurrentVersion" xml:space="preserve">
++    <value>גרסה נוכחית: {0}</value>
++  </data>
++  <data name="Update_WhatsNew" xml:space="preserve">
++    <value>מה חדש:</value>
++  </data>
++  <data name="Update_SkipButton" xml:space="preserve">
++    <value>דלג על גרסה זו</value>
++  </data>
++  <data name="Update_RemindLaterButton" xml:space="preserve">
++    <value>הזכר לי מאוחר יותר</value>
++  </data>
++  <data name="Update_DownloadButton" xml:space="preserve">
++    <value>הורדה והתקנה</value>
++  </data>
++  <data name="Update_Title_UpToDate" xml:space="preserve">
++    <value>אתה מעודכן</value>
++  </data>
++  <data name="Update_Message_UpToDate" xml:space="preserve">
++    <value>אתה מפעיל את הגרסה האחרונה (v{0}).</value>
++  </data>
++  <data name="Update_Title_Failed" xml:space="preserve">
++    <value>לא ניתן היה לבדוק עדכונים</value>
++  </data>
++  <data name="Update_Message_Failed" xml:space="preserve">
++    <value>משהו השתבש בעת בדיקת עדכונים.
++
++{0}</value>
++  </data>
++  <data name="Update_Title_Skipped" xml:space="preserve">
++    <value>דילגתי על בדיקת עדכונים</value>
++  </data>
++  <data name="Update_Message_Skipped_Debug" xml:space="preserve">
++    <value>בדיקות עדכונים מושבתות בבניית ניפוי שגיאות.</value>
++  </data>
++  <data name="Update_Message_Skipped_Dev" xml:space="preserve">
++    <value>בדיקות עדכונים מושבתות בבניית פיתוח.</value>
++  </data>
++  <data name="Update_OK" xml:space="preserve">
++    <value>אישור</value>
++  </data>
++  <data name="Menu_OpenDashboard" xml:space="preserve">
++    <value>פתיחת לוח הבקרה</value>
++  </data>
++  <data name="Menu_OpenWebChat" xml:space="preserve">
++    <value>פתיחת הצ׳אט בדפדפן</value>
++  </data>
++  <data name="Menu_ActivityStream" xml:space="preserve">
++    <value>זרם פעילות…</value>
++  </data>
++  <data name="Menu_NotificationHistory" xml:space="preserve">
++    <value>היסטוריית התראות…</value>
++  </data>
++  <data name="Menu_RunHealthCheck" xml:space="preserve">
++    <value>הפעלת בדיקת תקינות</value>
++  </data>
++  <data name="Menu_Settings" xml:space="preserve">
++    <value>הגדרות...</value>
++  </data>
++  <data name="Menu_AutoStart" xml:space="preserve">
++    <value>הפעלה אוטומטית</value>
++  </data>
++  <data name="Menu_AutoStartEnabled" xml:space="preserve">
++    <value>הפעלה אוטומטית ✓</value>
++  </data>
++  <data name="Menu_OpenLogFile" xml:space="preserve">
++    <value>פתיחת קובץ היומן</value>
++  </data>
++  <data name="Menu_Exit" xml:space="preserve">
++    <value>יציאה</value>
++  </data>
++  <data name="Menu_CopyNodeSummary" xml:space="preserve">
++    <value>העתקת סיכום ה־Node</value>
++  </data>
++  <data name="Menu_CheckForUpdates" xml:space="preserve">
++    <value>בדיקה אם קיימים עדכונים</value>
++  </data>
++  <data name="Menu_SetupGuide" xml:space="preserve">
++    <value>מדריך התקנה...</value>
++  </data>
++  <data name="Menu_Reconfigure" xml:space="preserve">
++    <value>הגדרה מחדש…</value>
++  </data>
++  <data name="Menu_SupportDebugHeader" xml:space="preserve">
++    <value>🧰 תמיכה וניפוי שגיאות</value>
++  </data>
++  <data name="Menu_OpenSupportFiles" xml:space="preserve">
++    <value>פתיחת קובצי התמיכה</value>
++  </data>
++  <data name="Menu_LogsFolder" xml:space="preserve">
++    <value>תיקיית יומנים</value>
++  </data>
++  <data name="Menu_ConfigFolder" xml:space="preserve">
++    <value>תיקיית תצורה</value>
++  </data>
++  <data name="Menu_DiagnosticsFolder" xml:space="preserve">
++    <value>תיקיית אבחון</value>
++  </data>
++  <data name="Menu_CopyDiagnostics" xml:space="preserve">
++    <value>העתקת אבחון</value>
++  </data>
++  <data name="Menu_SupportContext" xml:space="preserve">
++    <value>הקשר תמיכה</value>
++  </data>
++  <data name="Menu_DebugBundle" xml:space="preserve">
++    <value>חבילת ניפוי באגים</value>
++  </data>
++  <data name="Menu_BrowserSetup" xml:space="preserve">
++    <value>הגדרת דפדפן</value>
++  </data>
++  <data name="Menu_PortDiagnostics" xml:space="preserve">
++    <value>אבחון פורטים</value>
++  </data>
++  <data name="Menu_CapabilityDiagnostics" xml:space="preserve">
++    <value>אבחון יכולות</value>
++  </data>
++  <data name="Menu_NodeInventory" xml:space="preserve">
++    <value>מלאי Node</value>
++  </data>
++  <data name="Menu_ChannelSummary" xml:space="preserve">
++    <value>סיכום ערוצים</value>
++  </data>
++  <data name="Menu_ActivitySummary" xml:space="preserve">
++    <value>סיכום פעילות</value>
++  </data>
++  <data name="Menu_ExtensibilitySummary" xml:space="preserve">
++    <value>סיכום הרחבה</value>
++  </data>
++  <data name="Menu_RestartSshTunnel" xml:space="preserve">
++    <value>הפעלה מחדש של מנהרת SSH</value>
++  </data>
++  <data name="Menu_StatusFormat" xml:space="preserve">
++    <value>סטטוס: {0}</value>
++  </data>
++  <data name="Menu_SessionsFormat" xml:space="preserve">
++    <value>הפעלות ({0})</value>
++  </data>
++  <data name="Menu_NodesFormat" xml:space="preserve">
++    <value>Nodes ({0})</value>
++  </data>
++  <data name="Menu_RecentActivityFormat" xml:space="preserve">
++    <value>פעילות אחרונה ({0})</value>
++  </data>
++  <data name="Menu_NoUsageData" xml:space="preserve">
++    <value>אין נתוני שימוש</value>
++  </data>
++  <data name="Menu_ResetSession" xml:space="preserve">
++    <value>↳ איפוס סשן</value>
++  </data>
++  <data name="Menu_CompactLog" xml:space="preserve">
++    <value>↳ יומן קומפקטי</value>
++  </data>
++  <data name="Menu_DeleteSession" xml:space="preserve">
++    <value>↳ מחיקת סשן</value>
++  </data>
++  <data name="Menu_NodeWaitingApproval" xml:space="preserve">
++    <value>⏳ ממתין לאישור...</value>
++  </data>
++  <data name="Menu_NodePairedConnected" xml:space="preserve">
++    <value>✅ משויך ומחובר</value>
++  </data>
++  <data name="Menu_NodeConnecting" xml:space="preserve">
++    <value>🔄 מתחבר...</value>
++  </data>
++  <data name="Menu_NodeDisconnected" xml:space="preserve">
++    <value>⚪ מנותק</value>
++  </data>
++  <data name="TestNotification_Title" xml:space="preserve">
++    <value>הודעת בדיקה</value>
++  </data>
++  <data name="TestNotification_Body" xml:space="preserve">
++    <value>זוהי הודעת בדיקה מ-OpenClaw Tray.</value>
++  </data>
++  <data name="Status_LastCheckFormat" xml:space="preserve">
++    <value>בדיקה אחרונה: {0}</value>
++  </data>
++  <data name="TimeAgo_JustNow" xml:space="preserve">
++    <value>כרגע</value>
++  </data>
++  <data name="TimeAgo_MinutesFormat" xml:space="preserve">
++    <value>לפני {0} דקות</value>
++  </data>
++  <data name="TimeAgo_HoursFormat" xml:space="preserve">
++    <value>לפני {0} שעות</value>
++  </data>
++  <data name="Activity_ClickToOpen" xml:space="preserve">
++    <value>לחץ כדי לפתוח בלוח המחוונים</value>
++  </data>
++  <data name="TimeAgo_DaysFormat" xml:space="preserve">
++    <value>לפני {0} ימים</value>
++  </data>
++  <data name="StatusDisplay_Connected" xml:space="preserve">
++    <value>מחובר</value>
++  </data>
++  <data name="StatusDisplay_Connecting" xml:space="preserve">
++    <value>מתחבר</value>
++  </data>
++  <data name="StatusDisplay_Disconnected" xml:space="preserve">
++    <value>מנותק</value>
++  </data>
++  <data name="StatusDisplay_Error" xml:space="preserve">
++    <value>שגיאה</value>
++  </data>
++  <data name="StatusDisplay_Unknown" xml:space="preserve">
++    <value>לא ידוע</value>
++  </data>
++  <data name="Status_NotAvailable" xml:space="preserve">
