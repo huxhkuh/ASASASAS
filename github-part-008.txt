@@ -1,0 +1,241 @@
+-        new("Screen", "Screen capture", "\uE7F4", "", CheckScreenCaptureAsync);
++        new("Screen", SetupLocalization.GetString("Setup_Permission_ScreenCapture"), "\uE7F4", "", CheckScreenCaptureAsync);
+ 
+     public static readonly PermDef[] All = [Notifications, Camera, Microphone, Location, ScreenCapture];
+ 
+@@ -83,15 +84,19 @@ internal static class SetupPermissionHelper
+         {
+             // No standing OS grant (screen capture) — the user picks what to share each time
+             // via the Windows Graphics Capture picker, so there's nothing to pre-allow here.
+-            var pill = Pill(granted ? "Ask every time" : "Unavailable", subFg);
++            var pill = Pill(
++                SetupLocalization.GetString(granted
++                    ? "Setup_Permission_AskEveryTime"
++                    : "Setup_Permission_Unavailable"),
++                subFg);
+             if (granted)
+                 ToolTipService.SetToolTip(pill,
+-                    "Windows has no on/off setting for screen capture. Each time the agent captures your screen, Windows shows a picker so you choose exactly what to share. There is nothing to allow in advance.");
++                    SetupLocalization.GetString("Setup_Permission_ScreenCaptureTooltip"));
+             actionCol = pill;
+         }
+         else if (granted)
+         {
+-            actionCol = Pill("Allowed", ok);
++            actionCol = Pill(SetupLocalization.GetString("Setup_Permission_Allowed"), ok);
+         }
+         else
+         {
+@@ -101,9 +106,16 @@ internal static class SetupPermissionHelper
+                 MinWidth = 140,
+                 Padding = new Thickness(12, 5, 12, 5),
+                 VerticalAlignment = VerticalAlignment.Center,
+-                Content = new TextBlock { Text = "Open Settings", FontSize = 12, HorizontalAlignment = HorizontalAlignment.Center },
++                Content = new TextBlock
++                {
++                    Text = SetupLocalization.GetString("Setup_Permission_OpenSettings"),
++                    FontSize = 12,
++                    HorizontalAlignment = HorizontalAlignment.Center,
++                },
+             };
+-            AutomationProperties.SetName(btn, $"Open {perm.Name} settings");
++            AutomationProperties.SetName(
++                btn,
++                SetupLocalization.Format("Setup_Permission_OpenSettingsFormat", perm.Name));
+             var uri = perm.SettingsUri;
+             // Sync handler (no async-void lambda): launching a settings deep link is
+             // best-effort and fire-and-forget, so we don't await the operation.
+@@ -153,12 +165,12 @@ internal static class SetupPermissionHelper
+             using var key = Registry.CurrentUser.OpenSubKey(
+                 @"Software\Microsoft\Windows\CurrentVersion\PushNotifications");
+             if (key?.GetValue("ToastEnabled") is int val && val == 0)
+-                return Task.FromResult(("Turn on in Settings to get alerts", false));
+-            return Task.FromResult(("Windows notifications are on", true));
++                return Task.FromResult((SetupLocalization.GetString("Setup_Permission_EnableNotifications"), false));
++            return Task.FromResult((SetupLocalization.GetString("Setup_Permission_NotificationsOn"), true));
+         }
+         catch
+         {
+-            return Task.FromResult(("Couldn't check status", false));
++            return Task.FromResult((SetupLocalization.GetString("Setup_Permission_StatusUnknown"), false));
+         }
+     }
+ 
+@@ -167,13 +179,13 @@ internal static class SetupPermissionHelper
+         try
+         {
+             var devices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
+-            if (devices.Count == 0) return ("No camera detected", false);
++            if (devices.Count == 0) return (SetupLocalization.GetString("Setup_Permission_NoCamera"), false);
+             var access = DeviceAccessInformation.CreateFromDeviceClass(DeviceClass.VideoCapture);
+             return access.CurrentStatus == DeviceAccessStatus.Allowed
+-                ? ("Windows camera access is on", true)
+-                : ("Turn on in Settings to use the camera", false);
++                ? (SetupLocalization.GetString("Setup_Permission_CameraOn"), true)
++                : (SetupLocalization.GetString("Setup_Permission_EnableCamera"), false);
+         }
+-        catch { return ("Couldn't check status", false); }
++        catch { return (SetupLocalization.GetString("Setup_Permission_StatusUnknown"), false); }
+     }
+ 
+     public static async Task<(string, bool)> CheckMicrophoneAsync()
+@@ -181,13 +193,13 @@ internal static class SetupPermissionHelper
+         try
+         {
+             var devices = await DeviceInformation.FindAllAsync(DeviceClass.AudioCapture);
+-            if (devices.Count == 0) return ("No microphone detected", false);
++            if (devices.Count == 0) return (SetupLocalization.GetString("Setup_Permission_NoMicrophone"), false);
+             var access = DeviceAccessInformation.CreateFromDeviceClass(DeviceClass.AudioCapture);
+             return access.CurrentStatus == DeviceAccessStatus.Allowed
+-                ? ("Windows microphone access is on", true)
+-                : ("Turn on in Settings to use the microphone", false);
++                ? (SetupLocalization.GetString("Setup_Permission_MicrophoneOn"), true)
++                : (SetupLocalization.GetString("Setup_Permission_EnableMicrophone"), false);
+         }
+-        catch { return ("Couldn't check status", false); }
++        catch { return (SetupLocalization.GetString("Setup_Permission_StatusUnknown"), false); }
+     }
+ 
+     public static Task<(string, bool)> CheckLocationAsync()
+@@ -197,17 +209,17 @@ internal static class SetupPermissionHelper
+             using var sysKey = Registry.LocalMachine.OpenSubKey(
+                 @"SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location");
+             if (sysKey?.GetValue("Value") is string sv && sv.Equals("Deny", StringComparison.OrdinalIgnoreCase))
+-                return Task.FromResult(("Turn on in Settings to share location", false));
++                return Task.FromResult((SetupLocalization.GetString("Setup_Permission_EnableLocation"), false));
+ 
+             using var userKey = Registry.CurrentUser.OpenSubKey(
+                 @"SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location");
+             var uv = userKey?.GetValue("Value") as string;
+             if (uv != null && uv.Equals("Deny", StringComparison.OrdinalIgnoreCase))
+-                return Task.FromResult(("Turn on in Settings to share location", false));
++                return Task.FromResult((SetupLocalization.GetString("Setup_Permission_EnableLocation"), false));
+ 
+-            return Task.FromResult(("Windows location is on", true));
++            return Task.FromResult((SetupLocalization.GetString("Setup_Permission_LocationOn"), true));
+         }
+-        catch { return Task.FromResult(("Couldn't check status", false)); }
++        catch { return Task.FromResult((SetupLocalization.GetString("Setup_Permission_StatusUnknown"), false)); }
+     }
+ 
+     public static Task<(string, bool)> CheckScreenCaptureAsync()
+@@ -215,9 +227,9 @@ internal static class SetupPermissionHelper
+         try
+         {
+             return Task.FromResult(GraphicsCaptureSession.IsSupported()
+-                ? ("You choose what to share each capture", true)
+-                : ("Not supported on this device", false));
++                ? (SetupLocalization.GetString("Setup_Permission_ChooseEveryCapture"), true)
++                : (SetupLocalization.GetString("Setup_Permission_NotSupported"), false));
+         }
+-        catch { return Task.FromResult(("Couldn't check status", false)); }
++        catch { return Task.FromResult((SetupLocalization.GetString("Setup_Permission_StatusUnknown"), false)); }
+     }
+ }
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/WelcomePage.xaml b/src/OpenClaw.SetupEngine.UI/Pages/WelcomePage.xaml
+index e58fb4b5..c37431e4 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/WelcomePage.xaml
++++ b/src/OpenClaw.SetupEngine.UI/Pages/WelcomePage.xaml
+@@ -12,10 +12,10 @@
+                    Source="ms-appx:///OpenClaw.SetupEngine.UI/Assets/Setup/OpenClawMascot.png"
+                    Width="96" Height="96" HorizontalAlignment="Center"
+                    AutomationProperties.AccessibilityView="Raw" />
+-            <TextBlock Text="Set up OpenClaw"
++            <TextBlock x:Uid="Setup_WelcomePage_TextBlock_1" Text="Set up OpenClaw"
+                        Style="{StaticResource TitleTextBlockStyle}"
+                        HorizontalAlignment="Center" />
+-            <TextBlock TextWrapping="Wrap" TextAlignment="Center" MaxWidth="460"
++            <TextBlock x:Uid="Setup_WelcomePage_TextBlock_2" TextWrapping="Wrap" TextAlignment="Center" MaxWidth="460"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        HorizontalAlignment="Center"
+@@ -26,7 +26,7 @@
+                       IsTabStop="False"
+                       VerticalScrollBarVisibility="Auto"
+                       HorizontalScrollBarVisibility="Disabled">
+-            <ListView x:Name="GatewayChoiceSelector"
++            <ListView x:Uid="Setup_WelcomePage_GatewayChoiceSelector" x:Name="GatewayChoiceSelector"
+                       AutomationProperties.Name="Gateway setup method"
+                       AutomationProperties.HelpText="Choose one gateway setup method."
+                       MaxWidth="560"
+@@ -36,7 +36,7 @@
+                       ScrollViewer.VerticalScrollMode="Disabled"
+                       ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                       SelectionChanged="GatewayChoice_SelectionChanged">
+-                <ListViewItem x:Name="InstallChoice"
++                <ListViewItem x:Uid="Setup_WelcomePage_InstallChoice" x:Name="InstallChoice"
+                               AutomationProperties.AutomationId="WelcomeInstallLocalGatewayChoice"
+                               AutomationProperties.Name="Install a local gateway (WSL), recommended"
+                               AutomationProperties.LiveSetting="Polite"
+@@ -51,18 +51,18 @@
+                         </Border>
+                         <StackPanel Grid.Column="1" Spacing="3">
+                             <StackPanel Orientation="Horizontal" Spacing="8">
+-                                <TextBlock x:Name="InstallTitle"
++                                <TextBlock x:Uid="Setup_WelcomePage_InstallTitle" x:Name="InstallTitle"
+                                            Text="Install a local gateway (WSL)"
+                                            Style="{StaticResource BodyStrongTextBlockStyle}"
+                                            VerticalAlignment="Center" />
+-                                <ProgressRing x:Name="InstallCheckProgress"
++                                <ProgressRing x:Uid="Setup_WelcomePage_InstallCheckProgress" x:Name="InstallCheckProgress"
+                                               AutomationProperties.AutomationId="WelcomeInstallCheckProgress"
+                                               AutomationProperties.Name="Checking WSL readiness and existing setup"
+                                               Width="16" Height="16"
+                                               IsActive="False" Visibility="Collapsed" />
+                                 <Border CornerRadius="4" Padding="7,1" VerticalAlignment="Center"
+                                         BorderBrush="{ThemeResource AccentTextFillColorPrimaryBrush}" BorderThickness="1">
+-                                    <TextBlock Text="Recommended"
++                                    <TextBlock x:Uid="Setup_WelcomePage_TextBlock_3" Text="Recommended"
+                                                Style="{StaticResource CaptionTextBlockStyle}"
+                                                Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                                 </Border>
+@@ -84,7 +84,7 @@
+                                     </StackPanel>
+                                 </Border>
+                             </StackPanel>
+-                            <TextBlock TextWrapping="Wrap"
++                            <TextBlock x:Uid="Setup_WelcomePage_TextBlock_4" TextWrapping="Wrap"
+                                        Style="{StaticResource CaptionTextBlockStyle}"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                        Text="A private, self-hosted OpenClaw gateway in an isolated Ubuntu WSL instance. We'll show exactly what gets installed before anything runs." />
+@@ -92,7 +92,7 @@
+                     </Grid>
+                 </ListViewItem>
+ 
+-                <ListViewItem x:Name="ConnectChoice"
++                <ListViewItem x:Uid="Setup_WelcomePage_ConnectChoice" x:Name="ConnectChoice"
+                               AutomationProperties.AutomationId="WelcomeConnectExistingGatewayChoice"
+                               AutomationProperties.Name="Connect to an existing gateway"
+                               HorizontalContentAlignment="Stretch"
+@@ -105,9 +105,9 @@
+                                       Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                         </Border>
+                         <StackPanel Grid.Column="1" Spacing="3">
+-                            <TextBlock Text="Connect to an existing gateway"
++                            <TextBlock x:Uid="Setup_WelcomePage_TextBlock_5" Text="Connect to an existing gateway"
+                                        Style="{StaticResource BodyStrongTextBlockStyle}" />
+-                            <TextBlock TextWrapping="Wrap"
++                            <TextBlock x:Uid="Setup_WelcomePage_TextBlock_6" TextWrapping="Wrap"
+                                        Style="{StaticResource CaptionTextBlockStyle}"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                        Text="Already run an OpenClaw gateway: here, on another machine, or remote? Pair without installing a gateway or configuring Local AI on this PC." />
+@@ -118,7 +118,7 @@
+         </ScrollViewer>
+ 
+         <Grid Grid.Row="2" ColumnDefinitions="*,Auto" Margin="0,16,0,0">
+-            <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8"
++            <StackPanel x:Uid="Setup_WelcomePage_StackPanel_1" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         IsTabStop="False" AutomationProperties.Name="Step 2 of 6">
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+@@ -128,11 +128,11 @@
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+             </StackPanel>
+-            <Button x:Name="BackButton" AutomationProperties.AutomationId="WelcomeBackButton"
++            <Button x:Uid="Setup_WelcomePage_BackButton" x:Name="BackButton" AutomationProperties.AutomationId="WelcomeBackButton"
+                     Grid.Column="0" Content="Back"
+                     MinWidth="100" HorizontalAlignment="Left"
+                     Click="Back_Click" />
+-            <Button x:Name="NextButton" AutomationProperties.AutomationId="WelcomeNextButton"
++            <Button x:Uid="Setup_WelcomePage_NextButton" x:Name="NextButton" AutomationProperties.AutomationId="WelcomeNextButton"
