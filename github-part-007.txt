@@ -1,0 +1,226 @@
+         <Grid Grid.Row="2" ColumnDefinitions="*,Auto" Margin="0,12,0,16">
+-            <StackPanel x:Name="DotsPanel" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8"
++            <StackPanel x:Uid="Setup_ProgressPage_DotsPanel" x:Name="DotsPanel" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         IsTabStop="False" AutomationProperties.Name="Step 4 of 6">
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+@@ -122,7 +122,7 @@
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+             </StackPanel>
+-            <Button x:Name="OnboardButton" Grid.Column="1" Content="Start OpenClaw onboard"
++            <Button x:Uid="Setup_ProgressPage_OnboardButton" x:Name="OnboardButton" Grid.Column="1" Content="Start OpenClaw onboard"
+                     Visibility="Collapsed" MinWidth="100" HorizontalAlignment="Right"
+                     Margin="48,0" Style="{StaticResource AccentButtonStyle}"
+                     Click="Onboard_Click" />
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/ProgressPage.xaml.cs b/src/OpenClaw.SetupEngine.UI/Pages/ProgressPage.xaml.cs
+index ccda8c2d..28f9916f 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/ProgressPage.xaml.cs
++++ b/src/OpenClaw.SetupEngine.UI/Pages/ProgressPage.xaml.cs
+@@ -36,24 +36,24 @@ public sealed partial class ProgressPage : Page
+     // Map pipeline step IDs to display groups (N:1)
+     private static readonly (string GroupId, string DisplayName, string[] StepIds)[] StepGroups =
+     [
+-        ("preflight", "Check system and Local AI compatibility", ["validate-distro-path", "preflight-os", "preflight-local-ai-hardware", "preflight-wsl", "preflight-windows-tailscale"]),
+-        ("wsl-platform", "Prepare and verify WSL platform", ["ensure-wsl-platform"]),
+-        ("local-ai-engine", "Install verified llama-server", ["acquire-local-ai-runtime"]),
+-        ("local-ai-model", "Download verified model from Hugging Face", ["acquire-local-ai-model"]),
+-        ("local-ai-verify", "Verify Local AI", ["persist-local-ai-manifest", "start-local-ai-runtime", "capture-local-ai-gpu-baseline", "verify-local-ai-inference", "verify-local-ai-gpu-load"]),
+-        ("wsl-networking", "Configure WSL access to Local AI", ["configure-local-ai-wsl-networking"]),
+-        ("cleanup", "Removing existing gateway", ["cleanup-distro", "cleanup-gateway"]),
+-        ("port", "Checking gateway port", ["preflight-port"]),
+-        ("wsl-create", "Installing clean WSL gateway", ["wsl-create"]),
+-        ("wsl-configure", "Configuring instance", ["wsl-configure", "validate-wsl-lockdown"]),
+-        ("install-cli", "Installing OpenClaw", ["install-cli"]),
+-        ("local-ai-wsl", "Verify WSL access to Local AI", ["verify-local-ai-wsl"]),
+-        ("tailscale-auth", "Connecting Tailscale", ["install-tailscale", "authorize-tailscale"]),
+-        ("configure", "Preparing gateway", ["configure-gateway", "configure-local-ai-gateway", "install-service"]),
+-        ("start", "Starting gateway", ["start-gateway", "mint-token"]),
+-        ("tailscale-serve", "Publishing on Tailscale", ["finalize-tailscale-serve"]),
+-        ("pairing", "Pairing device", ["pair-operator", "pair-node", "verify-e2e"]),
+-        ("finish", "Finishing setup", ["run-wizard", "start-keepalive"]),
++        ("preflight", "Setup_Progress_Group_Preflight", ["validate-distro-path", "preflight-os", "preflight-local-ai-hardware", "preflight-wsl", "preflight-windows-tailscale"]),
++        ("wsl-platform", "Setup_Progress_Group_WslPlatform", ["ensure-wsl-platform"]),
++        ("local-ai-engine", "Setup_Progress_Group_LocalAiEngine", ["acquire-local-ai-runtime"]),
++        ("local-ai-model", "Setup_Progress_Group_LocalAiModel", ["acquire-local-ai-model"]),
++        ("local-ai-verify", "Setup_Progress_Group_LocalAiVerify", ["persist-local-ai-manifest", "start-local-ai-runtime", "capture-local-ai-gpu-baseline", "verify-local-ai-inference", "verify-local-ai-gpu-load"]),
++        ("wsl-networking", "Setup_Progress_Group_WslNetworking", ["configure-local-ai-wsl-networking"]),
++        ("cleanup", "Setup_Progress_Group_Cleanup", ["cleanup-distro", "cleanup-gateway"]),
++        ("port", "Setup_Progress_Group_Port", ["preflight-port"]),
++        ("wsl-create", "Setup_Progress_Group_WslCreate", ["wsl-create"]),
++        ("wsl-configure", "Setup_Progress_Group_WslConfigure", ["wsl-configure", "validate-wsl-lockdown"]),
++        ("install-cli", "Setup_Progress_Group_InstallCli", ["install-cli"]),
++        ("local-ai-wsl", "Setup_Progress_Group_LocalAiWsl", ["verify-local-ai-wsl"]),
++        ("tailscale-auth", "Setup_Progress_Group_TailscaleAuth", ["install-tailscale", "authorize-tailscale"]),
++        ("configure", "Setup_Progress_Group_Configure", ["configure-gateway", "configure-local-ai-gateway", "install-service"]),
++        ("start", "Setup_Progress_Group_Start", ["start-gateway", "mint-token"]),
++        ("tailscale-serve", "Setup_Progress_Group_TailscaleServe", ["finalize-tailscale-serve"]),
++        ("pairing", "Setup_Progress_Group_Pairing", ["pair-operator", "pair-node", "verify-e2e"]),
++        ("finish", "Setup_Progress_Group_Finish", ["run-wizard", "start-keepalive"]),
+     ];
+ 
+     public ProgressPage()
+@@ -68,10 +68,12 @@ public sealed partial class ProgressPage : Page
+         _config = args?.Config ?? e.Parameter as SetupConfig ?? new SetupConfig();
+         _dataDir = args?.DataDir ?? SetupContext.ResolveDataDir();
+         _localDataDir = args?.LocalDataDir ?? SetupContext.ResolveLocalDataDir();
+-        TitleText.Text = _config.LocalAi.Enabled ? "Setting up OpenClaw and Local AI" : "Setting up OpenClaw";
++        TitleText.Text = SetupLocalization.GetString(_config.LocalAi.Enabled
++            ? "Setup_Progress_TitleWithLocalAi"
++            : "Setup_ProgressPage_TitleText.Text");
+         SubtitleText.Text = _config.LocalAi.Enabled
+-            ? $"Creating {_config.DistroName}, installing llama-server, and preparing the selected model"
+-            : $"Creating {_config.DistroName} WSL instance";
++            ? SetupLocalization.Format("Setup_Progress_SubtitleWithLocalAiFormat", _config.DistroName)
++            : SetupLocalization.Format("Setup_Progress_SubtitleFormat", _config.DistroName);
+ 
+         BuildStepRows();
+         if (args?.ShowMilestoneOnly == true)
+@@ -104,10 +106,12 @@ public sealed partial class ProgressPage : Page
+         bool localAiPreview =
+             _config?.LocalAi.Enabled == true ||
+             SetupPreview.RequestedPage == "progress-local-ai";
+-        TitleText.Text = localAiPreview ? "Setting up OpenClaw and Local AI" : "Setting up OpenClaw";
++        TitleText.Text = SetupLocalization.GetString(localAiPreview
++            ? "Setup_Progress_TitleWithLocalAi"
++            : "Setup_ProgressPage_TitleText.Text");
+         SubtitleText.Text = localAiPreview
+-            ? "Downloading the selected Hugging Face model: about 18 minutes left"
+-            : "Creating OpenClawGateway WSL instance: about 4 minutes left";
++            ? SetupLocalization.GetString("Setup_Progress_PreviewLocalAi")
++            : SetupLocalization.GetString("Setup_Progress_PreviewWsl");
+         var ids = StepGroups.Select(g => g.GroupId).ToArray();
+         int previewRunningIndex = Array.IndexOf(
+             ids,
+@@ -133,10 +137,10 @@ public sealed partial class ProgressPage : Page
+ 
+     private void BuildStepRows()
+     {
+-        foreach (var (groupId, displayName, stepIds) in StepGroups)
++        foreach (var (groupId, displayNameResourceKey, stepIds) in StepGroups)
+         {
+             var row = new StepRow(
+-                displayName,
++                SetupLocalization.GetString(displayNameResourceKey),
+                 showDetailProgress: groupId is "local-ai-engine" or "local-ai-model");
+             _rows[groupId] = row;
+             StepsPanel.Children.Add(row.Element);
+@@ -216,9 +220,12 @@ public sealed partial class ProgressPage : Page
+             else
+             {
+                 var errorMsg = result.Outcome == PipelineOutcome.Cancelled
+-                    ? "Setup was cancelled."
++                    ? SetupLocalization.GetString("Setup_Progress_Cancelled")
+                     : result.FailedStepId != null
+-                        ? $"Step '{result.FailedStepId}' failed: {result.Message}"
++                        ? SetupLocalization.Format(
++                            "Setup_Progress_StepFailedFormat",
++                            result.FailedStepId,
++                            result.Message)
+                         : result.Message;
+                 SetupWindow.Active?.NavigateToComplete(
+                     false,
+@@ -232,14 +239,22 @@ public sealed partial class ProgressPage : Page
+         {
+             sw.Stop();
+             _pipelineFinished = true;
+-            SetupWindow.Active?.NavigateToComplete(false, sw.Elapsed, config.LogPath, "Setup was cancelled.");
++            SetupWindow.Active?.NavigateToComplete(
++                false,
++                sw.Elapsed,
++                config.LogPath,
++                SetupLocalization.GetString("Setup_Progress_Cancelled"));
+         }
+         catch (Exception ex)
+         {
+             sw.Stop();
+             _pipelineFinished = true;
+             _logger?.Error($"Setup UI pipeline failed: {ex.Message}");
+-            SetupWindow.Active?.NavigateToComplete(false, sw.Elapsed, config.LogPath, $"Setup crashed: {ex.Message}");
++            SetupWindow.Active?.NavigateToComplete(
++                false,
++                sw.Elapsed,
++                config.LogPath,
++                SetupLocalization.Format("Setup_Progress_CrashedFormat", ex.Message));
+         }
+         finally
+         {
+@@ -374,7 +389,8 @@ public sealed partial class ProgressPage : Page
+         if (SetupWindow.Active?.TryNavigateToWizard() == true)
+             return;
+ 
+-        MilestoneStatusText.Text = "Another setup task is still active. Wait for it to finish, then start OpenClaw onboard.";
++        MilestoneStatusText.Text =
++            SetupLocalization.GetString("Setup_Progress_AnotherTaskActive");
+     }
+ 
+     private static List<SetupStep> BuildSteps(SetupConfig config)
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/SecurityNoticePage.xaml b/src/OpenClaw.SetupEngine.UI/Pages/SecurityNoticePage.xaml
+index 6cf88241..150eaa58 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/SecurityNoticePage.xaml
++++ b/src/OpenClaw.SetupEngine.UI/Pages/SecurityNoticePage.xaml
+@@ -11,23 +11,23 @@
+             <Image Source="ms-appx:///OpenClaw.SetupEngine.UI/Assets/Setup/OpenClawMascot.png"
+                    Width="96" Height="96" HorizontalAlignment="Center"
+                    AutomationProperties.AccessibilityView="Raw" />
+-            <TextBlock Text="Welcome to OpenClaw"
++            <TextBlock x:Uid="Setup_SecurityNoticePage_TextBlock_1" Text="Welcome to OpenClaw"
+                        Style="{StaticResource TitleTextBlockStyle}"
+                        HorizontalAlignment="Center" />
+-            <TextBlock TextWrapping="Wrap" TextAlignment="Center" MaxWidth="480"
++            <TextBlock x:Uid="Setup_SecurityNoticePage_TextBlock_2" TextWrapping="Wrap" TextAlignment="Center" MaxWidth="480"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        HorizontalAlignment="Center"
+                        Text="OpenClaw runs your personal AI agent through a private gateway on this PC: reachable from chat apps like WhatsApp or Telegram." />
+         </StackPanel>
+ 
+-        <InfoBar Grid.Row="1" VerticalAlignment="Top" Margin="0,24,0,0" MaxWidth="560"
++        <InfoBar x:Uid="Setup_SecurityNoticePage_InfoBar_1" Grid.Row="1" VerticalAlignment="Top" Margin="0,24,0,0" MaxWidth="560"
+                  IsOpen="True" IsClosable="False" Severity="Warning"
+                  Title="Security notice"
+                  Message="The AI agent you connect (for example, Claude) can take powerful actions on this PC, including running commands, reading and writing files, and capturing your screen. Those actions depend on what you allow.&#x0a;&#x0a;Only set this up on a computer you trust, and only continue if you understand the risks and trust the prompts and integrations you use. You choose exactly what to allow in the next steps." />
+ 
+         <Grid Grid.Row="2" ColumnDefinitions="*,Auto" Margin="0,12,0,0">
+-            <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8"
++            <StackPanel x:Uid="Setup_SecurityNoticePage_StackPanel_1" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         IsTabStop="False" AutomationProperties.Name="Step 1 of 6">
+                 <Border Width="20" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupIndicatorAccentBrush}" />
+@@ -37,7 +37,7 @@
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+             </StackPanel>
+-            <Button Grid.Column="1" x:Name="ContinueButton" Content="Continue"
++            <Button x:Uid="Setup_SecurityNoticePage_ContinueButton" Grid.Column="1" x:Name="ContinueButton" Content="Continue"
+                     MinWidth="100" HorizontalAlignment="Right"
+                     Style="{StaticResource AccentButtonStyle}"
+                     Click="Continue_Click" />
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/SetupPermissionHelper.cs b/src/OpenClaw.SetupEngine.UI/Pages/SetupPermissionHelper.cs
+index a78a67b8..a8d4ca26 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/SetupPermissionHelper.cs
++++ b/src/OpenClaw.SetupEngine.UI/Pages/SetupPermissionHelper.cs
+@@ -4,6 +4,7 @@ using Microsoft.UI.Xaml.Automation;
+ using Microsoft.UI.Xaml.Controls;
+ using Microsoft.UI.Xaml.Media;
+ using Microsoft.Win32;
++using OpenClaw.SetupEngine.UI;
+ using Windows.Devices.Enumeration;
+ using Windows.Graphics.Capture;
+ 
+@@ -25,15 +26,15 @@ internal sealed record PermDef(
+ internal static class SetupPermissionHelper
+ {
+     public static readonly PermDef Notifications =
+-        new("Notifications", "Notifications", "\uEA8F", "ms-settings:notifications", CheckNotificationsAsync);
++        new("Notifications", SetupLocalization.GetString("Setup_Permission_Notifications"), "\uEA8F", "ms-settings:notifications", CheckNotificationsAsync);
+     public static readonly PermDef Camera =
+-        new("Camera", "Camera", "\uE722", "ms-settings:privacy-webcam", CheckCameraAsync);
++        new("Camera", SetupLocalization.GetString("Setup_Permission_Camera"), "\uE722", "ms-settings:privacy-webcam", CheckCameraAsync);
+     public static readonly PermDef Microphone =
+-        new("Microphone", "Microphone", "\uE720", "ms-settings:privacy-microphone", CheckMicrophoneAsync);
++        new("Microphone", SetupLocalization.GetString("Setup_Permission_Microphone"), "\uE720", "ms-settings:privacy-microphone", CheckMicrophoneAsync);
+     public static readonly PermDef Location =
+-        new("Location", "Location", "\uE81D", "ms-settings:privacy-location", CheckLocationAsync);
++        new("Location", SetupLocalization.GetString("Setup_Permission_Location"), "\uE81D", "ms-settings:privacy-location", CheckLocationAsync);
+     public static readonly PermDef ScreenCapture =
