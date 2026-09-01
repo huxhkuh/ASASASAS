@@ -1,0 +1,321 @@
++  <data name="Onboarding_Wizard_ErrorGatewayDisconnectedDetail" xml:space="preserve">
++    <value>אבד החיבור ל־Gateway. לחץ על הבא כדי לדלג על האשף, או המתן לחיבור מחדש.</value>
++  </data>
++  <data name="Onboarding_Wizard_ErrorEmptyNextResponse" xml:space="preserve">
++    <value>Gateway החזיר תגובה ריקה עבור wizard.next</value>
++  </data>
++  <data name="Onboarding_Wizard_NoOptionsAvailable" xml:space="preserve">
++    <value>אין אפשרויות זמינות</value>
++  </data>
++  <data name="Onboarding_Wizard_Yes" xml:space="preserve">
++    <value>כן</value>
++  </data>
++  <data name="Onboarding_Wizard_NoSkip" xml:space="preserve">
++    <value>לא / דלג</value>
++  </data>
++  <data name="Onboarding_Wizard_Waiting" xml:space="preserve">
++    <value>ממתין...</value>
++  </data>
++  <data name="Onboarding_Wizard_ClickNextToContinue" xml:space="preserve">
++    <value>לחץ על הבא כדי להמשיך.</value>
++  </data>
++  <data name="Onboarding_Wizard_ErrorTitle" xml:space="preserve">
++    <value>שגיאת אשף</value>
++  </data>
++  <data name="Onboarding_Wizard_SkipWizard" xml:space="preserve">
++    <value>דילוג אשף</value>
++  </data>
++  <data name="Onboarding_Wizard_ConnectingToGateway" xml:space="preserve">
++    <value>מתחבר ל־Gateway...</value>
++  </data>
++  <data name="Onboarding_Wizard_ConnectionWaitDetail" xml:space="preserve">
++    <value>אנא המתן בזמן שהחיבור נוצר...</value>
++  </data>
++  <data name="PriorityInfoBar.Title" xml:space="preserve">
++    <value>עדיפות ניתוב</value>
++  </data>
++  <data name="PriorityInfoBar.Message" xml:space="preserve">
++    <value>קישורים שולטים איזה סוכן מטפל בהודעות מכל ערוץ. עדיפות: עמית &gt; חשבון &gt; ערוץ &gt; ברירת מחדל.</value>
++  </data>
++  <data name="SingleAgentInfoBar.Title" xml:space="preserve">
++    <value>מצב סוכן יחיד</value>
++  </data>
++  <data name="SingleAgentInfoBar.Message" xml:space="preserve">
++    <value>כל ההודעות מנותבות לסוכן ברירת המחדל. הוסף קישורים לניתוב מרובה סוכנים.</value>
++  </data>
++  <data name="ConfigSubtitle.Text" xml:space="preserve">
++    <value>ערוך את תצורת Gateway (openclaw.json) עם טופס מוכוון סכימה.</value>
++  </data>
++  <data name="DetailPlaceholder.Text" xml:space="preserve">
++    <value>בחר מקטע מהעץ כדי לערוך את הגדרותיו.</value>
++  </data>
++  <data name="TokenPromptBox.PlaceholderText" xml:space="preserve">
++    <value>Gateway token</value>
++  </data>
++  <data name="TokenPromptBox.Header" xml:space="preserve">
++    <value>Token</value>
++  </data>
++  <data name="SetupCodeTextBox.PlaceholderText" xml:space="preserve">
++    <value>הדבק כאן את קוד ההתקנה…</value>
++  </data>
++  <data name="ConnectionWarning.Message" xml:space="preserve">
++    <value>התחבר ל־Gateway כדי לצפות בשיחות.</value>
++  </data>
++  <data name="EmptyState.Text" xml:space="preserve">
++    <value>לא נמצאו סשנים</value>
++  </data>
++  <data name="NotWiredInfoBar.Title" xml:space="preserve">
++    <value>Cron API עדיין לא מחובר</value>
++  </data>
++  <data name="NotWiredInfoBar.Message" xml:space="preserve">
++    <value>מציג נתוני דוגמה. שיטות ניהול Cron אינן זמינות עדיין ב-OpenClawGatewayClient.</value>
++  </data>
++  <data name="FallbackInfoBar.Title" xml:space="preserve">
++    <value>קבצי סביבת עבודה</value>
++  </data>
++  <data name="ChatWindow_winexWindowEx_2.Title" xml:space="preserve">
++    <value>OpenClaw צ'אט</value>
++  </data>
++  <data name="SearchBox.PlaceholderText" xml:space="preserve">
++    <value>הקלד פקודה...</value>
++  </data>
++  <data name="HubWindow_winexWindowEx_2.Title" xml:space="preserve">
++    <value>OpenClaw</value>
++  </data>
++  <data name="TitleSearchBox.PlaceholderText" xml:space="preserve">
++    <value>חיפוש… (Ctrl+E)</value>
++  </data>
++  <data name="CanvasWindow_winexWindowEx_2.Title" xml:space="preserve">
++    <value>OpenClaw בד ציור</value>
++  </data>
++  <data name="CanvasWindow_TextBlock_31.Text" xml:space="preserve">
++    <value>OpenClaw בד ציור</value>
++  </data>
++  <data name="CanvasWindowReloadToolTip.Content" xml:space="preserve">
++    <value>טען מחדש</value>
++  </data>
++  <data name="CanvasReloadButton_AutomationName" xml:space="preserve">
++    <value>טען מחדש את בד ציור</value>
++  </data>
++  <data name="TrayMenuWindow_winexWindowEx_2.Title" xml:space="preserve">
++    <value>OpenClaw תפריט</value>
++  </data>
++  <data name="UsagePage_TextBlock_10.Text" xml:space="preserve">
++    <value>שימוש ועלות</value>
++  </data>
++  <data name="ChatWindowOpenInBrowserToolTip.Content" xml:space="preserve">
++    <value>פתח באפליקציית Companion</value>
++  </data>
++  <data name="ChatWindowCloseToolTip.Content" xml:space="preserve">
++    <value>סגור</value>
++  </data>
++  <data name="ChatPageOpenInBrowserToolTip.Content" xml:space="preserve">
++    <value>פתח בדפדפן</value>
++  </data>
++  <data name="CronPageRemoveJobToolTip.Content" xml:space="preserve">
++    <value>הסר משימה</value>
++  </data>
++  <data name="PermissionsPage_VoiceSettingsLink.Content" xml:space="preserve">
++    <value>הגדרות קול ואודיו</value>
++  </data>
++  <data name="PermissionsPage_VoiceSettingsHelp_SpeechModel" xml:space="preserve">
++    <value>הורד מודל דיבור לפני שהמרת דיבור לטקסט תוכל לפעול.</value>
++  </data>
++  <data name="PermissionsPage_VoiceSettingsHelp_VoiceSetup" xml:space="preserve">
++    <value>ספק ה-TTS שבחרת עדיין זקוק להגדרת קול; הקראת צ'אט בקול רם יכולה לחזור לדיבור Windows.</value>
++  </data>
++  <data name="PermissionsPage_VoiceSettingsHelp_Both" xml:space="preserve">
++    <value>הורד מודל דיבור עבור קלט קולי. ספק ה-TTS שבחרת זקוק גם להגדרת קול, אם כי הקראת צ'אט בקול רם יכולה לחזור לדיבור Windows.</value>
++  </data>
++  <data name="VoiceSettingsPage_PageTitle.Text" xml:space="preserve">
++    <value>קול ואודיו</value>
++  </data>
++  <data name="VoiceSettingsPage_PageDescription.Text" xml:space="preserve">
++    <value>הגדר הגדרות דיבור-לטקסט ואינטראקציה קולית. כל עיבוד הדיבור פועל באופן מקומי במכשיר שלך.</value>
++  </data>
++  <data name="VoiceSettingsPage_SttHeader.Text" xml:space="preserve">
++    <value>דיבור-לטקסט</value>
++  </data>
++  <data name="VoiceSettingsPage_SttDescription.Text" xml:space="preserve">
++    <value>הפעל קלט קולי דרך מיקרופון. דורש הורדת מודל Whisper.</value>
++  </data>
++  <data name="VoiceSettingsPage_ModelHeader.Text" xml:space="preserve">
++    <value>מודל דיבור</value>
++  </data>
++  <data name="VoiceSettingsPage_SttCapabilityDisabledNotice.Text" xml:space="preserve">
++    <value>דיבור-לטקסט מושבת. הגדר מודלים כאן, ולאחר מכן הפעל את היכולת בהרשאות כשתהיה מוכן.</value>
++  </data>
++  <data name="VoiceSettingsPage_OpenPermissionsLink.Content" xml:space="preserve">
++    <value>הרשאות פתיחה</value>
++  </data>
++  <data name="VoiceSettingsPage_ModelCombo.Header" xml:space="preserve">
++    <value>גודל דגם</value>
++  </data>
++  <data name="VoiceSettingsPage_ModelTiny.Content" xml:space="preserve">
++    <value>זעיר (~75 MB): מהיר, דיוק בסיסי</value>
++  </data>
++  <data name="VoiceSettingsPage_ModelBase.Content" xml:space="preserve">
++    <value>בסיסי (~142 MB): איזון טוב</value>
++  </data>
++  <data name="VoiceSettingsPage_ModelSmall.Content" xml:space="preserve">
++    <value>קטן (~466 MB): דיוק גבוה</value>
++  </data>
++  <data name="VoiceSettingsPage_DownloadButtonText.Text" xml:space="preserve">
++    <value>הורדת דגם</value>
++  </data>
++  <data name="VoiceSettingsPage_LanguageHeader.Text" xml:space="preserve">
++    <value>שפה</value>
++  </data>
++  <data name="VoiceSettingsPage_LangAuto.Content" xml:space="preserve">
++    <value>זיהוי אוטומטי</value>
++  </data>
++  <data name="VoiceSettingsPage_LangEn.Content" xml:space="preserve">
++    <value>אנגלית</value>
++  </data>
++  <data name="VoiceSettingsPage_LangEs.Content" xml:space="preserve">
++    <value>ספרדית</value>
++  </data>
++  <data name="VoiceSettingsPage_LangFr.Content" xml:space="preserve">
++    <value>צרפתית</value>
++  </data>
++  <data name="VoiceSettingsPage_LangDe.Content" xml:space="preserve">
++    <value>גרמנית</value>
++  </data>
++  <data name="VoiceSettingsPage_LangJa.Content" xml:space="preserve">
++    <value>יפנית</value>
++  </data>
++  <data name="VoiceSettingsPage_LangZh.Content" xml:space="preserve">
++    <value>סינית</value>
++  </data>
++  <data name="VoiceSettingsPage_LangKo.Content" xml:space="preserve">
++    <value>קוריאנית</value>
++  </data>
++  <data name="VoiceSettingsPage_LangPt.Content" xml:space="preserve">
++    <value>פורטוגזית</value>
++  </data>
++  <data name="VoiceSettingsPage_LangIt.Content" xml:space="preserve">
++    <value>איטלקית</value>
++  </data>
++  <data name="VoiceSettingsPage_VoiceChatHeader.Text" xml:space="preserve">
++    <value>צ'אט קולי</value>
++  </data>
++  <data name="VoiceSettingsPage_SilenceSlider.Header" xml:space="preserve">
++    <value>זמן קצוב להשתקה (שניות)</value>
++  </data>
++  <data name="VoiceSettingsPage_TtsResponseToggle.Header" xml:space="preserve">
++    <value>הקראת תגובות בקול רם</value>
++  </data>
++  <data name="VoiceSettingsPage_AudioFeedbackToggle.Header" xml:space="preserve">
++    <value>צלילי משוב קולי</value>
++  </data>
++  <data name="VoiceSettingsPage_VoiceHeader.Text" xml:space="preserve">
++    <value>קול נלווה</value>
++  </data>
++  <data name="VoiceSettingsPage_VoiceDescription.Text" xml:space="preserve">
++    <value>בחר את הקול שישמש בעת הקראת תגובות בקול רם.</value>
++  </data>
++  <data name="VoiceSettingsPage_TtsCapabilityDisabledNotice.Text" xml:space="preserve">
++    <value>המרת טקסט לדיבור מושבתת. הגדר כאן ספקים וקולות, ולאחר מכן הפעל את היכולת בהרשאות כשתהיה מוכן.</value>
++  </data>
++  <data name="VoiceSettingsPage_TtsProviderCombo.Header" xml:space="preserve">
++    <value>ספק</value>
++  </data>
++  <data name="VoiceSettingsPage_TtsPiper.Content" xml:space="preserve">
++    <value>פייפר (קולות עצביים מקומיים)</value>
++  </data>
++  <data name="VoiceSettingsPage_TtsWindows.Content" xml:space="preserve">
++    <value>Windows (קולות עצביים מובנים)</value>
++  </data>
++  <data name="VoiceSettingsPage_TtsElevenLabs.Content" xml:space="preserve">
++    <value>ElevenLabs (ענן, דורש מפתח API)</value>
++  </data>
++  <data name="VoiceSettingsPage_TtsMiniMax.Content" xml:space="preserve">
++    <value>MiniMax (ענן, דורש מפתח API)</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperVoiceCombo.Header" xml:space="preserve">
++    <value>קול</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperDownloadButtonText.Text" xml:space="preserve">
++    <value>הורדת קול</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperDeleteButton.Content" xml:space="preserve">
++    <value>מחיקה</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperPreviewButton.Content" xml:space="preserve">
++    <value>תצוגה מקדימה</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperPreviewButtonContent" xml:space="preserve">
++    <value>תצוגה מקדימה</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperInfoText.Text" xml:space="preserve">
++    <value>קולות הורדה מגירסאות GitHub של פרויקט sherpa-onnx (~25 MB באיכות נמוכה, עד ~150 MB באיכות גבוהה). הם פועלים במלואם במחשב זה; שום אודיו לא יוצא מהמכשיר שלך.</value>
++  </data>
++  <data name="VoiceSettingsPage_WindowsVoiceCombo.Header" xml:space="preserve">
++    <value>קול</value>
++  </data>
++  <data name="VoiceSettingsPage_PreviewVoiceButton.Content" xml:space="preserve">
++    <value>תצוגה מקדימה של קול</value>
++  </data>
++  <data name="VoiceSettingsPage_ElevenLabsApiKeyBox.Header" xml:space="preserve">
++    <value>API מקש</value>
++  </data>
++  <data name="VoiceSettingsPage_ElevenLabsVoiceIdBox.Header" xml:space="preserve">
++    <value>קול ID</value>
++  </data>
++  <data name="VoiceSettingsPage_ElevenLabsModelBox.Header" xml:space="preserve">
++    <value>דגם (אופציונלי)</value>
++  </data>
++  <data name="VoiceSettingsPage_MiniMaxApiKeyBox.Header" xml:space="preserve">
++    <value>API מקש</value>
++  </data>
++  <data name="VoiceSettingsPage_MiniMaxVoiceIdBox.Header" xml:space="preserve">
++    <value>קול ID</value>
++  </data>
++  <data name="VoiceSettingsPage_MiniMaxVoiceIdBox.PlaceholderText" xml:space="preserve">
++    <value>לדוגמה: male-qn-qingse</value>
++  </data>
++  <data name="VoiceSettingsPage_MiniMaxModelBox.Header" xml:space="preserve">
++    <value>דגם</value>
++  </data>
++  <data name="VoiceSettingsPage_MiniMaxModelBox.PlaceholderText" xml:space="preserve">
++    <value>speech-2.8-hd</value>
++  </data>
++  <data name="VoiceSettingsPage_MiniMaxRegionCombo.Header" xml:space="preserve">
++    <value>אזור</value>
++  </data>
++  <data name="VoiceSettingsPage_MiniMaxRegionGlobal.Content" xml:space="preserve">
++    <value>גלובלי</value>
++  </data>
++  <data name="VoiceSettingsPage_MiniMaxRegionChina.Content" xml:space="preserve">
++    <value>סין</value>
++  </data>
++  <data name="VoiceSettingsPage_PrivacyNote.Text" xml:space="preserve">
++    <value>Piper, Windows וזיהוי דיבור פועלים במכשיר זה. ספקי TTS בענן שולחים טקסט תגובה לשירותים שלהם לצורך סינתזה; שמע מיקרופון לא נשלח אליהם.</value>
++  </data>
++  <data name="VoiceSettingsPage_StatusModelReady" xml:space="preserve">
++    <value>✅ מודל מוכן</value>
++  </data>
++  <data name="VoiceSettingsPage_StatusDownloadRequired" xml:space="preserve">
++    <value>⬇️ נדרשת הורדה</value>
++  </data>
++  <data name="VoiceSettingsPage_ModelRequirementText.Text" xml:space="preserve">
++    <value>קלט קולי אינו מוכן עד להורדה של מודל דיבור אחד לפחות.</value>
++  </data>
++  <data name="ChatVoiceDialog_InputOffTitle" xml:space="preserve">
++    <value>קלט קולי כבוי</value>
++  </data>
++  <data name="ChatVoiceDialog_InputOffMessage" xml:space="preserve">
++    <value>דיבור לטקסט מושבת. הפעל את היכולת בהרשאות לפני השימוש במיקרופון בצ'אט.</value>
++  </data>
++  <data name="ChatVoiceDialog_ModelRequiredTitle" xml:space="preserve">
++    <value>מודל דיבור נדרש</value>
++  </data>
++  <data name="ChatVoiceDialog_ModelRequiredMessage" xml:space="preserve">
++    <value>דיבור לטקסט מופעל, אך קלט קולי לא יעבוד עד להורדה של מודל דיבור אחד לפחות.</value>
++  </data>
++  <data name="ChatVoiceDialog_OutputOffTitle" xml:space="preserve">
++    <value>פלט קולי כבוי</value>
++  </data>
++  <data name="ChatVoiceDialog_OutputOffMessage" xml:space="preserve">
++    <value>טקסט לדיבור מושבת. הפעל את היכולת בהרשאות לפני השימוש בהקראה בקול רם בצ'אט.</value>
++  </data>
