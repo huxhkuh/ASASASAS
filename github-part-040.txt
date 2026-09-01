@@ -1,0 +1,343 @@
++    <value>מפתח</value>
++  </data>
++  <data name="SettingsRow_ShowDiagnostics_Header.Text" xml:space="preserve">
++    <value>הפעל אבחון</value>
++  </data>
++  <data name="SettingsRow_ShowDiagnostics_Description.Text" xml:space="preserve">
++    <value>כלי פיתוח ופתרון בעיות. מופעל כברירת מחדל עבור מערכות גיבוי מקומיות.</value>
++  </data>
++  <data name="SettingsPage_LocalGatewaySetup_Header.Text" xml:space="preserve">
++    <value>הגדרה או הגדרה מחדש של ה־Gateway המקומי</value>
++  </data>
++  <data name="SettingsPage_LocalGatewaySetup_Description.Text" xml:space="preserve">
++    <value>מפעיל את ההתקנה להתקנת הפצה OpenClawGateway WSL בבעלות האפליקציה או הפעלה מחדש של הגדרת ספק ומודל עבור הפצה קיימת. שערים מקומיים קיימים מוחלפים רק לאחר אישור.</value>
++  </data>
++  <data name="SettingsPage_OpenLocalGatewaySetup.Content" xml:space="preserve">
++    <value>פתח את ההתקנה</value>
++  </data>
++  <data name="SettingsPage_OnboardWizard_Header.Text" xml:space="preserve">
++    <value>אשף ההגדרה של OpenClaw</value>
++  </data>
++  <data name="SettingsPage_OnboardWizard_Description.Text" xml:space="preserve">
++    <value>פתח את ההטמעה OpenClaw על מקומי Gateway מותקן. דילוג על התקנת WSL וקופץ ישר לתצורה.</value>
++  </data>
++  <data name="SettingsPage_OpenOnboardWizard.Content" xml:space="preserve">
++    <value>פתיחת אשף ההגדרה</value>
++  </data>
++  <data name="SettingsPage_MSIXInstallationDetected.Title" xml:space="preserve">
++    <value>זוהתה התקנת MSIX</value>
++  </data>
++  <data name="SettingsPage_MSIXInstallationDetected.Message" xml:space="preserve">
++    <value>הסרת OpenClaw מהגדרות Windows - אפליקציות לא ינקו את ההפצה המקומית Gateway (הפצה WSL, תמונת דיסק). השתמש תחילה באפשרות "הסר מקומית Gateway" למטה, ולאחר מכן הסר את ההתקנה של OpenClaw.</value>
++  </data>
++  <data name="SettingsPage_RemovesTheWSLDistro.Text" xml:space="preserve">
++    <value>הסרת ההפצה WSL (OpenClawGateway), תמונת הדיסק שלה, ערך ההפעלה האוטומטית, ומנקה את אישורי Gateway. MCP token שלך נשמרת. הקליטה תתאפס.</value>
++  </data>
++  <data name="SettingsPage_RemoveLocalGateway.Content" xml:space="preserve">
++    <value>הסרת ה־Gateway המקומי</value>
++  </data>
++  <data name="SettingsPage_Saved.Title" xml:space="preserve">
++    <value>נשמר</value>
++  </data>
++  <data name="SkillsPage_Skills.Text" xml:space="preserve">
++    <value>🧩 מיומנויות</value>
++  </data>
++  <data name="SkillsPage_AllAgents.Content" xml:space="preserve">
++    <value>כל הסוכנים</value>
++  </data>
++  <data name="SkillsPage_Enabled.Text" xml:space="preserve">
++    <value>מופעל</value>
++  </data>
++  <data name="SkillsPage_Disabled.Text" xml:space="preserve">
++    <value>מושבת</value>
++  </data>
++  <data name="SkillsPage_LoadingSkills.Text" xml:space="preserve">
++    <value>טוען מיומנויות...</value>
++  </data>
++  <data name="SkillsPage_NoSkillsInstalled.Text" xml:space="preserve">
++    <value>לא הותקנו מיומנויות</value>
++  </data>
++  <data name="SkillsPage_SkillsExtendYourAgent.Text" xml:space="preserve">
++    <value>מיומנויות מרחיבות את יכולות הסוכן שלך. התקן מיומנויות דרך CLI או ClawHub.</value>
++  </data>
++  <data name="UsagePage_GatewayDisconnected.Title" xml:space="preserve">
++    <value>Gateway מנותק</value>
++  </data>
++  <data name="UsagePage_GatewayDisconnected.Message" xml:space="preserve">
++    <value>התחבר ל־Gateway כדי לטעון נתוני שימוש.</value>
++  </data>
++  <data name="UsagePage_OpenConnection.Content" xml:space="preserve">
++    <value>חיבור פתוח</value>
++  </data>
++  <data name="UsagePage_LoadingDailyCosts.Text" xml:space="preserve">
++    <value>טוען עלויות יומיות...</value>
++  </data>
++  <data name="UsagePage_NoDailyUsageFor.Text" xml:space="preserve">
++    <value>אין שימוש יומי לתקופה זו</value>
++  </data>
++  <data name="VoiceSettingsPage_TestVoiceInput.Text" xml:space="preserve">
++    <value>בדיקת קלט קולי</value>
++  </data>
++  <data name="VoiceSettingsPage_Record.Text" xml:space="preserve">
++    <value>רשומה</value>
++  </data>
++  <data name="WorkspacePage_LoadingWorkspaceFiles.Text" xml:space="preserve">
++    <value>טוען סביבת עבודה קבצים…</value>
++  </data>
++  <data name="ChatWindow_WebChatUnavailable.Text" xml:space="preserve">
++    <value>צ'אט אינטרנט לא זמין</value>
++  </data>
++  <data name="ChatWindow_Retry.Content" xml:space="preserve">
++    <value>נסה שוב</value>
++  </data>
++  <data name="ConnectionStatusWindow_ConnectionStatus.Text" xml:space="preserve">
++    <value>סטטוס חיבור</value>
++  </data>
++  <data name="ConnectionStatusWindow_STATEMACHINE.Text" xml:space="preserve">
++    <value>מכונת מצבים</value>
++  </data>
++  <data name="ConnectionStatusWindow_OPERATOR.Text" xml:space="preserve">
++    <value>מפעיל</value>
++  </data>
++  <data name="ConnectionStatusWindow_Off.Text" xml:space="preserve">
++    <value>כבוי</value>
++  </data>
++  <data name="ConnectionStatusWindow_Connecting.Text" xml:space="preserve">
++    <value>מתחבר</value>
++  </data>
++  <data name="ConnectionStatusWindow_Connected.Text" xml:space="preserve">
++    <value>מחובר</value>
++  </data>
++  <data name="ConnectionStatusWindow_Pairing.Text" xml:space="preserve">
++    <value>זיווג</value>
++  </data>
++  <data name="ConnectionStatusWindow_Error.Text" xml:space="preserve">
++    <value>שגיאה</value>
++  </data>
++  <data name="ConnectionStatusWindow_NODE.Text" xml:space="preserve">
++    <value>NODE</value>
++  </data>
++  <data name="ConnectionStatusWindow_Off2.Text" xml:space="preserve">
++    <value>כבוי</value>
++  </data>
++  <data name="ConnectionStatusWindow_Connecting2.Text" xml:space="preserve">
++    <value>מתחבר</value>
++  </data>
++  <data name="ConnectionStatusWindow_Connected2.Text" xml:space="preserve">
++    <value>מחובר</value>
++  </data>
++  <data name="ConnectionStatusWindow_Pairing2.Text" xml:space="preserve">
++    <value>זיווג</value>
++  </data>
++  <data name="ConnectionStatusWindow_Error2.Text" xml:space="preserve">
++    <value>שגיאה</value>
++  </data>
++  <data name="ConnectionStatusWindow_GATEWAYS.Text" xml:space="preserve">
++    <value>GATEWAYS</value>
++  </data>
++  <data name="ConnectionStatusWindow_CREDENTIALS.Text" xml:space="preserve">
++    <value>אישורים</value>
++  </data>
++  <data name="ConnectionStatusWindow_SETUPCODE.Text" xml:space="preserve">
++    <value>קוד הגדרה</value>
++  </data>
++  <data name="ConnectionStatusWindow_PasteASetupCode.Text" xml:space="preserve">
++    <value>הדבק קוד הגדרה לחיבור מקצה לקצה.</value>
++  </data>
++  <data name="ConnectionStatusWindow_PasteSetupCode.PlaceholderText" xml:space="preserve">
++    <value>הדבק קוד הגדרה…</value>
++  </data>
++  <data name="ConnectionStatusWindow_Connect.Content" xml:space="preserve">
++    <value>התחברות</value>
++  </data>
++  <data name="ConnectionStatusWindow_Disconnect.Content" xml:space="preserve">
++    <value>ניתוק</value>
++  </data>
++  <data name="ConnectionStatusWindow_DIRECTCONNECT.Text" xml:space="preserve">
++    <value>חיבור ישיר</value>
++  </data>
++  <data name="ConnectionStatusWindow_ConnectWithAGateway.Text" xml:space="preserve">
++    <value>התחברות באמצעות Gateway URL ו־token משותף (הרשאת מנהל).</value>
++  </data>
++  <data name="ConnectionStatusWindow_WsLocalhost18790.PlaceholderText" xml:space="preserve">
++    <value>ws://localhost:18790</value>
++  </data>
++  <data name="ConnectionStatusWindow_WsLocalhost18790.Text" xml:space="preserve">
++    <value>ws://localhost:18790</value>
++  </data>
++  <data name="ConnectionStatusWindow_WsLocalhost18790.Header" xml:space="preserve">
++    <value>Gateway URL</value>
++  </data>
++  <data name="ConnectionStatusWindow_SharedGatewayToken.PlaceholderText" xml:space="preserve">
++    <value>token משותף של ה־Gateway</value>
++  </data>
++  <data name="ConnectionStatusWindow_SharedGatewayToken.Header" xml:space="preserve">
++    <value>Token</value>
++  </data>
++  <data name="ConnectionStatusWindow_Connect2.Content" xml:space="preserve">
++    <value>התחברות</value>
++  </data>
++  <data name="ConnectionStatusWindow_SSHTunnel.Header" xml:space="preserve">
++    <value>מנהרת SSH</value>
++  </data>
++  <data name="ConnectionStatusWindow_SSHUser.Header" xml:space="preserve">
++    <value>משתמש SSH</value>
++  </data>
++  <data name="ConnectionStatusWindow_SSHUser.PlaceholderText" xml:space="preserve">
++    <value>משתמש</value>
++  </data>
++  <data name="ConnectionStatusWindow_SSHHost.Header" xml:space="preserve">
++    <value>מארח SSH</value>
++  </data>
++  <data name="ConnectionStatusWindow_SSHHost.PlaceholderText" xml:space="preserve">
++    <value>192.168.x.x</value>
++  </data>
++  <data name="ConnectionStatusWindow_SshServerPort.Header" xml:space="preserve">
++    <value>פורט SSH</value>
++  </data>
++  <data name="ConnectionStatusWindow_RemotePort.Header" xml:space="preserve">
++    <value>יציאה מרוחקת</value>
++  </data>
++  <data name="ConnectionStatusWindow_LocalPort.Header" xml:space="preserve">
++    <value>פורט מקומי</value>
++  </data>
++  <data name="ConnectionStatusWindow_EVENTTIMELINE.Text" xml:space="preserve">
++    <value>ציר זמן של אירועים</value>
++  </data>
++  <data name="ConnectionStatusWindow_Copy.Content" xml:space="preserve">
++    <value>העתק</value>
++  </data>
++  <data name="ConnectionStatusWindow_Clear.Content" xml:space="preserve">
++    <value>נקה</value>
++  </data>
++  <data name="DiagnosticsBundleDialog_DiagnosticsBundle.Title" xml:space="preserve">
++    <value>חבילת אבחון</value>
++  </data>
++  <data name="DiagnosticsBundleDialog_ReviewBeforeSharing.Title" xml:space="preserve">
++    <value>סקירה לפני שיתוף</value>
++  </data>
++  <data name="HubWindow_Disconnected.Text" xml:space="preserve">
++    <value>מנותק</value>
++  </data>
++  <data name="HubWindow_Advanced.Content" xml:space="preserve">
++    <value>מתקדם</value>
++  </data>
++  <data name="DiagnosticsBundleDialog_ReviewBeforeSharingMessage.Text" xml:space="preserve">
++    <value>קבצי יומן עוברים חיטוי וחתיכה. אסימונים רגישים, מטענים, הקלטות וקבצי הגדרות גולמיות אינם כלולים. סקירה לפני שיתוף.</value>
++  </data>
++  <data name="DiagnosticsBundleDialog_ReviewBeforeSharingTitle.Text" xml:space="preserve">
++    <value>סקירה לפני שיתוף</value>
++  </data>
++  <data name="AgentEventsPage_LiveText.Text" xml:space="preserve">
++    <value>שידור חי</value>
++  </data>
++  <data name="AgentEventsPage_ClearButton.Text" xml:space="preserve">
++    <value>נקה</value>
++  </data>
++  <data name="SessionsPage_Subtitle.Text" xml:space="preserve">
++    <value>שיחות שה־Gateway זה מטפל בהן כעת, מקובצות לפי ערוץ.</value>
++  </data>
++  <data name="SessionsPage_EmptyHint.Text" xml:space="preserve">
++    <value>סשנים מופיעים כאן כאשר ערוץ מחובר והתעבורה זורמת.</value>
++  </data>
++  <data name="SessionsPage_OpenChatButton.Content" xml:space="preserve">
++    <value>פתח צ'אט</value>
++  </data>
++  <data name="SkillsPage_EnabledHeader.Text" xml:space="preserve">
++    <value>מופעל</value>
++  </data>
++  <data name="SkillsPage_DisabledHeader.Text" xml:space="preserve">
++    <value>מושבת</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperPreview.Text" xml:space="preserve">
++    <value>תצוגה מקדימה</value>
++  </data>
++  <data name="VoiceSettingsPage_PreviewVoice.Text" xml:space="preserve">
++    <value>תצוגה מקדימה של קול</value>
++  </data>
++  <data name="SandboxPage_GatewayCommandsNote.Text" xml:space="preserve">
++    <value>פקודות שהסוכן מפעיל ישירות על Gateway אינן מופיעות. אם Gateway נמצא במחשב זה, ייתכן שהוא עדיין יוכל להגיע לקבצים, ללוח ולרשת Windows שלך: בדוק את התצורה של Gateway שלך.</value>
++  </data>
++  <data name="AgentEventsPage_AllAgents" xml:space="preserve">
++    <value>כל הסוכנים</value>
++  </data>
++  <data name="AgentEventsPage_EventsStatus" xml:space="preserve">
++    <value>{0} מתוך {1} אירועים</value>
++  </data>
++  <data name="CronPage_CreateJobLabel" xml:space="preserve">
++    <value>יצירת משימה</value>
++  </data>
++  <data name="CronPage_EditJob" xml:space="preserve">
++    <value>עריכת משימה</value>
++  </data>
++  <data name="CronPage_NewJobTitle" xml:space="preserve">
++    <value>משימה חדשה</value>
++  </data>
++  <data name="CronPage_Running" xml:space="preserve">
++    <value>פעילה...</value>
++  </data>
++  <data name="CronPage_CompletedOneTimeJobTooltip" xml:space="preserve">
++    <value>משימה חד פעמית הושלמה</value>
++  </data>
++  <data name="CronPage_EnableJobTooltip" xml:space="preserve">
++    <value>הפעלת משימה</value>
++  </data>
++  <data name="CronPage_DisableJobTooltip" xml:space="preserve">
++    <value>השבתת משימה</value>
++  </data>
++  <data name="CronPage_FullResponse" xml:space="preserve">
++    <value>תגובה מלאה</value>
++  </data>
++  <data name="CronPage_OpenChat" xml:space="preserve">
++    <value>פתח צ'אט</value>
++  </data>
++  <data name="CronPage_RunNow" xml:space="preserve">
++    <value>הפעל עכשיו</value>
++  </data>
++  <data name="CronPage_EditAction" xml:space="preserve">
++    <value>עריכה</value>
++  </data>
++  <data name="CronPage_HistoryAction" xml:space="preserve">
++    <value>היסטוריה</value>
++  </data>
++  <data name="CronPage_RemoveAction" xml:space="preserve">
++    <value>הסרה</value>
++  </data>
++  <data name="CronPage_RunningBadge" xml:space="preserve">
++    <value>רץ</value>
++  </data>
++  <data name="CronPage_RunHistory" xml:space="preserve">
++    <value>היסטוריית ריצות</value>
++  </data>
++  <data name="CronPage_RunHistoryShowing" xml:space="preserve">
++    <value>היסטוריית ריצות - מציג {0} מתוך {1}</value>
++  </data>
++  <data name="CronPage_RunHistoryCount" xml:space="preserve">
++    <value>היסטוריית ריצות - {0} ריצות</value>
++  </data>
++  <data name="CronPage_LoadingRunHistory" xml:space="preserve">
++    <value>טוען היסטוריית ריצות...</value>
++  </data>
++  <data name="CronPage_NoRunHistoryAvailable" xml:space="preserve">
++    <value>אין היסטוריית ריצות זמינה.</value>
++  </data>
++  <data name="CronPage_LoadOlderRuns" xml:space="preserve">
++    <value>טען ריצות ישנות יותר (עוד {0})...</value>
++  </data>
++  <data name="CronPage_LoadMoreRuns" xml:space="preserve">
++    <value>טען ריצות נוספות...</value>
++  </data>
++  <data name="CronPage_Loading" xml:space="preserve">
++    <value>טוען...</value>
++  </data>
++  <data name="CronPage_SaveChanges" xml:space="preserve">
++    <value>שמור שינויים</value>
++  </data>
++  <data name="SchemaConfigEditor_AddItem" xml:space="preserve">
++    <value>הוסף פריט</value>
++  </data>
++  <data name="ChatPage_AttachFile" xml:space="preserve">
++    <value>צרף קובץ</value>
++  </data>
++  <data name="ChatPage_Cancel" xml:space="preserve">
++    <value>ביטול</value>
