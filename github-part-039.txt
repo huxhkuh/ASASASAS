@@ -1,0 +1,314 @@
++    <value>תיקיות מותאמות אישית</value>
++  </data>
++  <data name="SandboxPage_CustomGrantsAreAdded.Text" xml:space="preserve">
++    <value>אישורים מותאמים אישית מתווספים בנוסף לכללים שלמעלה. הוספת תיקייה בתוך מסמכים/הורדות/שולחן עבודה עם גישה רחבה יותר תעקוף את ההגדרה ברמת השורה עבור נתיב זה.</value>
++  </data>
++  <data name="SandboxPage_Blocked4.Content" xml:space="preserve">
++    <value>חסום</value>
++  </data>
++  <data name="SandboxPage_ReadOnly4.Content" xml:space="preserve">
++    <value>קריאה בלבד</value>
++  </data>
++  <data name="SandboxPage_ReadAmpWrite4.Content" xml:space="preserve">
++    <value>קריאה וכתיבה</value>
++  </data>
++  <data name="SandboxPage_NoCustomFoldersAdded.Text" xml:space="preserve">
++    <value>לא נוספו תיקיות מותאמות אישית.</value>
++  </data>
++  <data name="SandboxPage_AddFolder.Content" xml:space="preserve">
++    <value>הוסף תיקייה</value>
++  </data>
++  <data name="SandboxPage_Clipboard.Text" xml:space="preserve">
++    <value>📋 לוח גזירים</value>
++  </data>
++  <data name="SandboxPage_ClipboardOftenContainsPasswords.Text" xml:space="preserve">
++    <value>לוח גזירים מכיל לעתים קרובות סיסמאות, טוקנים וטקסט פרטי. גישת קריאה עלולה לדלוף זאת לסוכן (ובאינטרנט, אם מופעלת).</value>
++  </data>
++  <data name="SandboxPage_NoneDefault.Content" xml:space="preserve">
++    <value>ללא (ברירת מחדל)</value>
++  </data>
++  <data name="SandboxPage_ReadAgentCanSee.Content" xml:space="preserve">
++    <value>קריאה: הסוכן יכול לראות את מה שהעתקת</value>
++  </data>
++  <data name="SandboxPage_WriteAgentCanReplace.Content" xml:space="preserve">
++    <value>כתיבה: הסוכן יכול להחליף את הלוח שלך (לא יכול לקרוא אותו)</value>
++  </data>
++  <data name="SandboxPage_ReadAmpWrite5.Content" xml:space="preserve">
++    <value>קריאה וכתיבה</value>
++  </data>
++  <data name="SandboxPage_Network.Text" xml:space="preserve">
++    <value>📡 רשת</value>
++  </data>
++  <data name="SandboxPage_AllowInternet.Header" xml:space="preserve">
++    <value>אפשר אינטרנט</value>
++  </data>
++  <data name="SandboxPage_IfFileOrClipboard.Text" xml:space="preserve">
++    <value>אם גישת קריאה לקובץ או ללוח מופעלת, הסוכן עשוי לשלוח נתונים אלה דרך האינטרנט.</value>
++  </data>
++  <data name="SandboxPage_LocalNetworkDevicesAnd.Text" xml:space="preserve">
++    <value>התקני רשת מקומיים ושיתופים אינם כלולים עדיין.</value>
++  </data>
++  <data name="SandboxPage_CommandCompatibility.Text" xml:space="preserve">
++    <value>🪟 תאימות פקודות</value>
++  </data>
++  <data name="SandboxPage_AllowWindowsUi.Header" xml:space="preserve">
++    <value>אפשר ממשקי API של ממשק משתמש Windows</value>
++  </data>
++  <data name="SandboxPage_AllowWindowsUi.OffContent" xml:space="preserve">
++    <value>כבוי: חוסם קריאות מערכת של Win32k</value>
++  </data>
++  <data name="SandboxPage_AllowWindowsUi.OnContent" xml:space="preserve">
++    <value>מופעל: PowerShell וכלים דומים יכולים להפעיל</value>
++  </data>
++  <data name="SandboxPage_AllowWindowsUi.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>אפשר ממשקי API של ממשק משתמש Windows עבור פקודות בארגז חול</value>
++  </data>
++  <data name="SandboxPage_WindowsUiCompatibilityDescription.Text" xml:space="preserve">
++    <value>PowerShell (כל הגרסאות) וכמה כלי קונסולה משתמשים ב-API של ממשק משתמש Windows במהלך ההפעלה. הגדרה זו אינה מספקת מלאי תהליכים נתמך בכל רחבי המארח.</value>
++  </data>
++  <data name="SandboxPage_WindowsUiWarning.Title" xml:space="preserve">
++    <value>גבולות Win32k מושבתים</value>
++  </data>
++  <data name="SandboxPage_WindowsUiWarning.Message" xml:space="preserve">
++    <value>בקרות אישור קבצים, רשת, לוח כתיבה, פסק זמן ופקודות עדיין חלות. קריאות מערכת של Win32k מותרות; מדיניות לוח כתיבה ודחיית הזרקת קלט נשארות בתוקף.</value>
++  </data>
++  <data name="SandboxPage_AllowWindowsUiDialogTitle" xml:space="preserve">
++    <value>האם לאפשר ממשקי API של ממשק משתמש Windows?</value>
++  </data>
++  <data name="SandboxPage_AllowWindowsUiDialogContent" xml:space="preserve">
++    <value>הגדרה זו מאפשרת לפקודות בארגז חול להשתמש בקריאות מערכת ממשק משתמש Windows. PowerShell (כל הגרסאות) וכמה כלי קונסולה זקוקים לכך כדי להתחיל בגרסאות MXC הנוכחיות. הגדרה זו אינה מאפשרת מלאי תהליכים נתמך בכל המארח: ספירת מארח CIM/WMI אינה נתמכת ונצפה כישלון, רשימת משימות עלולה להיכשל או להגיע לפסק זמן, ואין להתייחס לפלט Get-Process כמלאי מלא או כגבול סודיות של מטא-נתונים של תהליך.
++
++בקרות אישור קבצים, רשת, לוח כתיבה, פסק זמן ופקודות עדיין חלות, אך חסימת קריאות סיסטמיות של Win32k תושבת. מדיניות לוח כתיבה ודחיית הזרקת קלט יישארו בתוקף. הפעל אפשרות זו רק אם אתה זקוק לתאימות רחבה יותר של פקודות.</value>
++  </data>
++  <data name="SandboxPage_AllowWindowsUiDialogPrimary" xml:space="preserve">
++    <value>אפשר ממשקי API של ממשק משתמש</value>
++  </data>
++  <data name="SandboxPage_AllowWindowsUiDialogCancel" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="SandboxPage_Limits.Text" xml:space="preserve">
++    <value>⏱ מגבלות</value>
++  </data>
++  <data name="SandboxPage_CommandTimeout30Sec.Text" xml:space="preserve">
++    <value>זמן קצוב לפקודה: 30 שניות</value>
++  </data>
++  <data name="SandboxPage_MaximumCapturedOutputTruncates.Text" xml:space="preserve">
++    <value>פלט מקסימלי שנלכד (מקצר מעבר לכך; אינו מגביל דיסק, זיכרון או מעבד):</value>
++  </data>
++  <data name="SandboxPage_1MiB.Content" xml:space="preserve">
++    <value>1 מגה-בייט</value>
++  </data>
++  <data name="SandboxPage_4MiBDefault.Content" xml:space="preserve">
++    <value>4 מגה-בייט (ברירת מחדל)</value>
++  </data>
++  <data name="SandboxPage_16MiB.Content" xml:space="preserve">
++    <value>16 מגה-בייט</value>
++  </data>
++  <data name="SandboxPage_64MiB.Content" xml:space="preserve">
++    <value>64 מגה-בייט</value>
++  </data>
++  <data name="SessionsPage_Sessions.Text" xml:space="preserve">
++    <value>סשנים</value>
++  </data>
++  <data name="SessionsPage_Refresh.Text" xml:space="preserve">
++    <value>רענון</value>
++  </data>
++  <data name="SessionsPage_All.Text" xml:space="preserve">
++    <value>הכל</value>
++  </data>
++  <data name="SessionsPage_ShowCompleted.Header" xml:space="preserve">
++    <value>הצג הושלם</value>
++  </data>
++  <data name="SessionsPage_ShowBackground.Header" xml:space="preserve">
++    <value>הצג רקע</value>
++  </data>
++  <data name="SessionTitle_Main" xml:space="preserve">
++    <value>הפעלה ראשית</value>
++  </data>
++  <data name="SessionTitle_Global" xml:space="preserve">
++    <value>הפעלה גלובלית</value>
++  </data>
++  <data name="SessionTitle_Unknown" xml:space="preserve">
++    <value>הפעלה לא ידועה</value>
++  </data>
++  <data name="SessionTitle_Direct" xml:space="preserve">
++    <value>הודעה ישירה של {0}</value>
++  </data>
++  <data name="SessionTitle_Group" xml:space="preserve">
++    <value>{0} קבוצה</value>
++  </data>
++  <data name="SessionTitle_Channel" xml:space="preserve">
++    <value>ערוץ {0}</value>
++  </data>
++  <data name="SessionTitle_Thread" xml:space="preserve">
++    <value>שרשור {0}</value>
++  </data>
++  <data name="SessionTitle_DirectGeneric" xml:space="preserve">
++    <value>הודעה ישירה</value>
++  </data>
++  <data name="SessionTitle_GroupGeneric" xml:space="preserve">
++    <value>שיחת קבוצה</value>
++  </data>
++  <data name="SessionTitle_ChannelGeneric" xml:space="preserve">
++    <value>שיחת ערוץ</value>
++  </data>
++  <data name="SessionTitle_ThreadGeneric" xml:space="preserve">
++    <value>שרשור</value>
++  </data>
++  <data name="SessionTitle_Cron" xml:space="preserve">
++    <value>משימה מתוזמנת</value>
++  </data>
++  <data name="SessionTitle_Heartbeat" xml:space="preserve">
++    <value>פעימות לב</value>
++  </data>
++  <data name="SessionTitle_Subagent" xml:space="preserve">
++    <value>סוכן משנה</value>
++  </data>
++  <data name="SessionTitle_Acp" xml:space="preserve">
++    <value>הפעלת ACP</value>
++  </data>
++  <data name="SessionTitle_Dashboard" xml:space="preserve">
++    <value>סשן חדש</value>
++  </data>
++  <data name="SessionTitle_Tui" xml:space="preserve">
++    <value>הפעלת מסוף</value>
++  </data>
++  <data name="SessionTitle_Hook" xml:space="preserve">
++    <value>ריצת Hook</value>
++  </data>
++  <data name="SessionTitle_Harness" xml:space="preserve">
++    <value>הפעלת רתמה</value>
++  </data>
++  <data name="SessionTitle_Voice" xml:space="preserve">
++    <value>שיחה קולית</value>
++  </data>
++  <data name="SessionTitle_Dreaming" xml:space="preserve">
++    <value>חולם</value>
++  </data>
++  <data name="SessionTitle_System" xml:space="preserve">
++    <value>משימת רקע</value>
++  </data>
++  <data name="SessionSubtitle_Account" xml:space="preserve">
++    <value>חשבון {0}</value>
++  </data>
++  <data name="SessionSubtitle_Agent" xml:space="preserve">
++    <value>סוכן {0}</value>
++  </data>
++  <data name="SessionSubtitle_Node" xml:space="preserve">
++    <value>Node {0}</value>
++  </data>
++  <data name="SessionsPage_GatewayDisconnected.Title" xml:space="preserve">
++    <value>Gateway מנותק</value>
++  </data>
++  <data name="SessionsPage_GatewayDisconnected.Message" xml:space="preserve">
++    <value>התחבר ל־Gateway כדי לטעון סשנים.</value>
++  </data>
++  <data name="SessionsPage_OpenConnection.Content" xml:space="preserve">
++    <value>חיבור פתוח</value>
++  </data>
++  <data name="SessionsPage_LoadingSessions.Text" xml:space="preserve">
++    <value>טוען סשנים...</value>
++  </data>
++  <data name="SessionsPage_NoActiveSessions.Text" xml:space="preserve">
++    <value>אין סשנים</value>
++  </data>
++  <data name="SessionsPage_Reset.Text" xml:space="preserve">
++    <value>איפוס</value>
++  </data>
++  <data name="SessionsPage_Compact.Text" xml:space="preserve">
++    <value>דחיסה</value>
++  </data>
++  <data name="SessionsPage_Checkpoints.Text" xml:space="preserve">
++    <value>נקודות ביקורת</value>
++  </data>
++  <data name="SessionsPage_Checkpoints.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>הצג, הסתעף או שחזור נקודות ביקורת דחיסה</value>
++  </data>
++  <data name="SessionsPage_ExportTranscript.Text" xml:space="preserve">
++    <value>ייצוא תמלול</value>
++  </data>
++  <data name="SessionsPage_ExportTranscript.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>שמור את תמלול השיחה לקובץ טקסט</value>
++  </data>
++  <data name="SessionsPage_Delete.Text" xml:space="preserve">
++    <value>מחיקה</value>
++  </data>
++  <data name="SessionActionPrompt_Reset_Title" xml:space="preserve">
++    <value>לאפס את ההפעלה?</value>
++  </data>
++  <data name="SessionActionPrompt_Reset_BodyFormat" xml:space="preserve">
++    <value>להתחיל הפעלה חדשה עבור "{0}"? הקשר השיחה הנוכחית ינוקה.</value>
++  </data>
++  <data name="SessionActionPrompt_Reset_ConfirmLabel" xml:space="preserve">
++    <value>איפוס</value>
++  </data>
++  <data name="SessionActionPrompt_CancelLabel" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="SessionActionPrompt_Compact_Title" xml:space="preserve">
++    <value>לדחוס יומן הפעלה?</value>
++  </data>
++  <data name="SessionActionPrompt_Compact_BodyFormat" xml:space="preserve">
++    <value>לשמור את ההודעות האחרונות עבור "{0}" ולאחסן את השאר. פעולה זו יוצרת נקודת ביקורת דחיסה; ייצא את התמליל תחילה אם אתה זקוק להיסטוריה המלאה.</value>
++  </data>
++  <data name="SessionActionPrompt_Compact_ConfirmLabel" xml:space="preserve">
++    <value>דחיסה</value>
++  </data>
++  <data name="SessionActionPrompt_Delete_Title" xml:space="preserve">
++    <value>למחוק את ההפעלה?</value>
++  </data>
++  <data name="SessionActionPrompt_Delete_BodyFormat" xml:space="preserve">
++    <value>למחוק את "{0}" ולאחסן את התמליל שלו? הוא יוסר מרשימת ההפעלה.</value>
++  </data>
++  <data name="SessionActionPrompt_Delete_ConfirmLabel" xml:space="preserve">
++    <value>מחיקה</value>
++  </data>
++  <data name="SessionActionPrompt_Restore_Title" xml:space="preserve">
++    <value>לשחזר את נקודת הביקורת?</value>
++  </data>
++  <data name="SessionActionPrompt_Restore_BodyFormat" xml:space="preserve">
++    <value>האם להחזיר את "{0}" לנקודת ביקורת דחיסה זו? הודעות שנוספו לאחר נקודת הביקורת יאוחסנו בארכיון.</value>
++  </data>
++  <data name="SessionActionPrompt_Restore_ConfirmLabel" xml:space="preserve">
++    <value>שחזור</value>
++  </data>
++  <data name="SettingsPage_Settings.Text" xml:space="preserve">
++    <value>הגדרות</value>
++  </data>
++  <data name="SettingsPage_General.Text" xml:space="preserve">
++    <value>כללי</value>
++  </data>
++  <data name="SettingsRow_AppTheme_Header.Text" xml:space="preserve">
++    <value>ערכת נושא של אפליקציה</value>
++  </data>
++  <data name="SettingsRow_AppTheme_Description.Text" xml:space="preserve">
++    <value>בחר בהיר, כהה, או השתמש בהגדרה Windows שלך.</value>
++  </data>
++  <data name="SettingsPage_AppTheme_System.Content" xml:space="preserve">
++    <value>מערכת</value>
++  </data>
++  <data name="SettingsPage_AppTheme_Light.Content" xml:space="preserve">
++    <value>בהיר</value>
++  </data>
++  <data name="SettingsPage_AppTheme_Dark.Content" xml:space="preserve">
++    <value>כהה</value>
++  </data>
++  <data name="SettingsPage_Notifications.Text" xml:space="preserve">
++    <value>התראות</value>
++  </data>
++  <data name="SettingsPage_Chat.Text" xml:space="preserve">
++    <value>צ'אט</value>
++  </data>
++  <data name="SettingsRow_ShowToolCalls_Header.Text" xml:space="preserve">
++    <value>הצג קריאות ושימוש בכלים</value>
++  </data>
++  <data name="SettingsRow_ShowToolCalls_Description.Text" xml:space="preserve">
++    <value>הצג פרטים על קריאת הכלים ושימוש token בשורה בשיחה.</value>
++  </data>
++  <data name="SettingsPage_Privacy.Text" xml:space="preserve">
++    <value>פרטיות</value>
++  </data>
++  <data name="SettingsPage_LocalGateway.Text" xml:space="preserve">
++    <value>Gateway מקומי</value>
++  </data>
++  <data name="SettingsPage_Developer.Text" xml:space="preserve">
