@@ -1,0 +1,236 @@
+                                          Click="ViewLog_Click" Padding="0"
+                                          FontSize="13" />
+                     </StackPanel>
+                 </Border>
+ 
+-                <InfoBar x:Name="NodeModeBanner"
++                <InfoBar x:Uid="Setup_CompletePage_NodeModeBanner" x:Name="NodeModeBanner"
+                          IsOpen="True" IsClosable="False" Severity="Informational"
+                          Title="Node mode enabled"
+                          Message="This PC will operate as a remote compute node. The gateway can invoke screen capture, camera, and system commands on this machine." />
+@@ -135,10 +140,10 @@
+                         BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                         BorderThickness="1" CornerRadius="4" Padding="14,6,8,6">
+                     <Grid ColumnDefinitions="*,Auto">
+-                        <TextBlock Grid.Column="0" Text="Launch OpenClaw at startup"
++                        <TextBlock x:Uid="Setup_CompletePage_TextBlock_6" Grid.Column="0" Text="Launch OpenClaw at startup"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource BodyTextBlockStyle}" />
+-                        <ToggleSwitch x:Name="StartupToggle" Grid.Column="1"
++                        <ToggleSwitch x:Uid="Setup_CompletePage_StartupToggle" x:Name="StartupToggle" Grid.Column="1"
+                                       OnContent="On" OffContent="Off"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center"
+                                       MinWidth="0" />
+@@ -149,11 +154,11 @@
+         </ScrollViewer>
+ 
+         <Grid Grid.Row="1" ColumnDefinitions="Auto,*,Auto" Margin="0,16,0,0">
+-            <Button x:Name="FallbackButton" Grid.Column="0"
++            <Button x:Uid="Setup_CompletePage_FallbackButton" x:Name="FallbackButton" Grid.Column="0"
+                     Content="Retry with validated fallback"
+                     Visibility="Collapsed"
+                     Click="FallbackButton_Click" />
+-            <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center" VerticalAlignment="Center"
++            <StackPanel x:Uid="Setup_CompletePage_StackPanel_1" Grid.ColumnSpan="3" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center" VerticalAlignment="Center"
+                         IsTabStop="False" AutomationProperties.Name="Step 6 of 6">
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+@@ -162,7 +167,7 @@
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+                 <Border Width="20" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupIndicatorAccentBrush}" />
+             </StackPanel>
+-            <Button x:Name="LaunchButton" Grid.Column="2"
++            <Button x:Uid="Setup_CompletePage_LaunchButton" x:Name="LaunchButton" Grid.Column="2"
+                     Content="Finish"
+                     HorizontalAlignment="Right" MinWidth="100"
+                     Style="{StaticResource AccentButtonStyle}"
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/CompletePage.xaml.cs b/src/OpenClaw.SetupEngine.UI/Pages/CompletePage.xaml.cs
+index 979f4ab2..c32bff34 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/CompletePage.xaml.cs
++++ b/src/OpenClaw.SetupEngine.UI/Pages/CompletePage.xaml.cs
+@@ -13,6 +13,7 @@ public sealed partial class CompletePage : Page
+ {
+     private static readonly Regex s_urlRegex = new(@"https?://[^\s)]+", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+     private string? _logPath;
++    private bool _setupSucceeded;
+ 
+     public CompletePage()
+     {
+@@ -24,6 +25,7 @@ public sealed partial class CompletePage : Page
+         if (e.Parameter is CompletePageArgs args)
+         {
+             _logPath = args.LogPath;
++            _setupSucceeded = args.Success;
+ 
+             if (args.Success)
+             {
+@@ -33,8 +35,8 @@ public sealed partial class CompletePage : Page
+                 StartupRow.Visibility = args.ShowStartupPreference ? Visibility.Visible : Visibility.Collapsed;
+                 SetupReviewSummary review = args.ReviewSummary ?? SetupReviewSummaryBuilder.Build(new SetupConfig());
+                 GatewaySummaryText.Text = review.CompletionGatewaySummary;
+-                TitleText.Text = "All set!";
+-                SubtitleText.Text = "OpenClaw is ready to go";
++                TitleText.Text = SetupLocalization.GetString("Setup_CompletePage_TitleText.Text");
++                SubtitleText.Text = SetupLocalization.GetString("Setup_CompletePage_SubtitleText.Text");
+                 SubtitleText.Visibility = Visibility.Visible;
+                 ErrorCard.Visibility = Visibility.Collapsed;
+                 HelpLink.Visibility = Visibility.Collapsed;
+@@ -43,33 +45,34 @@ public sealed partial class CompletePage : Page
+                 LocalAiSummaryCard.Visibility = review.LocalAiEnabled ? Visibility.Visible : Visibility.Collapsed;
+                 if (review.LocalAiEnabled)
+                 {
+-                    LocalAiSummaryTitle.Text = review.LocalAiTitle ?? "Local AI verified";
++                    LocalAiSummaryTitle.Text = review.LocalAiTitle ??
++                        SetupLocalization.GetString("Setup_CompletePage_LocalAiSummaryTitle.Text");
+                     LocalAiSummaryDescription.Text = review.LocalAiDescription ??
+-                        "The native llama-server router is ready. The model loads on the first request.";
+-                    SubtitleText.Text = "OpenClaw and Local AI are ready";
+-                    LaunchButton.Content = "Open chat";
++                        SetupLocalization.GetString("Setup_Complete_LocalAiReadyDescription");
++                    SubtitleText.Text = SetupLocalization.GetString("Setup_Complete_OpenClawAndLocalAiReady");
++                    LaunchButton.Content = SetupLocalization.GetString("Setup_Complete_OpenChat");
+                 }
+             }
+             else
+             {
+-                var errorMessage = args.ErrorMessage ?? "Unknown error";
++                var errorMessage = args.ErrorMessage ?? SetupLocalization.GetString("Setup_Complete_UnknownError");
+                 var helpUrl = ExtractHelpUrl(errorMessage);
+ 
+                 SuccessIcon.Visibility = Visibility.Collapsed;
+                 FailureIcon.Visibility = Visibility.Visible;
+-                TitleText.Text = "Setup failed";
++                TitleText.Text = SetupLocalization.GetString("Setup_Complete_SetupFailed");
+                 SubtitleText.Visibility = Visibility.Collapsed;
+                 NodeModeBanner.Visibility = Visibility.Collapsed;
+                 StartupRow.Visibility = Visibility.Collapsed;
+                 SummaryPanel.Visibility = Visibility.Collapsed;
+                 LocalAiSummaryCard.Visibility = Visibility.Collapsed;
+-                LaunchButton.Content = "Close";
++                LaunchButton.Content = SetupLocalization.GetString("Setup_Complete_Close");
+                 FallbackButton.Visibility = args.CanRetryGatewayFallback
+                     ? Visibility.Visible
+                     : Visibility.Collapsed;
+                 FallbackButton.Content = string.IsNullOrWhiteSpace(args.GatewayFallbackVersion)
+-                    ? "Retry with validated fallback"
+-                    : $"Retry with validated fallback {args.GatewayFallbackVersion}";
++                    ? SetupLocalization.GetString("Setup_CompletePage_FallbackButton.Content")
++                    : SetupLocalization.Format("Setup_Complete_RetryFallbackFormat", args.GatewayFallbackVersion);
+ 
+                 // Show error card with details and log link
+                 ErrorCard.Visibility = Visibility.Visible;
+@@ -77,8 +80,8 @@ public sealed partial class CompletePage : Page
+                 if (helpUrl != null)
+                 {
+                     HelpLink.Content = errorMessage.Contains("WSL", StringComparison.OrdinalIgnoreCase)
+-                        ? "Update WSL →"
+-                        : "Open help link →";
++                        ? SetupLocalization.GetString("Setup_Complete_UpdateWsl")
++                        : SetupLocalization.GetString("Setup_Complete_OpenHelp");
+                     HelpLink.NavigateUri = helpUrl;
+                     HelpLink.Visibility = Visibility.Visible;
+                 }
+@@ -89,7 +92,8 @@ public sealed partial class CompletePage : Page
+                 if (args.LogPath != null)
+                 {
+                     var displayPath = LogFileLauncher.ResolveRealPath(args.LogPath);
+-                    ViewLogLink.Content = $"View full log → {displayPath}";
++                    ViewLogLink.Content =
++                        SetupLocalization.GetString("Setup_CompletePage_ViewLogLink.Content");
+                     ToolTipService.SetToolTip(ViewLogLink, displayPath);
+                     ViewLogLink.Visibility = Visibility.Visible;
+                 }
+@@ -113,7 +117,7 @@ public sealed partial class CompletePage : Page
+ 
+     private void LaunchButton_Click(object sender, RoutedEventArgs e)
+     {
+-        if (LaunchButton.Content?.ToString() != "Close")
++        if (_setupSucceeded)
+         {
+             var enableAutoStart = StartupRow.Visibility == Visibility.Visible && StartupToggle.IsOn;
+             if (SetupWindow.Active?.RequestSetupCompleted(enableAutoStart) == true)
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/ProgressPage.xaml b/src/OpenClaw.SetupEngine.UI/Pages/ProgressPage.xaml
+index f799f220..abd9d98b 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/ProgressPage.xaml
++++ b/src/OpenClaw.SetupEngine.UI/Pages/ProgressPage.xaml
+@@ -11,7 +11,7 @@
+             <Image Source="ms-appx:///OpenClaw.SetupEngine.UI/Assets/Setup/OpenClawMascot.png" Width="44" Height="44"
+                    HorizontalAlignment="Center" Margin="0,0,0,2"
+                    AutomationProperties.AccessibilityView="Raw" />
+-            <TextBlock x:Name="TitleText" Text="Setting up OpenClaw"
++            <TextBlock x:Uid="Setup_ProgressPage_TitleText" x:Name="TitleText" Text="Setting up OpenClaw"
+                        Style="{StaticResource TitleTextBlockStyle}"
+                        HorizontalAlignment="Center" />
+             <TextBlock x:Name="SubtitleText"
+@@ -24,18 +24,18 @@
+         <ScrollViewer x:Name="InstallContent" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+             <StackPanel Padding="48,12,48,16" Spacing="16" VerticalAlignment="Top">
+ 
+-                <InfoBar x:Name="TailscaleAuthorizationPanel" Visibility="Collapsed" IsOpen="True" IsClosable="False"
++                <InfoBar x:Uid="Setup_ProgressPage_TailscaleAuthorizationPanel" x:Name="TailscaleAuthorizationPanel" Visibility="Collapsed" IsOpen="True" IsClosable="False"
+                          Severity="Informational" Title="Authorize Tailscale">
+                     <StackPanel Spacing="4">
+                         <TextBlock x:Name="TailscaleAuthorizationText" TextWrapping="Wrap" />
+-                        <HyperlinkButton x:Name="TailscaleAuthorizationLink" Content="Open Tailscale authorization"
++                        <HyperlinkButton x:Uid="Setup_ProgressPage_TailscaleAuthorizationLink" x:Name="TailscaleAuthorizationLink" Content="Open Tailscale authorization"
+                                          HorizontalAlignment="Left" Click="TailscaleAuthorization_Click" />
+                     </StackPanel>
+                 </InfoBar>
+ 
+                 <StackPanel x:Name="StepsPanel" Spacing="2" />
+ 
+-                <Expander IsExpanded="False"
++                <Expander x:Uid="Setup_ProgressPage_Expander_1" IsExpanded="False"
+                           HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                           Header="Live activity">
+                     <Grid RowDefinitions="*,Auto">
+@@ -45,7 +45,7 @@
+                             <ScrollViewer x:Name="LogScroller"
+                                           VerticalScrollBarVisibility="Auto"
+                                           HorizontalScrollBarVisibility="Auto">
+-                                <TextBlock x:Name="LogText"
++                                <TextBlock FlowDirection="LeftToRight" x:Name="LogText"
+                                            FontFamily="Cascadia Mono, Consolas"
+                                            FontSize="12"
+                                            Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+@@ -53,7 +53,7 @@
+                                            IsTextSelectionEnabled="True" />
+                             </ScrollViewer>
+                         </Border>
+-                        <HyperlinkButton x:Name="OpenLogButton" Grid.Row="1"
++                        <HyperlinkButton x:Uid="Setup_ProgressPage_OpenLogButton" x:Name="OpenLogButton" Grid.Row="1"
+                                 Content="Open log file" FontSize="12"
+                                 HorizontalAlignment="Right" Margin="0,4,0,0"
+                                 Click="OpenLog_Click" Padding="6,2" />
+@@ -81,11 +81,11 @@
+                 </Border>
+             </Grid>
+             <StackPanel Spacing="6">
+-                <TextBlock Text="Gateway installed"
++                <TextBlock x:Uid="Setup_ProgressPage_TextBlock_1" Text="Gateway installed"
+                            Style="{StaticResource TitleTextBlockStyle}"
+                            HorizontalAlignment="Center" TextAlignment="Center"
+                            AutomationProperties.LiveSetting="Assertive" />
+-                <TextBlock Text="Your private OpenClaw gateway is up and running on this PC."
++                <TextBlock x:Uid="Setup_ProgressPage_TextBlock_2" Text="Your private OpenClaw gateway is up and running on this PC."
+                            Style="{StaticResource BodyTextBlockStyle}"
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                            HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" />
+@@ -99,11 +99,11 @@
+                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                     CornerRadius="4" Padding="16,14" HorizontalAlignment="Stretch">
+                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
+-                    <FontIcon Grid.Column="0" Glyph="&#xE72A;" FontSize="18" IsTextScaleFactorEnabled="False"
++                    <FontIcon Grid.Column="0" Glyph="&#xE72A;" FontSize="18" MirroredWhenRightToLeft="True" IsTextScaleFactorEnabled="False"
+                               Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" VerticalAlignment="Center" />
+                     <StackPanel Grid.Column="1" Spacing="2">
+-                        <TextBlock Text="Up next: OpenClaw onboard" Style="{StaticResource BodyStrongTextBlockStyle}" />
+-                        <TextBlock Text="A few quick questions. Choose your AI provider, model, and key to connect your agent."
++                        <TextBlock x:Uid="Setup_ProgressPage_TextBlock_3" Text="Up next: OpenClaw onboard" Style="{StaticResource BodyStrongTextBlockStyle}" />
++                        <TextBlock x:Uid="Setup_ProgressPage_TextBlock_4" Text="A few quick questions. Choose your AI provider, model, and key to connect your agent."
+                                    Style="{StaticResource CaptionTextBlockStyle}"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" />
+                     </StackPanel>
+@@ -112,7 +112,7 @@
+         </StackPanel>
+ 
