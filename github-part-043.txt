@@ -1,0 +1,326 @@
++    <value>שמור את התצורה; OpenClaw יפעיל את הערוץ באופן אוטומטי.</value>
++  </data>
++  <data name="ChannelsPage_FieldBotToken" xml:space="preserve">
++    <value>בוט token</value>
++  </data>
++  <data name="ChannelsPage_FieldDiscordBotToken" xml:space="preserve">
++    <value>Discord בוט Token</value>
++  </data>
++  <data name="ChannelsPage_PlaceholderDiscordBotToken" xml:space="preserve">
++    <value>הדבק Discord בוט token</value>
++  </data>
++  <data name="ChannelsPage_FieldWebhookUrl" xml:space="preserve">
++    <value>Webhook URL</value>
++  </data>
++  <data name="ChannelsPage_FieldSigningSecret" xml:space="preserve">
++    <value>סוד חתימה</value>
++  </data>
++  <data name="ChannelsPage_FieldPrivateKey" xml:space="preserve">
++    <value>מפתח פרטי (nsec)</value>
++  </data>
++  <data name="ChannelsPage_FieldRelayUrls" xml:space="preserve">
++    <value>כתובות URL של ממסר</value>
++  </data>
++  <data name="ChannelsPage_HelpBotToken" xml:space="preserve">
++    <value>קבל מ-@BotFather (/newbot).</value>
++  </data>
++  <data name="ChannelsPage_HelpDiscordBotToken" xml:space="preserve">
++    <value>העתק מ- Discord פורטל מפתחים → בוט → איפוס Token.</value>
++  </data>
++  <data name="ChannelsPage_HelpWebhookGoogleChat" xml:space="preserve">
++    <value>פתח מרחב → ניהול webhooks → הוסף webhook.</value>
++  </data>
++  <data name="ChannelsPage_HelpSlackBotToken" xml:space="preserve">
++    <value>אסימוני OAuth מהאפליקציה Slack שלך.</value>
++  </data>
++  <data name="ChannelsPage_HelpSlackSigningSecret" xml:space="preserve">
++    <value>מידע בסיסי → אישורי אפליקציה.</value>
++  </data>
++  <data name="ChannelsPage_HelpRelayUrls" xml:space="preserve">
++    <value>אחד לכל line.</value>
++  </data>
++  <data name="ChannelsPage_SaveChanges" xml:space="preserve">
++    <value>שמור שינויים</value>
++  </data>
++  <data name="ChannelsPage_SaveAndStart" xml:space="preserve">
++    <value>שמור והתחל</value>
++  </data>
++  <data name="ChannelsPage_OpenConfigPage" xml:space="preserve">
++    <value>פתח את דף התצורה</value>
++  </data>
++  <data name="ChannelsPage_ConfigPlaceholderConfigured" xml:space="preserve">
++    <value>ערוך את הגדרות הערוץ הזה בדף התצורה Gateway.</value>
++  </data>
++  <data name="ChannelsPage_ConfigPlaceholderUnconfigured" xml:space="preserve">
++    <value>לאחר ביצוע השלבים לעיל, שמור את התצורה כדי להפעיל את ערוץ.</value>
++  </data>
++  <data name="ChannelsPage_BannerNotConnectedTitle" xml:space="preserve">
++    <value>לא מחובר</value>
++  </data>
++  <data name="ChannelsPage_BannerNotConnectedMessage" xml:space="preserve">
++    <value>התחברות ל־Gateway לפני שמירת תצורת הערוץ.</value>
++  </data>
++  <data name="ChannelsPage_BannerMissingFieldTitle" xml:space="preserve">
++    <value>שדה חסר</value>
++  </data>
++  <data name="ChannelsPage_BannerMissingFieldMessage" xml:space="preserve">
++    <value>נדרש {0}.</value>
++  </data>
++  <data name="ChannelsPage_BannerSavingTitle" xml:space="preserve">
++    <value>שמירת {0}…</value>
++  </data>
++  <data name="ChannelsPage_BannerSavingMessage" xml:space="preserve">
++    <value>כתיבת {0} שדה/ים והפעלת הערוץ.</value>
++  </data>
++  <data name="ChannelsPage_BannerCantLoadConfigTitle" xml:space="preserve">
++    <value>לא ניתן היה לטעון את תצורת Gateway</value>
++  </data>
++  <data name="ChannelsPage_BannerCantLoadConfigMessage" xml:space="preserve">
++    <value>ה־Gateway לא החזיר את התצורה הנוכחית שלו: לא ניתן לשמור בבטחה בלעדיה. נסה לרענן ולשמור שוב.</value>
++  </data>
++  <data name="ChannelsPage_BannerConfigClearedMessage" xml:space="preserve">
++    <value>התצורה של Gateway נוקתה באמצע השמירה. נסה לרענן ולשמור שוב.</value>
++  </data>
++  <data name="ChannelsPage_BannerSaveBlockedTitle" xml:space="preserve">
++    <value>שמירה חסומה עבור {0}</value>
++  </data>
++  <data name="ChannelsPage_BannerGatewayNoResponse" xml:space="preserve">
++    <value>ה־Gateway לא הגיב.</value>
++  </data>
++  <data name="ChannelsPage_BannerSaveFailedTitle" xml:space="preserve">
++    <value>השמירה נכשלה עבור {0}</value>
++  </data>
++  <data name="ChannelsPage_BannerStaleConfigMessage" xml:space="preserve">
++    <value>תצורת Gateway שלך השתנתה במקום אחר (למשל, מדף התצורה). רעננו את המטמון. נסה לשמור שוב. פרטים: {0}</value>
++  </data>
++  <data name="ChannelsPage_BannerSaveFailedMessage" xml:space="preserve">
++    <value>{0} אם זה נראה כמו אי התאמה בפורמט ה-wire, פתח את דף התצורה לעריכה ישירה של JSON.</value>
++  </data>
++  <data name="ChannelsPage_BannerConfigSavedTitle" xml:space="preserve">
++    <value>תצורת {0} נשמרה</value>
++  </data>
++  <data name="ChannelsPage_BannerConfigSavedMessage" xml:space="preserve">
++    <value>ממתין לאישור של Gateway שהערוץ פועל…</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostControlsTitle.Text" xml:space="preserve">
++    <value>WSL Gateway</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostControlsDescription.Text" xml:space="preserve">
++    <value>פתח מעטפת או נהל את שירות Gateway המקומי ב- WSL.</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostTerminalLabel.Text" xml:space="preserve">
++    <value>טרמינל</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostStartButton.Content" xml:space="preserve">
++    <value>התחלה</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostStopButton.Content" xml:space="preserve">
++    <value>עצור</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostRestartButton.Content" xml:space="preserve">
++    <value>הפעלה מחדש</value>
++  </data>
++  <data name="ConnectionPage_StripTerminalButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>פתח טרמינל</value>
++  </data>
++  <data name="ConnectionPage_StripTerminalButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>פתח טרמינל</value>
++  </data>
++  <data name="ConnectionPage_StripDashboardButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>פתח לוח מחוונים (בדפדפן)</value>
++  </data>
++  <data name="ConnectionPage_StripDashboardButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>פתח לוח מחוונים</value>
++  </data>
++  <data name="ConnectionPage_ConnectionToggle.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>ניתוק / חיבור מחדש</value>
++  </data>
++  <data name="ConnectionPage_ConnectionToggle.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>ניתוק או חיבור מחדש</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostOpenTerminalButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>פתח טרמינל</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostOpenTerminalButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>פתח טרמינל</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostStartButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>הפעלת openclaw Gateway start ב־WSL</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostStartButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>הפעלה WSL Gateway</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostStopButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>הפעלת openclaw Gateway stop ב־WSL</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostStopButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>עצירה WSL Gateway</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostRestartButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>הפעלת openclaw Gateway restart ב־WSL</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostRestartButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>הפעל מחדש WSL Gateway</value>
++  </data>
++  <data name="AgentEventsPage_Status_Live" xml:space="preserve">
++    <value>שידור חי</value>
++  </data>
++  <data name="AgentEventsPage_Status_Offline" xml:space="preserve">
++    <value>לא מקוון</value>
++  </data>
++  <data name="BindingsPage_CouldNotLoadBindings" xml:space="preserve">
++    <value>לא ניתן היה לטעון את הקשרים</value>
++  </data>
++  <data name="Command_GoToAgentEvents_Subtitle" xml:space="preserve">
++    <value>יומן אירועי סוכן</value>
++  </data>
++  <data name="Command_GoToAgentEvents_Title" xml:space="preserve">
++    <value>עבור אל אירועי סוכן</value>
++  </data>
++  <data name="Command_GoToBindings_Subtitle" xml:space="preserve">
++    <value>Gateway קישורים</value>
++  </data>
++  <data name="Command_GoToBindings_Title" xml:space="preserve">
++    <value>עבור אל קישורים</value>
++  </data>
++  <data name="Command_GoToChannels_Subtitle" xml:space="preserve">
++    <value>Gateway ערוצים</value>
++  </data>
++  <data name="Command_GoToChannels_Title" xml:space="preserve">
++    <value>עבור אל ערוצים</value>
++  </data>
++  <data name="Command_GoToChat_Subtitle" xml:space="preserve">
++    <value>פתח צ'אט</value>
++  </data>
++  <data name="Command_GoToChat_Title" xml:space="preserve">
++    <value>עבור אל צ'אט</value>
++  </data>
++  <data name="Command_GoToConfig_Subtitle" xml:space="preserve">
++    <value>Gateway תצורה</value>
++  </data>
++  <data name="Command_GoToConfig_Title" xml:space="preserve">
++    <value>עבור אל תצורה</value>
++  </data>
++  <data name="Command_GoToConnection_Subtitle" xml:space="preserve">
++    <value>Gateway, Node, שערים שמורים</value>
++  </data>
++  <data name="Command_GoToConnection_Title" xml:space="preserve">
++    <value>עבור אל חיבור</value>
++  </data>
++  <data name="Command_GoToCron_Subtitle" xml:space="preserve">
++    <value>משימות מתוזמנות</value>
++  </data>
++  <data name="Command_GoToCron_Title" xml:space="preserve">
++    <value>עבור אל Cron ({0})</value>
++  </data>
++  <data name="Command_GoToDiagnostics_Subtitle" xml:space="preserve">
++    <value>יומני רישום, חבילת תמיכה, זהות מכשיר, כלי פיתוח</value>
++  </data>
++  <data name="Command_GoToDiagnostics_Title" xml:space="preserve">
++    <value>עבור אל אבחון</value>
++  </data>
++  <data name="Command_GoToNotifications_Subtitle" xml:space="preserve">
++    <value>סקירת התראות אפליקציה פעילות</value>
++  </data>
++  <data name="Command_GoToNotifications_Title" xml:space="preserve">
++    <value>עבור אל התראות</value>
++  </data>
++  <data name="Command_GoToInstances_Subtitle" xml:space="preserve">
++    <value>Gateway מופעים</value>
++  </data>
++  <data name="Command_GoToInstances_Title" xml:space="preserve">
++    <value>עבור אל מופעים</value>
++  </data>
++  <data name="Command_GoToPermissions_Subtitle" xml:space="preserve">
++    <value>יכולות, מדיניות הפעלה ורשימות היתרים</value>
++  </data>
++  <data name="Command_GoToPermissions_Title" xml:space="preserve">
++    <value>עבור אל הרשאות</value>
++  </data>
++  <data name="Command_GoToSessions_Subtitle" xml:space="preserve">
++    <value>כל ההפעלות</value>
++  </data>
++  <data name="Command_GoToSessions_Title" xml:space="preserve">
++    <value>עבור אל הפעלות</value>
++  </data>
++  <data name="Command_GoToSettings_Subtitle" xml:space="preserve">
++    <value>הגדרות אפליקציה</value>
++  </data>
++  <data name="Command_GoToSettings_Title" xml:space="preserve">
++    <value>עבור אל הגדרות</value>
++  </data>
++  <data name="Command_GoToSkills_Subtitle" xml:space="preserve">
++    <value>מיומנויות רשומות</value>
++  </data>
++  <data name="Command_GoToSkills_Title" xml:space="preserve">
++    <value>עבור אל מיומנויות</value>
++  </data>
++  <data name="Command_GoToUsage_Subtitle" xml:space="preserve">
++    <value>סטטיסטיקות שימוש</value>
++  </data>
++  <data name="Command_GoToUsage_Title" xml:space="preserve">
++    <value>עבור אל שימוש</value>
++  </data>
++  <data name="Command_GoToWorkspace_Subtitle" xml:space="preserve">
++    <value>קבצי סביבת עבודה</value>
++  </data>
++  <data name="Command_GoToWorkspace_Title" xml:space="preserve">
++    <value>עבור אל סביבת עבודה ({0})</value>
++  </data>
++  <data name="Command_OpenChatWindow_Subtitle" xml:space="preserve">
++    <value>פתח צ'אט עצמאי</value>
++  </data>
++  <data name="Command_OpenChatWindow_Title" xml:space="preserve">
++    <value>פתח חלון צ'אט</value>
++  </data>
++  <data name="Command_OpenDashboard_Subtitle" xml:space="preserve">
++    <value>פתח לוח מחוונים של האינטרנט</value>
++  </data>
++  <data name="Command_OpenDashboard_Title" xml:space="preserve">
++    <value>פתח לוח מחוונים</value>
++  </data>
++  <data name="Command_Subtitle_CurrentlyOff" xml:space="preserve">
++    <value>כרגע כבוי</value>
++  </data>
++  <data name="Command_Subtitle_CurrentlyOn" xml:space="preserve">
++    <value>כרגע מופעל</value>
++  </data>
++  <data name="Command_ToggleBrowserControl_Title" xml:space="preserve">
++    <value>החלף/הפעל בקרת דפדפן</value>
++  </data>
++  <data name="Command_ToggleCamera_Title" xml:space="preserve">
++    <value>החלף/הפעל מצלמה</value>
++  </data>
++  <data name="Command_ToggleCanvas_Title" xml:space="preserve">
++    <value>החלף/הפעל בד ציור</value>
++  </data>
++  <data name="Command_ToggleNodeMode_Title" xml:space="preserve">
++    <value>החלף/הפעל Node מצב</value>
++  </data>
++  <data name="Command_ToggleScreenCapture_Title" xml:space="preserve">
++    <value>החלף/הפעל צילום מסך</value>
++  </data>
++  <data name="CommandCenter_AuthFailed" xml:space="preserve">
++    <value>Gateway אימות נכשל</value>
++  </data>
++  <data name="CommandCenter_BrowserProxyAuthMayNeed" xml:space="preserve">
++    <value>בקרת דפדפן זקוקה לשיתוף Gateway token</value>
++  </data>
++  <data name="CommandCenter_BrowserProxyHostNotDetected" xml:space="preserve">
++    <value>לא זוהה מארח פרוקסי של דפדפן</value>
++  </data>
++  <data name="CommandCenter_BrowserProxySshForwardNotListening" xml:space="preserve">
++    <value>פרוקסי דפדפן SSH העברה לא מקשיבה</value>
++  </data>
++  <data name="CommandCenter_GatewayConnectionError" xml:space="preserve">
++    <value>שגיאת חיבור Gateway</value>
++  </data>
++  <data name="CommandCenter_GatewayHealthStale" xml:space="preserve">
++    <value>תקינות Gateway תקינה</value>
++  </data>
++  <data name="CommandCenter_GatewayNotConnected" xml:space="preserve">
++    <value>Gateway לא מחובר</value>
++  </data>
++  <data name="CommandCenter_NoChannelsReported" xml:space="preserve">
++    <value>לא דווחו ערוצים</value>
++  </data>
