@@ -1,0 +1,232 @@
++    <value>Installing clean WSL gateway</value>
++  </data>
++  <data name="Setup_Progress_Group_WslConfigure" xml:space="preserve">
++    <value>Configuring instance</value>
++  </data>
++  <data name="Setup_Progress_Group_InstallCli" xml:space="preserve">
++    <value>Installing OpenClaw</value>
++  </data>
++  <data name="Setup_Progress_Group_LocalAiWsl" xml:space="preserve">
++    <value>Verify WSL access to Local AI</value>
++  </data>
++  <data name="Setup_Progress_Group_TailscaleAuth" xml:space="preserve">
++    <value>Connecting Tailscale</value>
++  </data>
++  <data name="Setup_Progress_Group_Configure" xml:space="preserve">
++    <value>Preparing gateway</value>
++  </data>
++  <data name="Setup_Progress_Group_Start" xml:space="preserve">
++    <value>Starting gateway</value>
++  </data>
++  <data name="Setup_Progress_Group_TailscaleServe" xml:space="preserve">
++    <value>Publishing on Tailscale</value>
++  </data>
++  <data name="Setup_Progress_Group_Pairing" xml:space="preserve">
++    <value>Pairing device</value>
++  </data>
++  <data name="Setup_Progress_Group_Finish" xml:space="preserve">
++    <value>Finishing setup</value>
++  </data>
++
++  <data name="Setup_AdvancedSetupPage_TextBlock_GatewayExample.Text" xml:space="preserve">
++    <value>Connect to a gateway running here, on another PC, or remote. For example, use ws://host.local:18790.</value>
++  </data>
++
++  <data name="Setup_Wizard_PreviewWelcome" xml:space="preserve">
++    <value>Welcome: let's connect your agent</value>
++  </data>
++  <data name="Setup_Wizard_PreviewProvider" xml:space="preserve">
++    <value>Choose your AI provider</value>
++  </data>
++  <data name="Setup_Wizard_PreviewApiKey" xml:space="preserve">
++    <value>Paste your API key</value>
++  </data>
++  <data name="Setup_Wizard_Connecting" xml:space="preserve">
++    <value>Connecting to gateway...</value>
++  </data>
++  <data name="Setup_Wizard_Starting" xml:space="preserve">
++    <value>Starting wizard...</value>
++  </data>
++  <data name="Setup_Wizard_Loading" xml:space="preserve">
++    <value>Loading...</value>
++  </data>
++  <data name="Setup_Wizard_StartingOver" xml:space="preserve">
++    <value>Starting over...</value>
++  </data>
++  <data name="Setup_Wizard_OpenTerminalFailedFormat" xml:space="preserve">
++    <value>Couldn't open a terminal: {0}</value>
++  </data>
++  <data name="Setup_Wizard_RestartingFormat" xml:space="preserve">
++    <value>Restarting {0}...</value>
++  </data>
++  <data name="Setup_Wizard_SkippingWizard" xml:space="preserve">
++    <value>Skipping wizard...</value>
++  </data>
++  <data name="Setup_Wizard_FinishingWindows" xml:space="preserve">
++    <value>Finishing Windows integration...</value>
++  </data>
++  <data name="Setup_Wizard_WindowsGuidanceFailedFormat" xml:space="preserve">
++    <value>OpenClaw onboard finished, but Windows node guidance could not be installed: {0}</value>
++  </data>
++  <data name="Setup_Progress_CrashedFormat" xml:space="preserve">
++    <value>Setup crashed: {0}</value>
++  </data>
++  <data name="Setup_Capability_System_Name" xml:space="preserve">
++    <value>System</value>
++  </data>
++  <data name="Setup_Capability_System_Description" xml:space="preserve">
++    <value>Shell commands, files, clipboard</value>
++  </data>
++  <data name="Setup_Capability_Canvas_Name" xml:space="preserve">
++    <value>Canvas</value>
++  </data>
++  <data name="Setup_Capability_Canvas_Description" xml:space="preserve">
++    <value>Whiteboard and annotations</value>
++  </data>
++  <data name="Setup_Capability_Screen_Name" xml:space="preserve">
++    <value>Screen capture</value>
++  </data>
++  <data name="Setup_Capability_Screen_Description" xml:space="preserve">
++    <value>Screenshots and recording</value>
++  </data>
++  <data name="Setup_Capability_Camera_Name" xml:space="preserve">
++    <value>Camera</value>
++  </data>
++  <data name="Setup_Capability_Camera_Description" xml:space="preserve">
++    <value>Webcam photos and video</value>
++  </data>
++  <data name="Setup_Capability_Location_Name" xml:space="preserve">
++    <value>Location</value>
++  </data>
++  <data name="Setup_Capability_Location_Description" xml:space="preserve">
++    <value>Share device location</value>
++  </data>
++  <data name="Setup_Capability_Browser_Name" xml:space="preserve">
++    <value>Browser</value>
++  </data>
++  <data name="Setup_Capability_Browser_Description" xml:space="preserve">
++    <value>Web navigation and automation</value>
++  </data>
++  <data name="Setup_Capability_Tts_Name" xml:space="preserve">
++    <value>Text-to-speech</value>
++  </data>
++  <data name="Setup_Capability_Tts_Description" xml:space="preserve">
++    <value>Speak text aloud</value>
++  </data>
++  <data name="Setup_Capability_Stt_Name" xml:space="preserve">
++    <value>Speech-to-text</value>
++  </data>
++  <data name="Setup_Capability_Stt_Description" xml:space="preserve">
++    <value>Transcribe spoken audio</value>
++  </data>
++  <data name="Setup_Capabilities_GpuEligibleFormat" xml:space="preserve">
++    <value>Detected {0} with {1}. The selected model requires {2}.</value>
++  </data>
++  <data name="Setup_Capabilities_GpuBusyFormat" xml:space="preserve">
++    <value>Detected {0}, but only {1} of {2} required GPU memory is currently free. Close GPU applications and retry setup.</value>
++  </data>
++  <data name="Setup_Capabilities_EngineDetailFormat" xml:space="preserve">
++    <value>llama-server for Windows; {0} verified download</value>
++  </data>
++  <data name="Setup_Capabilities_ModelDetailFormat" xml:space="preserve">
++    <value>{0}, {1} from Hugging Face</value>
++  </data>
++  <data name="Setup_Capabilities_SettingsDetailFormat" xml:space="preserve">
++    <value>{0}K context, FP16 KV cache, full CUDA offload, loads on first request</value>
++  </data>
++  <data name="Setup_Capabilities_TailscaleConnectedFormat" xml:space="preserve">
++    <value>Windows Tailscale connected as {0}.</value>
++  </data>
++  <data name="Setup_Capabilities_CustomReview" xml:space="preserve">
++    <value>Custom capabilities (review)</value>
++  </data>
++  <data name="Setup_Capabilities_UnknownAmount" xml:space="preserve">
++    <value>an unknown amount</value>
++  </data>
++
++  <data name="SandboxPage_AllowInternet.OffContent" xml:space="preserve">
++    <value>Off: agent cannot reach the internet</value>
++  </data>
++  <data name="SandboxPage_AllowInternet.OnContent" xml:space="preserve">
++    <value>On: agent can connect to public internet endpoints</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_InfoBar_1.Message" xml:space="preserve">
++    <value>The AI agent you connect (for example, Claude) can take powerful actions on this PC, including running commands, reading and writing files, and capturing your screen. Those actions depend on what you allow.
++
++Only set this up on a computer you trust, and only continue if you understand the risks and trust the prompts and integrations you use. You choose exactly what to allow in the next steps.</value>
++  </data>
++  <data name="Setup_CompletePage_NodeModeBanner.Message" xml:space="preserve">
++    <value>This PC will operate as a remote compute node. The gateway can invoke screen capture, camera, and system commands on this machine.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiUnavailablePanel.Message" xml:space="preserve">
++    <value>This PC does not meet one or more Local AI requirements.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_SeveralGb.Text" xml:space="preserve"><value>Several GB</value></data>
++  <data name="Setup_CapabilitiesPage_TailscaleSignInBrowser.Content" xml:space="preserve"><value>Sign in in browser</value></data>
++  <data name="Setup_CapabilitiesPage_TailscaleOneOffAuthKey.Content" xml:space="preserve"><value>Use one-off auth key</value></data>
++  <data name="Setup_Window_StartupPreferenceSaveFailedFormat" xml:space="preserve"><value>Setup completed, but saving your startup preference failed: {0}</value></data>
++  <data name="SessionsPage_ActionUnavailableTitle" xml:space="preserve"><value>Action unavailable</value></data>
++  <data name="SessionsPage_ActionUnavailableMessage" xml:space="preserve"><value>This action isn't available.</value></data>
++  <data name="SessionsPage_DeleteUnavailableMessage" xml:space="preserve"><value>Delete isn't available for this session.</value></data>
++  <data name="SessionsPage_ActionFailedTitleFormat" xml:space="preserve"><value>{0} failed</value></data>
++  <data name="SessionsPage_ActionRejectedMessage" xml:space="preserve"><value>The gateway didn't accept the request. Try again.</value></data>
++  <data name="SessionsPage_ExportUnavailableTitle" xml:space="preserve"><value>Export unavailable</value></data>
++  <data name="SessionsPage_ExportRequiresWindowMessage" xml:space="preserve"><value>Open the app window before exporting a transcript.</value></data>
++  <data name="SessionsPage_ExportNotSupportedTitle" xml:space="preserve"><value>Not supported</value></data>
++  <data name="SessionsPage_ExportNotSupportedMessage" xml:space="preserve"><value>This gateway doesn't support exporting a transcript. Update the gateway to use this.</value></data>
++  <data name="SessionsPage_ExportFailedTitle" xml:space="preserve"><value>Export failed</value></data>
++  <data name="SessionsPage_NothingToExportTitle" xml:space="preserve"><value>Nothing to export</value></data>
++  <data name="SessionsPage_NothingToExportMessage" xml:space="preserve"><value>This session has no transcript yet.</value></data>
++  <data name="SessionsPage_TextFileType" xml:space="preserve"><value>Text file</value></data>
++  <data name="SessionsPage_TranscriptExportedTitle" xml:space="preserve"><value>Transcript exported</value></data>
++  <data name="SessionsPage_TranscriptExportedMessageFormat" xml:space="preserve"><value>Saved {0} messages to {1}.</value></data>
++  <data name="SessionsPage_CompactedKeptFormat" xml:space="preserve"><value> Kept {0} lines.</value></data>
++  <data name="SessionsPage_CheckpointCreatedTitle" xml:space="preserve"><value>Checkpoint created</value></data>
++  <data name="SessionsPage_CheckpointCreatedMessageFormat" xml:space="preserve"><value>Compacted {0}.{1} View it from the session's Checkpoints menu.</value></data>
++  <data name="SessionsPage_NothingToCompactTitle" xml:space="preserve"><value>Nothing to compact</value></data>
++  <data name="SessionsPage_NothingToCompactMessageFormat" xml:space="preserve"><value>{0} was already compact; no checkpoint was created.</value></data>
++  <data name="SessionsPage_SessionCompactedTitle" xml:space="preserve"><value>Session compacted</value></data>
++  <data name="SessionsPage_SessionCompactedMessageFormat" xml:space="preserve"><value>Compacted {0}. Refresh Checkpoints to see any new entries.</value></data>
++  <data name="SessionsPage_SessionFallback" xml:space="preserve"><value>session</value></data>
++  <data name="SessionsPage_Refreshing" xml:space="preserve"><value>Refreshing…</value></data>
++  <data name="SessionsPage_Refresh" xml:space="preserve"><value>Refresh</value></data>
++  <data name="SettingsPage_TestNotificationTitle" xml:space="preserve"><value>Test notification</value></data>
++  <data name="SettingsPage_TestNotificationMessage" xml:space="preserve"><value>This is a test notification from OpenClaw settings.</value></data>
++  <data name="SettingsPage_RemoveGatewayDialogIntro" xml:space="preserve"><value>This will permanently remove the following:</value></data>
++  <data name="SettingsPage_RemoveGatewayDialogItemsFormat" xml:space="preserve"><value>• WSL distro: {0} (and its disk image)&#x0A;• Autostart registry entry&#x0A;• Gateway credentials (token and bootstrap token cleared)&#x0A;• Setup state (onboarding will reset)</value></data>
++  <data name="SettingsPage_RemoveGatewayDialogPreserved" xml:space="preserve"><value>Preserved: Your MCP token and root device key are NOT deleted.&#x0A;Removed: Local gateway identity credentials and registry records.</value></data>
++  <data name="SettingsPage_RemoveGatewayDialogIrreversible" xml:space="preserve"><value>This cannot be undone.</value></data>
++  <data name="SettingsPage_RemoveGatewayDialogTitle" xml:space="preserve"><value>Remove Local Gateway?</value></data>
++  <data name="VoiceSettingsPage_InlineRecording" xml:space="preserve"><value>Recording</value></data>
++  <data name="VoiceSettingsPage_InlineStop" xml:space="preserve"><value>Stop</value></data>
++  <data name="VoiceSettingsPage_InlineStartFailed" xml:space="preserve"><value>Could not start voice input</value></data>
++  <data name="VoiceSettingsPage_InlineRecord" xml:space="preserve"><value>Record</value></data>
++  <data name="VoiceSettingsPage_InlineDone" xml:space="preserve"><value>Done</value></data>
++  <data name="ConfigPage_SelectSectionForJsonPreview" xml:space="preserve"><value>Select a section to preview its JSON.</value></data>
++  <data name="ConfigPage_SelectedJsonPreviewUnavailable" xml:space="preserve"><value>Selected section JSON preview is unavailable.</value></data>
++  <data name="ConfigPage_MissingReadPermissionPlaceholder" xml:space="preserve"><value>Config cannot be loaded because this operator token does not have read permission.</value></data>
++  <data name="ConfigPage_MissingOperatorReadPermission" xml:space="preserve"><value>Missing operator.read permission</value></data>
++  <data name="ConfigPage_PreviewRequiresReadPermission" xml:space="preserve"><value>Config preview is unavailable without read permission.</value></data>
++  <data name="ConfigPage_LoadingSection" xml:space="preserve"><value>Loading section…</value></data>
++  <data name="SkillsPage_Disable" xml:space="preserve"><value>Disable</value></data>
++  <data name="SkillsPage_Enable" xml:space="preserve"><value>Enable</value></data>
++  <data name="UsagePage_DisconnectedListMessage" xml:space="preserve"><value>Couldn't load. Check your gateway connection.</value></data>
++  <data name="UsagePage_DailyEmptyMessage" xml:space="preserve"><value>No daily usage for this period</value></data>
++  <data name="UsagePage_ProviderEmptyMessage" xml:space="preserve"><value>No providers configured</value></data>
++  <data name="DebugPage_NoLogFile" xml:space="preserve"><value>No log file found.</value></data>
++  <data name="DebugPage_ReadLogFailedFormat" xml:space="preserve"><value>Failed to read log: {0}</value></data>
++  <data name="DebugPage_PreparingDiagnosticsBundle" xml:space="preserve"><value>Preparing diagnostics bundle…</value></data>
++  <data name="DebugPage_SupportContext" xml:space="preserve"><value>Support context</value></data>
++  <data name="DebugPage_SummaryDebugBundle" xml:space="preserve"><value>Summary debug bundle</value></data>
++  <data name="DebugPage_BrowserSetupGuidance" xml:space="preserve"><value>Browser setup guidance</value></data>
++  <data name="DebugPage_PortDiagnostics" xml:space="preserve"><value>Port diagnostics</value></data>
++  <data name="DebugPage_CapabilityDiagnostics" xml:space="preserve"><value>Capability diagnostics</value></data>
++  <data name="DebugPage_NotFound" xml:space="preserve"><value>Not found</value></data>
++  <data name="DebugPage_NoDeviceKeyFile" xml:space="preserve"><value>No device key file</value></data>
++  <data name="DebugPage_ErrorFormat" xml:space="preserve"><value>Error: {0}</value></data>
++  <data name="Common_Unknown" xml:space="preserve"><value>unknown</value></data>
++  <data name="Toast_NodeModeHealthStreaming" xml:space="preserve"><value>Node Mode is connected; gateway health is streaming.</value></data>
++  <data name="Toast_SshTunnelTitle" xml:space="preserve"><value>SSH tunnel</value></data>
++  <data name="Toast_SshTunnelNotEnabled" xml:space="preserve"><value>Managed SSH tunnel mode is not enabled.</value></data>
++  <data name="Toast_SshTunnelRestarted" xml:space="preserve"><value>Restarted and authenticated.</value></data>
++  <data name="Toast_SshTunnelRestartFailedTitle" xml:space="preserve"><value>SSH tunnel restart failed</value></data>
