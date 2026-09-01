@@ -1,0 +1,319 @@
++  <data name="V2_Progress_Stage_PreparingGateway" xml:space="preserve">
++    <value>מכין את ה־Gateway</value>
++  </data>
++  <data name="V2_Progress_Stage_StartingGateway" xml:space="preserve">
++    <value>מפעיל את ה־Gateway</value>
++  </data>
++  <data name="V2_Progress_Stage_GeneratingSetupCode" xml:space="preserve">
++    <value>יצירת קוד התקנה</value>
++  </data>
++  <data name="V2_Progress_TryAgain" xml:space="preserve">
++    <value>ניסיון נוסף</value>
++  </data>
++  <data name="V2_Gateway_Title" xml:space="preserve">
++    <value>הגדרת Gateway</value>
++  </data>
++  <data name="V2_Gateway_CardHeader" xml:space="preserve">
++    <value>ברוכים הבאים ל־OpenClaw Gateway</value>
++  </data>
++  <data name="V2_Gateway_CardBody1" xml:space="preserve">
++    <value>ה-OpenClaw Gateway המקומי שלך פועל ב-http://localhost:18789. בקר בו כדי להוסיף את ספק הבינה המלאכותית הראשון שלך ולהגדיר את הסוכן שלך.</value>
++  </data>
++  <data name="V2_Gateway_CardBody2" xml:space="preserve">
++    <value>כל הבקשות מעובדות במחשב זה. הנתונים שלך נשארים מקומיים.</value>
++  </data>
++  <data name="V2_Gateway_OpenInBrowser" xml:space="preserve">
++    <value>פתח את http://localhost:18789 בדפדפן</value>
++  </data>
++  <data name="V2_Permissions_Title" xml:space="preserve">
++    <value>הענק הרשאות</value>
++  </data>
++  <data name="V2_Permissions_Body" xml:space="preserve">
++    <value>OpenClaw פועל בצורה הטובה ביותר כאשר הוא יכול לשלוח התראות, לגשת למצלמה ולמיקרופון שלך, ללכוד את המסך שלך ולדעת את מיקומך. הענק הרשאות למטה.</value>
++  </data>
++  <data name="V2_Permissions_Row_Notifications" xml:space="preserve">
++    <value>התראות</value>
++  </data>
++  <data name="V2_Permissions_Row_Camera" xml:space="preserve">
++    <value>מצלמה</value>
++  </data>
++  <data name="V2_Permissions_Row_Microphone" xml:space="preserve">
++    <value>מיקרופון</value>
++  </data>
++  <data name="V2_Permissions_Row_Location" xml:space="preserve">
++    <value>מיקום (אופציונלי)</value>
++  </data>
++  <data name="V2_Permissions_Row_ScreenCapture" xml:space="preserve">
++    <value>צילום מסך</value>
++  </data>
++  <data name="V2_Permissions_OpenSettings" xml:space="preserve">
++    <value>פתח את ההגדרות</value>
++  </data>
++  <data name="V2_Permissions_Refresh" xml:space="preserve">
++    <value>רענון מצב</value>
++  </data>
++  <data name="V2_Permissions_Status_Enabled" xml:space="preserve">
++    <value>מופעל</value>
++  </data>
++  <data name="V2_Permissions_Status_Available" xml:space="preserve">
++    <value>זמין – משתמש בבורר לכל לכידה</value>
++  </data>
++  <data name="V2_AllSet_Title" xml:space="preserve">
++    <value>מוכן!</value>
++  </data>
++  <data name="V2_AllSet_Subtitle" xml:space="preserve">
++    <value>OpenClaw מוכן לפעולה</value>
++  </data>
++  <data name="V2_AllSet_NodeMode_Title" xml:space="preserve">
++    <value>מצב Node פעיל</value>
++  </data>
++  <data name="V2_AllSet_NodeMode_Body" xml:space="preserve">
++    <value>מחשב זה יפעל כמחשב מרוחק Node. ה־Gateway יכול להפעיל פקודות צילום מסך, מצלמה ומערכת במחשב זה.</value>
++  </data>
++  <data name="V2_AllSet_StartupQuestion" xml:space="preserve">
++    <value>להפעיל את OpenClaw בעת האתחול?</value>
++  </data>
++  <data name="V2_AllSet_On" xml:space="preserve">
++    <value>מופעל</value>
++  </data>
++  <data name="V2_AllSet_Off" xml:space="preserve">
++    <value>כבוי</value>
++  </data>
++  <data name="V2_Welcome_Replace_Heading" xml:space="preserve">
++    <value>זוהתה הגדרה קיימת</value>
++  </data>
++  <data name="V2_Welcome_Replace_Body" xml:space="preserve">
++    <value>הגדרה מקומית תחליף את הגדרות OpenClaw הקיימות שלך.</value>
++  </data>
++  <data name="V2_Welcome_Replace_Confirm" xml:space="preserve">
++    <value>החלפת ההגדרות שלי</value>
++  </data>
++  <data name="V2_Welcome_Replace_Keep" xml:space="preserve">
++    <value>שמירה על ההגדרות שלי</value>
++  </data>
++  <data name="FilterAllButton.Text" xml:space="preserve">
++    <value>הכל</value>
++  </data>
++  <data name="ChannelsPage_Title.Text" xml:space="preserve">
++    <value>ערוצים</value>
++  </data>
++  <data name="ChannelsPage_Refresh.Text" xml:space="preserve">
++    <value>רענון</value>
++  </data>
++  <data name="ChannelsPage_ConfiguredHeader.Text" xml:space="preserve">
++    <value>מוגדר</value>
++  </data>
++  <data name="ChannelsPage_AvailableHeader.Text" xml:space="preserve">
++    <value>זמין</value>
++  </data>
++  <data name="ChatPageHomeToolTip.Content" xml:space="preserve">
++    <value>דף הבית</value>
++  </data>
++  <data name="ChatPageRefreshToolTip.Content" xml:space="preserve">
++    <value>רענון</value>
++  </data>
++  <data name="ChatPageDeveloperToolsToolTip.Content" xml:space="preserve">
++    <value>כלי פיתוח</value>
++  </data>
++  <data name="SettingsRow_AutoStart_Header.Text" xml:space="preserve">
++    <value>התחל עם Windows</value>
++  </data>
++  <data name="SettingsRow_GlobalHotkey_Header.Text" xml:space="preserve">
++    <value>מקשי קיצור גלובליים</value>
++  </data>
++  <data name="SettingsRow_LegacyChat_Header.Text" xml:space="preserve">
++    <value>השתמש בממשק הצ'אט של Gateway</value>
++  </data>
++  <data name="SettingsRow_Notifications_Header.Text" xml:space="preserve">
++    <value>הצג התראות</value>
++  </data>
++  <data name="SettingsRow_NotifSound_Header.Text" xml:space="preserve">
++    <value>צליל</value>
++  </data>
++  <data name="SettingsRow_ScreenRec_Header.Text" xml:space="preserve">
++    <value>אפשר הקלטת מסך</value>
++  </data>
++  <data name="SettingsRow_CamRec_Header.Text" xml:space="preserve">
++    <value>אפשר הקלטת מצלמה</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_Voice.Content" xml:space="preserve">
++    <value>קול ואודיו</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_Sandbox.Content" xml:space="preserve">
++    <value>ארגז חול</value>
++  </data>
++  <data name="ChannelsPage_GuideBar.Title" xml:space="preserve">
++    <value>ה־Gateway שלך לא רשם ערוצים</value>
++  </data>
++  <data name="ChannelsPage_GuideBar.Message" xml:space="preserve">
++    <value>ערוצים מוגדרים ב־Gateway שלך. כדי להוסיף ערוצים, הרחב אותם למטה ומלא את פרטי הגישה שלהם. הטופס נשמר ישירות בתצורה של Gateway שלך. מדריך ההתקנה ידריך אותך בכל ערוץ מקצה לקצה.</value>
++  </data>
++  <data name="ChannelsPage_DocsLink.Content" xml:space="preserve">
++    <value>קרא את מדריך הערוצים</value>
++  </data>
++  <data name="ChannelsPage_NotConnected.Title" xml:space="preserve">
++    <value>לא מחובר</value>
++  </data>
++  <data name="ChannelsPage_NotConnected.Message" xml:space="preserve">
++    <value>התחבר ל־Gateway כדי לנהל ערוצים.</value>
++  </data>
++  <data name="ChannelsPage_EmptyTitle.Text" xml:space="preserve">
++    <value>אין ערוצים זמינים</value>
++  </data>
++  <data name="ChannelsPage_EmptySubtitle.Text" xml:space="preserve">
++    <value>ה־Gateway לא דיווח על ערוצים. התקן תוספי ערוצים ב־Gateway ורענן.</value>
++  </data>
++  <data name="DiagnosticsPage_Title.Text" xml:space="preserve">
++    <value>אבחון</value>
++  </data>
++  <data name="DiagnosticsPage_Subtitle.Text" xml:space="preserve">
++    <value>בדוק, ייצא ופתור בעיות בהתקנת OpenClaw שלך.</value>
++  </data>
++  <data name="DiagnosticsPage_ManageOnConnection.Content" xml:space="preserve">
++    <value>ניהול בדף החיבור</value>
++  </data>
++  <data name="DiagnosticsPage_Section_Gateway.Text" xml:space="preserve">
++    <value>Gateway</value>
++  </data>
++  <data name="DiagnosticsPage_Card_Doctor.Header" xml:space="preserve">
++    <value>הפעל את Gateway doctor</value>
++  </data>
++  <data name="DiagnosticsPage_Card_Doctor.Description" xml:space="preserve">
++    <value>פותח טרמינל ומפעיל את openclaw doctor כדי לבדוק אם יש בעיות ב־Gateway המקומי.</value>
++  </data>
++  <data name="DiagnosticsPage_Section_Share.Text" xml:space="preserve">
++    <value>שתף אבחונים עם התמיכה</value>
++  </data>
++  <data name="DiagnosticsPage_Card_Bundle.Header" xml:space="preserve">
++    <value>צור חבילת אבחונים</value>
++  </data>
++  <data name="DiagnosticsPage_Card_Bundle.Description" xml:space="preserve">
++    <value>כולל חיבור, Gateway, יציאות, יכולות, יומן רישום וסיכום מכשיר. הצג תצוגה מקדימה לפני שיתוף.</value>
++  </data>
++  <data name="DiagnosticsPage_Card_OpenDiagnosticsFolder.Header" xml:space="preserve">
++    <value>פתח תיקיית אבחונים</value>
++  </data>
++  <data name="DiagnosticsPage_Card_OpenDiagnosticsFolder.Description" xml:space="preserve">
++    <value>יומני רישום ואבחונים מובנים (.jsonl) חיים כאן.</value>
++  </data>
++  <data name="DiagnosticsPage_Expander_SpecificCopies.Header" xml:space="preserve">
++    <value>העתק טקסט אבחון ספציפי</value>
++  </data>
++  <data name="DiagnosticsPage_Expander_SpecificCopies.Description" xml:space="preserve">
++    <value>שלח רק פיסת הקשר אחת.</value>
++  </data>
++  <data name="DiagnosticsPage_Card_CopySupport.Header" xml:space="preserve">
++    <value>העתק הקשר תמיכה</value>
++  </data>
++  <data name="DiagnosticsPage_Card_CopySupport.Description" xml:space="preserve">
++    <value>מצב חיבור, Gateway URL, זמן ריצה, מנהרה.</value>
++  </data>
++  <data name="DiagnosticsPage_Card_CopyDebugBundle.Header" xml:space="preserve">
++    <value>העתק חבילת ניפוי שגיאות סיכום</value>
++  </data>
++  <data name="DiagnosticsPage_Card_CopyDebugBundle.Description" xml:space="preserve">
++    <value>סיכומים שנוצרו בלבד; לא כולל זנבות יומן. השתמש ביצירת חבילת אבחון כדי לסקור יומנים לפני שיתוף.</value>
++  </data>
++  <data name="DiagnosticsPage_Card_CopyBrowserSetup.Header" xml:space="preserve">
++    <value>העתקת הוראות הגדרת דפדפן</value>
++  </data>
++  <data name="DiagnosticsPage_Card_CopyPortDiagnostics.Header" xml:space="preserve">
++    <value>העתקת אבחון יציאות</value>
++  </data>
++  <data name="DiagnosticsPage_Card_CopyCapabilityDiagnostics.Header" xml:space="preserve">
++    <value>העתקת אבחון יכולות</value>
++  </data>
++  <data name="DiagnosticsPage_Section_Inspect.Text" xml:space="preserve">
++    <value>בדיקת אבחון מקומי</value>
++  </data>
++  <data name="DiagnosticsPage_Card_EventTimeline.Header" xml:space="preserve">
++    <value>ציר זמן של אירוע חיבור</value>
++  </data>
++  <data name="DiagnosticsPage_Card_EventTimeline.Description" xml:space="preserve">
++    <value>אירועי מכונה במצב חי, מסגרות websocket, רזולוציית אישורים ולחיצות יד של זיווג.</value>
++  </data>
++  <data name="DiagnosticsPage_OpenEventTimelineButton.Content" xml:space="preserve">
++    <value>פתיחה</value>
++  </data>
++  <data name="DiagnosticsPage_Card_RecentLog.Header" xml:space="preserve">
++    <value>יומן אחרון</value>
++  </data>
++  <data name="DiagnosticsPage_Card_RecentLog.Description" xml:space="preserve">
++    <value>200 השורות האחרונות של openclaw-tray.log, עם צביעת חומרה.</value>
++  </data>
++  <data name="DiagnosticsPage_Expander_Identity.Header" xml:space="preserve">
++    <value>זהות מכשיר</value>
++  </data>
++  <data name="DiagnosticsPage_Expander_Identity.Description" xml:space="preserve">
++    <value>מזהים קריפטוגרפיים מקומיים עבור מכשיר זה.</value>
++  </data>
++  <data name="DiagnosticsPage_Card_DeviceId.Header" xml:space="preserve">
++    <value>מכשיר ID</value>
++  </data>
++  <data name="DiagnosticsPage_Card_PublicKey.Header" xml:space="preserve">
++    <value>מפתח ציבורי</value>
++  </data>
++  <data name="DiagnosticsPage_Section_Developer.Text" xml:space="preserve">
++    <value>כלי פיתוח</value>
++  </data>
++  <data name="DiagnosticsPage_DeveloperWarning.Title" xml:space="preserve">
++    <value>למהנדסים</value>
++  </data>
++  <data name="DiagnosticsPage_DeveloperWarning.Message" xml:space="preserve">
++    <value>כלים אלה עשויים לשנות את התנהגות האפליקציה, להפעיל מחדש את האפליקציה או לפתוח ממשק משתמש ניסיוני.</value>
++  </data>
++  <data name="DiagnosticsPage_Expander_OpenTelemetry.Header" xml:space="preserve">
++    <value>חיבור OpenTelemetry</value>
++  </data>
++  <data name="DiagnosticsPage_Expander_OpenTelemetry.Description" xml:space="preserve">
++    <value>שולח בדיקת אבחון קטנה רק לנקודת הקצה של אספן ה-OTLP שתגדיר.</value>
++  </data>
++  <data name="DiagnosticsPage_Card_OpenTelemetryEndpoint.Header" xml:space="preserve">
++    <value>נקודת קצה של OTel</value>
++  </data>
++  <data name="DiagnosticsPage_Card_OpenTelemetryEndpoint.Description" xml:space="preserve">
++    <value>אספן URL בשימוש על ידי OpenClaw טלמטריה.</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetrySummary.Text" xml:space="preserve">
++    <value>לא מוגדר</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetrySummary_NotConfigured" xml:space="preserve">
++    <value>לא מוגדר</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetrySummary_Configured" xml:space="preserve">
++    <value>מוגדר</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointBox.Header" xml:space="preserve">
++    <value>נקודת קצה URL</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointBox.PlaceholderText" xml:space="preserve">
++    <value>http://localhost:4317</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryProtocolLabel.Text" xml:space="preserve">
++    <value>פרוטוקול</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryProtocolGrpc.Content" xml:space="preserve">
++    <value>OTLP/gRPC</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryProtocolHttp.Content" xml:space="preserve">
++    <value>OTLP/HTTP</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus.Title" xml:space="preserve">
++    <value>אין נקודת קצה טלמטריה</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus.Message" xml:space="preserve">
++    <value>לא מוגדרת נקודת קצה.</value>
++  </data>
++  <data name="DiagnosticsPage_SaveOpenTelemetryEndpointButton.Content" xml:space="preserve">
++    <value>שמור חיבור</value>
++  </data>
++  <data name="DiagnosticsPage_ResendOpenTelemetryProbeButton.Content" xml:space="preserve">
++    <value>שלח שוב גשש</value>
++  </data>
++  <data name="DiagnosticsPage_ClearOpenTelemetryEndpointButton.Content" xml:space="preserve">
++    <value>נקה</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_InvalidTitle" xml:space="preserve">
++    <value>נקודת הקצה דורשת תשומת לב</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_InvalidMessage" xml:space="preserve">
