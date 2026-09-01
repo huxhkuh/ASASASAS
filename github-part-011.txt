@@ -1,0 +1,297 @@
+index 9edaf01a..38e709f8 100644
+--- a/src/OpenClaw.SetupEngine.UI/SetupWindow.xaml
++++ b/src/OpenClaw.SetupEngine.UI/SetupWindow.xaml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Window
++<Window x:Uid="Setup_SetupWindow_Window_1"
+     x:Class="OpenClaw.SetupEngine.UI.SetupWindow"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+@@ -16,7 +16,7 @@
+             <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                 <Image Source="ms-appx:///OpenClaw.SetupEngine.UI/Assets/Setup/OpenClawMascot.png" Width="20" Height="20"
+                        AutomationProperties.AccessibilityView="Raw" />
+-                <TextBlock Text="OpenClaw Setup" FontSize="13" Opacity="0.85"
++                <TextBlock x:Uid="Setup_SetupWindow_TextBlock_1" Text="OpenClaw Setup" FontSize="13" Opacity="0.85"
+                            VerticalAlignment="Center" />
+             </StackPanel>
+         </Grid>
+diff --git a/src/OpenClaw.SetupEngine.UI/SetupWindow.xaml.cs b/src/OpenClaw.SetupEngine.UI/SetupWindow.xaml.cs
+index e6625624..bb2f9579 100644
+--- a/src/OpenClaw.SetupEngine.UI/SetupWindow.xaml.cs
++++ b/src/OpenClaw.SetupEngine.UI/SetupWindow.xaml.cs
+@@ -63,6 +63,7 @@ public sealed partial class SetupWindow : Window
+         _dataDir = dataDir ?? SetupContext.ResolveDataDir();
+         _localDataDir = localDataDir ?? SetupContext.ResolveLocalDataDir();
+         InitializeComponent();
++        SetupLocalization.ApplyFlowDirection((FrameworkElement)Content);
+         Active = this;
+ 
+         Closed += async (_, _) =>
+@@ -350,11 +351,13 @@ public sealed partial class SetupWindow : Window
+                 ShowStartupPreference: false));
+     }
+ 
+-    // Directional page transition: forward steps slide in from the right, Back from the left.
++    // Directional page transition follows reading order, reversing in RTL layouts.
+     private void NavigateTo(Type page, object? parameter, bool back = false) =>
+         RootFrame.Navigate(page, parameter, new SlideNavigationTransitionInfo
+         {
+-            Effect = back ? SlideNavigationTransitionEffect.FromLeft : SlideNavigationTransitionEffect.FromRight,
++            Effect = back ^ SetupLocalization.IsRightToLeft
++                ? SlideNavigationTransitionEffect.FromLeft
++                : SlideNavigationTransitionEffect.FromRight,
+         });
+ 
+     private void NavigatePreview(string page) => RootFrame.Navigate(
+@@ -411,7 +414,11 @@ public sealed partial class SetupWindow : Window
+         }
+         catch (Exception ex)
+         {
+-            NavigateToComplete(false, TimeSpan.Zero, null, $"Setup completed, but saving your startup preference failed: {ex.Message}");
++            NavigateToComplete(
++                false,
++                TimeSpan.Zero,
++                null,
++                SetupLocalization.Format("Setup_Window_StartupPreferenceSaveFailedFormat", ex.Message));
+             return true;
+         }
+ 
+diff --git a/src/OpenClaw.Tray.WinUI/App.ActivationRouter.cs b/src/OpenClaw.Tray.WinUI/App.ActivationRouter.cs
+index 27fc1ff4..0cf06c4f 100644
+--- a/src/OpenClaw.Tray.WinUI/App.ActivationRouter.cs
++++ b/src/OpenClaw.Tray.WinUI/App.ActivationRouter.cs
+@@ -91,10 +91,10 @@ public partial class App : IActivationPlanSink
+ 
+                 dialog = new ContentDialog
+                 {
+-                    Title = "Confirm OpenClaw action",
+-                    Content = $"A deep link wants to {confirmation.ActionDisplayName}.",
+-                    PrimaryButtonText = "Allow",
+-                    CloseButtonText = "Cancel",
++                    Title = LocalizationHelper.GetString("Activation_ConfirmActionTitle"),
++                    Content = LocalizationHelper.Format("Activation_ConfirmActionMessageFormat", confirmation.ActionDisplayName),
++                    PrimaryButtonText = LocalizationHelper.GetString("Activation_Allow"),
++                    CloseButtonText = LocalizationHelper.GetString("SessionActionPrompt_CancelLabel"),
+                     DefaultButton = ContentDialogButton.Close,
+                     XamlRoot = xamlRoot
+                 };
+diff --git a/src/OpenClaw.Tray.WinUI/App.xaml.cs b/src/OpenClaw.Tray.WinUI/App.xaml.cs
+index f3cd44b5..dd696550 100644
+--- a/src/OpenClaw.Tray.WinUI/App.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/App.xaml.cs
+@@ -286,14 +286,17 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
+         WaitForRestartSourceIfRequested(Environment.GetCommandLineArgs());
+         StartupInputConfigurator.Configure();
+ 
+-        // Language override for localization testing (e.g., OPENCLAW_LANGUAGE=zh-CN)
++        // Language override for localization testing (e.g., OPENCLAW_LANGUAGE=he-IL)
+         var langOverride = Environment.GetEnvironmentVariable("OPENCLAW_LANGUAGE");
+         if (!string.IsNullOrEmpty(langOverride))
+         {
+             // SECURITY: Whitelist known locale codes to prevent locale injection
+-            string[] allowedLocales = ["en-us", "fr-fr", "nl-nl", "zh-cn", "zh-tw"];
++            string[] allowedLocales = ["en-us", "fr-fr", "he-il", "nl-nl", "zh-cn", "zh-tw"];
+             if (allowedLocales.Contains(langOverride.ToLowerInvariant()))
++            {
++                Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = langOverride;
+                 LocalizationHelper.SetLanguageOverride(langOverride);
++            }
+             else
+                 Logger.Warn($"[App] Ignoring invalid OPENCLAW_LANGUAGE value: {langOverride}");
+         }
+@@ -3314,7 +3317,7 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
+                 {
+                     _toastService!.ShowToast(new ToastContentBuilder()
+                         .AddText(LocalizationHelper.GetString("Toast_HealthCheck"))
+-                        .AddText("Node Mode is connected; gateway health is streaming."));
++                        .AddText(LocalizationHelper.GetString("Toast_NodeModeHealthStreaming")));
+                 }
+                 return;
+             }
+@@ -3569,8 +3572,8 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
+         if (_settings?.UseSshTunnel != true)
+         {
+             _toastService!.ShowToast(new ToastContentBuilder()
+-                .AddText("SSH tunnel")
+-                .AddText("Managed SSH tunnel mode is not enabled."));
++                .AddText(LocalizationHelper.GetString("Toast_SshTunnelTitle"))
++                .AddText(LocalizationHelper.GetString("Toast_SshTunnelNotEnabled")));
+             return;
+         }
+ 
+@@ -3589,14 +3592,14 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
+             {
+                 _sshTunnelRecoveryBudget.Reset();
+                 _toastService!.ShowToast(new ToastContentBuilder()
+-                    .AddText("SSH tunnel")
+-                    .AddText("Restarted and authenticated."));
++                    .AddText(LocalizationHelper.GetString("Toast_SshTunnelTitle"))
++                    .AddText(LocalizationHelper.GetString("Toast_SshTunnelRestarted")));
+             }
+             else
+             {
+                 _toastService!.ShowToast(new ToastContentBuilder()
+-                    .AddText("SSH tunnel restart failed")
+-                    .AddText("The owned tunnel or authenticated gateway connection could not be verified."));
++                    .AddText(LocalizationHelper.GetString("Toast_SshTunnelRestartFailedTitle"))
++                    .AddText(LocalizationHelper.GetString("Toast_SshTunnelRestartFailedMessage")));
+             }
+         }
+         catch (Exception ex)
+@@ -3604,7 +3607,7 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
+             Logger.Error($"SSH tunnel restart request failed: {ex.Message}");
+             DiagnosticsJsonlService.Write("tunnel.restart_request_failed", new { ex.Message });
+             _toastService!.ShowToast(new ToastContentBuilder()
+-                .AddText("SSH tunnel restart failed")
++                .AddText(LocalizationHelper.GetString("Toast_SshTunnelRestartFailedTitle"))
+                 .AddText(ex.Message));
+         }
+     }
+@@ -3756,7 +3759,7 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
+         catch (Exception ex)
+         {
+             Logger.Error($"Failed to restart tray after setup: {ex}");
+-            await ShowSetupRestartErrorAsync("OpenClaw setup finished, but restarting the tray failed. The current tray will keep running; please exit and reopen OpenClaw.");
++            await ShowSetupRestartErrorAsync(LocalizationHelper.GetString("Setup_RestartFailedMessage"));
+         }
+     }
+ 
+@@ -3771,9 +3774,9 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
+ 
+         var dialog = new ContentDialog
+         {
+-            Title = "Restart OpenClaw",
++            Title = LocalizationHelper.GetString("Setup_RestartDialogTitle"),
+             Content = message,
+-            CloseButtonText = "OK",
++            CloseButtonText = LocalizationHelper.GetString("ChatPage_OK"),
+             XamlRoot = xamlRoot,
+         };
+ 
+@@ -3863,8 +3866,8 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
+         if (!EnsureSshTunnelConfigured())
+         {
+             _toastService?.ShowToast(new ToastContentBuilder()
+-                .AddText("SSH tunnel")
+-                .AddText(_sshTunnelService?.LastError ?? "Check SSH tunnel settings and logs."));
++                .AddText(LocalizationHelper.GetString("Toast_SshTunnelTitle"))
++                .AddText(_sshTunnelService?.LastError ?? LocalizationHelper.GetString("Toast_SshTunnelCheckSettings")));
+             return;
+         }
+ 
+diff --git a/src/OpenClaw.Tray.WinUI/Controls/SchemaConfigEditor.xaml.cs b/src/OpenClaw.Tray.WinUI/Controls/SchemaConfigEditor.xaml.cs
+index 27c4c69d..65eff459 100644
+--- a/src/OpenClaw.Tray.WinUI/Controls/SchemaConfigEditor.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Controls/SchemaConfigEditor.xaml.cs
+@@ -596,7 +596,7 @@ public sealed partial class SchemaConfigEditor : UserControl
+             Width = 34,
+             Padding = new Thickness(0)
+         };
+-        ToolTipService.SetToolTip(removeBtn, "Remove item");
++        ToolTipService.SetToolTip(removeBtn, LocalizationHelper.GetString("SchemaConfigEditor_RemoveItem"));
+         removeBtn.Click += (s, e) =>
+         {
+             if (row.Parent is Border border)
+diff --git a/src/OpenClaw.Tray.WinUI/Dialogs/SessionCheckpointDialogCoordinator.cs b/src/OpenClaw.Tray.WinUI/Dialogs/SessionCheckpointDialogCoordinator.cs
+index d098e17c..a431b4bf 100644
+--- a/src/OpenClaw.Tray.WinUI/Dialogs/SessionCheckpointDialogCoordinator.cs
++++ b/src/OpenClaw.Tray.WinUI/Dialogs/SessionCheckpointDialogCoordinator.cs
+@@ -85,15 +85,15 @@ internal sealed class SessionCheckpointDialogCoordinator
+         }
+         catch (Exception ex)
+         {
+-            await ShowStatusAsync("Couldn't load checkpoints", ex.Message, InfoBarSeverity.Error);
++            await ShowStatusAsync(LocalizationHelper.GetString("Checkpoints_LoadFailedTitle"), ex.Message, InfoBarSeverity.Error);
+             return;
+         }
+ 
+         if (!list.IsSupported)
+         {
+             await ShowStatusAsync(
+-                "Not supported",
+-                "This gateway doesn't support session compaction checkpoints. Update the gateway to use this.",
++                LocalizationHelper.GetString("Checkpoints_NotSupportedTitle"),
++                LocalizationHelper.GetString("Checkpoints_NotSupportedMessage"),
+                 InfoBarSeverity.Informational);
+             return;
+         }
+@@ -117,13 +117,13 @@ internal sealed class SessionCheckpointDialogCoordinator
+             isMainState);
+         var dialog = new ContentDialog
+         {
+-            Title = $"Checkpoints: {name}",
++            Title = LocalizationHelper.Format("Checkpoints_DialogTitleFormat", name),
+             Content = body,
+             PrimaryButtonText = branchTarget is not null
+-                ? (restoreTarget is not null ? "Branch from latest" : "Branch from latest targetable")
++                ? LocalizationHelper.GetString(restoreTarget is not null ? "Checkpoints_BranchLatest" : "Checkpoints_BranchLatestTargetable")
+                 : "",
+-            SecondaryButtonText = canRestore ? "Restore latest" : "",
+-            CloseButtonText = "Close",
++            SecondaryButtonText = canRestore ? LocalizationHelper.GetString("Checkpoints_RestoreLatest") : "",
++            CloseButtonText = LocalizationHelper.GetString("Checkpoints_Close"),
+             DefaultButton = ContentDialogButton.Close,
+             XamlRoot = _xamlRoot,
+         };
+@@ -147,7 +147,7 @@ internal sealed class SessionCheckpointDialogCoordinator
+         {
+             body.Children.Add(new TextBlock
+             {
+-                Text = "No compaction checkpoints yet. Compacting this session creates one you can branch from or restore to.",
++                Text = LocalizationHelper.GetString("Checkpoints_EmptyMessage"),
+                 TextWrapping = TextWrapping.Wrap,
+             });
+             return body;
+@@ -214,18 +214,17 @@ internal sealed class SessionCheckpointDialogCoordinator
+ 
+         if (canRestore)
+         {
+-            return "Actions apply to the most recent checkpoint (top of the list). " +
+-                   "Branch starts a new session from it; Restore rolls this session back to it.";
++            return LocalizationHelper.GetString("Checkpoints_ActionsHelp");
+         }
+ 
+         var reason = mainState == SessionMainState.Main
+-            ? "Restore is unavailable for the main session."
++            ? LocalizationHelper.GetString("Checkpoints_RestoreUnavailableMain")
+             : restoreTarget is null
+-                ? "Restore is unavailable because the latest checkpoint can't be determined safely."
+-                : "Restore is unavailable for this session.";
++                ? LocalizationHelper.GetString("Checkpoints_RestoreUnavailableAmbiguous")
++                : LocalizationHelper.GetString("Checkpoints_RestoreUnavailableSession");
+         var branchText = branchTarget is null
+-            ? "Branch is unavailable because no checkpoint has a checkpoint id."
+-            : "Branch starts a new session from the latest targetable checkpoint.";
++            ? LocalizationHelper.GetString("Checkpoints_BranchUnavailableNoId")
++            : LocalizationHelper.GetString("Checkpoints_BranchHelp");
+         return branchText + " " + reason;
+     }
+ 
+@@ -234,8 +233,8 @@ internal sealed class SessionCheckpointDialogCoordinator
+         if (string.IsNullOrWhiteSpace(checkpointId))
+         {
+             await ShowStatusAsync(
+-                "Action unavailable",
+-                "This checkpoint can't be branched because it has no checkpoint id.",
++                LocalizationHelper.GetString("SessionsPage_ActionUnavailableTitle"),
++                LocalizationHelper.GetString("Checkpoints_BranchUnavailableNoId"),
+                 InfoBarSeverity.Informational);
+             return;
+         }
+@@ -257,32 +256,32 @@ internal sealed class SessionCheckpointDialogCoordinator
+         }
+         catch (Exception ex)
+         {
+-            await ShowStatusAsync("Branch failed", ex.Message, InfoBarSeverity.Error);
++            await ShowStatusAsync(LocalizationHelper.GetString("Checkpoints_BranchFailedTitle"), ex.Message, InfoBarSeverity.Error);
+             return;
+         }
+ 
+         if (!result.IsSupported)
+         {
+             await ShowStatusAsync(
+-                "Not supported",
+-                "This gateway doesn't support branching from a checkpoint. Update the gateway to use this.",
++                LocalizationHelper.GetString("Checkpoints_NotSupportedTitle"),
