@@ -1,0 +1,319 @@
++    <value>OpenClaw מפעיל במחשב הזה את הסוכן שלכם דרך Gateway פרטי באירוח עצמי. בחרו אילו פעולות לאפשר לו; אפשר לשנות זאת בהמשך בהגדרות.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_20.Text" xml:space="preserve">
++    <value>הורדה והתקנה של OpenClaw CLI</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_21.Text" xml:space="preserve">
++    <value>הפעלת שירות Gateway מקומי</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_22.Text" xml:space="preserve">
++    <value>ייתכן שתידרש הרשאת מנהל פעם אחת</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_23.Text" xml:space="preserve">
++    <value>רק אם רכיב WSL של Windows עדיין לא מותקן; הפעולה נדרשת פעם אחת בכל מחשב.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_3.Text" xml:space="preserve">
++    <value>קריאה בלבד</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_4.Text" xml:space="preserve">
++    <value>צפייה במסך, הצגה ב־Canvas וקריאת פרטי המכשיר — ללא הרצת פקודות.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_5.Text" xml:space="preserve">
++    <value>סטנדרטי</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_6.Text" xml:space="preserve">
++    <value>מומלץ</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_7.Text" xml:space="preserve">
++    <value>קריאה בלבד בתוספת הפעלת פקודות, עריכת קבצים ושימוש בטקסט לדיבור ובדיבור לטקסט.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_8.Text" xml:space="preserve">
++    <value>גישה מלאה</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_9.Text" xml:space="preserve">
++    <value>הכל, בתוספת שליטה במצלמה, מיקום ודפדפן.</value>
++  </data>
++  <data name="Setup_CompletePage_FallbackButton.Content" xml:space="preserve">
++    <value>נסה שוב עם גיבוי מאומת</value>
++  </data>
++  <data name="Setup_CompletePage_GatewaySummaryText.Text" xml:space="preserve">
++    <value>OpenClawGateway · 127.0.0.1:18789</value>
++  </data>
++  <data name="Setup_CompletePage_LaunchButton.Content" xml:space="preserve">
++    <value>סיום</value>
++  </data>
++  <data name="Setup_CompletePage_LocalAiSummaryTitle.Text" xml:space="preserve">
++    <value>Local AI אומת</value>
++  </data>
++  <data name="Setup_CompletePage_NodeModeBanner.Title" xml:space="preserve">
++    <value>Node מצב מופעל</value>
++  </data>
++  <data name="Setup_CompletePage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>שלב 6 מתוך 6</value>
++  </data>
++  <data name="Setup_CompletePage_StartupToggle.OffContent" xml:space="preserve">
++    <value>כבוי</value>
++  </data>
++  <data name="Setup_CompletePage_StartupToggle.OnContent" xml:space="preserve">
++    <value>מופעל</value>
++  </data>
++  <data name="Setup_CompletePage_SubtitleText.Text" xml:space="preserve">
++    <value>OpenClaw מוכן לפעולה</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_1.Text" xml:space="preserve">
++    <value>מקומי Gateway פועל</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_2.Text" xml:space="preserve">
++    <value>התקן משויך</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_3.Text" xml:space="preserve">
++    <value>מחשב זה מחובר ומוכן לשימוש</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_4.Text" xml:space="preserve">
++    <value>פרופיל יכולות הוחל</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_5.Text" xml:space="preserve">
++    <value>ניתן לעריכה בכל עת בהגדרות נלוות</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_6.Text" xml:space="preserve">
++    <value>הפעל את OpenClaw בעת האתחול</value>
++  </data>
++  <data name="Setup_CompletePage_TitleText.Text" xml:space="preserve">
++    <value>מוכן!</value>
++  </data>
++  <data name="Setup_CompletePage_ViewLogLink.Content" xml:space="preserve">
++    <value>צפה ביומן מלא →</value>
++  </data>
++  <data name="Setup_ProgressPage_DotsPanel.AutomationProperties.Name" xml:space="preserve">
++    <value>שלב 4 מתוך 6</value>
++  </data>
++  <data name="Setup_ProgressPage_Expander_1.Header" xml:space="preserve">
++    <value>פעילות בזמן אמת</value>
++  </data>
++  <data name="Setup_ProgressPage_OnboardButton.Content" xml:space="preserve">
++    <value>התחלת אשף OpenClaw</value>
++  </data>
++  <data name="Setup_ProgressPage_OpenLogButton.Content" xml:space="preserve">
++    <value>פתח קובץ יומן</value>
++  </data>
++  <data name="Setup_ProgressPage_TailscaleAuthorizationLink.Content" xml:space="preserve">
++    <value>פתיחת ההרשאה ב־Tailscale</value>
++  </data>
++  <data name="Setup_ProgressPage_TailscaleAuthorizationPanel.Title" xml:space="preserve">
++    <value>אישור גישה ב־Tailscale</value>
++  </data>
++  <data name="Setup_ProgressPage_TextBlock_1.Text" xml:space="preserve">
++    <value>Gateway מותקן</value>
++  </data>
++  <data name="Setup_ProgressPage_TextBlock_2.Text" xml:space="preserve">
++    <value>ה־Gateway הפרטי של OpenClaw פעיל ופועל במחשב הזה.</value>
++  </data>
++  <data name="Setup_ProgressPage_TextBlock_3.Text" xml:space="preserve">
++    <value>השלב הבא: אשף OpenClaw</value>
++  </data>
++  <data name="Setup_ProgressPage_TextBlock_4.Text" xml:space="preserve">
++    <value>נשארו כמה שאלות קצרות: בוחרים ספק AI, מודל ומפתח כדי לחבר את הסוכן.</value>
++  </data>
++  <data name="Setup_ProgressPage_TitleText.Text" xml:space="preserve">
++    <value>הגדרת OpenClaw</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_ContinueButton.Content" xml:space="preserve">
++    <value>המשך</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_InfoBar_1.Title" xml:space="preserve">
++    <value>הודעת אבטחה</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>שלב 1 מתוך 6</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_TextBlock_1.Text" xml:space="preserve">
++    <value>ברוכים הבאים ל-OpenClaw</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_TextBlock_2.Text" xml:space="preserve">
++    <value>OpenClaw מפעיל במחשב הזה את סוכן ה־AI האישי שלכם דרך Gateway פרטי, וניגשים אליו מאפליקציות צ׳אט כמו WhatsApp או Telegram.</value>
++  </data>
++  <data name="Setup_SetupWindow_TextBlock_1.Text" xml:space="preserve">
++    <value>הגדרת OpenClaw</value>
++  </data>
++  <data name="Setup_SetupWindow_Window_1.Title" xml:space="preserve">
++    <value>הגדרת OpenClaw</value>
++  </data>
++  <data name="Setup_WelcomePage_BackButton.Content" xml:space="preserve">
++    <value>חזרה</value>
++  </data>
++  <data name="Setup_WelcomePage_ConnectChoice.AutomationProperties.Name" xml:space="preserve">
++    <value>התחברות ל־Gateway קיים</value>
++  </data>
++  <data name="Setup_WelcomePage_GatewayChoiceSelector.AutomationProperties.HelpText" xml:space="preserve">
++    <value>יש לבחור שיטת הגדרה אחת ל־Gateway.</value>
++  </data>
++  <data name="Setup_WelcomePage_GatewayChoiceSelector.AutomationProperties.Name" xml:space="preserve">
++    <value>שיטת הגדרה של Gateway</value>
++  </data>
++  <data name="Setup_WelcomePage_InstallCheckProgress.AutomationProperties.Name" xml:space="preserve">
++    <value>בדיקת מוכנות WSL והגדרות קיימות</value>
++  </data>
++  <data name="Setup_WelcomePage_InstallChoice.AutomationProperties.Name" xml:space="preserve">
++    <value>התקנת Gateway מקומי (WSL) — מומלץ</value>
++  </data>
++  <data name="Setup_WelcomePage_InstallTitle.Text" xml:space="preserve">
++    <value>התקנת Gateway מקומי (WSL)</value>
++  </data>
++  <data name="Setup_WelcomePage_NextButton.Content" xml:space="preserve">
++    <value>הבא</value>
++  </data>
++  <data name="Setup_WelcomePage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>שלב 2 מתוך 6</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_1.Text" xml:space="preserve">
++    <value>הגדרת OpenClaw</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_2.Text" xml:space="preserve">
++    <value>OpenClaw מפעיל את הסוכן דרך Gateway. בחרו איך להגדיר אותו במחשב הזה; אפשר לשנות זאת בהמשך.</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_3.Text" xml:space="preserve">
++    <value>מומלץ</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_4.Text" xml:space="preserve">
++    <value>Gateway פרטי של OpenClaw באירוח עצמי, בתוך מופע מבודד של Ubuntu ב־WSL. לפני ההתקנה יוצג בדיוק מה עומד להשתנות.</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_5.Text" xml:space="preserve">
++    <value>התחברות ל־Gateway קיים</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_6.Text" xml:space="preserve">
++    <value>כבר פועל אצלכם Gateway של OpenClaw — במחשב הזה, במחשב אחר או מרחוק? אפשר לצמד אליו את המחשב בלי להתקין Gateway נוסף ובלי להגדיר כאן Local AI.</value>
++  </data>
++  <data name="Setup_WizardPage_MenuFlyoutItem_1.Text" xml:space="preserve">
++    <value>הפעלה מחדש של המערכת</value>
++  </data>
++  <data name="Setup_WizardPage_MenuFlyoutItem_2.Text" xml:space="preserve">
++    <value>דלג ויציאה</value>
++  </data>
++  <data name="Setup_WizardPage_MoreOptionsButton.AutomationProperties.Name" xml:space="preserve">
++    <value>אפשרויות נוספות להטמעה</value>
++  </data>
++  <data name="Setup_WizardPage_MoreOptionsButton.Content" xml:space="preserve">
++    <value>אפשרויות נוספות</value>
++  </data>
++  <data name="Setup_WizardPage_OpenGatewayTerminalButton.Content" xml:space="preserve">
++    <value>פתח טרמינל</value>
++  </data>
++  <data name="Setup_WizardPage_PrimaryButton.Content" xml:space="preserve">
++    <value>המשך</value>
++  </data>
++  <data name="Setup_WizardPage_RestartGatewayButton.Content" xml:space="preserve">
++    <value>הפעלה מחדש Gateway</value>
++  </data>
++  <data name="Setup_WizardPage_SecondaryButton.Content" xml:space="preserve">
++    <value>דלג</value>
++  </data>
++  <data name="Setup_WizardPage_SecretInput.PlaceholderText" xml:space="preserve">
++    <value>הזנת ערך</value>
++  </data>
++  <data name="Setup_WizardPage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>שלב 5 מתוך 6</value>
++  </data>
++  <data name="Setup_WizardPage_StatusText.Text" xml:space="preserve">
++    <value>מתחבר ל־Gateway...</value>
++  </data>
++  <data name="Setup_WizardPage_TextBlock_1.Text" xml:space="preserve">
++    <value>אשף OpenClaw</value>
++  </data>
++  <data name="Setup_WizardPage_TextBlock_2.Text" xml:space="preserve">
++    <value>פלט חי Gateway</value>
++  </data>
++  <data name="Setup_WizardPage_TextInput.PlaceholderText" xml:space="preserve">
++    <value>הזנת ערך</value>
++  </data>
++
++  <data name="Setup_Capabilities_AllPermissionsFormat" xml:space="preserve">
++    <value>כל {0} ההרשאות ניתנו</value>
++  </data>
++  <data name="Setup_Capabilities_CheckingTailscale" xml:space="preserve">
++    <value>בודק את Windows Tailscale…</value>
++  </data>
++  <data name="Setup_Capabilities_Install" xml:space="preserve">
++    <value>התקנה והגדרה</value>
++  </data>
++  <data name="Setup_Capabilities_ModelNotQualified" xml:space="preserve">
++    <value>המודל הזה אינו מתאים לחומרה שזוהתה.</value>
++  </data>
++  <data name="Setup_Capabilities_Next" xml:space="preserve">
++    <value>הבא</value>
++  </data>
++  <data name="Setup_Capabilities_PermissionStatusErrorFormat" xml:space="preserve">
++    <value>אפשר להמשיך בהתקנה ולבדוק את ההרשאות מאוחר יותר בהגדרות. פרטים: {0}</value>
++  </data>
++  <data name="Setup_Capabilities_PermissionStatusErrorTitle" xml:space="preserve">
++    <value>לא ניתן לקרוא את מצב ההרשאות של Windows</value>
++  </data>
++  <data name="Setup_Capabilities_PermissionsFormat" xml:space="preserve">
++    <value>ניתנו {0} מתוך {1} הרשאות</value>
++  </data>
++  <data name="Setup_Capabilities_ProfileCustomFormat" xml:space="preserve">
++    <value>{0} מתוך {1} יכולות</value>
++  </data>
++  <data name="Setup_Capabilities_ProfileFull" xml:space="preserve">
++    <value>גישה מלאה</value>
++  </data>
++  <data name="Setup_Capabilities_ProfileReadOnly" xml:space="preserve">
++    <value>קריאה בלבד</value>
++  </data>
++  <data name="Setup_Capabilities_ProfileStandard" xml:space="preserve">
++    <value>רגיל</value>
++  </data>
++  <data name="Setup_Capabilities_StepCapabilities" xml:space="preserve">
++    <value>מה הסוכן יוכל לעשות?</value>
++  </data>
++  <data name="Setup_Capabilities_StepPermissions" xml:space="preserve">
++    <value>הרשאות Windows</value>
++  </data>
++  <data name="Setup_Capabilities_StepReview" xml:space="preserve">
++    <value>מה יותקן במחשב הזה</value>
++  </data>
++  <data name="Setup_Capabilities_TailscaleRequired" xml:space="preserve">
++    <value>כדי להמשיך, יש להתקין את Windows Tailscale ולהתחבר אליו.</value>
++  </data>
++  <data name="Setup_Complete_Close" xml:space="preserve">
++    <value>סגירה</value>
++  </data>
++  <data name="Setup_Complete_LocalAiReadyDescription" xml:space="preserve">
++    <value>נתב ה־llama-server המקומי מוכן. המודל ייטען בבקשה הראשונה.</value>
++  </data>
++  <data name="Setup_Complete_OpenChat" xml:space="preserve">
++    <value>פתיחת הצ׳אט</value>
++  </data>
++  <data name="Setup_Complete_OpenClawAndLocalAiReady" xml:space="preserve">
++    <value>OpenClaw ו־Local AI מוכנים</value>
++  </data>
++  <data name="Setup_Complete_OpenHelp" xml:space="preserve">
++    <value>פתיחת קישור העזרה ←</value>
++  </data>
++  <data name="Setup_Complete_RetryFallbackFormat" xml:space="preserve">
++    <value>ניסיון נוסף עם גרסת הגיבוי המאומתת {0}</value>
++  </data>
++  <data name="Setup_Complete_SetupFailed" xml:space="preserve">
++    <value>ההתקנה נכשלה</value>
++  </data>
++  <data name="Setup_Complete_UnknownError" xml:space="preserve">
++    <value>שגיאה לא ידועה</value>
++  </data>
++  <data name="Setup_Complete_UpdateWsl" xml:space="preserve">
++    <value>עדכון WSL ←</value>
++  </data>
++  <data name="Setup_Complete_ViewLogFormat" xml:space="preserve">
++    <value>הצגת היומן המלא ← {0}</value>
++  </data>
++  <data name="Setup_Permission_Allowed" xml:space="preserve">
++    <value>מותר</value>
++  </data>
++  <data name="Setup_Permission_AskEveryTime" xml:space="preserve">
++    <value>בחירה בכל פעם</value>
++  </data>
++  <data name="Setup_Permission_Camera" xml:space="preserve">
++    <value>מצלמה</value>
++  </data>
++  <data name="Setup_Permission_CameraOn" xml:space="preserve">
++    <value>הגישה למצלמה ב־Windows פעילה</value>
++  </data>
++  <data name="Setup_Permission_ChooseEveryCapture" xml:space="preserve">
