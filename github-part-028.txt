@@ -1,0 +1,353 @@
++    <value>הפעלת שרת מקומי MCP</value>
++  </data>
++  <data name="SettingsMcpDescription.Text" xml:space="preserve">
++    <value>חושף את אותן יכולות Node (מערכת, מסך, מצלמה, מיקרופון, רמקולים, בד ציור) ללקוחות מקומיים MCP (Claude Desktop, Cursor, Claude Code).</value>
++  </data>
++  <data name="SettingsMcpEndpointLabel.Text" xml:space="preserve">
++    <value>נקודת קצה:</value>
++  </data>
++  <data name="SettingsMcpStatusLabel.Text" xml:space="preserve">
++    <value>סטטוס:</value>
++  </data>
++  <data name="Mcp_Status_Disabled" xml:space="preserve">
++    <value>מושבת</value>
++  </data>
++  <data name="Mcp_Status_Listening" xml:space="preserve">
++    <value>מקשיב</value>
++  </data>
++  <data name="Mcp_Status_Stopped" xml:space="preserve">
++    <value>נעצר</value>
++  </data>
++  <data name="Mcp_Status_WillStartOnSave" xml:space="preserve">
++    <value>יתחיל בשמירה</value>
++  </data>
++  <data name="Mcp_Status_WillStopOnSave" xml:space="preserve">
++    <value>יעצור בשמירה</value>
++  </data>
++  <data name="Mcp_Status_FailedToStart" xml:space="preserve">
++    <value>הפעלה נכשלה:</value>
++  </data>
++  <data name="SettingsMcpTokenLabel.Text" xml:space="preserve">
++    <value>נושא token:</value>
++  </data>
++  <data name="SettingsMcpTokenRevealButton.Content" xml:space="preserve">
++    <value>חשיפה</value>
++  </data>
++  <data name="SettingsMcpTokenCopyButton.Content" xml:space="preserve">
++    <value>העתק</value>
++  </data>
++  <data name="SettingsMcpTokenResetButton.Content" xml:space="preserve">
++    <value>איפוס</value>
++  </data>
++  <data name="SettingsMcpToken_RevealButton" xml:space="preserve">
++    <value>חשיפה</value>
++  </data>
++  <data name="SettingsMcpToken_HideButton" xml:space="preserve">
++    <value>הסתר</value>
++  </data>
++  <data name="SettingsMcpToken_NotGenerated" xml:space="preserve">
++    <value>(לא נוצר: הפעל את שרת MCP ולחץ על שמור)</value>
++  </data>
++  <data name="SettingsMcpToken_StoredAtFormat" xml:space="preserve">
++    <value>מאוחסן ב-{0}</value>
++  </data>
++  <data name="SettingsMcpToken_HintFormat" xml:space="preserve">
++    <value>שלח כ-'אישור: נושא &lt;token&gt;' בכל בקשה. מאוחסן ב-{0}.</value>
++  </data>
++  <data name="SettingsMcpToken_ResetToastTitle" xml:space="preserve">
++    <value>MCP token איפוס</value>
++  </data>
++  <data name="SettingsMcpToken_ResetToastBody" xml:space="preserve">
++    <value>אסימוני נושא MCP ישנים אינם חוקיים כעת.</value>
++  </data>
++  <data name="SettingsMcpToken_ResetFailedFormat" xml:space="preserve">
++    <value>איפוס token נכשל: {0}</value>
++  </data>
++  <data name="SettingsMcpTokenResetDialog_Title" xml:space="preserve">
++    <value>איפוס נושא MCP token?</value>
++  </data>
++  <data name="SettingsMcpTokenResetDialog_Body" xml:space="preserve">
++    <value>לקוחות MCP מקומיים קיימים (Claude Desktop, Cursor, Claude Code) יפסיקו לפעול עד שתגדיר אותם מחדש עם token החדש.</value>
++  </data>
++  <data name="SettingsMcpTokenResetDialog_PrimaryButton" xml:space="preserve">
++    <value>איפוס</value>
++  </data>
++  <data name="SettingsMcpTokenResetDialog_CloseButton" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="WindowTitle_Downloading" xml:space="preserve">
++    <value>מוריד עדכון...</value>
++  </data>
++  <data name="Download_ProgressText" xml:space="preserve">
++    <value>מוריד עדכון...</value>
++  </data>
++  <data name="UrlApproval_Caption" xml:space="preserve">
++    <value>OpenClaw: אישור URL</value>
++  </data>
++  <data name="UrlApproval_Body" xml:space="preserve">
++    <value>סוכן רוצה לפתוח יעד בעל סיכון גבוה בדפדפן שלך.</value>
++  </data>
++  <data name="UrlApproval_NoReasons" xml:space="preserve">
++    <value>(לא נלכדו סיבות ספציפיות)</value>
++  </data>
++  <data name="UrlApproval_ZoneFormat" xml:space="preserve">
++    <value>אזור: {0}</value>
++  </data>
++  <data name="UrlApproval_AgentFormat" xml:space="preserve">
++    <value>סוכן: {0}</value>
++  </data>
++  <data name="UrlApproval_HostFormat" xml:space="preserve">
++    <value>מארח: {0}</value>
++  </data>
++  <data name="UrlApproval_ReasonsHeader" xml:space="preserve">
++    <value>סיבות:</value>
++  </data>
++  <data name="UrlApproval_YesHint" xml:space="preserve">
++    <value>כן: פתח את URL הזה.</value>
++  </data>
++  <data name="UrlApproval_NoHint" xml:space="preserve">
++    <value>לא: חסום אותו.</value>
++  </data>
++  <data name="Onboarding_Title" xml:space="preserve">
++    <value>הגדרת OpenClaw</value>
++  </data>
++  <data name="Onboarding_Back" xml:space="preserve">
++    <value>חזרה</value>
++  </data>
++  <data name="Onboarding_Next" xml:space="preserve">
++    <value>הבא</value>
++  </data>
++  <data name="Onboarding_Finish" xml:space="preserve">
++    <value>סיום</value>
++  </data>
++  <data name="Onboarding_IncompleteSetup_Title" xml:space="preserve">
++    <value>ההתקנה לא הושלמה</value>
++  </data>
++  <data name="Onboarding_IncompleteSetup_Body" xml:space="preserve">
++    <value>יש להשלים את הגדרת OpenClaw לפני פתיחת ה־Hub. לחצו על ״חזרה״ כדי לשוב לאשף או לשלבי החיבור, השלימו את ההגדרה החסרה ונסו שוב.</value>
++  </data>
++  <data name="Onboarding_IncompleteSetup_Close" xml:space="preserve">
++    <value>אישור</value>
++  </data>
++  <data name="Onboarding_Connection_Title" xml:space="preserve">
++    <value>בחירת Gateway</value>
++  </data>
++  <data name="Onboarding_Connection_Subtitle" xml:space="preserve">
++    <value>בחרו כיצד להתחבר ל־OpenClaw Gateway</value>
++  </data>
++  <data name="Onboarding_Connection_Local" xml:space="preserve">
++    <value>מחשב זה (מקומי)</value>
++  </data>
++  <data name="Onboarding_Connection_Remote" xml:space="preserve">
++    <value>Gateway מרוחק</value>
++  </data>
++  <data name="Onboarding_Connection_Later" xml:space="preserve">
++    <value>הגדר מאוחר יותר</value>
++  </data>
++  <data name="Onboarding_LocalAi_RecheckAvailabilityButton.Content" xml:space="preserve">
++    <value>בדוק שוב</value>
++  </data>
++  <data name="Onboarding_Ready_Title" xml:space="preserve">
++    <value>מוכן!</value>
++  </data>
++  <data name="Onboarding_Ready_Subtitle" xml:space="preserve">
++    <value>OpenClaw מוכן לפעולה. הנה כמה דברים שכדאי לנסות:</value>
++  </data>
++  <data name="Onboarding_Ready_Feature_TrayMenu" xml:space="preserve">
++    <value>פתיחת פאנל סרגל התפריטים</value>
++  </data>
++  <data name="Onboarding_Ready_Feature_Channels" xml:space="preserve">
++    <value>חיבור ערוצי העברת הודעות</value>
++  </data>
++  <data name="Onboarding_Ready_Feature_Voice" xml:space="preserve">
++    <value>ניסיון של Voice Wake</value>
++  </data>
++  <data name="Onboarding_Ready_Feature_Canvas" xml:space="preserve">
++    <value>שימוש בקנבס</value>
++  </data>
++  <data name="Onboarding_Ready_Feature_Skills" xml:space="preserve">
++    <value>הפעלת מיומנויות</value>
++  </data>
++  <data name="Onboarding_Ready_LaunchAtLogin" xml:space="preserve">
++    <value>הפעל את OpenClaw בעת האתחול</value>
++  </data>
++  <data name="Onboarding_Ready_ConfigureLater" xml:space="preserve">
++    <value>אפשר להגדיר את החיבור ל־Gateway בכל עת מתפריט המגש.</value>
++  </data>
++  <data name="Onboarding_Ready_RemoteInfo" xml:space="preserve">
++    <value>ודאו שה־Gateway המרוחק פועל ונגיש.</value>
++  </data>
++  <data name="Onboarding_Connection_SetupCode" xml:space="preserve">
++    <value>קוד התקנה</value>
++  </data>
++  <data name="Onboarding_Connection_SetupCodePlaceholder" xml:space="preserve">
++    <value>לחץ כדי להדביק את קוד ההתקנה</value>
++  </data>
++  <data name="Onboarding_Connection_GatewayUrl" xml:space="preserve">
++    <value>Gateway URL</value>
++  </data>
++  <data name="Onboarding_Connection_Token" xml:space="preserve">
++    <value>Token</value>
++  </data>
++  <data name="Onboarding_Connection_TokenPlaceholder" xml:space="preserve">
++    <value>הדבקת token לאתחול</value>
++  </data>
++  <data name="Onboarding_Connection_NodeMode" xml:space="preserve">
++    <value>מצב Node</value>
++  </data>
++  <data name="Onboarding_Connection_TestConnection" xml:space="preserve">
++    <value>בדיקת חיבור</value>
++  </data>
++  <data name="Onboarding_Connection_Ready" xml:space="preserve">
++    <value>מוכן להתחברות</value>
++  </data>
++  <data name="Onboarding_Connection_ConfigureLaterMsg" xml:space="preserve">
++    <value>ניתן להגדיר את החיבור Gateway מאוחר יותר מתפריט המגש.</value>
++  </data>
++  <data name="Onboarding_Connection_StatusDecoded" xml:space="preserve">
++    <value>קוד ההתקנה מפוענח</value>
++  </data>
++  <data name="Onboarding_Connection_StatusTokenRequired" xml:space="preserve">
++    <value>נדרש Token</value>
++  </data>
++  <data name="Onboarding_Connection_StatusConnecting" xml:space="preserve">
++    <value>מתחבר…</value>
++  </data>
++  <data name="Onboarding_Connection_StatusConnected" xml:space="preserve">
++    <value>מחובר אל Gateway</value>
++  </data>
++  <data name="Onboarding_Connection_StatusPairing" xml:space="preserve">
++    <value>נדרש אישור למכשיר</value>
++  </data>
++  <data name="Onboarding_Connection_StatusTokenMismatch" xml:space="preserve">
++    <value>ה־token אינו תואם: בדקו את ה־token לאתחול</value>
++  </data>
++  <data name="Onboarding_Connection_StatusTimeout" xml:space="preserve">
++    <value>פסק זמן לחיבור (15 שניות): ודא שה־Gateway פועל</value>
++  </data>
++  <data name="Onboarding_Permissions_Title" xml:space="preserve">
++    <value>הענק הרשאות</value>
++  </data>
++  <data name="Onboarding_Permissions_Description" xml:space="preserve">
++    <value>OpenClaw פועל בצורה הטובה ביותר כאשר הוא יכול לשלוח התראות, לגשת למצלמה ולמיקרופון שלך, ללכוד את המסך שלך ולדעת את מיקומך. הענק הרשאות למטה.</value>
++  </data>
++  <data name="Onboarding_Permissions_Refresh" xml:space="preserve">
++    <value>רענון סטטוס</value>
++  </data>
++  <data name="Onboarding_Permissions_OpenSettings" xml:space="preserve">
++    <value>פתח את ההגדרות</value>
++  </data>
++  <data name="Onboarding_Permissions_Checking" xml:space="preserve">
++    <value>בדיקת הרשאות…</value>
++  </data>
++  <data name="Onboarding_Chat_Title" xml:space="preserve">
++    <value>הכירו את הסוכן שלכם</value>
++  </data>
++  <data name="Onboarding_Chat_Loading" xml:space="preserve">
++    <value>טוען צ'אט...</value>
++  </data>
++  <data name="Onboarding_Wizard_Title" xml:space="preserve">
++    <value>הגדרת Gateway</value>
++  </data>
++  <data name="Onboarding_Wizard_Continue" xml:space="preserve">
++    <value>המשך</value>
++  </data>
++  <data name="Onboarding_Wizard_Skip" xml:space="preserve">
++    <value>דלג</value>
++  </data>
++  <data name="Onboarding_Wizard_Complete" xml:space="preserve">
++    <value>הגדרת Gateway הושלמה!</value>
++  </data>
++  <data name="Onboarding_Wizard_Offline" xml:space="preserve">
++    <value>אשף Gateway אינו זמין</value>
++  </data>
++  <data name="Onboarding_Wizard_OfflineMessage" xml:space="preserve">
++    <value>ה־Gateway מספק שלבי הגדרה דינמיים. הם יופעלו לאחר יצירת החיבור.</value>
++  </data>
++  <data name="Onboarding_Perm_Notifications" xml:space="preserve">
++    <value>התראות</value>
++  </data>
++  <data name="Onboarding_Perm_Camera" xml:space="preserve">
++    <value>מצלמה</value>
++  </data>
++  <data name="Onboarding_Perm_Microphone" xml:space="preserve">
++    <value>מיקרופון</value>
++  </data>
++  <data name="Onboarding_Perm_ScreenCapture" xml:space="preserve">
++    <value>צילום מסך</value>
++  </data>
++  <data name="Onboarding_Perm_Location" xml:space="preserve">
++    <value>מיקום (אופציונלי)</value>
++  </data>
++  <data name="Onboarding_Perm_Enabled" xml:space="preserve">
++    <value>מופעל</value>
++  </data>
++  <data name="Onboarding_Perm_EnabledDefault" xml:space="preserve">
++    <value>מופעל (ברירת מחדל)</value>
++  </data>
++  <data name="Onboarding_Perm_Disabled" xml:space="preserve">
++    <value>מושבת</value>
++  </data>
++  <data name="Onboarding_Perm_DisabledManifest" xml:space="preserve">
++    <value>מושבת במניפסט האפליקציה</value>
++  </data>
++  <data name="Onboarding_Perm_DisabledPolicy" xml:space="preserve">
++    <value>מושבת על ידי מדיניות</value>
++  </data>
++  <data name="Onboarding_Perm_DisabledUser" xml:space="preserve">
++    <value>מושבת: פתח את ההגדרות כדי להפעיל</value>
++  </data>
++  <data name="Onboarding_Perm_Allowed" xml:space="preserve">
++    <value>מותר</value>
++  </data>
++  <data name="Onboarding_Perm_DeniedUser" xml:space="preserve">
++    <value>נדחה: פתח את ההגדרות כדי לאפשר</value>
++  </data>
++  <data name="Onboarding_Perm_DeniedSystem" xml:space="preserve">
++    <value>נדחה על ידי מדיניות המערכת</value>
++  </data>
++  <data name="Onboarding_Perm_NotDetermined" xml:space="preserve">
++    <value>לא נקבע: פתח את ההגדרות</value>
++  </data>
++  <data name="Onboarding_Perm_UnableToCheck" xml:space="preserve">
++    <value>לא ניתן לבדוק</value>
++  </data>
++  <data name="Onboarding_Perm_NoCameraDetected" xml:space="preserve">
++    <value>לא זוהתה מצלמה</value>
++  </data>
++  <data name="Onboarding_Perm_NoMicDetected" xml:space="preserve">
++    <value>לא זוהה מיקרופון</value>
++  </data>
++  <data name="Onboarding_Perm_ScreenCaptureAvailable" xml:space="preserve">
++    <value>זמין: בחירת חלון או מסך בכל צילום</value>
++  </data>
++  <data name="Onboarding_Perm_NotSupported" xml:space="preserve">
++    <value>לא נתמך במכשיר זה</value>
++  </data>
++  <data name="Onboarding_Perm_LocationDisabledSystem" xml:space="preserve">
++    <value>שירותי מיקום מושבתים בכל המערכת</value>
++  </data>
++  <data name="Onboarding_Perm_LocationDisabledUser" xml:space="preserve">
++    <value>מיקום מושבת עבור משתמש זה</value>
++  </data>
++  <data name="Onboarding_Perm_LocationEnabled" xml:space="preserve">
++    <value>שירותי מיקום מופעלים</value>
++  </data>
++  <data name="Onboarding_Ready_Feature_TrayMenu_Subtitle" xml:space="preserve">
++    <value>גישה ממגש המערכת</value>
++  </data>
++  <data name="Onboarding_Ready_Feature_Channels_Subtitle" xml:space="preserve">
++    <value>הגדרות ⟶ ערוצים</value>
++  </data>
++  <data name="Onboarding_Ready_Feature_Voice_Subtitle" xml:space="preserve">
++    <value>התעוררות עם הקול שלך</value>
++  </data>
++  <data name="Onboarding_Ready_Feature_Canvas_Subtitle" xml:space="preserve">
++    <value>סביבת עבודה חזותית</value>
++  </data>
++  <data name="Onboarding_Ready_Feature_Skills_Subtitle" xml:space="preserve">
++    <value>הגדרות ⟶ מיומנויות</value>
++  </data>
++  <data name="Onboarding_Connection_StatusOriginBlocked" xml:space="preserve">
++    <value>מקור אינו מותר: Gateway דוחה חיבור זה</value>
++  </data>
