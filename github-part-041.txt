@@ -1,0 +1,354 @@
++  </data>
++  <data name="ChatPage_CannotAttachFile" xml:space="preserve">
++    <value>לא ניתן לצרף קובץ</value>
++  </data>
++  <data name="ChatPage_CannotConnectToGateway" xml:space="preserve">
++    <value>לא ניתן להתחבר ל־Gateway ב-{0}
++
++ודא ש-gateway פועל.</value>
++  </data>
++  <data name="ChatPage_ChatFailedToStart" xml:space="preserve">
++    <value>הצ'אט נכשל:
++{0}</value>
++  </data>
++  <data name="ChatPage_ChatReady" xml:space="preserve">
++    <value>הצ'אט מוכן; מתחיל את שיחת הבקיעה הראשונה שלך…</value>
++  </data>
++  <data name="ChatPage_ChatSurfaceComingOnline" xml:space="preserve">
++    <value>ה־Gateway מחובר; משטח הצ'אט עדיין מתחבר.</value>
++  </data>
++  <data name="ChatPage_GatewayPairingIncomplete" xml:space="preserve">
++    <value>צימוד Gateway לא הושלם. פתח את הגדרות החיבור כדי לסיים את הצימוד.</value>
++  </data>
++  <data name="ChatPage_InvalidGatewayUrl" xml:space="preserve">
++    <value>לא חוקי Gateway URL: {0}</value>
++  </data>
++  <data name="ChatPage_OK" xml:space="preserve">
++    <value>אישור</value>
++  </data>
++  <data name="ChatPage_OpenConnectionSettings" xml:space="preserve">
++    <value>פתח את הגדרות החיבור כדי לסיים את הצימוד עם Gateway.</value>
++  </data>
++  <data name="ChatPage_OpenVoiceSettings" xml:space="preserve">
++    <value>פתח את הגדרות הקול</value>
++  </data>
++  <data name="ChatPage_TimedOutChat" xml:space="preserve">
++    <value>תם הזמן שהוקצב להמתנה לצ'אט ב-{0}. נסה שוב לאחר שה־Gateway יהיה מוכן.</value>
++  </data>
++  <data name="ChatPage_TimedOutHandshake" xml:space="preserve">
++    <value>תם הזמן שהוקצב להמתנה ללחיצת יד של האופרטור Gateway. נסה שוב לאחר שה־Gateway יהיה מוכן.</value>
++  </data>
++  <data name="ChatPage_VoiceModelInstallMessage" xml:space="preserve">
++    <value>יש להתקין את מודל הדיבור לטקסט לפני שתוכל להשתמש בקלט קולי. האם ברצונך לפתוח את הגדרות הקול כדי להתקין אותו?</value>
++  </data>
++  <data name="ChatPage_VoiceModelRequired" xml:space="preserve">
++    <value>נדרש מודל קול</value>
++  </data>
++  <data name="ChatPage_WebView2InitFailed" xml:space="preserve">
++    <value>אתחול WebView2 נכשל:
++{0}</value>
++  </data>
++  <data name="ConnectionStatus_Applying" xml:space="preserve">
++    <value>החלה…</value>
++  </data>
++  <data name="ConnectionStatus_AwaitingApproval" xml:space="preserve">
++    <value>ממתינה לאישור</value>
++  </data>
++  <data name="ConnectionStatus_AwaitingApprovalApproveThenConnect" xml:space="preserve">
++    <value>🔐 ממתין לאישור: אשר ולאחר מכן לחץ על התחבר</value>
++  </data>
++  <data name="ConnectionStatus_AwaitingApprovalFromGateway" xml:space="preserve">
++    <value>🔐 ממתין לאישור מה־Gateway</value>
++  </data>
++  <data name="ConnectionStatus_Connect" xml:space="preserve">
++    <value>התחברות</value>
++  </data>
++  <data name="ConnectionStatus_Connected" xml:space="preserve">
++    <value>✓ מחובר</value>
++  </data>
++  <data name="ConnectionStatus_ConnectedTo" xml:space="preserve">
++    <value>✓ מחובר אל {0}</value>
++  </data>
++  <data name="ConnectionStatus_Connecting" xml:space="preserve">
++    <value>מתחבר…</value>
++  </data>
++  <data name="ConnectionStatus_ConnectOnceApproved" xml:space="preserve">
++    <value>התחבר (לאחר אישור)</value>
++  </data>
++  <data name="ConnectionStatus_Disabled" xml:space="preserve">
++    <value>מושבת</value>
++  </data>
++  <data name="ConnectionStatus_Disconnected" xml:space="preserve">
++    <value>מנותק</value>
++  </data>
++  <data name="ConnectionStatus_EnterGatewayUrl" xml:space="preserve">
++    <value>הזן Gateway URL</value>
++  </data>
++  <data name="ConnectionStatus_NoGateways" xml:space="preserve">
++    <value>אין שערים</value>
++  </data>
++  <data name="ConnectionStatus_Reconnecting" xml:space="preserve">
++    <value>מתחבר מחדש…</value>
++  </data>
++  <data name="ConnectionStatus_Rejected" xml:space="preserve">
++    <value>נדחה</value>
++  </data>
++  <data name="ConnectionStatus_StartingSshTunnel" xml:space="preserve">
++    <value>מתחיל מנהרת SSH…</value>
++  </data>
++  <data name="ConnectionPage_OnHostname" xml:space="preserve">
++    <value>ב-{0}</value>
++  </data>
++  <data name="ConnectionPage_ClientSingular" xml:space="preserve">
++    <value>1 לקוח</value>
++  </data>
++  <data name="ConnectionPage_ClientsPlural" xml:space="preserve">
++    <value>{0} לקוחות</value>
++  </data>
++  <data name="ConnectionPage_ChannelsSingular" xml:space="preserve">
++    <value>ערוץ {0}/{1}</value>
++  </data>
++  <data name="ConnectionPage_ChannelsPlural" xml:space="preserve">
++    <value>ערוצים {0}/{1}</value>
++  </data>
++  <data name="ConnectionPage_CostToday" xml:space="preserve">
++    <value>${0} היום</value>
++  </data>
++  <data name="ConnectionPage_CostTodayZero" xml:space="preserve">
++    <value>$0.00 היום</value>
++  </data>
++  <data name="ConnectionPage_SharedTokenChip" xml:space="preserve">
++    <value>משותף token</value>
++  </data>
++  <data name="ConnectionPage_TapToCopySharedToken" xml:space="preserve">
++    <value>הקש כדי להעתיק שיתוף token</value>
++  </data>
++  <data name="ConnectionPage_TopologyViaSshTunnel" xml:space="preserve">
++    <value>דרך מנהרת SSH</value>
++  </data>
++  <data name="ConnectionPage_TopologyLocal" xml:space="preserve">
++    <value>מקומי</value>
++  </data>
++  <data name="ConnectionPage_TopologyTailscale" xml:space="preserve">
++    <value>Tailscale</value>
++  </data>
++  <data name="ConnectionPage_TopologyLAN" xml:space="preserve">
++    <value>LAN</value>
++  </data>
++  <data name="ConnectionPage_TopologyRemote" xml:space="preserve">
++    <value>מרוחק</value>
++  </data>
++  <data name="ConnectionPage_OperatorActiveSessions" xml:space="preserve">
++    <value>פעיל · {0} סשנים</value>
++  </data>
++  <data name="ConnectionPage_OperatorActiveOneSession" xml:space="preserve">
++    <value>פעיל · סשן אחד</value>
++  </data>
++  <data name="ConnectionPage_OperatorActiveNoSessions" xml:space="preserve">
++    <value>פעיל · אין נוכחי הפעלות</value>
++  </data>
++  <data name="ConnectionPage_OperatorDisconnected" xml:space="preserve">
++    <value>מנותק</value>
++  </data>
++  <data name="ConnectionPage_OperatorConnecting" xml:space="preserve">
++    <value>מתחבר…</value>
++  </data>
++  <data name="ConnectionPage_OperatorReconnecting" xml:space="preserve">
++    <value>מתחבר מחדש…</value>
++  </data>
++  <data name="ConnectionPage_NodeActiveCapabilities" xml:space="preserve">
++    <value>Node פעיל · {0} יכולות</value>
++  </data>
++  <data name="ConnectionPage_NodeActiveOneCapability" xml:space="preserve">
++    <value>Node פעיל · יכולת אחת</value>
++  </data>
++  <data name="ConnectionPage_NodeActiveNoCapabilities" xml:space="preserve">
++    <value>Node פעיל · אין יכולות מופעלות</value>
++  </data>
++  <data name="ConnectionPage_NodeAwaitingPairing" xml:space="preserve">
++    <value>ממתין לאישור צימוד</value>
++  </data>
++  <data name="ConnectionPage_NodePairingRejected" xml:space="preserve">
++    <value>צימוד נדחה</value>
++  </data>
++  <data name="ConnectionPage_NodeRateLimited" xml:space="preserve">
++    <value>מוגבל קצב</value>
++  </data>
++  <data name="ConnectionPage_NodeError" xml:space="preserve">
++    <value>שגיאה Node</value>
++  </data>
++  <data name="ConnectionPage_NodeModeDisabledText" xml:space="preserve">
++    <value>מצב Node מושבת</value>
++  </data>
++  <data name="ConnectionPage_NodeStarting" xml:space="preserve">
++    <value>Node מתחיל…</value>
++  </data>
++  <data name="ConnectionPage_NodeMcpOnly" xml:space="preserve">
++    <value>יכולות הגשה מקומית (MCP בלבד)</value>
++  </data>
++  <data name="ConnectionPage_NodeMcpOnlyReachable" xml:space="preserve">
++    <value>ניתן להגיע ללקוחות MCP מקומיים ב-{0}</value>
++  </data>
++  <data name="ConnectionPage_NodeMcpError" xml:space="preserve">
++    <value>הפעלת שרת MCP מקומי נכשלה</value>
++  </data>
++  <data name="ConnectionPage_NodeBodyNoCapabilities" xml:space="preserve">
++    <value>אין יכולות מופעלות. בחר מה לשתף בהרשאות.</value>
++  </data>
++  <data name="ConnectionPage_NodeBodyAwaitingApproval" xml:space="preserve">
++    <value>ממתין לאישור במארח Gateway.</value>
++  </data>
++  <data name="ConnectionPage_NodeBodyPairingRejected" xml:space="preserve">
++    <value>הצימוד נדחה. בצע צימוד חוזר מ-Add Gateway.</value>
++  </data>
++  <data name="ConnectionPage_NodeBodyRateLimited" xml:space="preserve">
++    <value>קצב מוגבל על ידי Gateway. ינסה שוב לאחר זמן קירור.</value>
++  </data>
++  <data name="ConnectionPage_NodeBodyError" xml:space="preserve">
++    <value>Node דיווח על שגיאה.</value>
++  </data>
++  <data name="ConnectionPage_ProvidingNoCapabilities" xml:space="preserve">
++    <value>לא מספק יכולות</value>
++  </data>
++  <data name="ConnectionPage_ProvidingCapabilitiesSingular" xml:space="preserve">
++    <value>מספק יכולת אחת: {0}</value>
++  </data>
++  <data name="ConnectionPage_ProvidingCapabilitiesPlural" xml:space="preserve">
++    <value>מתן יכולות של {0}: {1}</value>
++  </data>
++  <data name="ConnectionPage_BadgeConnected" xml:space="preserve">
++    <value>מחובר</value>
++  </data>
++  <data name="ConnectionPage_BadgeConnecting" xml:space="preserve">
++    <value>מתחבר…</value>
++  </data>
++  <data name="ConnectionPage_BadgeAwaitingApproval" xml:space="preserve">
++    <value>ממתינה לאישור</value>
++  </data>
++  <data name="ConnectionPage_BadgeDisconnecting" xml:space="preserve">
++    <value>מתנתק…</value>
++  </data>
++  <data name="ConnectionPage_ConnectAction" xml:space="preserve">
++    <value>התחברות</value>
++  </data>
++  <data name="ConnectionPage_OpenDashboard" xml:space="preserve">
++    <value>פתח לוח מחוונים</value>
++  </data>
++  <data name="ConnectionPage_GatewayOptionsA11y" xml:space="preserve">
++    <value>אפשרויות עבור {0}</value>
++  </data>
++  <data name="ConnectionPage_DisconnectAction" xml:space="preserve">
++    <value>ניתוק</value>
++  </data>
++  <data name="ConnectionPage_Edit" xml:space="preserve">
++    <value>עריכה</value>
++  </data>
++  <data name="ConnectionPage_Remove" xml:space="preserve">
++    <value>הסרה</value>
++  </data>
++  <data name="ConnectionPage_ViaSSH" xml:space="preserve">
++    <value>דרך SSH</value>
++  </data>
++  <data name="ConnectionPage_SavedGatewaysSingular" xml:space="preserve">
++    <value>שערים שמורים (1)</value>
++  </data>
++  <data name="ConnectionPage_SavedGatewaysPlural" xml:space="preserve">
++    <value>שערים שמורים ({0})</value>
++  </data>
++  <data name="ConnectionPage_JustNow" xml:space="preserve">
++    <value>כרגע</value>
++  </data>
++  <data name="ConnectionPage_MinutesAgo" xml:space="preserve">
++    <value>לפני {0} דקות</value>
++  </data>
++  <data name="ConnectionPage_HoursAgo" xml:space="preserve">
++    <value>לפני {0} שעות</value>
++  </data>
++  <data name="ConnectionPage_DaysAgo" xml:space="preserve">
++    <value>לפני {0} ימים</value>
++  </data>
++  <data name="ConnectionPage_MonthsAgo" xml:space="preserve">
++    <value>לפני {0} חודשים</value>
++  </data>
++  <data name="ConnectionPage_YearsAgo" xml:space="preserve">
++    <value>לפני {0} שנה</value>
++  </data>
++  <data name="ConnectionPage_RecoveryHeaderAuth" xml:space="preserve">
++    <value>התאם מחדש את Gateway:</value>
++  </data>
++  <data name="ConnectionPage_RecoveryHeaderPairing" xml:space="preserve">
++    <value>ממתין לאישור:</value>
++  </data>
++  <data name="ConnectionPage_RecoveryHeaderTunnel" xml:space="preserve">
++    <value>עזור לנו לתקן את SSH מנהרה:</value>
++  </data>
++  <data name="ConnectionPage_RecoveryHeaderServer" xml:space="preserve">
++    <value>עזור לנו לתקן את החיבור הזה:</value>
++  </data>
++  <data name="ConnectionPage_RecoveryAuthBullet1" xml:space="preserve">
++    <value>קבל קוד התקנה חדש מהמארח Gateway.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryAuthBullet2" xml:space="preserve">
++    <value>או הדבק קוד token ישיר חדש למטה.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryPairingBullet1" xml:space="preserve">
++    <value>אשר לקוח זה במארח Gateway באמצעות הפקודה למטה.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryPairingBullet2" xml:space="preserve">
++    <value>לאחר האישור, לחץ על התחבר כדי לחדש את הפעולה.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryTunnelBullet1" xml:space="preserve">
++    <value>ודא ש-SSH נגיש במארח.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryTunnelBullet2" xml:space="preserve">
++    <value>הפעל מחדש את המנהרה למטה אם היא נעצרה.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryServerBullet1" xml:space="preserve">
++    <value>בדוק את יומני Gateway במארח.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryServerBullet2" xml:space="preserve">
++    <value>אם Gateway פעיל חלקית, פתח את לוח המחוונים שלו.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryServerBullet3" xml:space="preserve">
++    <value>ערוך את הגדרות Gateway כדי לשנות את URL או token.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryDefaultBullet1" xml:space="preserve">
++    <value>ודא שה־Gateway פועל על המארח.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryDefaultBullet2" xml:space="preserve">
++    <value>ודא שאתה באותה רשת או VPN.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryDefaultBullet3" xml:space="preserve">
++    <value>אם אתה משתמש במנהרה SSH: ודא שהיא פעילה.</value>
++  </data>
++  <data name="ConnectionPage_SshTunnelIsDownText" xml:space="preserve">
++    <value>מנהרת SSH מושבתת.</value>
++  </data>
++  <data name="ConnectionPage_TestingConnection" xml:space="preserve">
++    <value>בדיקת חיבור…</value>
++  </data>
++  <data name="ConnectionPage_GatewayReachable" xml:space="preserve">
++    <value>ניתן להגיע ל-Gateway</value>
++  </data>
++  <data name="ConnectionPage_GatewayRespondedWith" xml:space="preserve">
++    <value>Gateway הגיב עם {0}</value>
++  </data>
++  <data name="ConnectionPage_CannotReachGateway" xml:space="preserve">
++    <value>לא ניתן להגיע ל־Gateway</value>
++  </data>
++  <data name="ConnectionPage_EnterGatewayUrl" xml:space="preserve">
++    <value>הזן Gateway URL</value>
++  </data>
++  <data name="ConnectionPage_Connecting" xml:space="preserve">
++    <value>מתחבר…</value>
++  </data>
++  <data name="ConnectionPage_StartingSshTunnel" xml:space="preserve">
++    <value>מתחיל מנהרת SSH…</value>
++  </data>
++  <data name="ConnectionPage_PairingApprovalRequired" xml:space="preserve">
++    <value>נדרש אישור צימוד עבור {0}.</value>
++  </data>
++  <data name="ConnectionPage_ConnectedTo" xml:space="preserve">
++    <value>מחובר אל {0}.</value>
++  </data>
++  <data name="ConnectionPage_SshServerPortInvalid" xml:space="preserve">
