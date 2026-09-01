@@ -1,0 +1,344 @@
++    <value>לא רלוונטי</value>
++  </data>
++  <data name="WindowTitle_Canvas" xml:space="preserve">
++    <value>קנבס</value>
++  </data>
++  <data name="CanvasErrorTitle.Text" xml:space="preserve">
++    <value>❌ שגיאת קנבס</value>
++  </data>
++  <data name="CanvasRetryButton.Content" xml:space="preserve">
++    <value>נסה שוב</value>
++  </data>
++  <data name="Canvas_ReadyTitle" xml:space="preserve">
++    <value>🎨 קנבס מוכן</value>
++  </data>
++  <data name="Canvas_WaitingForContent" xml:space="preserve">
++    <value>ממתין לתוכן...</value>
++  </data>
++  <data name="A2UI_CanvasTitle" xml:space="preserve">
++    <value>קנבס</value>
++  </data>
++  <data name="A2UI_UnsupportedComponent" xml:space="preserve">
++    <value>רכיב לא נתמך: {0}</value>
++  </data>
++  <data name="A2UI_TabFallback" xml:space="preserve">
++    <value>כרטיסייה</value>
++  </data>
++  <data name="A2UI_ModalClose" xml:space="preserve">
++    <value>סגור</value>
++  </data>
++  <data name="A2UI_DateTimeSelectDate" xml:space="preserve">
++    <value>בחר תאריך</value>
++  </data>
++  <data name="A2UI_MultipleChoiceSelect" xml:space="preserve">
++    <value>בחר...</value>
++  </data>
++  <data name="WebChatErrorTitle.Text" xml:space="preserve">
++    <value>צ'אט אינטרנט לא זמין</value>
++  </data>
++  <data name="WebChatOpenBrowserButton.Content" xml:space="preserve">
++    <value>פתח בדפדפן במקום זאת</value>
++  </data>
++  <data name="WebChat_ConnectionError" xml:space="preserve">
++    <value>לא ניתן ליצור קשר עם OpenClaw Gateway</value>
++  </data>
++  <data name="WebChat_ConnectionErrorDetail" xml:space="preserve">
++    <value>ה־Gateway בכתובת {0} אינו מגיב.
++
++כדי להתחבר:
++• ודאו שה־OpenClaw Gateway פועל
++• בחיבור מרוחק, התחברו לרשת הביתית באמצעות VPN
++• או השתמשו במנהרת SSH: ssh -N -L 18789:localhost:18789 your-server</value>
++  </data>
++  <data name="WebChat_CertError" xml:space="preserve">
++    <value>אישור ה־HTTPS של ה־Gateway אינו מהימן.
++
++כדי להתחבר בצורה מאובטחת:
++• השתמשו ב־Gateway URL מסוג HTTPS (לדוגמה: https://host.tailnet.ts.net)
++• באישור בחתימה עצמית, ייבאו אותו אל מאגר האישורים המהימנים של Windows
++• או השתמשו במנהרת SSH אל localhost והמשיכו להשתמש בכתובות URL של localhost</value>
++  </data>
++  <data name="WebChat_InvalidUrl" xml:space="preserve">
++    <value>Gateway URL לא חוקי: {0}</value>
++  </data>
++  <data name="WebChat_SecureContextRequired" xml:space="preserve">
++    <value>הצ׳אט בדפדפן דורש חיבור מאובטח.
++
++אין דרך בטוחה לעקוף זאת בחיבור HTTP מרוחק: הדפדפנים ו־WebView אוכפים את הדרישה.
++
++השתמש באחת מהאפשרויות הבאות:
++• נקודת קצה מהימנה מסוג HTTPS/WSS (Let's Encrypt, Tailscale Serve או Caddy)
++• באישור בחתימה עצמית, ייבאו את ה־CA/cert של ה־Gateway אל Windows Trusted Root (certmgr.msc)
++• או צרו מנהרה אל localhost: ssh -N -L 18789:localhost:18789 &lt;server&gt;</value>
++  </data>
++  <data name="WindowTitle_TrayMenu" xml:space="preserve">
++    <value>תפריט OpenClaw</value>
++  </data>
++  <data name="Toast_DeviceIdCopied" xml:space="preserve">
++    <value>📋 מזהה המכשיר הועתק</value>
++  </data>
++  <data name="Toast_DeviceIdCopiedDetail" xml:space="preserve">
++    <value>הפעילו: openclaw devices approve {0}…</value>
++  </data>
++  <data name="Toast_NodeSummaryCopied" xml:space="preserve">
++    <value>📋 סיכום ה־Node הועתק</value>
++  </data>
++  <data name="Toast_NodeSummaryCopiedDetail" xml:space="preserve">
++    <value>{0} Nodes הועתקו ללוח</value>
++  </data>
++  <data name="Toast_SessionActionFailed" xml:space="preserve">
++    <value>❌ פעולת הסשן נכשלה</value>
++  </data>
++  <data name="Toast_SessionActionFailedDetail" xml:space="preserve">
++    <value>לא ניתן היה לשלוח בקשה אל Gateway.</value>
++  </data>
++  <data name="Toast_NodeModeActive" xml:space="preserve">
++    <value>🔌 מצב Node פעיל</value>
++  </data>
++  <data name="Toast_NodeModeActiveDetail" xml:space="preserve">
++    <value>מחשב זה יכול כעת לקבל פקודות מהסוכן (בד ציור, צילומי מסך)</value>
++  </data>
++  <data name="Toast_PairingPending" xml:space="preserve">
++    <value>⏳ ממתין לאישור צימוד</value>
++  </data>
++  <data name="Toast_PairingPendingDetail" xml:space="preserve">
++    <value>הפעילו ב־Gateway: openclaw devices approve {0}…</value>
++  </data>
++  <data name="Toast_CopyPairingCommand" xml:space="preserve">
++    <value>העתקת פקודת אישור</value>
++  </data>
++  <data name="Toast_PairingCommandCopied" xml:space="preserve">
++    <value>פקודת צימוד הועתקה</value>
++  </data>
++  <data name="Toast_PairingRequestTitle" xml:space="preserve">
++    <value>בקשת התאמה</value>
++  </data>
++  <data name="Toast_PairingRequestBody" xml:space="preserve">
++    <value>{0} רוצה להתחבר</value>
++  </data>
++  <data name="Toast_PairingRequestBodyNode" xml:space="preserve">
++    <value>{0} רוצה להתחבר כ-Node</value>
++  </data>
++  <data name="Toast_PairingReview" xml:space="preserve">
++    <value>סקירה</value>
++  </data>
++  <data name="Toast_PairingApprovedTitle" xml:space="preserve">
++    <value>צימוד אושר</value>
++  </data>
++  <data name="Toast_PairingApprovedBody" xml:space="preserve">
++    <value>{0} יכול כעת להתחבר</value>
++  </data>
++  <data name="Toast_PairingRejectedTitle" xml:space="preserve">
++    <value>צימוד נדחה</value>
++  </data>
++  <data name="Toast_PairingRejectedBody" xml:space="preserve">
++    <value>{0} לא הורשה להתחבר</value>
++  </data>
++  <data name="PairingApproval_WindowTitle" xml:space="preserve">
++    <value>צימוד בקשה</value>
++  </data>
++  <data name="PairingApproval_DeviceHeading" xml:space="preserve">
++    <value>מכשיר רוצה להתחבר</value>
++  </data>
++  <data name="PairingApproval_NodeHeading" xml:space="preserve">
++    <value>מכשיר Node רוצה להתחבר</value>
++  </data>
++  <data name="PairingApproval_Subtitle" xml:space="preserve">
++    <value>אשר רק אם אתה מזהה בקשה זו. תוכל להסיר אותה מאוחר יותר בהגדרות החיבור.</value>
++  </data>
++  <data name="PairingApproval_AccessRequested" xml:space="preserve">
++    <value>גישה מבוקשת</value>
++  </data>
++  <data name="PairingApproval_RepairBadge" xml:space="preserve">
++    <value>בקשת צימוד מחדש: המכשיר token יסתובב.</value>
++  </data>
++  <data name="PairingApproval_Approve" xml:space="preserve">
++    <value>אישור</value>
++  </data>
++  <data name="PairingApproval_ApproveDevice" xml:space="preserve">
++    <value>אישור התקן</value>
++  </data>
++  <data name="PairingApproval_ApproveNode" xml:space="preserve">
++    <value>אישור Node</value>
++  </data>
++  <data name="PairingApproval_Reject" xml:space="preserve">
++    <value>דחייה</value>
++  </data>
++  <data name="PairingApproval_Later" xml:space="preserve">
++    <value>החלטה מאוחר יותר</value>
++  </data>
++  <data name="PairingApproval_MoreWaiting" xml:space="preserve">
++    <value>עוד {0} המתנה</value>
++  </data>
++  <data name="PairingApproval_ApproveHint" xml:space="preserve">
++    <value>אישור הופך לזמין עוד רגע</value>
++  </data>
++  <data name="PairingApproval_UnknownDevice" xml:space="preserve">
++    <value>התקן לא ידוע</value>
++  </data>
++  <data name="PairingApproval_UnknownPlatform" xml:space="preserve">
++    <value>פלטפורמה לא ידועה</value>
++  </data>
++  <data name="ExecApproval_WindowTitle" xml:space="preserve">
++    <value>אישור פקודה</value>
++  </data>
++  <data name="ExecApproval_Heading" xml:space="preserve">
++    <value>לאפשר פקודה?</value>
++  </data>
++  <data name="ExecApproval_Body" xml:space="preserve">
++    <value>הפקודה הבאה מבקשת הרשאה להפעלה:</value>
++  </data>
++  <data name="ExecApproval_AgentLabel" xml:space="preserve">
++    <value>סוכן:</value>
++  </data>
++  <data name="ExecApproval_CwdLabel" xml:space="preserve">
++    <value>ספריית עבודה:</value>
++  </data>
++  <data name="ExecApproval_ExecutableLabel" xml:space="preserve">
++    <value>קובץ הפעלה:</value>
++  </data>
++  <data name="ExecApproval_AllowOnce" xml:space="preserve">
++    <value>אפשר פעם אחת</value>
++  </data>
++  <data name="ExecApproval_AllowAlways" xml:space="preserve">
++    <value>אפשר תמיד</value>
++  </data>
++  <data name="ExecApproval_Deny" xml:space="preserve">
++    <value>דחה</value>
++  </data>
++  <data name="ExecApproval_ArmHint" xml:space="preserve">
++    <value>אפשר הופך לזמין בעוד רגע</value>
++  </data>
++  <data name="ExecApproval_ScrollHint" xml:space="preserve">
++    <value>גלול לסוף הפקודה לפני מתן אישור</value>
++  </data>
++  <data name="ExecApproval_ConfusableWarning" xml:space="preserve">
++    <value>פקודה זו מערבבת קבוצות תווים וייתכן שלא תיקרא כפי שהיא נראית. בדוק אותה היטב.</value>
++  </data>
++  <data name="Toast_NodePaired" xml:space="preserve">
++    <value>✅ ה־Node הותאם!</value>
++  </data>
++  <data name="Toast_NodePairedDetail" xml:space="preserve">
++    <value>מחשב זה יכול כעת לקבל פקודות מהסוכן</value>
++  </data>
++  <data name="Toast_PairingRejected" xml:space="preserve">
++    <value>❌ צימוד נדחה</value>
++  </data>
++  <data name="Toast_PairingRejectedDetail" xml:space="preserve">
++    <value>ה־Gateway דחה את בקשת צימוד ההתקן הזו.</value>
++  </data>
++  <data name="Toast_HealthCheck" xml:space="preserve">
++    <value>בדיקת תקינות</value>
++  </data>
++  <data name="Toast_HealthCheckNotConnected" xml:space="preserve">
++    <value>Gateway עדיין לא מחובר.</value>
++  </data>
++  <data name="Toast_HealthCheckSent" xml:space="preserve">
++    <value>בקשת בדיקת תקינות נשלחה.</value>
++  </data>
++  <data name="Toast_HealthCheckFailed" xml:space="preserve">
++    <value>בדיקת התקינות נכשלה</value>
++  </data>
++  <data name="Toast_ScreenCaptured" xml:space="preserve">
++    <value>📸 צילום מסך</value>
++  </data>
++  <data name="Toast_ScreenCapturedDetail" xml:space="preserve">
++    <value>הסוכן של OpenClaw צילם את המסך</value>
++  </data>
++  <data name="Toast_CameraBlocked" xml:space="preserve">
++    <value>📷 גישת מצלמה חסומה</value>
++  </data>
++  <data name="Toast_CameraBlockedDetail" xml:space="preserve">
++    <value>הפעל גישת מצלמה בהגדרות הפרטיות של Windows עבור מגש OpenClaw</value>
++  </data>
++  <data name="Toast_ScreenRecordingStarted" xml:space="preserve">
++    <value>🔴 הקלטת מסך החלה</value>
++  </data>
++  <data name="Toast_ScreenRecordingStartedDetail" xml:space="preserve">
++    <value>הסוכן של OpenClaw מקליט את המסך</value>
++  </data>
++  <data name="Toast_ScreenRecordingComplete" xml:space="preserve">
++    <value>✅ הקלטת מסך הושלמה</value>
++  </data>
++  <data name="Toast_ScreenRecordingCompleteDetail" xml:space="preserve">
++    <value>הקלטת מסך נשלחה לסוכן</value>
++  </data>
++  <data name="Toast_ScreenRecordingFailed" xml:space="preserve">
++    <value>❌ הקלטת מסך נכשלה</value>
++  </data>
++  <data name="Toast_ScreenRecordingFailedDetail" xml:space="preserve">
++    <value>אירעה שגיאה בעת הקלטת המסך</value>
++  </data>
++  <data name="Toast_CameraRecordingStarted" xml:space="preserve">
++    <value>🔴 הקלטת המצלמה החלה</value>
++  </data>
++  <data name="Toast_CameraRecordingStartedDetail" xml:space="preserve">
++    <value>הסוכן של OpenClaw מקליט מהמצלמה</value>
++  </data>
++  <data name="Toast_CameraRecordingComplete" xml:space="preserve">
++    <value>✅ הקלטת מצלמה הושלמה</value>
++  </data>
++  <data name="Toast_CameraRecordingCompleteDetail" xml:space="preserve">
++    <value>קטע מצלמה נשלח לסוכן</value>
++  </data>
++  <data name="RecordingConsent_WindowTitle" xml:space="preserve">
++    <value>בקשת הרשאה</value>
++  </data>
++  <data name="RecordingConsent_ScreenTitle" xml:space="preserve">
++    <value>לאפשר הקלטת מסך?</value>
++  </data>
++  <data name="RecordingConsent_CameraTitle" xml:space="preserve">
++    <value>לאפשר הקלטת מצלמה?</value>
++  </data>
++  <data name="RecordingConsent_ScreenDescription" xml:space="preserve">
++    <value>סוכן מבקש להקליט את המסך שלך. פעולה זו תצלם וידאו מהתצוגה שלך ותשלח אותו לסוכן. בחירתך תיזכר לבקשות עתידיות עד שתשנה אותה בהגדרות.</value>
++  </data>
++  <data name="RecordingConsent_CameraDescription" xml:space="preserve">
++    <value>סוכן מבקש להקליט מהמצלמה שלך. פעולה זו תצלם וידאו ממצלמת האינטרנט שלך ותשלח אותו לסוכן. בחירתך תיזכר לבקשות עתידיות עד שתשנה אותה בהגדרות.</value>
++  </data>
++  <data name="RecordingConsent_Privacy" xml:space="preserve">
++    <value>ניתן לשנות זאת מאוחר יותר בהגדרות.</value>
++  </data>
++  <data name="RecordingConsent_Allow" xml:space="preserve">
++    <value>אפשר הקלטה</value>
++  </data>
++  <data name="RecordingConsent_Deny" xml:space="preserve">
++    <value>דחה</value>
++  </data>
++  <data name="Settings_PrivacyHeader" xml:space="preserve">
++    <value>פרטיות</value>
++  </data>
++  <data name="Settings_PrivacyDescription" xml:space="preserve">
++    <value>שלוט ביכולות שסוכנים יכולים להשתמש בהן במכשיר זה.</value>
++  </data>
++  <data name="Settings_AllowScreenRecording" xml:space="preserve">
++    <value>אפשר הקלטת מסך</value>
++  </data>
++  <data name="Settings_AllowCameraRecording" xml:space="preserve">
++    <value>אפשר הקלטת מצלמה</value>
++  </data>
++  <data name="SettingsPrivacyHeader.Text" xml:space="preserve">
++    <value>פרטיות</value>
++  </data>
++  <data name="SettingsPrivacyDescription.Text" xml:space="preserve">
++    <value>אישור מראש של יכולות כדי שסוכנים יוכלו להשתמש בהן ללא בקשת אישור בכל פעם. עדיין תראה ספירה לאחור לפני תחילת ההקלטה.</value>
++  </data>
++  <data name="ScreenRecordingToggle.Header" xml:space="preserve">
++    <value>אפשר הקלטת מסך</value>
++  </data>
++  <data name="CameraRecordingToggle.Header" xml:space="preserve">
++    <value>אפשר הקלטת מצלמה</value>
++  </data>
++  <data name="Toast_ActivityStreamTip" xml:space="preserve">
++    <value>⚡ חדש: זרם פעילות</value>
++  </data>
++  <data name="Toast_ActivityStreamTipDetail" xml:space="preserve">
++    <value>פתח את תפריט המגש כדי להציג הפעלות חיות, שימוש ופעילות Node בתפריט נשלף אחד.</value>
++  </data>
++  <data name="Toast_ActivityStreamTipButton" xml:space="preserve">
++    <value>פתיחת זרם פעילות</value>
++  </data>
++  <data name="SettingsDeveloperModeHeader.Text" xml:space="preserve">
++    <value>מצב מפתח</value>
++  </data>
++  <data name="SettingsMcpServerToggle.Header" xml:space="preserve">
