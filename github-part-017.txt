@@ -1,0 +1,260 @@
+-    private const string ProviderEmptyMessage = "No providers configured";
+-    private const string DisconnectedListMessage = "Couldn't load. Check your gateway connection.";
+-
+     public UsagePage()
+     {
+         InitializeComponent();
+@@ -308,7 +304,8 @@ public sealed partial class UsagePage : Page
+         // card visually empty (no spinner, no rows, no message). Surface a
+         // message in that case so the page never looks frozen.
+         bool failed = !_dailyCostLoading.IsRefreshing && !_dailyCostLoading.HasLoaded;
+-        DailyEmptyText.Text = failed ? DisconnectedListMessage : DailyEmptyMessage;
++        DailyEmptyText.Text = LocalizationHelper.GetString(
++            failed ? "UsagePage_DisconnectedListMessage" : "UsagePage_DailyEmptyMessage");
+         DailyEmptyText.Visibility = (_dailyCostLoading.ShouldShowEmpty || failed) ? Visibility.Visible : Visibility.Collapsed;
+         PeriodSelector.IsEnabled = _dailyCostLoading.CanEdit;
+     }
+@@ -318,7 +315,8 @@ public sealed partial class UsagePage : Page
+         ProviderLoadingPanel.Visibility = _providerLoading.ShouldShowLoading ? Visibility.Visible : Visibility.Collapsed;
+         ProviderListView.Visibility = _providerLoading.ShouldShowContent ? Visibility.Visible : Visibility.Collapsed;
+         bool failed = !_providerLoading.IsRefreshing && !_providerLoading.HasLoaded;
+-        ProviderEmptyText.Text = failed ? DisconnectedListMessage : ProviderEmptyMessage;
++        ProviderEmptyText.Text = LocalizationHelper.GetString(
++            failed ? "UsagePage_DisconnectedListMessage" : "UsagePage_ProviderEmptyMessage");
+         ProviderEmptyText.Visibility = (_providerLoading.ShouldShowEmpty || failed) ? Visibility.Visible : Visibility.Collapsed;
+     }
+ 
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml b/src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml
+index 73bd8e6e..ba4c135e 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml
+@@ -274,23 +274,23 @@
+ 
+                     <!-- ElevenLabs settings -->
+                     <StackPanel x:Name="ElevenLabsPanel" Spacing="8" Visibility="Collapsed">
+-                        <PasswordBox x:Uid="VoiceSettingsPage_ElevenLabsApiKeyBox" x:Name="ElevenLabsApiKeyBox" Header="API Key"
++                        <PasswordBox x:Uid="VoiceSettingsPage_ElevenLabsApiKeyBox" x:Name="ElevenLabsApiKeyBox" FlowDirection="LeftToRight" Header="API Key"
+                                      PasswordChanged="OnElevenLabsKeyChanged" Width="300"/>
+-                        <TextBox x:Uid="VoiceSettingsPage_ElevenLabsVoiceIdBox" x:Name="ElevenLabsVoiceIdBox" Header="Voice ID"
++                        <TextBox x:Uid="VoiceSettingsPage_ElevenLabsVoiceIdBox" x:Name="ElevenLabsVoiceIdBox" FlowDirection="LeftToRight" Header="Voice ID"
+                                  TextChanged="OnElevenLabsVoiceIdChanged" Width="300"
+                                  PlaceholderText="e.g. 21m00Tcm4TlvDq8ikWAM"/>
+-                        <TextBox x:Uid="VoiceSettingsPage_ElevenLabsModelBox" x:Name="ElevenLabsModelBox" Header="Model (optional)"
++                        <TextBox x:Uid="VoiceSettingsPage_ElevenLabsModelBox" x:Name="ElevenLabsModelBox" FlowDirection="LeftToRight" Header="Model (optional)"
+                                  TextChanged="OnElevenLabsModelChanged" Width="300"
+                                  PlaceholderText="e.g. eleven_turbo_v2"/>
+                     </StackPanel>
+ 
+                     <StackPanel x:Name="MiniMaxPanel" Spacing="8" Visibility="Collapsed">
+-                        <PasswordBox x:Uid="VoiceSettingsPage_MiniMaxApiKeyBox" x:Name="MiniMaxApiKeyBox" Header="API Key"
++                        <PasswordBox x:Uid="VoiceSettingsPage_MiniMaxApiKeyBox" x:Name="MiniMaxApiKeyBox" FlowDirection="LeftToRight" Header="API Key"
+                                      PasswordChanged="OnMiniMaxKeyChanged" Width="300"/>
+-                        <TextBox x:Uid="VoiceSettingsPage_MiniMaxVoiceIdBox" x:Name="MiniMaxVoiceIdBox" Header="Voice ID"
++                        <TextBox x:Uid="VoiceSettingsPage_MiniMaxVoiceIdBox" x:Name="MiniMaxVoiceIdBox" FlowDirection="LeftToRight" Header="Voice ID"
+                                  TextChanged="OnMiniMaxVoiceIdChanged" Width="300"
+                                  PlaceholderText="e.g. male-qn-qingse"/>
+-                        <TextBox x:Uid="VoiceSettingsPage_MiniMaxModelBox" x:Name="MiniMaxModelBox" Header="Model"
++                        <TextBox x:Uid="VoiceSettingsPage_MiniMaxModelBox" x:Name="MiniMaxModelBox" FlowDirection="LeftToRight" Header="Model"
+                                  TextChanged="OnMiniMaxModelChanged" Width="300"
+                                  PlaceholderText="speech-2.8-hd"/>
+                         <ComboBox x:Uid="VoiceSettingsPage_MiniMaxRegionCombo" x:Name="MiniMaxRegionCombo" Header="Region"
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs b/src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs
+index 5b7b954a..7fb8ea45 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/VoiceSettingsPage.xaml.cs
+@@ -361,7 +361,7 @@ public sealed partial class VoiceSettingsPage : Page
+         };
+         var pillLabel = new TextBlock
+         {
+-            Text = "Recording",
++            Text = L("VoiceSettingsPage_InlineRecording"),
+             FontSize = 11,
+             Foreground = new SolidColorBrush(accentColor),
+             VerticalAlignment = VerticalAlignment.Center
+@@ -416,7 +416,7 @@ public sealed partial class VoiceSettingsPage : Page
+                 _inlineTestVoiceService ??= new VoiceService(new AppLogger(), CurrentApp.Settings);
+                 _inlineTestListening = true;
+                 InlineTestBtnIcon.Glyph = "\uE71A";
+-                InlineTestBtnLabel.Text = "Stop";
++                InlineTestBtnLabel.Text = L("VoiceSettingsPage_InlineStop");
+                 SetInlineTestStatus("");
+                 EnsureInlineTestPill();
+                 _inlineTestPillContainer!.Visibility = Visibility.Visible;
+@@ -435,10 +435,10 @@ public sealed partial class VoiceSettingsPage : Page
+             catch (Exception ex)
+             {
+                 Logger.Error($"Inline voice test failed: {ex}");
+-                SetInlineTestStatus("Could not start voice input");
++                SetInlineTestStatus(L("VoiceSettingsPage_InlineStartFailed"));
+                 _inlineTestListening = false;
+                 InlineTestBtnIcon.Glyph = "\uE720";
+-                InlineTestBtnLabel.Text = "Record";
++                InlineTestBtnLabel.Text = L("VoiceSettingsPage_InlineRecord");
+                 InlineTestPillHost.Visibility = Visibility.Collapsed;
+                 if (_inlineTestPillContainer != null)
+                     _inlineTestPillContainer.Visibility = Visibility.Collapsed;
+@@ -461,8 +461,8 @@ public sealed partial class VoiceSettingsPage : Page
+         }
+         _inlineTestListening = false;
+         InlineTestBtnIcon.Glyph = "\uE720";
+-        InlineTestBtnLabel.Text = "Record";
+-        SetInlineTestStatus(InlineTestTranscriptPanel.Children.Count > 0 ? "" : "Done");
++        InlineTestBtnLabel.Text = L("VoiceSettingsPage_InlineRecord");
++        SetInlineTestStatus(InlineTestTranscriptPanel.Children.Count > 0 ? "" : L("VoiceSettingsPage_InlineDone"));
+         InlineTestPillHost.Visibility = Visibility.Collapsed;
+         if (_inlineTestPillContainer != null)
+             _inlineTestPillContainer.Visibility = Visibility.Collapsed;
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/WorkspacePage.xaml b/src/OpenClaw.Tray.WinUI/Pages/WorkspacePage.xaml
+index 95e7f6b5..96e8af1c 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/WorkspacePage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/WorkspacePage.xaml
+@@ -96,7 +96,7 @@
+                 </Button>
+             </Grid>
+ 
+-            <TextBlock x:Name="WorkspacePathText" Grid.Row="1"
++            <TextBlock FlowDirection="LeftToRight" x:Name="WorkspacePathText" Grid.Row="1"
+                        Style="{StaticResource CaptionTextBlockStyle}"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
+diff --git a/src/OpenClaw.Tray.WinUI/Presentation/TrayMenuPresenter.cs b/src/OpenClaw.Tray.WinUI/Presentation/TrayMenuPresenter.cs
+index 8a3d23ea..96875134 100644
+--- a/src/OpenClaw.Tray.WinUI/Presentation/TrayMenuPresenter.cs
++++ b/src/OpenClaw.Tray.WinUI/Presentation/TrayMenuPresenter.cs
+@@ -1,6 +1,7 @@
+ using OpenClaw.Shared;
+ using OpenClaw.Shared.Sessions;
+ using OpenClawTray.Chat;
++using OpenClawTray.Helpers;
+ using OpenClawTray.Services;
+ using System.Collections.Immutable;
+ using System.Globalization;
+@@ -369,7 +370,7 @@ internal sealed class TrayMenuPresenter
+         }
+         else
+         {
+-            items.Add(new TrayMenuElement { Kind = TrayMenuElementKind.Text, Text = "No usage data yet" });
++            items.Add(new TrayMenuElement { Kind = TrayMenuElementKind.Text, Text = LocalizationHelper.GetString("TrayMenu_NoUsageData") });
+         }
+ 
+         if (_snapshot.UsageStatus is { Providers.IsEmpty: false } usageStatus)
+diff --git a/src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw b/src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw
+index 8c427b26..edcb1f81 100644
+--- a/src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw
++++ b/src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw
+@@ -7143,4 +7143,1052 @@ Make sure the gateway is running.</value>
+   <data name="LocalAiPage_UnavailableProbeTitle" xml:space="preserve"><value>Local AI availability could not be verified</value></data>
+   <data name="LocalAiPage_CheckingTitle" xml:space="preserve"><value>Checking Local AI availability</value></data>
+   <data name="LocalAiPage_CheckingMessage" xml:space="preserve"><value>OpenClaw is verifying whether this device can run Local AI. This only takes a moment.</value></data>
++
++  <data name="Setup_AdvancedSetupPage_BackButton.Content" xml:space="preserve">
++    <value>Back</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_OpenConnectionButton.Content" xml:space="preserve">
++    <value>Open Companion Settings</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>Step 2 of 6</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_1.Text" xml:space="preserve">
++    <value>Connect to an existing gateway</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_2.Text" xml:space="preserve">
++    <value>We'll open Companion Settings next. Nothing gets installed. Here's what you'll do there:</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_3.Text" xml:space="preserve">
++    <value>Add a gateway</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_4.Text" xml:space="preserve">
++    <value>In Connection, choose Add a gateway, then pick how to connect: Setup code or Direct (URL + token).</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_5.Text" xml:space="preserve">
++    <value>Point it at your gateway</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_6.Text" xml:space="preserve">
++    <value>Pair this device</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_7.Text" xml:space="preserve">
++    <value>Paste a setup code from the gateway host, or your shared token, so the gateway trusts this PC.</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_8.Text" xml:space="preserve">
++    <value>Optional: SSH tunnel</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_9.Text" xml:space="preserve">
++    <value>If your gateway isn't directly reachable, any method can tunnel over SSH.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_BackButton.Content" xml:space="preserve">
++    <value>Back</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_CapabilityExpander.Header" xml:space="preserve">
++    <value>Fine-tune individual capabilities (optional)</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_Expander_1.Header" xml:space="preserve">
++    <value>Show the exact commands &amp; files</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_GatewayServiceDetailText.Text" xml:space="preserve">
++    <value>Loopback only. It is not reachable from your network or the internet.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_InstallCliDetailText.Text" xml:space="preserve">
++    <value>Fetched over HTTPS; runs as a non-root openclaw user inside the instance.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_InstallDistroDetailText.Text" xml:space="preserve">
++    <value>WSL distro "OpenClawGateway" in your AppData. Separate from any Ubuntu you already have. Disk use grows dynamically.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_InstallDistroTitleText.Text" xml:space="preserve">
++    <value>Install an isolated Ubuntu 24.04 instance</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiModelSelector.AutomationProperties.Name" xml:space="preserve">
++    <value>Local AI model</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiNetworkingConsentCheckBox.AutomationProperties.Name" xml:space="preserve">
++    <value>Allow the global WSL networking change and one-time WSL shutdown</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiNetworkingConsentCheckBox.Content" xml:space="preserve">
++    <value>I understand and allow this global WSL change and one-time shutdown.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiNetworkingConsentPanel.Title" xml:space="preserve">
++    <value>WSL networking change required</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiNetworkingInspectionError.Title" xml:space="preserve">
++    <value>Could not check WSL networking</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiOptionContent.AutomationProperties.Name" xml:space="preserve">
++    <value>Local AI setup options</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiToggle.AutomationProperties.Name" xml:space="preserve">
++    <value>Set up Local AI on this PC</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiUnavailablePanel.Title" xml:space="preserve">
++    <value>Local AI is not available</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_PrimaryButton.Content" xml:space="preserve">
++    <value>Next</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_RadioButton_1.AutomationProperties.Name" xml:space="preserve">
++    <value>Read-only</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_RadioButton_2.AutomationProperties.Name" xml:space="preserve">
++    <value>Standard (Recommended)</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_RadioButton_3.AutomationProperties.Name" xml:space="preserve">
++    <value>Full access</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>Step 3 of 6</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TailscaleAuthKeyBox.PlaceholderText" xml:space="preserve">
++    <value>Tailscale auth key (not saved)</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TailscaleStatusText.Text" xml:space="preserve">
++    <value>Check Windows Tailscale before continuing.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TailscaleTrustAuthToggle.Header" xml:space="preserve">
++    <value>Trust Tailscale identities for gateway authentication</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TailscaleTrustAuthToggle.OffContent" xml:space="preserve">
++    <value>Disabled</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TailscaleTrustAuthToggle.OnContent" xml:space="preserve">
++    <value>Enabled</value>
++  </data>
