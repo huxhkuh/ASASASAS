@@ -1,0 +1,335 @@
++    <value>הזן ערך מוחלט HTTP או HTTPS OTLP אספן URL, לדוגמה http://localhost:4317.</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_ClearedTitle" xml:space="preserve">
++    <value>נקודת הקצה נוקתה</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_OffTitle" xml:space="preserve">
++    <value>אין נקודת קצה טלמטריה</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_OffMessage" xml:space="preserve">
++    <value>לא מוגדרת נקודת קצה.</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_SavedTitle" xml:space="preserve">
++    <value>נקודת הקצה נשמרה</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_SavedMessageFormat" xml:space="preserve">
++    <value>נקודת קצה טלמטריה: {0}</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_ConfiguredTitle" xml:space="preserve">
++    <value>נקודת קצה מוגדרת</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_ConfiguredMessageFormat" xml:space="preserve">
++    <value>נקודת קצה טלמטריה: {0}</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_UnsavedMessage" xml:space="preserve">
++    <value>שמור כדי להחיל חיבור זה.</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_ProbeFlushedMessage" xml:space="preserve">
++    <value>הגשש נוקה באופן מקומי; קבלת האספן לא אושרה.</value>
++  </data>
++  <data name="DiagnosticsPage_OpenTelemetryEndpointStatus_ProbeFailedMessage" xml:space="preserve">
++    <value>הגשש לא הסתיים עבור נקודת הקצה השמורה. בדוק את ההגדרות ונסה שוב.</value>
++  </data>
++  <data name="DiagnosticsPage_Expander_ChatOverrides.Header" xml:space="preserve">
++    <value>עקיפות של משטח הצ'אט</value>
++  </data>
++  <data name="DiagnosticsPage_Expander_ChatOverrides.Description" xml:space="preserve">
++    <value>עקיפה של ממשק המשתמש של הצ'אט לפי משטח. מתאפס כאשר OpenClaw מופעל מחדש.</value>
++  </data>
++  <data name="DiagnosticsPage_Card_HubChat.Header" xml:space="preserve">
++    <value>כרטיסיית צ'אט של Hub</value>
++  </data>
++  <data name="DiagnosticsPage_Card_TrayChat.Header" xml:space="preserve">
++    <value>חלון קופץ של מגש הצ'אט</value>
++  </data>
++  <data name="DiagnosticsPage_DetailBack.Text" xml:space="preserve">
++    <value>חזרה לאבחון</value>
++  </data>
++  <data name="SettingsRow_AutoStart_Description.Text" xml:space="preserve">
++    <value>הפעל את OpenClaw באופן אוטומטי בעת הכניסה.</value>
++  </data>
++  <data name="SettingsRow_GlobalHotkey_Description.Text" xml:space="preserve">
++    <value>הפעל מקשי קיצור גלובליים (Ctrl+Alt+Shift+V לקול, Ctrl+Alt+; להגדרות).</value>
++  </data>
++  <data name="SettingsRow_LegacyChat_Description.Text" xml:space="preserve">
++    <value>כאשר מופעל, צ'אט מארח את צ'אט האינטרנט של Gateway במקום חוויית Windows המקורית.</value>
++  </data>
++  <data name="SettingsRow_Notifications_Description.Text" xml:space="preserve">
++    <value>הצג התראות טוסט עבור אירועים שנרשמת אליהם למטה.</value>
++  </data>
++  <data name="SettingsRow_NotifSound_Description.Text" xml:space="preserve">
++    <value>צליל התראות שמתנגן לצד הטוסט.</value>
++  </data>
++  <data name="SettingsRow_ScreenRec_Description.Text" xml:space="preserve">
++    <value>מאפשר לסוכנים לצלם את המסך באמצעות פקודות screen.*.</value>
++  </data>
++  <data name="SettingsRow_CamRec_Description.Text" xml:space="preserve">
++    <value>מאפשר לסוכנים לצלם את המצלמה באמצעות פקודות camera.*.</value>
++  </data>
++  <data name="VoiceSettingsPage_ElevenLabsVoiceIdBox.PlaceholderText" xml:space="preserve">
++    <value>לדוגמה: 21m00Tcm4TlvDq8ikWAM</value>
++  </data>
++  <data name="VoiceSettingsPage_ElevenLabsModelBox.PlaceholderText" xml:space="preserve">
++    <value>לדוגמה: eleven_turbo_v2</value>
++  </data>
++  <data name="ConnectionStatusWindow.Title" xml:space="preserve">
++    <value>סטטוס חיבור</value>
++  </data>
++  <data name="BindingsPage_GatewayDisconnected.Title" xml:space="preserve">
++    <value>Gateway מנותק</value>
++  </data>
++  <data name="BindingsPage_GatewayDisconnected.Message" xml:space="preserve">
++    <value>התחבר ל־Gateway כדי לטעון קישורים.</value>
++  </data>
++  <data name="BindingsPage_OpenConnection.Content" xml:space="preserve">
++    <value>חיבור פתוח</value>
++  </data>
++  <data name="BindingsPage_LoadingBindings.Text" xml:space="preserve">
++    <value>טוען קישורים...</value>
++  </data>
++  <data name="ConnectionPage_ApprovalsWaitingOnYou.Text" xml:space="preserve">
++    <value>אישורים ממתינים לך</value>
++  </data>
++  <data name="ConnectionPage_NotConnected.Text" xml:space="preserve">
++    <value>לא מחובר</value>
++  </data>
++  <data name="ConnectionPage_Connect.Content" xml:space="preserve">
++    <value>התחברות</value>
++  </data>
++  <data name="ConnectionPage_Operator.Text" xml:space="preserve">
++    <value>מפעיל</value>
++  </data>
++  <data name="ConnectionPage_SendCommandsAndView.Text" xml:space="preserve">
++    <value>שלח פקודות וצפה בהפעלות ב־Gateway זה מהמחשב הזה.</value>
++  </data>
++  <data name="ConnectionPage_Inactive.Text" xml:space="preserve">
++    <value>לא פעיל</value>
++  </data>
++  <data name="ConnectionPage_SeeSessions.Content" xml:space="preserve">
++    <value>ראה הפעלות ›</value>
++  </data>
++  <data name="ConnectionPage_SeeInstances.Content" xml:space="preserve">
++    <value>ראה מופעים ›</value>
++  </data>
++  <data name="ConnectionPage_NodeMode.Text" xml:space="preserve">
++    <value>מצב Node</value>
++  </data>
++  <data name="ConnectionPage_WhenOnThisPC.Text" xml:space="preserve">
++    <value>כאשר הוא מופעל, מחשב זה נרשם כ-Node ומציע את היכולות שלהלן לסוכנים דרך Gateway.</value>
++  </data>
++  <data name="ConnectionPage_NodeModeDisabled.Text" xml:space="preserve">
++    <value>מצב Node מושבת</value>
++  </data>
++  <data name="ConnectionPage_Copy.Content" xml:space="preserve">
++    <value>העתק</value>
++  </data>
++  <data name="ConnectionPage_Connect2.Content" xml:space="preserve">
++    <value>התחברות</value>
++  </data>
++  <data name="ConnectionPage_ManagePermissions.Content" xml:space="preserve">
++    <value>ניהול הרשאות ›</value>
++  </data>
++  <data name="ConnectionPage_HelpUsFixThis.Text" xml:space="preserve">
++    <value>עזור לנו לתקן את החיבור הזה:</value>
++  </data>
++  <data name="ConnectionPage_SSHTunnelIsDown.Text" xml:space="preserve">
++    <value>מנהרת SSH אינה פעילה.</value>
++  </data>
++  <data name="ConnectionPage_RestartTunnel.Content" xml:space="preserve">
++    <value>הפעל מחדש את המנהרה</value>
++  </data>
++  <data name="ConnectionPage_EditTunnelSettings.Content" xml:space="preserve">
++    <value>ערוך הגדרות המנהרה</value>
++  </data>
++  <data name="ConnectionPage_PasteANewSetup.Text" xml:space="preserve">
++    <value>הדבק קוד הגדרה חדש מהמארח Gateway.</value>
++  </data>
++  <data name="ConnectionPage_PasteSetupCodeHere.PlaceholderText" xml:space="preserve">
++    <value>הדבק כאן את קוד ההתקנה…</value>
++  </data>
++  <data name="ConnectionPage_Apply.Content" xml:space="preserve">
++    <value>החל</value>
++  </data>
++  <data name="ConnectionPage_RunOnTheGateway.Text" xml:space="preserve">
++    <value>הפעלה על המארח Gateway:</value>
++  </data>
++  <data name="ConnectionPage_Copy2.Content" xml:space="preserve">
++    <value>העתק</value>
++  </data>
++  <data name="ConnectionPage_Connect3.Content" xml:space="preserve">
++    <value>התחברות</value>
++  </data>
++  <data name="ConnectionPage_Disconnect.Content" xml:space="preserve">
++    <value>ניתוק</value>
++  </data>
++  <data name="ConnectionPage_SavedGateways.Text" xml:space="preserve">
++    <value>שערים שנשמרו</value>
++  </data>
++  <data name="ConnectionPage_Gateways.Text" xml:space="preserve">
++    <value>שערים</value>
++  </data>
++  <data name="ConnectionPage_Scan.Text" xml:space="preserve">
++    <value>סריקה</value>
++  </data>
++  <data name="ConnectionPage_AddGateway.Text" xml:space="preserve">
++    <value>הוסף Gateway</value>
++  </data>
++  <data name="ConnectionPage_NoSavedGatewaysYet.Text" xml:space="preserve">
++    <value>עדיין אין שערים שנשמרו.</value>
++  </data>
++  <data name="ConnectionPage_DiscoveredOnYourNetwork.Text" xml:space="preserve">
++    <value>התגלה ברשת שלך</value>
++  </data>
++  <data name="ConnectionPage_AddAGateway.Text" xml:space="preserve">
++    <value>הוסף Gateway</value>
++  </data>
++  <data name="ConnectionPage_GetStartedInstallA.Title" xml:space="preserve">
++    <value>התחל: התקן Gateway מקומי</value>
++  </data>
++  <data name="ConnectionPage_GetStartedInstallA.Message" xml:space="preserve">
++    <value>הדרך המהירה ביותר להתחיל: מגדיר Gateway המתארח על ידי WSL במחשב זה והופך אותו לחיבור פעיל.</value>
++  </data>
++  <data name="ConnectionPage_Install.Content" xml:space="preserve">
++    <value>התקנה</value>
++  </data>
++  <data name="ConnectionPage_OrConnectToAn.Text" xml:space="preserve">
++    <value>או התחבר לחיבור קיים:</value>
++  </data>
++  <data name="ConnectionPage_Direct.Text" xml:space="preserve">
++    <value>ישיר</value>
++  </data>
++  <data name="ConnectionPage_URLToken.Text" xml:space="preserve">
++    <value>URL + token</value>
++  </data>
++  <data name="ConnectionPage_SetupCode.Text" xml:space="preserve">
++    <value>קוד התקנה</value>
++  </data>
++  <data name="ConnectionPage_PasteQRPayload.Text" xml:space="preserve">
++    <value>הדבקת קובצי QR</value>
++  </data>
++  <data name="ConnectionPage_EachMethodSupportsAn.Text" xml:space="preserve">
++    <value>כל שיטה תומכת במנהרה אופציונלית SSH.</value>
++  </data>
++  <data name="ConnectionPage_OrLookForOne.Text" xml:space="preserve">
++    <value>או חפש אחד ברשת שלך.</value>
++  </data>
++  <data name="ConnectionPage_Scan2.Text" xml:space="preserve">
++    <value>סריקה</value>
++  </data>
++  <data name="ConnectionPage_DiscoveredOnYourNetwork2.Text" xml:space="preserve">
++    <value>התגלה ברשת שלך</value>
++  </data>
++  <data name="ConnectionPage_Back.Text" xml:space="preserve">
++    <value>חזרה</value>
++  </data>
++  <data name="ConnectionPage_AddAGateway2.Text" xml:space="preserve">
++    <value>הוסף Gateway</value>
++  </data>
++  <data name="ConnectionPage_Direct2.Text" xml:space="preserve">
++    <value>ישיר</value>
++  </data>
++  <data name="ConnectionPage_SetupCode2.Text" xml:space="preserve">
++    <value>קוד התקנה</value>
++  </data>
++  <data name="ConnectionPage_LocalWSL.Text" xml:space="preserve">
++    <value>מקומי WSL</value>
++  </data>
++  <data name="ConnectionPage_GatewayURL.Header" xml:space="preserve">
++    <value>Gateway URL</value>
++  </data>
++  <data name="ConnectionPage_GatewayURL.PlaceholderText" xml:space="preserve">
++    <value>ws://host.local:18790</value>
++  </data>
++  <data name="ConnectionPage_SharedToken.Header" xml:space="preserve">
++    <value>משותף token</value>
++  </data>
++  <data name="ConnectionPage_SharedToken.PlaceholderText" xml:space="preserve">
++    <value>הדבק משותף Gateway token</value>
++  </data>
++  <data name="ConnectionPage_NameOptional.Header" xml:space="preserve">
++    <value>שם (אופציונלי)</value>
++  </data>
++  <data name="ConnectionPage_NameOptional.PlaceholderText" xml:space="preserve">
++    <value>שלי Gateway</value>
++  </data>
++  <data name="ConnectionPage_PasteASetupCode.Text" xml:space="preserve">
++    <value>הדבק קוד התקנה מהפלט של Gateway, ה-QR או ה-`openclaw qr`.</value>
++  </data>
++  <data name="ConnectionPage_PasteSetupCodeHere2.PlaceholderText" xml:space="preserve">
++    <value>הדבק כאן את קוד ההתקנה…</value>
++  </data>
++  <data name="ConnectionPage_Decode.Content" xml:space="preserve">
++    <value>פענוח</value>
++  </data>
++  <data name="ConnectionPage_InstallANewWSL.Text" xml:space="preserve">
++    <value>התקן WSL Gateway חדש במחשב זה והפעל אותו כחיבור פעיל. אשף ההתקנה יתקין את WSL במידת הצורך, יספק את Gateway ויחבר מכשיר זה באופן אוטומטי.</value>
++  </data>
++  <data name="ConnectionPage_InstallLocalGateway.Content" xml:space="preserve">
++    <value>התקן Gateway מקומי</value>
++  </data>
++  <data name="ConnectionPage_LocalWSLSetupIsn.Text" xml:space="preserve">
++    <value>הגדרת WSL מקומית אינה זמינה במחשב זה: לא ניתן היה לאתחל את אשף ההתקנה.</value>
++  </data>
++  <data name="ConnectionPage_UseSSHTunnelOptional.Text" xml:space="preserve">
++    <value>שימוש במנהרת SSH (אופציונלי)</value>
++  </data>
++  <data name="ConnectionPage_SSHUser.Header" xml:space="preserve">
++    <value>משתמש SSH</value>
++  </data>
++  <data name="ConnectionPage_SSHUser.PlaceholderText" xml:space="preserve">
++    <value>משתמש</value>
++  </data>
++  <data name="ConnectionPage_SSHHost.Header" xml:space="preserve">
++    <value>מארח SSH</value>
++  </data>
++  <data name="ConnectionPage_SSHHost.PlaceholderText" xml:space="preserve">
++    <value>שם מכונה</value>
++  </data>
++  <data name="ConnectionPage_SshServerPort.Header" xml:space="preserve">
++    <value>פורט SSH</value>
++  </data>
++  <data name="ConnectionPage_RemotePort.Header" xml:space="preserve">
++    <value>פורט מרוחק</value>
++  </data>
++  <data name="ConnectionPage_LocalPort.Header" xml:space="preserve">
++    <value>פורט מקומי</value>
++  </data>
++  <data name="ConnectionPage_SaveAmpConnect.Content" xml:space="preserve">
++    <value>שמור והתחבר</value>
++  </data>
++  <data name="ConnectionPage_Cancel.Content" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="CronPage_CronJobs.Text" xml:space="preserve">
++    <value>⏱️ משימות Cron</value>
++  </data>
++  <data name="CronPage_Refresh.Text" xml:space="preserve">
++    <value>רענון</value>
++  </data>
++  <data name="CronPage_NewJob.Text" xml:space="preserve">
++    <value>משימה חדשה</value>
++  </data>
++  <data name="CronPage_GatewayDisconnected.Title" xml:space="preserve">
++    <value>Gateway מנותק</value>
++  </data>
++  <data name="CronPage_GatewayDisconnected.Message" xml:space="preserve">
++    <value>התחבר ל־Gateway כדי לטעון עבודות Cron.</value>
++  </data>
++  <data name="CronPage_OpenConnection.Content" xml:space="preserve">
++    <value>חיבור פתוח</value>
++  </data>
++  <data name="CronPage_NewCronJob.Text" xml:space="preserve">
++    <value>משימת Cron חדשה</value>
++  </data>
++  <data name="CronPage_NAME.Text" xml:space="preserve">
++    <value>שם</value>
++  </data>
++  <data name="CronPage_MorningBrief.PlaceholderText" xml:space="preserve">
++    <value>סיכום בוקר</value>
++  </data>
++  <data name="CronPage_SCHEDULE.Text" xml:space="preserve">
++    <value>לוח זמנים</value>
++  </data>
++  <data name="CronPage_ScheduleEveryOption.Content" xml:space="preserve">
++    <value>כל</value>
++  </data>
