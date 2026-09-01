@@ -1,0 +1,359 @@
++  <data name="ChatVoiceDialog_OpenVoiceSettings" xml:space="preserve">
++    <value>פתח את הגדרות הקול והשמע</value>
++  </data>
++  <data name="ChatVoiceDialog_OpenPermissionsSettings" xml:space="preserve">
++    <value>הרשאות פתיחה</value>
++  </data>
++  <data name="ChatVoiceDialog_Dismiss" xml:space="preserve">
++    <value>סגור</value>
++  </data>
++  <data name="VoiceSettingsPage_ButtonReDownload" xml:space="preserve">
++    <value>הורדה מחדש</value>
++  </data>
++  <data name="VoiceSettingsPage_StatusDownloading" xml:space="preserve">
++    <value>מוריד...</value>
++  </data>
++  <data name="VoiceSettingsPage_StatusDownloadingPct" xml:space="preserve">
++    <value>מוריד... {0}%</value>
++  </data>
++  <data name="VoiceSettingsPage_StatusDownloadCanceled" xml:space="preserve">
++    <value>הורדה בוטלה</value>
++  </data>
++  <data name="VoiceSettingsPage_StatusError" xml:space="preserve">
++    <value>הפעולה נכשלה (ראה יומן ניפוי שגיאות)</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperButtonDownloaded" xml:space="preserve">
++    <value>הורדה</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperVoiceReady" xml:space="preserve">
++    <value>הקול מוכן במחשב זה ({0} MB).</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperVoiceNotDownloaded" xml:space="preserve">
++    <value>הקול עדיין לא הוריד. לחץ על הורד כדי לאחזר את המודל (~25–150 MB בהתאם לאיכות).</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperButtonDownloading" xml:space="preserve">
++    <value>מוריד…</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperConnecting" xml:space="preserve">
++    <value>התחברות לגרסאות sherpa-onnx…</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperProgressIndeterminate" xml:space="preserve">
++    <value>הורדה… {0} MB עד כה</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperProgressBytes" xml:space="preserve">
++    <value>הורדה… {0} / {1} MB</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperExtracting" xml:space="preserve">
++    <value>הורדה הושלמה. חילוץ…</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperDownloadCanceled" xml:space="preserve">
++    <value>הורדה בוטלה.</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperDownloadFailed" xml:space="preserve">
++    <value>ההורדה נכשלה (ראה יומן ניפוי שגיאות).</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperButtonRetry" xml:space="preserve">
++    <value>ניסיון הורדה חוזר</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperDeleted" xml:space="preserve">
++    <value>קול נמחק.</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperDeleteFailed" xml:space="preserve">
++    <value>המחיקה נכשלה (ראה יומן ניפוי שגיאות).</value>
++  </data>
++  <data name="VoiceSettingsPage_CompanionPreviewText" xml:space="preserve">
++    <value>שלום! זה המלווה שלך שמדבר.</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperPreviewFailed" xml:space="preserve">
++    <value>תצוגה מקדימה נכשלה (ראה יומן ניפוי שגיאות).</value>
++  </data>
++  <data name="VoiceSettingsPage_VoiceErrorLoading" xml:space="preserve">
++    <value>שגיאה בטעינת קולות (ראה יומן ניפוי שגיאות).</value>
++  </data>
++  <data name="VoiceSettingsPage_PreviewButtonPlaying" xml:space="preserve">
++    <value>מתנגן...</value>
++  </data>
++  <data name="VoiceOverlayWindow_HeaderText.Text" xml:space="preserve">
++    <value>קול נלווה</value>
++  </data>
++  <data name="VoiceOverlayWindow_StatusBadge.Text" xml:space="preserve">
++    <value>מוכן</value>
++  </data>
++  <data name="VoiceOverlayWindow_EmptyStateText.Text" xml:space="preserve">
++    <value>לחץ על התחל והתחל לדבר</value>
++  </data>
++  <data name="VoiceOverlayWindow_StatusText.Text" xml:space="preserve">
++    <value>לחץ על התחל כדי להתחיל</value>
++  </data>
++  <data name="VoiceOverlayWindow_StartStopText.Text" xml:space="preserve">
++    <value>התחל להאזין</value>
++  </data>
++  <data name="VoiceOverlayWindow_MuteButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>השתקה</value>
++  </data>
++  <data name="VoiceOverlayWindow_SettingsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>הגדרות קול</value>
++  </data>
++  <data name="VoiceOverlayWindow_StatusListening" xml:space="preserve">
++    <value>🗣️ מקשיב...</value>
++  </data>
++  <data name="VoiceOverlayWindow_StatusSpeakNow" xml:space="preserve">
++    <value>דבר עכשיו: אני מקשיב</value>
++  </data>
++  <data name="VoiceOverlayWindow_StateInitializing" xml:space="preserve">
++    <value>מאתחל...</value>
++  </data>
++  <data name="VoiceOverlayWindow_StateStarting" xml:space="preserve">
++    <value>מתחיל</value>
++  </data>
++  <data name="VoiceOverlayWindow_StateDownloadingModel" xml:space="preserve">
++    <value>מוריד מודל דיבור...</value>
++  </data>
++  <data name="VoiceOverlayWindow_StateDownloadingPct" xml:space="preserve">
++    <value>מוריד מודל... {0}%</value>
++  </data>
++  <data name="VoiceOverlayWindow_StateLoadingModel" xml:space="preserve">
++    <value>טוען מודל דיבור...</value>
++  </data>
++  <data name="VoiceOverlayWindow_StateStartingMic" xml:space="preserve">
++    <value>מפעיל מיקרופון...</value>
++  </data>
++  <data name="VoiceOverlayWindow_StateStopping" xml:space="preserve">
++    <value>עוצר...</value>
++  </data>
++  <data name="VoiceOverlayWindow_StateError" xml:space="preserve">
++    <value>שגיאה</value>
++  </data>
++  <data name="VoiceOverlayWindow_StatusError" xml:space="preserve">
++    <value>אירעה שגיאה (ראה יומן ניפוי שגיאות)</value>
++  </data>
++  <data name="VoiceOverlayWindow_StatusMuted" xml:space="preserve">
++    <value>מושתק</value>
++  </data>
++  <data name="VoiceOverlayWindow_StopText" xml:space="preserve">
++    <value>עצור</value>
++  </data>
++  <data name="VoiceOverlayWindow_BadgeStopped" xml:space="preserve">
++    <value>נעצר</value>
++  </data>
++  <data name="VoiceOverlayWindow_BadgeStartingDots" xml:space="preserve">
++    <value>מתחיל...</value>
++  </data>
++  <data name="VoiceOverlayWindow_BadgeListening" xml:space="preserve">
++    <value>מקשיב</value>
++  </data>
++  <data name="VoiceOverlayWindow_BadgeProcessing" xml:space="preserve">
++    <value>מעבד...</value>
++  </data>
++  <data name="VoiceOverlayWindow_BadgeUnknown" xml:space="preserve">
++    <value>לא ידוע</value>
++  </data>
++  <data name="VoiceOverlayWindow_StatusInitMic" xml:space="preserve">
++    <value>מאתחל מיקרופון...</value>
++  </data>
++  <data name="VoiceOverlayWindow_StatusTranscribing" xml:space="preserve">
++    <value>מתמלל את הנאום שלך...</value>
++  </data>
++  <data name="VoiceOverlayWindow_StatusErrorOccurred" xml:space="preserve">
++    <value>אירעה שגיאה</value>
++  </data>
++  <data name="AudioPipeline_FirstAudioTimeout" xml:space="preserve">
++    <value>לא התקבל שמע. ודא שהמיקרופון שלך מחובר ונבחר כהתקן קלט Windows, ולאחר מכן נסה שוב.</value>
++  </data>
++  <data name="VoiceOverlayWindow_winexWindowEx_2.Title" xml:space="preserve">
++    <value>קול נלווה</value>
++  </data>
++  <data name="VoiceOverlayWindow_BadgeReady" xml:space="preserve">
++    <value>מוכן</value>
++  </data>
++  <data name="VoiceOverlayWindow_StatusReadyMessage" xml:space="preserve">
++    <value>לחץ על התחל כדי להתחיל</value>
++  </data>
++  <data name="VoiceOverlayWindow_ButtonStartListening" xml:space="preserve">
++    <value>התחל להאזין</value>
++  </data>
++  <data name="VoiceSettingsPage_ButtonDownloadModel" xml:space="preserve">
++    <value>הורדת דגם</value>
++  </data>
++  <data name="VoiceSettingsPage_PiperButtonDownloadVoice" xml:space="preserve">
++    <value>הורדת קול</value>
++  </data>
++  <data name="VoiceSettingsPage_PreviewVoiceButtonContent" xml:space="preserve">
++    <value>תצוגה מקדימה של קול</value>
++  </data>
++  <data name="DebugPage_TextBlock_OverridesHeader.Text" xml:space="preserve">
++    <value>עקיפות ניפוי שגיאות</value>
++  </data>
++  <data name="DebugPage_TextBlock_OverridesCaption.Text" xml:space="preserve">
++    <value>עקוף את ההגדרה הגלובלית 'השתמש בממשק צ'אט סטנדרטי Gateway' לכל מכל צ'אט. מתאפס כאשר האפליקציה מופעלת מחדש.</value>
++  </data>
++  <data name="DebugPage_TextBlock_HubChatLabel.Text" xml:space="preserve">
++    <value>ממשק משתמש של לשונית Hub Chat:</value>
++  </data>
++  <data name="DebugPage_TextBlock_TrayChatLabel.Text" xml:space="preserve">
++    <value>ממשק משתמש קופץ של Tray Chat:</value>
++  </data>
++  <data name="DebugPage_ChatOverride_NoOverride_Hub.Content" xml:space="preserve">
++    <value>אין עקיפה</value>
++  </data>
++  <data name="DebugPage_ChatOverride_ForceLegacy_Hub.Content" xml:space="preserve">
++    <value>כפיית Gateway ממשק משתמש של צ'אט</value>
++  </data>
++  <data name="DebugPage_ChatOverride_ForceNative_Hub.Content" xml:space="preserve">
++    <value>כפיית ממשק משתמש של צ'אט נלווה</value>
++  </data>
++  <data name="DebugPage_ChatOverride_NoOverride_Tray.Content" xml:space="preserve">
++    <value>אין עקיפה</value>
++  </data>
++  <data name="DebugPage_ChatOverride_ForceLegacy_Tray.Content" xml:space="preserve">
++    <value>כפיית Gateway ממשק משתמש של צ'אט</value>
++  </data>
++  <data name="DebugPage_ChatOverride_ForceNative_Tray.Content" xml:space="preserve">
++    <value>כפיית ממשק משתמש של צ'אט נלווה</value>
++  </data>
++  <data name="Chat_ZeroState_WelcomeTitle" xml:space="preserve">
++    <value>ברוכים הבאים ל-OpenClaw</value>
++  </data>
++  <data name="Chat_ZeroState_WelcomeSubtitle" xml:space="preserve">
++    <value>כיצד אוכל לעזור לך היום?</value>
++  </data>
++  <data name="Chat_Status_Done" xml:space="preserve">
++    <value>סיום</value>
++  </data>
++  <data name="Chat_Compaction_Title" xml:space="preserve">
++    <value>היסטוריה דחוסה</value>
++  </data>
++  <data name="Chat_Compaction_MetricsFormat" xml:space="preserve">
++    <value>{0} → {1} אסימונים · {2} נשמרו</value>
++  </data>
++  <data name="Chat_Compaction_FallbackDetail" xml:space="preserve">
++    <value>התמליל הדחוס נשמר כנקודת ביקורת. פתח נקודות ביקורת של סשן כדי להסתעף או לשחזר מהתצוגה הדחוסה הזו.</value>
++  </data>
++  <data name="Chat_Compaction_OpenCheckpoints" xml:space="preserve">
++    <value>נקודות ביקורת פתוחות</value>
++  </data>
++  <data name="Chat_PendingNewSessionTitle" xml:space="preserve">
++    <value>סשן חדש</value>
++  </data>
++  <data name="Chat_Status_Running" xml:space="preserve">
++    <value>רץ</value>
++  </data>
++  <data name="Chat_Status_Error" xml:space="preserve">
++    <value>שגיאה</value>
++  </data>
++  <data name="Chat_Status_Interrupted" xml:space="preserve">
++    <value>הופסק</value>
++  </data>
++  <data name="Chat_Timeline_LoadEarlier" xml:space="preserve">
++    <value>טעינת הודעות קודמות</value>
++  </data>
++  <data name="Chat_Tool_CallLabel" xml:space="preserve">
++    <value>קריאה לכלי</value>
++  </data>
++  <data name="Chat_Tool_OutputLabel" xml:space="preserve">
++    <value>פלט כלי</value>
++  </data>
++  <data name="Chat_Tool_ErrorLabel" xml:space="preserve">
++    <value>שגיאת כלי</value>
++  </data>
++  <data name="Chat_Tool_InputSection" xml:space="preserve">
++    <value>קלט כלי</value>
++  </data>
++  <data name="Chat_Tool_FooterLabel" xml:space="preserve">
++    <value>כלי</value>
++  </data>
++  <data name="Chat_Tool_FooterWithTimeFormat" xml:space="preserve">
++    <value>כלי · {0}</value>
++  </data>
++  <data name="Chat_Activity_CommandOne" xml:space="preserve">
++    <value>פקודה {0} בוצעה</value>
++  </data>
++  <data name="Chat_Activity_CommandMany" xml:space="preserve">
++    <value>פקודות {0} בוצעו</value>
++  </data>
++  <data name="Chat_Activity_ReadOne" xml:space="preserve">
++    <value>קריאה של קובץ {0}</value>
++  </data>
++  <data name="Chat_Activity_ReadMany" xml:space="preserve">
++    <value>קריאה של קבצים {0}</value>
++  </data>
++  <data name="Chat_Activity_EditOne" xml:space="preserve">
++    <value>עריכת קובץ {0}</value>
++  </data>
++  <data name="Chat_Activity_EditMany" xml:space="preserve">
++    <value>עריכת קבצים {0}</value>
++  </data>
++  <data name="Chat_Activity_WriteOne" xml:space="preserve">
++    <value>כתבה {0} קובץ</value>
++  </data>
++  <data name="Chat_Activity_WriteMany" xml:space="preserve">
++    <value>כתב {0} קבצים</value>
++  </data>
++  <data name="Chat_Activity_SearchOne" xml:space="preserve">
++    <value>הפעיל {0} חיפוש</value>
++  </data>
++  <data name="Chat_Activity_SearchMany" xml:space="preserve">
++    <value>הפעיל {0} חיפושים</value>
++  </data>
++  <data name="Chat_Activity_FetchOne" xml:space="preserve">
++    <value>הביא {0} דף</value>
++  </data>
++  <data name="Chat_Activity_FetchMany" xml:space="preserve">
++    <value>הביא {0} דפים</value>
++  </data>
++  <data name="Chat_Activity_GenericOne" xml:space="preserve">
++    <value>השתמש בכלי {0}</value>
++  </data>
++  <data name="Chat_Activity_GenericMany" xml:space="preserve">
++    <value>השתמש בכלי {0}</value>
++  </data>
++  <data name="Chat_Activity_GenericNamed" xml:space="preserve">
++    <value>השתמש בכלי {1}</value>
++  </data>
++  <data name="Chat_Activity_GenericNamedRepeated" xml:space="preserve">
++    <value>השתמש בכלי {1} {0} פעמים</value>
++  </data>
++  <data name="Chat_Activity_RunningFormat" xml:space="preserve">
++    <value>רץ {0}</value>
++  </data>
++  <data name="Chat_Activity_Complete" xml:space="preserve">
++    <value>הושלם</value>
++  </data>
++  <data name="Chat_Activity_Expanded" xml:space="preserve">
++    <value>מורחב</value>
++  </data>
++  <data name="Chat_Activity_Collapsed" xml:space="preserve">
++    <value>מכווץ</value>
++  </data>
++  <data name="Chat_Activity_AutomationFormat" xml:space="preserve">
++    <value>פעילות: {0}. {1} כלים. {2}.</value>
++  </data>
++  <data name="Chat_Reasoning_ThinkingHeader" xml:space="preserve">
++    <value>🧠 חושב</value>
++  </data>
++  <data name="Chat_Reasoning_ThinkingEllipsis" xml:space="preserve">
++    <value>🧠 חושב…</value>
++  </data>
++  <data name="Chat_Timeline_AssistantThinkingFormat" xml:space="preserve">
++    <value>{0} חושב…</value>
++  </data>
++  <data name="Chat_Composer_Reasoning_Default" xml:space="preserve">
++    <value>ברירת מחדל</value>
++  </data>
++  <data name="Chat_Composer_Reasoning_Auto" xml:space="preserve">
++    <value>אוטומטי</value>
++  </data>
++  <data name="Chat_Composer_Reasoning_Maximum" xml:space="preserve">
++    <value>מקסימום</value>
++  </data>
++  <data name="Chat_Composer_Accessibility_Session" xml:space="preserve">
++    <value>סשן</value>
++  </data>
++  <data name="Chat_Composer_Accessibility_CurrentSession" xml:space="preserve">
++    <value>סשן נוכחי</value>
++  </data>
++  <data name="Chat_Composer_Accessibility_Model" xml:space="preserve">
++    <value>דגם</value>
++  </data>
++  <data name="Chat_Composer_Accessibility_Reasoning" xml:space="preserve">
++    <value>הנמקה</value>
