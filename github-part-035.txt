@@ -1,0 +1,314 @@
++    <value>החיבור אבד: התגובה נקטעה.</value>
++  </data>
++  <data name="Chat_Notification_KeylessEventDropped" xml:space="preserve">
++    <value>אירוע ציר זמן של Gateway בוטל</value>
++  </data>
++  <data name="Chat_Notification_KeylessEventDroppedMessage" xml:space="preserve">
++    <value>ה־Gateway שלח אירוע ציר זמן בצ'אט ללא מפתח הפעלה, לכן OpenClaw התעלם ממנו כדי למנוע ערבוב של ציר זמן. עדכן או הפעל מחדש את Gateway אם זה נמשך.</value>
++  </data>
++  <data name="VoiceSettingsPage_TestVoiceButtonText.Text" xml:space="preserve">
++    <value>בדיקת קלט קולי</value>
++  </data>
++  <data name="PermissionsPage_FeaturesDescription_Enabled" xml:space="preserve">
++    <value>החלף תכונות בודדות שסוכנים עשויים לבקש ממחשב זה.</value>
++  </data>
++  <data name="PermissionsPage_FeaturesDescription_Disabled" xml:space="preserve">
++    <value>הפעל את מצב Node למעלה כדי להפעיל תכונות אלה.</value>
++  </data>
++  <data name="PermissionsPage_Cap_Browser_Label" xml:space="preserve">
++    <value>בקרת דפדפן</value>
++  </data>
++  <data name="PermissionsPage_Cap_Browser_Description" xml:space="preserve">
++    <value>מאפשר לסוכנים להפעיל דפדפן Chromium במחשב זה: לפתוח דפים, ללחוץ ולקרוא תוכן.</value>
++  </data>
++  <data name="PermissionsPage_Cap_Camera_Label" xml:space="preserve">
++    <value>מצלמה</value>
++  </data>
++  <data name="PermissionsPage_Cap_Camera_Description" xml:space="preserve">
++    <value>מאפשר לסוכנים ללכוד תמונות סטילס וסרטונים קצרים ממצלמת המחשב הזה.</value>
++  </data>
++  <data name="PermissionsPage_Cap_Canvas_Label" xml:space="preserve">
++    <value>קנבס</value>
++  </data>
++  <data name="PermissionsPage_Cap_Canvas_Description" xml:space="preserve">
++    <value>מאפשר לסוכנים לרנדר ולקיים אינטראקציה עם בד ציור חזותי משותף המתארח במחשב זה.</value>
++  </data>
++  <data name="PermissionsPage_Cap_Screen_Label" xml:space="preserve">
++    <value>לכידת מסך</value>
++  </data>
++  <data name="PermissionsPage_Cap_Screen_Description" xml:space="preserve">
++    <value>מאפשר לסוכנים לצלם צילומי מסך והקלטות מסך קצרות של מחשב זה.</value>
++  </data>
++  <data name="PermissionsPage_Cap_Location_Label" xml:space="preserve">
++    <value>מיקום</value>
++  </data>
++  <data name="PermissionsPage_Cap_Location_Description" xml:space="preserve">
++    <value>מאפשר לסוכנים לקרוא את המיקום המשוער של מחשב זה.</value>
++  </data>
++  <data name="PermissionsPage_Cap_Tts_Label" xml:space="preserve">
++    <value>טקסט לדיבור</value>
++  </data>
++  <data name="PermissionsPage_Cap_Tts_Description" xml:space="preserve">
++    <value>מאפשר לסוכנים להשמיע טקסט בקול רם דרך הרמקולים של מחשב זה.</value>
++  </data>
++  <data name="PermissionsPage_Cap_Stt_Label" xml:space="preserve">
++    <value>דיבור לטקסט</value>
++  </data>
++  <data name="PermissionsPage_Cap_Stt_Description" xml:space="preserve">
++    <value>מאפשר לסוכנים לתמלל שמע מיקרופון באופן מקומי. הורד מודל דיבור בהגדרות קול ושמע לפני השימוש הראשון.</value>
++  </data>
++  <data name="PermissionsPage_Cap_SystemRun_Label" xml:space="preserve">
++    <value>כלי מערכת</value>
++  </data>
++  <data name="PermissionsPage_Cap_SystemRun_Description" xml:space="preserve">
++    <value>מאפשר לסוכנים להפעיל פקודות מעטפת וסקריפטים במחשב זה. כבה אפשרות זו כדי לחסום את כל ביצועי הפקודות.</value>
++  </data>
++  <data name="PermissionsPage_NodeStatus_Disabled" xml:space="preserve">
++    <value>מצב Node מושבת</value>
++  </data>
++  <data name="PermissionsPage_NodeStatus_DisabledDetails" xml:space="preserve">
++    <value>הפעל את מצב Node כדי לספק יכולות מכשיר לסוכנים.</value>
++  </data>
++  <data name="PermissionsPage_NodeStatus_Active" xml:space="preserve">
++    <value>Node פעיל</value>
++  </data>
++  <data name="PermissionsPage_NodeStatus_ActiveDetailsFormat" xml:space="preserve">
++    <value>מתן יכולות של {0}: {1}</value>
++  </data>
++  <data name="PermissionsPage_NodeStatus_McpOnly" xml:space="preserve">
++    <value>MCP מקומי בלבד</value>
++  </data>
++  <data name="PermissionsPage_NodeStatus_McpOnlyDetailsFormat" xml:space="preserve">
++    <value>הגשת יכולות של {0} ללקוחות MCP מקומיים ב-{1}</value>
++  </data>
++  <data name="PermissionsPage_NodeStatus_Starting" xml:space="preserve">
++    <value>Node מתחיל…</value>
++  </data>
++  <data name="PermissionsPage_NodeStatus_McpError" xml:space="preserve">
++    <value>הפעלת שרת MCP מקומי נכשלה</value>
++  </data>
++  <data name="PermissionsPage_NodeStatus_NoCapabilities" xml:space="preserve">
++    <value>אין יכולות מופעלות.</value>
++  </data>
++  <data name="PermissionsPage_NodeStatus_NotConnected" xml:space="preserve">
++    <value>מצב Node מופעל, לא מחובר</value>
++  </data>
++  <data name="PermissionsPage_NodeStatus_NotConnectedDetails" xml:space="preserve">
++    <value>התחבר ל־Gateway כדי להתחיל לספק יכולות מכשיר.</value>
++  </data>
++  <data name="PermissionsPage_McpStatus_TokenReady" xml:space="preserve">
++    <value>שרת מופעל: token מוכן</value>
++  </data>
++  <data name="PermissionsPage_McpStatus_TokenPending" xml:space="preserve">
++    <value>שרת מופעל: token ייווצר בהפעלה הבאה</value>
++  </data>
++  <data name="PermissionsPage_McpStatus_TokenCopied" xml:space="preserve">
++    <value>Token הועתק ללוח</value>
++  </data>
++  <data name="PermissionsPage_McpStatus_TokenNotFound" xml:space="preserve">
++    <value>Token הקובץ לא נמצא: הפעל תחילה את שרת MCP</value>
++  </data>
++  <data name="PermissionsPage_McpStatus_UrlCopied" xml:space="preserve">
++    <value>URL הועתק ללוח</value>
++  </data>
++  <data name="PermissionsPage_RulesCount_None" xml:space="preserve">
++    <value>אין רשומות</value>
++  </data>
++  <data name="PermissionsPage_RulesCount_One" xml:space="preserve">
++    <value>רשומה אחת</value>
++  </data>
++  <data name="PermissionsPage_RulesCount_ManyFormat" xml:space="preserve">
++    <value>{0} רשומות</value>
++  </data>
++  <data name="PermissionsPage_Allowlist_NoConfig" xml:space="preserve">
++    <value>אין נתוני רשימת היתרים זמינים. התחבר תחילה ל־Gateway.</value>
++  </data>
++  <data name="PermissionsPage_Allowlist_NoCommands" xml:space="preserve">
++    <value>אין פקודות מותרות שתצורתן נקבעה ב־Gateway.</value>
++  </data>
++  <data name="PermissionsPage_Allowlist_ParseFailed" xml:space="preserve">
++    <value>נכשל בניתוח רשימת ההיתרים מהתצורה.</value>
++  </data>
++  <data name="PermissionsPage_McpStatus_TokenReadFailedFormat" xml:space="preserve">
++    <value>קריאת token נכשלה: {0}</value>
++  </data>
++  <data name="InstancesPage_Title.Text" xml:space="preserve">
++    <value>מופעים</value>
++  </data>
++  <data name="InstancesPage_Subtitle.Text" xml:space="preserve">
++    <value>משואות נוכחות אחרונות מצמתים OpenClaw.</value>
++  </data>
++  <data name="InstancesPage_ConnectionWarning.Title" xml:space="preserve">
++    <value>לא מחובר</value>
++  </data>
++  <data name="InstancesPage_ConnectionWarning.Message" xml:space="preserve">
++    <value>התחבר ל־Gateway כדי לראות נתוני מופע בזמן אמת.</value>
++  </data>
++  <data name="InstancesPage_EmptyTitle.Text" xml:space="preserve">
++    <value>לא דווחו עדיין מופעים.</value>
++  </data>
++  <data name="InstancesPage_ContextMenu_CopyDebug" xml:space="preserve">
++    <value>העתקת סיכום ניפוי שגיאות</value>
++  </data>
++  <data name="InstancesPage_Status_Active" xml:space="preserve">
++    <value>פעיל</value>
++  </data>
++  <data name="InstancesPage_Status_Idle" xml:space="preserve">
++    <value>במצב לא פעיל</value>
++  </data>
++  <data name="InstancesPage_Status_Disconnected" xml:space="preserve">
++    <value>מנותק</value>
++  </data>
++  <data name="InstancesPage_Reason_Self" xml:space="preserve">
++    <value>עצמי</value>
++  </data>
++  <data name="InstancesPage_Reason_Connect" xml:space="preserve">
++    <value>התחברות</value>
++  </data>
++  <data name="InstancesPage_Reason_Disconnect" xml:space="preserve">
++    <value>ניתוק</value>
++  </data>
++  <data name="InstancesPage_Reason_NodeConnect" xml:space="preserve">
++    <value>Node התחברות</value>
++  </data>
++  <data name="InstancesPage_Reason_NodeDisconnect" xml:space="preserve">
++    <value>Node ניתוק</value>
++  </data>
++  <data name="InstancesPage_Reason_Launch" xml:space="preserve">
++    <value>הפעלה</value>
++  </data>
++  <data name="InstancesPage_Reason_Heartbeat" xml:space="preserve">
++    <value>פעימות לב</value>
++  </data>
++  <data name="InstancesPage_Reason_Refresh" xml:space="preserve">
++    <value>רענון מופעים</value>
++  </data>
++  <data name="InstancesPage_Reason_Resync" xml:space="preserve">
++    <value>סנכרון מחדש</value>
++  </data>
++  <data name="ConnectionPage_NodePairing_Title.Text" xml:space="preserve">
++    <value>🔗 ממתין צימוד אופרטור/Node</value>
++  </data>
++  <data name="ConnectionPage_NodePairing_Subtitle.Text" xml:space="preserve">
++    <value>אופרטורים וצמתים Windows ממתינים לאישור להתחברות ל־Gateway זה.</value>
++  </data>
++  <data name="InstancesPage_RefreshLabel.Text" xml:space="preserve">
++    <value>רענון</value>
++  </data>
++  <data name="InstancesPage_CapabilitiesCount_Format" xml:space="preserve">
++    <value>יכולות {0}</value>
++  </data>
++  <data name="InstancesPage_CommandsCount_Format" xml:space="preserve">
++    <value>פקודות {0}</value>
++  </data>
++  <data name="InstancesPage_Presence_AccessibilityFormat" xml:space="preserve">
++    <value>נוכחות {0}</value>
++  </data>
++  <data name="InstancesPage_UpdateReason_Tooltip_Format" xml:space="preserve">
++    <value>מדוע עודכן לאחרונה רשומת נוכחות זו (סמן ניפוי באגים). גולמי: {0}</value>
++  </data>
++  <data name="InstancesPage_UpdateReason_Tooltip_NoReason" xml:space="preserve">
++    <value>מדוע עודכן לאחרונה רשומת נוכחות זו (סמן ניפוי באגים).</value>
++  </data>
++  <data name="InstancesPage_StatusTooltip_Disconnected" xml:space="preserve">
++    <value>מנותק: אין נוכחות פעילה</value>
++  </data>
++  <data name="InstancesPage_StatusTooltip_Active_Format" xml:space="preserve">
++    <value>פעיל: נראה לאחרונה {0}</value>
++  </data>
++  <data name="InstancesPage_StatusTooltip_Idle_Format" xml:space="preserve">
++    <value>במצב לא פעיל: נראה לאחרונה {0}</value>
++  </data>
++  <data name="InstancesPage_Status_Inactive" xml:space="preserve">
++    <value>לא פעיל</value>
++  </data>
++  <data name="InstancesPage_StatusTooltip_Inactive_Format" xml:space="preserve">
++    <value>לא פעיל: נראה לאחרונה {0}</value>
++  </data>
++  <data name="InstancesPage_Role_AccessibilityFormat" xml:space="preserve">
++    <value>תפקיד: {0}</value>
++  </data>
++  <data name="InstanceManage_CopyNodeId_AccessibilityName" xml:space="preserve">
++    <value>העתק Node ID</value>
++  </data>
++  <data name="InstancesPage_TimeAgo_Seconds_Format" xml:space="preserve">
++    <value>לפני {0} שניות</value>
++  </data>
++  <data name="InstancesPage_TimeAgo_Minutes_Format" xml:space="preserve">
++    <value>לפני {0} דקות</value>
++  </data>
++  <data name="InstancesPage_TimeAgo_Hours_Format" xml:space="preserve">
++    <value>לפני {0} שעות</value>
++  </data>
++  <data name="InstancesPage_TimeAgo_Days_Format" xml:space="preserve">
++    <value>לפני {0} ימים</value>
++  </data>
++  <data name="V2_Window_Title" xml:space="preserve">
++    <value>הגדרת OpenClaw</value>
++  </data>
++  <data name="V2_Nav_Back" xml:space="preserve">
++    <value>חזרה</value>
++  </data>
++  <data name="V2_Nav_Next" xml:space="preserve">
++    <value>הבא</value>
++  </data>
++  <data name="V2_Nav_Finish" xml:space="preserve">
++    <value>סיום</value>
++  </data>
++  <data name="V2_Welcome_Title" xml:space="preserve">
++    <value>התחל עם OpenClaw</value>
++  </data>
++  <data name="V2_Welcome_Body" xml:space="preserve">
++    <value>OpenClaw מאפשר לסוכנים להריץ פקודות, לקרוא ולכתוב קבצים וללכוד צילומי מסך במחשב זה. הגדר אותו רק במחשב שאתה בוטח בו.</value>
++  </data>
++  <data name="V2_Welcome_InfoCard" xml:space="preserve">
++    <value>ההגדרה המקומית מתקינה מופע קטן ומבודד של Linux ב־WSL עבור OpenClaw. כדי להתחבר ל־Gateway קיים או מרוחק, בחרו ״הגדרה מתקדמת״.</value>
++  </data>
++  <data name="V2_Welcome_PrimaryButton" xml:space="preserve">
++    <value>הגדרה מקומית</value>
++  </data>
++  <data name="V2_Welcome_PrimaryButton_InstallNewWslGateway" xml:space="preserve">
++    <value>להתקין WSL Gateway חדש</value>
++  </data>
++  <data name="V2_Welcome_AdvancedLink" xml:space="preserve">
++    <value>הגדרה מתקדמת</value>
++  </data>
++  <data name="V2_Welcome_LocalReplaceDialog_Title" xml:space="preserve">
++    <value>להתקין WSL Gateway חדש?</value>
++  </data>
++  <data name="V2_Welcome_LocalReplaceDialog_Body" xml:space="preserve">
++    <value>ההפצה הנוכחית שלך, OpenClaw WSL Gateway, וההפצה שלה, OpenClawGateway, יימחקו. לאחר מכן, תוכנית ההתקנה תתקין ותתחבר להפצה מקומית חדשה, WSL Gateway.</value>
++  </data>
++  <data name="V2_Welcome_ExternalDialog_Title" xml:space="preserve">
++    <value>להתקין WSL Gateway מקומי?</value>
++  </data>
++  <data name="V2_Welcome_ExternalDialog_Body" xml:space="preserve">
++    <value>תוכנית ההתקנה תתקין ותתחבר להפצה מקומית חדשה, WSL Gateway. ההפצה החיצונית הקיימת שלך, Gateway, תישאר זמינה מדף החיבורים.</value>
++  </data>
++  <data name="V2_Welcome_SetupWarning_Confirm" xml:space="preserve">
++    <value>המשך</value>
++  </data>
++  <data name="V2_Welcome_SetupWarning_Cancel" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="V2_Progress_Title" xml:space="preserve">
++    <value>הגדרה מקומית</value>
++  </data>
++  <data name="V2_Progress_Subtitle" xml:space="preserve">
++    <value>יצירת מופע OpenClaw Gateway WSL</value>
++  </data>
++  <data name="V2_Progress_Stage_RemovingExistingGateway" xml:space="preserve">
++    <value>מסיר את ה־Gateway הקיים</value>
++  </data>
++  <data name="V2_Progress_Stage_CheckSystem" xml:space="preserve">
++    <value>בדיקת מערכת</value>
++  </data>
++  <data name="V2_Progress_Stage_InstallingUbuntu" xml:space="preserve">
++    <value>התקנת Ubuntu</value>
++  </data>
++  <data name="V2_Progress_Stage_ConfiguringInstance" xml:space="preserve">
++    <value>הגדרת מופע</value>
++  </data>
++  <data name="V2_Progress_Stage_InstallingOpenClaw" xml:space="preserve">
++    <value>התקנת OpenClaw</value>
++  </data>
