@@ -1,0 +1,278 @@
+@@ -1887,7 +1887,7 @@ public sealed partial class ChannelsPage : Page
+             catch (Exception ex) { Logger.Debug($"ChannelsPage: prior linking cts cancel/dispose failed: {ex.Message}"); }
+         }
+ 
+-        messageBlock.Text = "Requesting QR code from the gateway…";
++        messageBlock.Text = LocalizationHelper.GetString("ChannelsPage_RequestingQr");
+         HideDiagnostic();
+         HideRecovery();
+ 
+@@ -1900,7 +1900,7 @@ public sealed partial class ChannelsPage : Page
+             // Only happens when the websocket is not connected; no gateway response
+             // to surface.
+             qrImage.Visibility = Visibility.Collapsed;
+-            messageBlock.Text = $"Couldn't link {channelId}. Not connected to the gateway.";
++            messageBlock.Text = LocalizationHelper.Format("ChannelsPage_LinkNotConnectedFormat", channelId);
+             return;
+         }
+ 
+@@ -1909,7 +1909,7 @@ public sealed partial class ChannelsPage : Page
+             qrImage.Visibility = Visibility.Collapsed;
+ 
+             var displayName = string.IsNullOrEmpty(channelId)
+-                ? "This channel"
++                ? LocalizationHelper.GetString("ChannelsPage_ThisChannel")
+                 : $"{char.ToUpper(channelId[0])}{channelId[1..]}";
+ 
+             if (start.LooksLikeMissingWebLoginProvider)
+@@ -1918,7 +1918,7 @@ public sealed partial class ChannelsPage : Page
+                 // loaded for this channel. Show actionable recovery instead of the
+                 // relayed internal error as the headline (issue #957). Keep the raw
+                 // gateway detail available in the collapsed diagnostic.
+-                messageBlock.Text = $"{displayName} linking isn't available on this gateway yet: see how to enable it below.";
++                messageBlock.Text = LocalizationHelper.Format("ChannelsPage_LinkingUnavailableFormat", displayName);
+                 ShowProviderRecovery();
+                 ShowDiagnostic("web.login.start", startParams, start.Error, start.RawResponse);
+                 return;
+@@ -1929,13 +1929,13 @@ public sealed partial class ChannelsPage : Page
+                 // Gateway is too old to implement web.login at all. Installing a
+                 // plugin wouldn't add the method — guide the user to update the
+                 // gateway instead.
+-                messageBlock.Text = $"{displayName} linking isn't available on this gateway yet: see how to enable it below.";
++                messageBlock.Text = LocalizationHelper.Format("ChannelsPage_LinkingUnavailableFormat", displayName);
+                 ShowUnsupportedRecovery();
+                 ShowDiagnostic("web.login.start", startParams, start.Error, start.RawResponse);
+                 return;
+             }
+ 
+-            messageBlock.Text = $"Couldn't link {channelId}. The gateway returned an error: see details below.";
++            messageBlock.Text = LocalizationHelper.Format("ChannelsPage_LinkGatewayErrorFormat", channelId);
+             ShowDiagnostic("web.login.start", startParams, start.Error, start.RawResponse);
+             return;
+         }
+@@ -1943,7 +1943,7 @@ public sealed partial class ChannelsPage : Page
+         {
+             messageBlock.Text = !string.IsNullOrEmpty(start.Message)
+                 ? start.Message
+-                : $"{channelId} is already linked.";
++                : LocalizationHelper.Format("ChannelsPage_AlreadyLinkedFormat", channelId);
+             qrImage.Visibility = Visibility.Collapsed;
+             await RefreshAsync(probe: false);
+             return;
+@@ -1955,7 +1955,7 @@ public sealed partial class ChannelsPage : Page
+             qrImage.Visibility = Visibility.Collapsed;
+             messageBlock.Text = !string.IsNullOrEmpty(start.Message)
+                 ? start.Message
+-                : $"Gateway didn't return a QR for {channelId}. See details below for what it returned.";
++                : LocalizationHelper.Format("ChannelsPage_NoQrReturnedFormat", channelId);
+             ShowDiagnostic("web.login.start", startParams, null, start.RawResponse);
+             return;
+         }
+@@ -1965,8 +1965,8 @@ public sealed partial class ChannelsPage : Page
+         messageBlock.Text = !string.IsNullOrEmpty(start.Message)
+             ? start.Message
+             : channelId.Equals("whatsapp", StringComparison.OrdinalIgnoreCase)
+-                ? "Open WhatsApp on your phone → Settings → Linked devices → scan this QR."
+-                : "Open the mobile app's linked-devices screen and scan this QR.";
++                ? LocalizationHelper.GetString("ChannelsPage_WhatsAppQrInstructions")
++                : LocalizationHelper.GetString("ChannelsPage_GenericQrInstructions");
+ 
+         // Long-poll once for completion
+         var waitParams = new { currentQrDataUrl = start.QrDataUrl, timeoutMs = 30000 };
+@@ -1974,12 +1974,12 @@ public sealed partial class ChannelsPage : Page
+         if (ct.IsCancellationRequested) return;
+         if (waitResult == null)
+         {
+-            messageBlock.Text = "Still waiting: click Show QR again if the code has expired.";
++            messageBlock.Text = LocalizationHelper.GetString("ChannelsPage_StillWaitingQr");
+             return;
+         }
+         if (!string.IsNullOrEmpty(waitResult.Error))
+         {
+-            messageBlock.Text = $"Link wait failed for {channelId}. See details below.";
++            messageBlock.Text = LocalizationHelper.Format("ChannelsPage_LinkWaitFailedFormat", channelId);
+             ShowDiagnostic("web.login.wait", waitParams, waitResult.Error, waitResult.RawResponse);
+             return;
+         }
+@@ -1987,7 +1987,7 @@ public sealed partial class ChannelsPage : Page
+         {
+             messageBlock.Text = !string.IsNullOrEmpty(waitResult.Message)
+                 ? waitResult.Message
+-                : $"{channelId} linked.";
++                : LocalizationHelper.Format("ChannelsPage_LinkedFormat", channelId);
+             qrImage.Visibility = Visibility.Collapsed;
+             await RefreshAsync(probe: false);
+         }
+@@ -2001,7 +2001,7 @@ public sealed partial class ChannelsPage : Page
+         }
+         else
+         {
+-            messageBlock.Text = "Still waiting: click Show QR again if the code has expired.";
++            messageBlock.Text = LocalizationHelper.GetString("ChannelsPage_StillWaitingQr");
+         }
+     }
+ 
+@@ -2013,7 +2013,7 @@ public sealed partial class ChannelsPage : Page
+             if (commaIdx <= 0)
+             {
+                 target.Visibility = Visibility.Collapsed;
+-                messageBlock.Text = "QR decode failed: malformed data URL from gateway.";
++                messageBlock.Text = LocalizationHelper.GetString("ChannelsPage_QrMalformedDataUrl");
+                 return;
+             }
+             var base64 = dataUrl[(commaIdx + 1)..];
+@@ -2025,7 +2025,7 @@ public sealed partial class ChannelsPage : Page
+             catch (FormatException)
+             {
+                 target.Visibility = Visibility.Collapsed;
+-                messageBlock.Text = "QR decode failed: invalid base64 from gateway.";
++                messageBlock.Text = LocalizationHelper.GetString("ChannelsPage_QrInvalidBase64");
+                 return;
+             }
+ 
+@@ -2051,7 +2051,7 @@ public sealed partial class ChannelsPage : Page
+             // Surface decode failures to the user — silent hide makes gateway faults
+             // look like UX bugs.
+             target.Visibility = Visibility.Collapsed;
+-            messageBlock.Text = $"QR decode failed: {ex.Message}";
++            messageBlock.Text = LocalizationHelper.Format("ChannelsPage_QrDecodeFailedFormat", ex.Message);
+         }
+     }
+ 
+@@ -2125,7 +2125,7 @@ public sealed partial class ChannelsPage : Page
+         Grid.SetColumn(cmdBox, 0);
+         cmdRow.Children.Add(cmdBox);
+ 
+-        var copyBtn = new Button { Content = "Copy" };
++        var copyBtn = new Button { Content = LocalizationHelper.GetString("ChannelsPage_Copy") };
+         copyBtn.Click += (_, _) =>
+         {
+             try
+@@ -2134,16 +2134,16 @@ public sealed partial class ChannelsPage : Page
+                 pkgData.SetText(cmd);
+                 Clipboard.SetContent(pkgData);
+                 // Briefly indicate copied — flip the label, restore after a short delay.
+-                copyBtn.Content = "Copied";
++                copyBtn.Content = LocalizationHelper.GetString("ChannelsPage_Copied");
+                 _ = Task.Delay(1200).ContinueWith(_ =>
+                 {
+                     if (DispatcherQueue == null) return;
+-                    DispatcherQueue.TryEnqueue(() => copyBtn.Content = "Copy");
++                    DispatcherQueue.TryEnqueue(() => copyBtn.Content = LocalizationHelper.GetString("ChannelsPage_Copy"));
+                 }, TaskScheduler.Default);
+             }
+             catch
+             {
+-                copyBtn.Content = "Copy failed";
++                copyBtn.Content = LocalizationHelper.GetString("ChannelsPage_CopyFailed");
+             }
+         };
+         Grid.SetColumn(copyBtn, 1);
+@@ -2153,7 +2153,7 @@ public sealed partial class ChannelsPage : Page
+ 
+         body.Children.Add(new TextBlock
+         {
+-            Text = "Run this command on the machine that hosts your gateway. After it finishes, come back and click Refresh.",
++            Text = LocalizationHelper.GetString("ChannelsPage_RunInstallCommandMessage"),
+             Style = (Style)Application.Current.Resources["CaptionTextBlockStyle"],
+             Foreground = (Brush)Application.Current.Resources["TextFillColorTertiaryBrush"],
+             TextWrapping = TextWrapping.Wrap,
+@@ -2161,13 +2161,13 @@ public sealed partial class ChannelsPage : Page
+ 
+         var docsLink = new HyperlinkButton
+         {
+-            Content = "Plugin install docs →",
++            Content = LocalizationHelper.GetString("ChannelsPage_PluginInstallDocs"),
+             NavigateUri = new Uri("https://docs.openclaw.ai/plugins/install"),
+             Padding = new Thickness(0),
+         };
+         body.Children.Add(docsLink);
+ 
+-        return BuildSection("Install plugin on your gateway", body);
++        return BuildSection(LocalizationHelper.GetString("ChannelsPage_InstallPluginSection"), body);
+     }
+ 
+     private async Task LogoutAsync(string channelId, bool isQr)
+@@ -2175,10 +2175,10 @@ public sealed partial class ChannelsPage : Page
+         var client = CurrentApp.GatewayClient;
+         if (client == null)
+         {
+-            ErrorBar.Title = "Not connected";
++            ErrorBar.Title = LocalizationHelper.GetString("ChannelsPage_NotConnectedTitle");
+             ErrorBar.Message = isQr
+-                ? "Connect to a gateway before unlinking this device."
+-                : "Connect to a gateway before disconnecting this channel.";
++                ? LocalizationHelper.GetString("ChannelsPage_ConnectBeforeUnlink")
++                : LocalizationHelper.GetString("ChannelsPage_ConnectBeforeDisconnect");
+             SetInfoBarOpen(ErrorBar, true);
+             return;
+         }
+@@ -2189,13 +2189,13 @@ public sealed partial class ChannelsPage : Page
+         var dialog = new ContentDialog
+         {
+             Title = isQr
+-                ? $"Unlink {channelId} from this device?"
+-                : $"Disconnect {channelId} and forget credentials?",
++                ? LocalizationHelper.Format("ChannelsPage_UnlinkDialogTitleFormat", channelId)
++                : LocalizationHelper.Format("ChannelsPage_DisconnectDialogTitleFormat", channelId),
+             Content = isQr
+-                ? "This unlinks the channel from this device. Your account stays paired on your phone: scan a fresh QR to reconnect."
+-                : "This signs out the channel and clears the stored credentials. You'll need to re-enter them to reconnect.",
+-            PrimaryButtonText = isQr ? "Unlink" : "Disconnect",
+-            CloseButtonText = "Cancel",
++                ? LocalizationHelper.GetString("ChannelsPage_UnlinkDialogMessage")
++                : LocalizationHelper.GetString("ChannelsPage_DisconnectDialogMessage"),
++            PrimaryButtonText = LocalizationHelper.GetString(isQr ? "ChannelsPage_Unlink" : "ChannelsPage_Disconnect"),
++            CloseButtonText = LocalizationHelper.GetString("SessionActionPrompt_CancelLabel"),
+             DefaultButton = ContentDialogButton.Close,
+             XamlRoot = XamlRoot,
+         };
+@@ -2215,10 +2215,10 @@ public sealed partial class ChannelsPage : Page
+         var ok = await client.LogoutChannelAsync(channelId);
+         if (!ok)
+         {
+-            ErrorBar.Title = isQr ? "Unlink failed" : "Disconnect failed";
++            ErrorBar.Title = LocalizationHelper.GetString(isQr ? "ChannelsPage_UnlinkFailedTitle" : "ChannelsPage_DisconnectFailedTitle");
+             ErrorBar.Message = isQr
+-                ? $"Could not unlink {channelId}. The gateway may not support this action."
+-                : $"Could not disconnect {channelId}. The gateway may not support this action.";
++                ? LocalizationHelper.Format("ChannelsPage_UnlinkFailedMessageFormat", channelId)
++                : LocalizationHelper.Format("ChannelsPage_DisconnectFailedMessageFormat", channelId);
+             SetInfoBarOpen(ErrorBar, true);
+         }
+         await RefreshAsync(probe: false);
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml b/src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml
+index 040c98c2..71beb690 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml
+@@ -99,7 +99,7 @@
+             <StackPanel Spacing="12">
+                 <TextBlock x:Uid="WebChatErrorTitle" Text="Web Chat Unavailable" Style="{StaticResource SubtitleTextBlockStyle}"
+                            Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
+-                <TextBlock x:Name="ErrorText" TextWrapping="Wrap" IsTextSelectionEnabled="True"
++                <TextBlock FlowDirection="LeftToRight" x:Name="ErrorText" TextWrapping="Wrap" IsTextSelectionEnabled="True"
+                            FontFamily="Consolas" Style="{StaticResource CaptionTextBlockStyle}"/>
+                 <Button x:Uid="WebChatOpenBrowserButton" Content="Open in Browser Instead" Click="OnPopout" HorizontalAlignment="Left"/>
+             </StackPanel>
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/ConfigPage.xaml b/src/OpenClaw.Tray.WinUI/Pages/ConfigPage.xaml
+index 341b8abc..30a23020 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/ConfigPage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/ConfigPage.xaml
+@@ -171,7 +171,7 @@
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                TextWrapping="NoWrap"
+                                                TextTrimming="CharacterEllipsis"/>
+-                                    <TextBlock x:Uid="DetailPath" x:Name="DetailPath" Text="Select a config section"
++                                    <TextBlock FlowDirection="LeftToRight" x:Uid="DetailPath" x:Name="DetailPath" Text="Select a config section"
+                                                Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                     <TextBlock x:Name="DetailType"
+                                                Style="{StaticResource CaptionTextBlockStyle}"
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/ConfigPage.xaml.cs b/src/OpenClaw.Tray.WinUI/Pages/ConfigPage.xaml.cs
+index 0a6f4234..e3935514 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/ConfigPage.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/ConfigPage.xaml.cs
+@@ -381,7 +381,7 @@ public sealed partial class ConfigPage : Page
+         DetailPlaceholder.Visibility = Visibility.Collapsed;
+         _selectedPath = path;
+         DetailBreadcrumb.Text = BuildBreadcrumb(path);
+-        DetailPath.Text = string.IsNullOrEmpty(path) ? "Full config" : FriendlyLabel(path.Split('.').Last());
