@@ -89,12 +89,18 @@ try {
     $upgradeContent = [System.IO.File]::ReadAllText($upgradeScript)
     $oldWingetCommand = '& winget.exe install --id $PackageId -e'
     $fixedWingetCommand = '& winget.exe install --id $PackageId --source winget -e'
-    if ($upgradeContent.Contains($oldWingetCommand)) {
-        $upgradeContent = $upgradeContent.Replace($oldWingetCommand, $fixedWingetCommand)
-        [System.IO.File]::WriteAllText($upgradeScript, $upgradeContent)
-    } elseif (-not $upgradeContent.Contains($fixedWingetCommand)) {
+    $interactiveWingetCommand = '& winget.exe install --id $PackageId --source winget -e --interactive'
+    if ($upgradeContent.Contains($interactiveWingetCommand)) {
+        # Already configured by an earlier resume attempt.
+    } elseif ($upgradeContent.Contains($oldWingetCommand)) {
+        $upgradeContent = $upgradeContent.Replace($oldWingetCommand, $interactiveWingetCommand)
+    } elseif ($upgradeContent.Contains($fixedWingetCommand)) {
+        $upgradeContent = $upgradeContent.Replace($fixedWingetCommand, $interactiveWingetCommand)
+    } else {
         throw "Could not configure the upgrade script to use the winget community source."
     }
+    $upgradeContent = $upgradeContent.Replace(' --disable-interactivity', '')
+    [System.IO.File]::WriteAllText($upgradeScript, $upgradeContent)
 
     Write-Host "Starting the tested in-place upgrade..." -ForegroundColor Cyan
     & $upgradeScript
