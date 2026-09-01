@@ -1,0 +1,330 @@
+                 if (_totalProgressPolls > WizardTimeouts.MaxTotalProgressPolls)
+                 {
+-                    ShowError($"Gateway wizard did not finish after {WizardTimeouts.MaxTotalProgressPolls} progress updates.");
++                    ShowError(SetupLocalization.Format(
++                        "Setup_Wizard_TotalProgressTimeoutFormat",
++                        WizardTimeouts.MaxTotalProgressPolls));
+                     return;
+                 }
+ 
+@@ -373,7 +380,7 @@ public sealed partial class WizardPage : Page
+             _wizardStepCount++;
+             if (_wizardStepCount > MaxWizardSteps)
+             {
+-                ShowError($"Gateway wizard exceeded {MaxWizardSteps} steps.");
++                ShowError(SetupLocalization.Format("Setup_Wizard_TooManyStepsFormat", MaxWizardSteps));
+                 return;
+             }
+ 
+@@ -382,7 +389,7 @@ public sealed partial class WizardPage : Page
+             _stepVisits[visitKey] = visits + 1;
+             if (_stepVisits[visitKey] > MaxSameStepVisits)
+             {
+-                ShowError($"Gateway wizard repeated step '{_stepId}' too many times.");
++                ShowError(SetupLocalization.Format("Setup_Wizard_RepeatedStepFormat", _stepId));
+                 return;
+             }
+ 
+@@ -394,11 +401,12 @@ public sealed partial class WizardPage : Page
+             BusyRing.Visibility = Visibility.Collapsed;
+             BusyRing.IsActive = false;
+             ShowRecoveryActions();
+-            StatusText.Text = "A few quick questions to connect your agent";
++            StatusText.Text = SetupLocalization.GetString("Setup_Wizard_Intro");
+             PrimaryButton.IsEnabled = !WizardSelection.RequiresAnswer(_stepType);
+             SecondaryButton.IsEnabled = true;
+-            PrimaryButton.Content = _stepType == "confirm" ? "Yes" : "Continue";
+-            SecondaryButton.Content = "No";
++            PrimaryButton.Content = SetupLocalization.GetString(
++                _stepType == "confirm" ? "Setup_Wizard_Yes" : "Setup_Wizard_Continue");
++            SecondaryButton.Content = SetupLocalization.GetString("Setup_Wizard_No");
+             SecondaryButton.Visibility = _stepType == "confirm" ? Visibility.Visible : Visibility.Collapsed;
+ 
+             if (!BuildOptions(step, initial))
+@@ -438,15 +446,18 @@ public sealed partial class WizardPage : Page
+     private void RenderProgressStep(string title, string message)
+     {
+         ResetInputs();
+-        TitleText.Text = string.IsNullOrWhiteSpace(title) ? "Working…" : title;
++        TitleText.Text = string.IsNullOrWhiteSpace(title)
++            ? SetupLocalization.GetString("Setup_Wizard_Working")
++            : title;
+         RenderMessage(message);
+         StepCard.MinHeight = 200;
+         ErrorText.Visibility = Visibility.Collapsed;
+         BusyRing.Visibility = Visibility.Visible;
+         BusyRing.IsActive = true;
+-        StatusText.Text = string.IsNullOrWhiteSpace(message) ? "Working…" : "Setting things up…";
++        StatusText.Text = SetupLocalization.GetString(
++            string.IsNullOrWhiteSpace(message) ? "Setup_Wizard_Working" : "Setup_Wizard_SettingUp");
+         PrimaryButton.IsEnabled = false;
+-        PrimaryButton.Content = "Continue";
++        PrimaryButton.Content = SetupLocalization.GetString("Setup_Wizard_Continue");
+         SecondaryButton.IsEnabled = false;
+         SecondaryButton.Visibility = Visibility.Collapsed;
+         ShowRecoveryActions();
+@@ -462,7 +473,7 @@ public sealed partial class WizardPage : Page
+ 
+         if (!WizardSelection.HasSelectableOptions(_stepType, _options.Select(o => o.Value).ToArray()))
+         {
+-            ShowError("Gateway wizard returned a choice step without any selectable options.");
++            ShowError(SetupLocalization.GetString("Setup_Wizard_NoOptions"));
+             return false;
+         }
+ 
+@@ -500,7 +511,7 @@ public sealed partial class WizardPage : Page
+             {
+                 var moreButton = new Button
+                 {
+-                    Content = "More ▾",
++                    Content = SetupLocalization.GetString("Setup_Wizard_More"),
+                     MinWidth = 100,
+                     HorizontalAlignment = HorizontalAlignment.Center,
+                     Background = new Microsoft.UI.Xaml.Media.SolidColorBrush(Microsoft.UI.Colors.Transparent),
+@@ -700,7 +711,7 @@ public sealed partial class WizardPage : Page
+         var generation = _operationGeneration;
+         try
+         {
+-            SetBusy("Loading...");
++            SetBusy(SetupLocalization.GetString("Setup_Wizard_Loading"));
+             ClearConsoleBanner();
+             var parameters = new { sessionId = _sessionId, answer = new { stepId = _stepId, value } };
+             var payload = await _client.SendWizardRequestAsync("wizard.next", parameters, timeoutMs: TimeoutForCurrentStep());
+@@ -780,7 +791,7 @@ public sealed partial class WizardPage : Page
+     {
+         var generation = AdvanceOperationGeneration();
+         HideRecoveryActions();
+-        SetBusy("Starting over...");
++        SetBusy(SetupLocalization.GetString("Setup_Wizard_StartingOver"));
+         await CancelCurrentSessionAsync();
+         if (generation != _operationGeneration)
+             return;
+@@ -807,16 +818,17 @@ public sealed partial class WizardPage : Page
+             if (!skip && !TryBuildAnswerValue(out answerValue))
+             {
+                 ErrorText.Text = _stepType == "multiselect"
+-                    ? "Choose at least one valid option."
++                    ? SetupLocalization.GetString("Setup_Wizard_ChooseAtLeastOne")
+                     : _stepType == "text"
+-                    ? "Enter a value to continue."
+-                    : "Choose a valid option.";
++                    ? SetupLocalization.GetString("Setup_Wizard_EnterValue")
++                    : SetupLocalization.GetString("Setup_Wizard_ChooseValidOption");
+                 ErrorText.Visibility = Visibility.Visible;
+                 UpdateContinueState();
+                 return;
+             }
+ 
+-            SetBusy(skip ? "Skipping..." : "Submitting...");
++            SetBusy(SetupLocalization.GetString(
++                skip ? "Setup_Wizard_Skipping" : "Setup_Wizard_Submitting"));
+             // The console banner shows output that arrived between the last payload
+             // render and the user's current click. Once they answer, those messages
+             // are "consumed" — wipe so the next step starts with a clean slate.
+@@ -868,7 +880,7 @@ public sealed partial class WizardPage : Page
+                     _currentTitle,
+                     _currentMessage))
+             {
+-                StatusText.Text = "Gateway restarted; verifying endpoint ownership...";
++                StatusText.Text = SetupLocalization.GetString("Setup_Wizard_VerifyingRestart");
+                 var reconnected = await WaitForReconnectAsync(
+                     _client,
+                     TimeSpan.FromSeconds(60));
+@@ -878,7 +890,7 @@ public sealed partial class WizardPage : Page
+                 if (!reconnected)
+                 {
+                     await EnterWizardErrorAsync(
+-                        "The gateway restarted after applying setup, but Companion could not verify and reconnect to its managed endpoint.");
++                        SetupLocalization.GetString("Setup_Wizard_ReconnectAfterRestartFailed"));
+                     return;
+                 }
+ 
+@@ -936,11 +948,12 @@ public sealed partial class WizardPage : Page
+     private string? CurrentAnswerLabel(bool skip)
+     {
+         if (skip)
+-            return _stepType == "confirm" ? "No" : "Skipped";
++            return SetupLocalization.GetString(
++                _stepType == "confirm" ? "Setup_Wizard_No" : "Setup_Wizard_Skipped");
+ 
+         return _stepType switch
+         {
+-            "confirm" => "Yes",
++            "confirm" => SetupLocalization.GetString("Setup_Wizard_Yes"),
+             "text" => _sensitive ? "••••••" : (string.IsNullOrEmpty(TextInput.Text) ? null : TextInput.Text),
+             "select" or "multiselect" => LabelForValues(GetSelectedOptionValues()),
+             _ => null,
+@@ -1336,7 +1349,11 @@ public sealed partial class WizardPage : Page
+             IsTextSelectionEnabled = true,
+             VerticalAlignment = VerticalAlignment.Center
+         };
+-        var copy = new Button { Content = "Copy", Padding = new Thickness(8, 4, 8, 4) };
++        var copy = new Button
++        {
++            Content = SetupLocalization.GetString("Setup_Wizard_Copy"),
++            Padding = new Thickness(8, 4, 8, 4),
++        };
+         copy.Click += (_, _) =>
+         {
+             var package = new DataPackage();
+@@ -1369,10 +1386,10 @@ public sealed partial class WizardPage : Page
+         _finalizationErrorState = false;
+         BusyRing.Visibility = Visibility.Collapsed;
+         BusyRing.IsActive = false;
+-        StatusText.Text = "Wizard needs attention";
++        StatusText.Text = SetupLocalization.GetString("Setup_Wizard_NeedsAttention");
+         ErrorText.Text = message;
+         ErrorText.Visibility = Visibility.Visible;
+-        PrimaryButton.Content = "Start wizard again";
++        PrimaryButton.Content = SetupLocalization.GetString("Setup_Wizard_StartAgain");
+         PrimaryButton.IsEnabled = true;
+         SecondaryButton.IsEnabled = false;
+         SecondaryButton.Visibility = Visibility.Collapsed;
+@@ -1384,8 +1401,8 @@ public sealed partial class WizardPage : Page
+     {
+         ShowError(message);
+         _finalizationErrorState = true;
+-        StatusText.Text = "Windows integration needs attention";
+-        PrimaryButton.Content = "Retry Windows integration";
++        StatusText.Text = SetupLocalization.GetString("Setup_Wizard_WindowsNeedsAttention");
++        PrimaryButton.Content = SetupLocalization.GetString("Setup_Wizard_RetryWindows");
+     }
+ 
+     private async Task EnterWizardErrorAsync(string detail)
+@@ -1432,11 +1449,15 @@ public sealed partial class WizardPage : Page
+         try
+         {
+             new GatewayTerminalLauncher(NullLogger.Instance).Open(_hostAccessPlan);
+-            StatusText.Text = $"Opened a terminal in {_hostAccessPlan.DistroName}. Install the tool, then choose Restart gateway.";
++            StatusText.Text = SetupLocalization.Format(
++                "Setup_Wizard_TerminalOpenedFormat",
++                _hostAccessPlan.DistroName);
+         }
+         catch (Exception ex)
+         {
+-            ErrorText.Text = $"Couldn't open a terminal: {ex.Message}";
++            ErrorText.Text = SetupLocalization.Format(
++                "Setup_Wizard_OpenTerminalFailedFormat",
++                ex.Message);
+             ErrorText.Visibility = Visibility.Visible;
+         }
+     }
+@@ -1460,7 +1481,7 @@ public sealed partial class WizardPage : Page
+         var generation = AdvanceOperationGeneration();
+         _errorState = false;
+         ErrorText.Visibility = Visibility.Collapsed;
+-        SetBusy($"Restarting {distro}...");
++        SetBusy(SetupLocalization.Format("Setup_Wizard_RestartingFormat", distro));
+ 
+         // Detach the current wizard client first so the restart-induced disconnect
+         // doesn't surface as a spurious "connection lost" error mid-restart.
+@@ -1485,7 +1506,8 @@ public sealed partial class WizardPage : Page
+                 var details = string.IsNullOrWhiteSpace(result.OutputSummary)
+                     ? $"wsl.exe exited with code {result.ExitCode}."
+                     : result.OutputSummary;
+-                await EnterWizardErrorAsync($"Restarting the gateway failed: {details}");
++                await EnterWizardErrorAsync(
++                    SetupLocalization.Format("Setup_Wizard_RestartFailedFormat", details));
+                 return;
+             }
+ 
+@@ -1501,7 +1523,8 @@ public sealed partial class WizardPage : Page
+             if (generation != _operationGeneration)
+                 return;
+ 
+-            await EnterWizardErrorAsync($"Restarting the gateway failed: {ex.Message}");
++            await EnterWizardErrorAsync(
++                SetupLocalization.Format("Setup_Wizard_RestartFailedFormat", ex.Message));
+         }
+     }
+ 
+@@ -1510,7 +1533,7 @@ public sealed partial class WizardPage : Page
+         var generation = AdvanceOperationGeneration();
+         _errorState = false;
+         HideRecoveryActions();
+-        SetBusy("Skipping wizard...");
++        SetBusy(SetupLocalization.GetString("Setup_Wizard_SkippingWizard"));
+         await CancelCurrentSessionAsync();
+         await CompleteSetupAsync(generation);
+     }
+@@ -1524,14 +1547,16 @@ public sealed partial class WizardPage : Page
+         if (setupWindow is null or { IsClosed: true })
+             return;
+ 
+-        SetBusy("Finishing Windows integration...");
++        SetBusy(SetupLocalization.GetString("Setup_Wizard_FinishingWindows"));
+         var contextResult = await setupWindow.ApplyWindowsNodeContextAsync();
+         if (generation != _operationGeneration || setupWindow.IsClosed)
+             return;
+ 
+         if (!contextResult.IsSuccess)
+         {
+-            ShowFinalizationError($"OpenClaw onboard finished, but Windows node guidance could not be installed: {contextResult.Message}");
++            ShowFinalizationError(SetupLocalization.Format(
++                "Setup_Wizard_WindowsGuidanceFailedFormat",
++                contextResult.Message));
+             return;
+         }
+ 
+@@ -1590,10 +1615,10 @@ public sealed partial class WizardPage : Page
+ 
+     private static string DisplayTitleFor(string stepType) => stepType switch
+     {
+-        "confirm" => "Confirm",
+-        "select" => "Choose an option",
+-        "multiselect" => "Choose options",
+-        "text" => "Enter value",
+-        _ => "Setup"
++        "confirm" => SetupLocalization.GetString("Setup_Wizard_Confirm"),
++        "select" => SetupLocalization.GetString("Setup_Wizard_ChooseOption"),
++        "multiselect" => SetupLocalization.GetString("Setup_Wizard_ChooseOptions"),
++        "text" => SetupLocalization.GetString("Setup_Wizard_EnterValueTitle"),
++        _ => SetupLocalization.GetString("Setup_Wizard_Setup")
+     };
+ }
+diff --git a/src/OpenClaw.SetupEngine.UI/SetupLocalization.cs b/src/OpenClaw.SetupEngine.UI/SetupLocalization.cs
+index 5526d71a..61a2a80c 100644
+--- a/src/OpenClaw.SetupEngine.UI/SetupLocalization.cs
++++ b/src/OpenClaw.SetupEngine.UI/SetupLocalization.cs
+@@ -1,5 +1,7 @@
+ using System.Diagnostics;
++using System.Globalization;
+ using Microsoft.Windows.ApplicationModel.Resources;
++using Microsoft.UI.Xaml;
+ 
+ namespace OpenClaw.SetupEngine.UI;
+ 
+@@ -19,6 +21,32 @@ internal static class SetupLocalization
+ 
+     private static ResourceManager Manager => s_resourceManager ??= new ResourceManager();
+ 
++    internal static void ApplyFlowDirection(FrameworkElement element)
++        => element.FlowDirection = GetFlowDirection();
++
++    internal static bool IsRightToLeft =>
++        GetFlowDirection() == FlowDirection.RightToLeft;
++
++    private static FlowDirection GetFlowDirection()
++    {
++        string language = Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride;
++        try
++        {
++            var culture = string.IsNullOrWhiteSpace(language)
++                ? CultureInfo.CurrentUICulture
++                : CultureInfo.GetCultureInfo(language);
++            return culture.TextInfo.IsRightToLeft
++                ? FlowDirection.RightToLeft
++                : FlowDirection.LeftToRight;
++        }
++        catch (CultureNotFoundException)
++        {
++            return CultureInfo.CurrentUICulture.TextInfo.IsRightToLeft
++                ? FlowDirection.RightToLeft
++                : FlowDirection.LeftToRight;
++        }
++    }
++
+     public static string GetString(string resourceKey)
+     {
+         string? value = TryGetValueAsString(resourceKey);
+diff --git a/src/OpenClaw.SetupEngine.UI/SetupWindow.xaml b/src/OpenClaw.SetupEngine.UI/SetupWindow.xaml
