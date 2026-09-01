@@ -1,0 +1,249 @@
++                    SetupLocalization.GetString("Setup_Capabilities_StepCapabilities"),
++                    ProfileSummary());
+                 GoToStep(_skipPermissions ? 3 : 2);
+                 break;
+             case 2:
+-                AppendTranscript("Windows permissions", PermissionSummary());
++                AppendTranscript(
++                    SetupLocalization.GetString("Setup_Capabilities_StepPermissions"),
++                    PermissionSummary());
+                 GoToStep(3);
+                 break;
+             default:
+@@ -731,7 +736,8 @@ public sealed partial class CapabilitiesPage : Page
+         if (eligibility.Plan is not { } plan || eligibility.SelectedGpu is not { } gpu)
+         {
+             _localAiSelectionEligible = false;
+-            LocalAiHardwareStatusText.Text = "This model is not qualified for the detected hardware.";
++            LocalAiHardwareStatusText.Text =
++                SetupLocalization.GetString("Setup_Capabilities_ModelNotQualified");
+             UpdatePrimaryButtonState();
+             return;
+         }
+@@ -740,21 +746,29 @@ public sealed partial class CapabilitiesPage : Page
+         LocalAiHardwareStatusText.Text = eligibility.Status switch
+         {
+             LocalInferenceEligibilityStatus.Eligible =>
+-                $"Detected {gpu.Name} with {FormatOptionalSize(eligibility.DetectedTotalMemoryBytes)}. " +
+-                $"The selected model requires {FormatSize(eligibility.RequiredTotalMemoryBytes)}.",
++                SetupLocalization.Format(
++                    "Setup_Capabilities_GpuEligibleFormat",
++                    gpu.Name,
++                    FormatOptionalSize(eligibility.DetectedTotalMemoryBytes),
++                    FormatSize(eligibility.RequiredTotalMemoryBytes)),
+             LocalInferenceEligibilityStatus.EligibleButBusy =>
+-                $"Detected {gpu.Name}, but only {FormatOptionalSize(eligibility.AvailableFreeMemoryBytes)} of " +
+-                $"{FormatSize(eligibility.RequiredFreeMemoryBytes)} required GPU memory is currently free. " +
+-                "Close GPU applications and retry setup.",
++                SetupLocalization.Format(
++                    "Setup_Capabilities_GpuBusyFormat",
++                    gpu.Name,
++                    FormatOptionalSize(eligibility.AvailableFreeMemoryBytes),
++                    FormatSize(eligibility.RequiredFreeMemoryBytes)),
+             _ => DescribeLocalAiUnavailable(eligibility),
+         };
+-        LocalAiEngineDetailText.Text =
+-            "llama-server for Windows; " +
+-            $"{FormatSize(plan.Runtime.Artifacts.Sum(artifact => artifact.SizeBytes))} verified download";
+-        LocalAiModelDetailText.Text =
+-            $"{plan.Model.DisplayName}, {FormatSize(plan.Model.Weights.SizeBytes)} from Hugging Face";
+-        LocalAiSettingsDetailText.Text =
+-            $"{plan.Model.Recipe.ContextTokens / 1024}K context, FP16 KV cache, full CUDA offload, loads on first request";
++        LocalAiEngineDetailText.Text = SetupLocalization.Format(
++            "Setup_Capabilities_EngineDetailFormat",
++            FormatSize(plan.Runtime.Artifacts.Sum(artifact => artifact.SizeBytes)));
++        LocalAiModelDetailText.Text = SetupLocalization.Format(
++            "Setup_Capabilities_ModelDetailFormat",
++            plan.Model.DisplayName,
++            FormatSize(plan.Model.Weights.SizeBytes));
++        LocalAiSettingsDetailText.Text = SetupLocalization.Format(
++            "Setup_Capabilities_SettingsDetailFormat",
++            plan.Model.Recipe.ContextTokens / 1024);
+         UpdatePrimaryButtonState();
+     }
+ 
+@@ -784,7 +798,9 @@ public sealed partial class CapabilitiesPage : Page
+         $"{bytes / 1_000_000_000d:0.#} GB";
+ 
+     private static string FormatOptionalSize(long? bytes) =>
+-        bytes is { } value ? FormatSize(value) : "an unknown amount";
++        bytes is { } value
++            ? FormatSize(value)
++            : SetupLocalization.GetString("Setup_Capabilities_UnknownAmount");
+ 
+     private void TailscaleToggle_Toggled(object sender, RoutedEventArgs e)
+     {
+@@ -825,7 +841,8 @@ public sealed partial class CapabilitiesPage : Page
+ 
+     private async Task RefreshWindowsTailscaleStatusAsync()
+     {
+-        TailscaleStatusText.Text = "Checking Windows Tailscale…";
++        TailscaleStatusText.Text =
++            SetupLocalization.GetString("Setup_Capabilities_CheckingTailscale");
+         try
+         {
+             var path = PreflightWindowsTailscaleStep.ResolveWindowsTailscaleCliPath();
+@@ -854,8 +871,8 @@ public sealed partial class CapabilitiesPage : Page
+                 tailnetDnsSuffix = TailscaleSetupPolicy.GetTailnetDnsSuffix(dnsName);
+             }
+             TailscaleStatusText.Text = tailnetDnsSuffix is not null
+-                ? $"Windows Tailscale connected as {dnsName}."
+-                : "Windows Tailscale must be installed and signed in before setup can continue.";
++                ? SetupLocalization.Format("Setup_Capabilities_TailscaleConnectedFormat", dnsName)
++                : SetupLocalization.GetString("Setup_Capabilities_TailscaleRequired");
+             if (_config is not null && TailscaleToggle.IsOn == true)
+             {
+                 _config.Tailscale.TailnetDnsSuffix = tailnetDnsSuffix;
+@@ -864,7 +881,8 @@ public sealed partial class CapabilitiesPage : Page
+         }
+         catch
+         {
+-            TailscaleStatusText.Text = "Windows Tailscale must be installed and signed in before setup can continue.";
++            TailscaleStatusText.Text =
++                SetupLocalization.GetString("Setup_Capabilities_TailscaleRequired");
+             if (_config is not null && TailscaleToggle.IsOn == true)
+             {
+                 _config.Tailscale.TailnetDnsSuffix = null;
+@@ -875,11 +893,11 @@ public sealed partial class CapabilitiesPage : Page
+ 
+     private string ProfileSummary()
+     {
+-        if (MatchesProfile(ProfileReadOnly)) return "Read-only";
+-        if (MatchesProfile(ProfileStandard)) return "Standard";
+-        if (MatchesProfile(Capabilities.Select(c => c.Key).ToArray())) return "Full access";
++        if (MatchesProfile(ProfileReadOnly)) return SetupLocalization.GetString("Setup_Capabilities_ProfileReadOnly");
++        if (MatchesProfile(ProfileStandard)) return SetupLocalization.GetString("Setup_Capabilities_ProfileStandard");
++        if (MatchesProfile(Capabilities.Select(c => c.Key).ToArray())) return SetupLocalization.GetString("Setup_Capabilities_ProfileFull");
+         var n = _toggles.Values.Count(t => t.IsOn);
+-        return $"{n} of {Capabilities.Length} capabilities";
++        return SetupLocalization.Format("Setup_Capabilities_ProfileCustomFormat", n, Capabilities.Length);
+     }
+ 
+     private string PermissionSummary()
+@@ -894,7 +912,9 @@ public sealed partial class CapabilitiesPage : Page
+             if (_permGranted.TryGetValue(permId, out var g) && g)
+                 granted++;
+         }
+-        return granted == visible ? $"All {visible} granted" : $"{granted} of {visible} granted";
++        return granted == visible
++            ? SetupLocalization.Format("Setup_Capabilities_AllPermissionsFormat", visible)
++            : SetupLocalization.Format("Setup_Capabilities_PermissionsFormat", granted, visible);
+     }
+ 
+     private void AppendTranscript(string question, string? answer)
+@@ -999,8 +1019,18 @@ public sealed partial class CapabilitiesPage : Page
+             };
+ 
+             var textStack = new StackPanel { Spacing = 1, VerticalAlignment = VerticalAlignment.Center };
+-            textStack.Children.Add(new TextBlock { Text = name, FontSize = 13, FontWeight = Microsoft.UI.Text.FontWeights.SemiBold });
+-            textStack.Children.Add(new TextBlock { Text = desc, FontSize = 11, Opacity = 0.55 });
++            textStack.Children.Add(new TextBlock
++            {
++                Text = SetupLocalization.GetString(name),
++                FontSize = 13,
++                FontWeight = Microsoft.UI.Text.FontWeights.SemiBold,
++            });
++            textStack.Children.Add(new TextBlock
++            {
++                Text = SetupLocalization.GetString(desc),
++                FontSize = 11,
++                Opacity = 0.55,
++            });
+ 
+             Grid.SetColumn(icon, 0);
+             Grid.SetColumn(textStack, 1);
+@@ -1055,9 +1085,9 @@ public sealed partial class CapabilitiesPage : Page
+ 
+     private void UpdateCapabilityProfilePresentation(int profileIndex)
+     {
+-        CapabilityExpander.Header = profileIndex < 0
+-            ? "Custom capabilities (review)"
+-            : "Fine-tune individual capabilities (optional)";
++        CapabilityExpander.Header = SetupLocalization.GetString(profileIndex < 0
++            ? "Setup_Capabilities_CustomReview"
++            : "Setup_CapabilitiesPage_CapabilityExpander.Header");
+         if (profileIndex < 0)
+             CapabilityExpander.IsExpanded = true;
+     }
+@@ -1132,8 +1162,8 @@ public sealed partial class CapabilitiesPage : Page
+                 Severity = InfoBarSeverity.Warning,
+                 IsOpen = true,
+                 IsClosable = false,
+-                Title = "Couldn't read Windows permission status",
+-                Message = $"You can continue setup. Review permissions later in Settings. Details: {ex.Message}",
++                Title = SetupLocalization.GetString("Setup_Capabilities_PermissionStatusErrorTitle"),
++                Message = SetupLocalization.Format("Setup_Capabilities_PermissionStatusErrorFormat", ex.Message),
+             });
+         }
+     }
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/CompletePage.xaml b/src/OpenClaw.SetupEngine.UI/Pages/CompletePage.xaml
+index 6dd3afab..622477e8 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/CompletePage.xaml
++++ b/src/OpenClaw.SetupEngine.UI/Pages/CompletePage.xaml
+@@ -43,11 +43,11 @@
+                     </Border>
+                 </Grid>
+ 
+-                <TextBlock x:Name="TitleText" Text="All set!"
++                <TextBlock x:Uid="Setup_CompletePage_TitleText" x:Name="TitleText" Text="All set!"
+                            Style="{StaticResource TitleTextBlockStyle}"
+                            HorizontalAlignment="Center" />
+ 
+-                <TextBlock x:Name="SubtitleText" Text="OpenClaw is ready to go"
++                <TextBlock x:Uid="Setup_CompletePage_SubtitleText" x:Name="SubtitleText" Text="OpenClaw is ready to go"
+                            Style="{StaticResource BodyTextBlockStyle}"
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                            HorizontalAlignment="Center" />
+@@ -57,8 +57,13 @@
+                         <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14">
+                             <FontIcon Grid.Column="0" Glyph="&#xE756;" FontSize="18" VerticalAlignment="Center" />
+                             <StackPanel Grid.Column="1" Spacing="2">
+-                                <TextBlock Text="Local gateway running" Style="{StaticResource BodyStrongTextBlockStyle}" />
+-                                <TextBlock x:Name="GatewaySummaryText" Text="OpenClawGateway · 127.0.0.1:18789" Style="{StaticResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
++                                <TextBlock x:Uid="Setup_CompletePage_TextBlock_1" Text="Local gateway running" Style="{StaticResource BodyStrongTextBlockStyle}" />
++                                <TextBlock x:Uid="Setup_CompletePage_GatewaySummaryText"
++                                           x:Name="GatewaySummaryText"
++                                           FlowDirection="LeftToRight"
++                                           Text="OpenClawGateway · 127.0.0.1:18789"
++                                           Style="{StaticResource CaptionTextBlockStyle}"
++                                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                             </StackPanel>
+                             <FontIcon Grid.Column="2" Glyph="&#xE73E;" FontSize="16" Foreground="{ThemeResource SystemFillColorSuccessBrush}" VerticalAlignment="Center" />
+                         </Grid>
+@@ -72,7 +77,7 @@
+                         <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14">
+                             <FontIcon Grid.Column="0" Glyph="&#xE950;" FontSize="18" VerticalAlignment="Center" />
+                             <StackPanel Grid.Column="1" Spacing="2">
+-                                <TextBlock x:Name="LocalAiSummaryTitle" Text="Local AI verified"
++                                <TextBlock x:Uid="Setup_CompletePage_LocalAiSummaryTitle" x:Name="LocalAiSummaryTitle" Text="Local AI verified"
+                                            Style="{StaticResource BodyStrongTextBlockStyle}" />
+                                 <TextBlock x:Name="LocalAiSummaryDescription"
+                                            AutomationProperties.LiveSetting="Polite"
+@@ -89,8 +94,8 @@
+                         <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14">
+                             <FontIcon Grid.Column="0" Glyph="&#xE772;" FontSize="18" VerticalAlignment="Center" />
+                             <StackPanel Grid.Column="1" Spacing="2">
+-                                <TextBlock Text="Device paired" Style="{StaticResource BodyStrongTextBlockStyle}" />
+-                                <TextBlock Text="This PC is connected and ready to use" Style="{StaticResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
++                                <TextBlock x:Uid="Setup_CompletePage_TextBlock_2" Text="Device paired" Style="{StaticResource BodyStrongTextBlockStyle}" />
++                                <TextBlock x:Uid="Setup_CompletePage_TextBlock_3" Text="This PC is connected and ready to use" Style="{StaticResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                             </StackPanel>
+                             <FontIcon Grid.Column="2" Glyph="&#xE73E;" FontSize="16" Foreground="{ThemeResource SystemFillColorSuccessBrush}" VerticalAlignment="Center" />
+                         </Grid>
+@@ -99,8 +104,8 @@
+                         <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14">
+                             <FontIcon Grid.Column="0" Glyph="&#xEA18;" FontSize="18" VerticalAlignment="Center" />
+                             <StackPanel Grid.Column="1" Spacing="2">
+-                                <TextBlock Text="Capability profile applied" Style="{StaticResource BodyStrongTextBlockStyle}" />
+-                                <TextBlock Text="Editable any time in Companion Settings" Style="{StaticResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
++                                <TextBlock x:Uid="Setup_CompletePage_TextBlock_4" Text="Capability profile applied" Style="{StaticResource BodyStrongTextBlockStyle}" />
++                                <TextBlock x:Uid="Setup_CompletePage_TextBlock_5" Text="Editable any time in Companion Settings" Style="{StaticResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                             </StackPanel>
+                             <FontIcon Grid.Column="2" Glyph="&#xE73E;" FontSize="16" Foreground="{ThemeResource SystemFillColorSuccessBrush}" VerticalAlignment="Center" />
+                         </Grid>
+@@ -119,13 +124,13 @@
+                                          Visibility="Collapsed"
+                                          Padding="0"
+                                          FontSize="13" />
+-                        <HyperlinkButton x:Name="ViewLogLink" Content="View full log →"
++                        <HyperlinkButton x:Uid="Setup_CompletePage_ViewLogLink" x:Name="ViewLogLink" Content="View full log →"
