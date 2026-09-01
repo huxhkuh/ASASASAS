@@ -1,0 +1,299 @@
++  <data name="CommandCenter_NoChannelsRunning" xml:space="preserve">
++    <value>לא פועלים ערוצים כרגע</value>
++  </data>
++  <data name="CommandCenter_NodePendingApproval" xml:space="preserve">
++    <value>Node ממתין לאישור</value>
++  </data>
++  <data name="CommandCenter_NoLocalGatewayListener" xml:space="preserve">
++    <value>לא זוהה מאזין מקומי Gateway</value>
++  </data>
++  <data name="CommandCenter_NoNodesReported" xml:space="preserve">
++    <value>לא דווחו צמתים</value>
++  </data>
++  <data name="CommandCenter_SshTunnelPortNotListening" xml:space="preserve">
++    <value>SSH יציאת המנהרה לא מקשיבה</value>
++  </data>
++  <data name="CommandCenter_UsageCostsMissing" xml:space="preserve">
++    <value>חלק מעלויות השימוש הן חסר</value>
++  </data>
++  <data name="CommandCenter_WaitingForGatewayHealth" xml:space="preserve">
++    <value>ממתין לתקינות Gateway</value>
++  </data>
++  <data name="ConfigPage_CheckingConfigPermissions" xml:space="preserve">
++    <value>בודק הרשאות תצורה</value>
++  </data>
++  <data name="ConfigPage_ConfigIsReadOnly" xml:space="preserve">
++    <value>התצורה היא לקריאה בלבד</value>
++  </data>
++  <data name="ConfigPage_ConfigUnavailable" xml:space="preserve">
++    <value>התצורה אינה זמינה</value>
++  </data>
++  <data name="ConfigPage_EditingPathFormat" xml:space="preserve">
++    <value>עריכה של {0} באמצעות טופס מונחה סכימה.</value>
++  </data>
++  <data name="ConfigPage_RenderConfigUnavailableTitle" xml:space="preserve">
++    <value>התצורה אינה זמינה</value>
++  </data>
++  <data name="ConfigPage_RenderConfigUnavailableMessage" xml:space="preserve">
++    <value>לא ניתן היה לעבד את התצורה Gateway. רענן ונסה שוב.</value>
++  </data>
++  <data name="ConfigPage_RenderSchemaUnavailableTitle" xml:space="preserve">
++    <value>סכימה אינה זמינה</value>
++  </data>
++  <data name="ConfigPage_RenderSchemaUnavailableMessage" xml:space="preserve">
++    <value>לא ניתן היה לעבד את הסכימה Gateway. הגרסה הגולמית JSON נשארת זמינה כתצוגה מקדימה לקריאה בלבד.</value>
++  </data>
++  <data name="ConfigPage_StatusGatewayRestartingTitle" xml:space="preserve">
++    <value>Gateway הפעלה מחדש</value>
++  </data>
++  <data name="ConfigPage_StatusGatewayRestartingMessage" xml:space="preserve">
++    <value>שומר שינויים. ה־Gateway מופעל מחדש ויתחבר מחדש באופן אוטומטי.</value>
++  </data>
++  <data name="ConfigPage_StatusNoChangesTitle" xml:space="preserve">
++    <value>אין שינויים</value>
++  </data>
++  <data name="ConfigPage_StatusNoChangesMessage" xml:space="preserve">
++    <value>אין מה לשמור.</value>
++  </data>
++  <data name="ConfigPage_StatusFixValidationErrorsTitle" xml:space="preserve">
++    <value>תקן שגיאות אימות</value>
++  </data>
++  <data name="ConfigPage_StatusValidationErrorMessageFormat" xml:space="preserve">
++    <value>{0}: {1}</value>
++  </data>
++  <data name="ConfigPage_StatusNotConnectedTitle" xml:space="preserve">
++    <value>לא מחובר</value>
++  </data>
++  <data name="ConfigPage_StatusNotConnectedMessage" xml:space="preserve">
++    <value>התחבר ל־Gateway לפני שמירת התצורה.</value>
++  </data>
++  <data name="ConfigPage_StatusReadOnlyMessage" xml:space="preserve">
++    <value>לאופרטור token זה אין הרשאת operator.write, לכן לא ניתן לשמור שינויי תצורה.</value>
++  </data>
++  <data name="ConfigPage_StatusConfigNotLoadedTitle" xml:space="preserve">
++    <value>התצורה לא נטענה</value>
++  </data>
++  <data name="ConfigPage_StatusConfigNotLoadedMessage" xml:space="preserve">
++    <value>רענן את תצורת Gateway לפני השמירה.</value>
++  </data>
++  <data name="ConfigPage_StatusSavingConfigTitle" xml:space="preserve">
++    <value>שומר תצורה…</value>
++  </data>
++  <data name="ConfigPage_StatusSavingConfigMessageFormat" xml:space="preserve">
++    <value>כותב {0} שינוי(ים) ל־Gateway.</value>
++  </data>
++  <data name="ConfigPage_StatusStaleConfigTitle" xml:space="preserve">
++    <value>Gateway התצורה השתנתה במקום אחר</value>
++  </data>
++  <data name="ConfigPage_StatusStaleConfigMessageFormat" xml:space="preserve">
++    <value>העריכות שלך נשמרו. התצורה האחרונה מתרעננת; בדוק את הטופס ונסה לשמור שוב. פרטים: {0}</value>
++  </data>
++  <data name="ConfigPage_StatusStaleConfigDefaultDetail" xml:space="preserve">
++    <value>גיבוב תצורה מיושן</value>
++  </data>
++  <data name="ConfigPage_StatusSaveFailedTitle" xml:space="preserve">
++    <value>השמירה נכשלה</value>
++  </data>
++  <data name="ConfigPage_StatusSaveRejectedMessage" xml:space="preserve">
++    <value>ה־Gateway דחה את עדכון התצורה. השינויים שלך נשמרו.</value>
++  </data>
++  <data name="ConfigPage_StatusSaveExceptionMessageFormat" xml:space="preserve">
++    <value>{0} השינויים שלך נשמרו.</value>
++  </data>
++  <data name="ConfigPage_SaveStatusCheckingConfigPermissions" xml:space="preserve">
++    <value>בדיקת הרשאות תצורה…</value>
++  </data>
++  <data name="ConfigPage_SaveStatusRefreshing" xml:space="preserve">
++    <value>מרענן…</value>
++  </data>
++  <data name="ConfigPage_StatusChangesDiscardedTitle" xml:space="preserve">
++    <value>שינויים נמחקו</value>
++  </data>
++  <data name="ConfigPage_StatusChangesDiscardedMessage" xml:space="preserve">
++    <value>הטופס חזר לתצורה האחרונה שנטענה מה־Gateway.</value>
++  </data>
++  <data name="ConfigPage_FullConfig" xml:space="preserve">
++    <value>הגדרות מלאות</value>
++  </data>
++  <data name="ConfigPage_StatusSectionResetTitle" xml:space="preserve">
++    <value>איפוס מקטע</value>
++  </data>
++  <data name="ConfigPage_StatusSectionResetMessageFormat" xml:space="preserve">
++    <value>{0} חזר לערך Gateway האחרון שנטען.</value>
++  </data>
++  <data name="ConfigPage_StatusCopiedJsonDiffTitle" xml:space="preserve">
++    <value>הועתק JSON הבדל</value>
++  </data>
++  <data name="ConfigPage_StatusCopiedJsonDiffMessage" xml:space="preserve">
++    <value>הבדל המקטע שנבחר הועתק ללוח.</value>
++  </data>
++  <data name="ConfigPage_StatusGatewayReconnectedTitle" xml:space="preserve">
++    <value>Gateway מחובר מחדש</value>
++  </data>
++  <data name="ConfigPage_StatusGatewayReconnectedRefreshingMessage" xml:space="preserve">
++    <value>הגדרות נשמרו והחיבור Gateway חזר. רענון הגדרות אחרונות.</value>
++  </data>
++  <data name="ConfigPage_StatusGatewayReconnectedLoadedMessage" xml:space="preserve">
++    <value>הגדרות נשמרו וההגדרות Gateway האחרונות נטענו.</value>
++  </data>
++  <data name="ConfigPage_StatusGatewayStillReconnectingTitle" xml:space="preserve">
++    <value>Gateway עדיין מתחבר מחדש</value>
++  </data>
++  <data name="ConfigPage_StatusGatewayStillReconnectingMessage" xml:space="preserve">
++    <value>שמירת התצורה התקבלה, אך Gateway עדיין לא התחבר מחדש. ניתן להשאיר דף זה פתוח או להשתמש ב"חיבור" כדי לבדוק את הסטטוס.</value>
++  </data>
++  <data name="ConfigPage_CheckingConfigPermissionsMessage" xml:space="preserve">
++    <value>ממתין לדיווח על הרשאות של אופרטור זה על ידי Gateway.</value>
++  </data>
++  <data name="ConfigPage_ConfigUnavailableMessage" xml:space="preserve">
++    <value>לאופרטור זה token אין הרשאת operator.read, לכן לא ניתן לטעון את התצורה של Gateway כאן.</value>
++  </data>
++  <data name="ConfigPage_ConfigIsReadOnlyMessage" xml:space="preserve">
++    <value>לאופרטור זה token יש הרשאת operator.write, אך ניתן לבדוק ולאמת טיוטות, אך השמירה מושבתת.</value>
++  </data>
++  <data name="ConfigPage_MetaNoUnsavedChanges" xml:space="preserve">
++    <value>אין שינויים שלא נשמרו.</value>
++  </data>
++  <data name="ConfigPage_MetaUnsavedChangesFormat" xml:space="preserve">
++    <value>{0} שינויים שלא נשמרו</value>
++  </data>
++  <data name="ConfigPage_MetaUnsavedChangesWithValidationFormat" xml:space="preserve">
++    <value>{0} שינויים שלא נשמרו · {1} בעיות אימות</value>
++  </data>
++  <data name="ConfigPage_SaveStatusSaving" xml:space="preserve">
++    <value>שומר…</value>
++  </data>
++  <data name="ConfigPage_SaveStatusGatewayRestarting" xml:space="preserve">
++    <value>Gateway הפעלה מחדש…</value>
++  </data>
++  <data name="ConfigPage_SaveStatusConnectToGateway" xml:space="preserve">
++    <value>התחבר ל־Gateway כדי לערוך</value>
++  </data>
++  <data name="ConfigPage_SaveStatusCheckingPermissions" xml:space="preserve">
++    <value>בדיקת הרשאות…</value>
++  </data>
++  <data name="ConfigPage_SaveStatusMissingRead" xml:space="preserve">
++    <value>תצורה אינה זמינה: חסר operator.read</value>
++  </data>
++  <data name="ConfigPage_SaveStatusReadOnlyMissingWrite" xml:space="preserve">
++    <value>לקריאה בלבד: חסר operator.write</value>
++  </data>
++  <data name="ConfigPage_SaveStatusFixValidationBeforeSaving" xml:space="preserve">
++    <value>תקן שגיאות אימות לפני השמירה</value>
++  </data>
++  <data name="ConfigPage_SaveStatusUnsavedChanges" xml:space="preserve">
++    <value>שינויים שלא נשמרו</value>
++  </data>
++  <data name="ConfigPage_SaveStatusNoUnsavedChanges" xml:space="preserve">
++    <value>אין שינויים שלא נשמרו</value>
++  </data>
++  <data name="ConfigPage_AccessDisconnected" xml:space="preserve">
++    <value>מנותק</value>
++  </data>
++  <data name="ConfigPage_AccessChecking" xml:space="preserve">
++    <value>בדיקת גישה</value>
++  </data>
++  <data name="ConfigPage_AccessNoRead" xml:space="preserve">
++    <value>אין גישת קריאה לתצורה</value>
++  </data>
++  <data name="ConfigPage_AccessReadOnly" xml:space="preserve">
++    <value>לקריאה בלבד גישה</value>
++  </data>
++  <data name="ConfigPage_AccessReadWrite" xml:space="preserve">
++    <value>גישת קריאה/כתיבה</value>
++  </data>
++  <data name="ConfigPage_AccessUnknown" xml:space="preserve">
++    <value>גישה לא ידועה</value>
++  </data>
++  <data name="ConfigPage_AccessChangesFormat" xml:space="preserve">
++    <value>{0} שינוי(ים)</value>
++  </data>
++  <data name="ConfigPage_AccessValidationClean" xml:space="preserve">
++    <value>ניקוי אימות מקומי</value>
++  </data>
++  <data name="ConfigPage_AccessValidationIssuesFormat" xml:space="preserve">
++    <value>{0} בעיות אימות</value>
++  </data>
++  <data name="ConfigPage_AccessSummaryFormat" xml:space="preserve">
++    <value>{0} · {1} · {2}</value>
++  </data>
++  <data name="DebugPage_NoGatewayConfigured" xml:space="preserve">
++    <value>לא הוגדר Gateway</value>
++  </data>
++  <data name="DebugPage_StatusConnectedFormat" xml:space="preserve">
++    <value>OpenClaw מחובר ל-{0}.</value>
++  </data>
++  <data name="DebugPage_StatusConnectingFormat" xml:space="preserve">
++    <value>מתחבר ל-{0}…</value>
++  </data>
++  <data name="DebugPage_StatusDisconnectedFormat" xml:space="preserve">
++    <value>לא מחובר. Gateway: {0}.</value>
++  </data>
++  <data name="DebugPage_StatusErrorFormat" xml:space="preserve">
++    <value>Gateway אחרון: {0}. ראה את ציר הזמן של האירוע.</value>
++  </data>
++  <data name="DebugPage_StatusGatewayFormat" xml:space="preserve">
++    <value>Gateway: {0}.</value>
++  </data>
++  <data name="DebugPage_RecentLogTitle" xml:space="preserve">
++    <value>יומן אחרון</value>
++  </data>
++  <data name="DebugPage_RecentLogCaptionFormat" xml:space="preserve">
++    <value>200 השורות האחרונות של {0}. חומרת המערכת מנותחת מתגיות [info]/[warn]/[error].</value>
++  </data>
++  <data name="DebugPage_CopyFeedbackFormat" xml:space="preserve">
++    <value>{0} הועתק ללוח.</value>
++  </data>
++  <data name="SandboxPage_StatusUnavailableTitle" xml:space="preserve">
++    <value>Node ארגז חול אינו זמין: גיבוי למארח.</value>
++  </data>
++  <data name="SandboxPage_StatusUnavailableSubtext" xml:space="preserve">
++    <value>בלימה אינה זמינה במחשב זה, לכן פקודות שהופעלו על ידי סוכן פועלות על המארח ללא הגנת ארגז חול.</value>
++  </data>
++  <data name="SandboxPage_StatusUnavailableBlockedTitle" xml:space="preserve">
++    <value>Node ארגז חול אינו זמין: פקודות חסומות</value>
++  </data>
++  <data name="SandboxPage_StatusUnavailableBlockedSubtext" xml:space="preserve">
++    <value>בלימה אינה זמינה במחשב זה, וחסימת גיבוי קפדנית מופעלת, לכן פקודות שהופעלו על ידי סוכן חסומות.</value>
++  </data>
++  <data name="SandboxPage_StatusUnavailableOffTitle" xml:space="preserve">
++    <value>Node ארגז חול כבוי: ביצוע מארח</value>
++  </data>
++  <data name="SandboxPage_StatusUnavailableOffSubtext" xml:space="preserve">
++    <value>בלימה אינה זמינה ו- Node ארגז חול כבוי, לכן פקודות שהופעלו על ידי סוכן פועלות על המארח ללא הגנת ארגז חול.</value>
++  </data>
++  <data name="SandboxPage_StatusOnTitle" xml:space="preserve">
++    <value>Node ארגז החול מופעל</value>
++  </data>
++  <data name="SandboxPage_StatusOnSubtext" xml:space="preserve">
++    <value>תוכניות שהסוכן מפעיל במחשב זה כלואות.</value>
++  </data>
++  <data name="SandboxPage_StatusOffTitle" xml:space="preserve">
++    <value>Node ארגז החול כבוי: סיכון גבוה</value>
++  </data>
++  <data name="SandboxPage_StatusOffSubtext" xml:space="preserve">
++    <value>תוכניות שהסוכן מפעיל במחשב זה אינן כלולות.</value>
++  </data>
++  <data name="SandboxPage_UnavailableDefaultReason" xml:space="preserve">
++    <value>פרימיטיביות של ארגז חול MXC אינן זמינות במחשב זה.</value>
++  </data>
++  <data name="SandboxPage_ProbeErrorReason" xml:space="preserve">
++    <value>לא ניתן היה לבדוק את זמינות ארגז החול.</value>
++  </data>
++  <data name="SandboxPage_UnavailableBehaviorHostFallback" xml:space="preserve">
++    <value>פקודות יפעלו על המארח ללא הגנת ארגז חול כל עוד ארגז חול אינו זמין.</value>
++  </data>
++  <data name="SandboxPage_UnavailableBehaviorBlocked" xml:space="preserve">
++    <value>פקודות חסומות כל עוד ארגז חול אינו זמין מכיוון שחסימה מחמירה של גיבוי מופעלת.</value>
++  </data>
++  <data name="SandboxPage_ProbeErrorTitle" xml:space="preserve">
++    <value>לא ניתן היה לאמת את זמינות ארגז החול</value>
++  </data>
++  <data name="SandboxPage_ProbeErrorMessageFormat" xml:space="preserve">
++    <value>{0}
++
++{1} בדיקת יכולת ארגז החול לא הושלמה. זה בדרך כלל חולף (בדיקה איטית או חסומה): נסה שוב, ואם זה נמשך בדוק האם תוכנת האבטחה חוסמת את wxc-exec.</value>
++  </data>
++  <data name="SandboxPage_Retry" xml:space="preserve">
++    <value>נסה שוב</value>
++  </data>
