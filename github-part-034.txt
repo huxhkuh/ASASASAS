@@ -1,0 +1,342 @@
++  </data>
++  <data name="Chat_Composer_Placeholder_Connected" xml:space="preserve">
++    <value>עוזר הודעות (הכנס לשליחה)</value>
++  </data>
++  <data name="Chat_Composer_Placeholder_Connecting" xml:space="preserve">
++    <value>מתחבר…</value>
++  </data>
++  <data name="Chat_Composer_Placeholder_NotConnected" xml:space="preserve">
++    <value>לא מחובר</value>
++  </data>
++  <data name="Chat_Composer_Placeholder_IncompatibleGateway" xml:space="preserve">
++    <value>Gateway נדרש עדכון: גרסה לא תואמת</value>
++  </data>
++  <data name="Chat_Composer_Tooltip_Attach" xml:space="preserve">
++    <value>צרף</value>
++  </data>
++  <data name="Chat_Composer_Tooltip_Voice" xml:space="preserve">
++    <value>קול</value>
++  </data>
++  <data name="Chat_Voice_ListeningPrompt" xml:space="preserve">
++    <value>מקשיב…</value>
++  </data>
++  <data name="Chat_Voice_Cancel" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="Chat_Composer_Tooltip_More" xml:space="preserve">
++    <value>עוד</value>
++  </data>
++  <data name="Chat_Composer_Tooltip_Settings" xml:space="preserve">
++    <value>הגדרות</value>
++  </data>
++  <data name="Chat_Composer_Tooltip_Send" xml:space="preserve">
++    <value>שלח</value>
++  </data>
++  <data name="Chat_Composer_Tooltip_Stop" xml:space="preserve">
++    <value>עצור</value>
++  </data>
++  <data name="Chat_Composer_AssistantWorking" xml:space="preserve">
++    <value>עוזר הוא עובד...</value>
++  </data>
++  <data name="Chat_Composer_QueuedCountFormat" xml:space="preserve">
++    <value>בתור ({0})</value>
++  </data>
++  <data name="Chat_Composer_QueuedMessageAutomationFormat" xml:space="preserve">
++    <value>הודעה בתור: {0}</value>
++  </data>
++  <data name="Chat_Composer_QueuedMessageFailedAutomationFormat" xml:space="preserve">
++    <value>הודעה בתור נכשלה: {0}</value>
++  </data>
++  <data name="Chat_Composer_QueuedMessageFailed" xml:space="preserve">
++    <value>נכשל</value>
++  </data>
++  <data name="Chat_Composer_QueuedMessageCancel" xml:space="preserve">
++    <value>ביטול הודעה בתור</value>
++  </data>
++  <data name="Chat_Composer_QueuedMessageCancelAutomationFormat" xml:space="preserve">
++    <value>ביטול הודעה בתור {0}: {1}</value>
++  </data>
++  <data name="Chat_Composer_QueuedMessageRemoveFailed" xml:space="preserve">
++    <value>הסרת הודעה בתור שנכשלה</value>
++  </data>
++  <data name="Chat_Composer_QueuedMessageRemoveFailedAutomationFormat" xml:space="preserve">
++    <value>הסרת הודעה בתור שנכשלה {0}: {1}</value>
++  </data>
++  <data name="Chat_Assistant_Action_Copy" xml:space="preserve">
++    <value>העתקת הודעה</value>
++  </data>
++  <data name="Chat_Assistant_Action_ReadAloud" xml:space="preserve">
++    <value>קריאה בקול רם</value>
++  </data>
++  <data name="Chat_User_Action_Delete" xml:space="preserve">
++    <value>מחיקת הודעה</value>
++  </data>
++  <data name="Chat_TruncationMarkerFormat" xml:space="preserve">
++    <value>… [{0} בתים נחתכו]</value>
++  </data>
++  <data name="Chat_Permission_Allow" xml:space="preserve">
++    <value>אפשר פעם אחת</value>
++  </data>
++  <data name="Chat_Permission_AllowAlways" xml:space="preserve">
++    <value>תמיד אפשר</value>
++  </data>
++  <data name="Chat_Permission_Deny" xml:space="preserve">
++    <value>דחייה פעם אחת</value>
++  </data>
++  <data name="Chat_Permission_DecisionAllowed" xml:space="preserve">
++    <value>מותר</value>
++  </data>
++  <data name="Chat_Permission_DecisionAlwaysAllowed" xml:space="preserve">
++    <value>מותר תמיד</value>
++  </data>
++  <data name="Chat_Permission_DecisionDenied" xml:space="preserve">
++    <value>נדחה</value>
++  </data>
++  <data name="Chat_Permission_DecisionExpired" xml:space="preserve">
++    <value>פג תוקף</value>
++  </data>
++  <data name="AppNotification_LocalCommandDenied_Title" xml:space="preserve">
++    <value>Windows פקודה נלווית חסמה פקודה מקומית</value>
++  </data>
++  <data name="AppNotification_LocalCommandDenied_CommandSubjectFormat" xml:space="preserve">
++    <value>פקודה "{0}"</value>
++  </data>
++  <data name="AppNotification_LocalCommandDenied_UnknownCommandSubject" xml:space="preserve">
++    <value>פקודה מקומית</value>
++  </data>
++  <data name="AppNotification_LocalCommandDenied_MessageFormat" xml:space="preserve">
++    <value>{0} נדחתה על ידי מדיניות הביצוע המקומית: {1}.</value>
++  </data>
++  <data name="AppNotification_LocalCommandDenied_MessageNoReasonFormat" xml:space="preserve">
++    <value>{0} נדחתה על ידי מדיניות הביצוע המקומית.</value>
++  </data>
++  <data name="AppNotification_LocalCommandDenied_PatternSuffixFormat" xml:space="preserve">
++    <value>תבנית תואמת: {0}.</value>
++  </data>
++  <data name="AppNotification_ExecApprovalPending_Title" xml:space="preserve">
++    <value>אישור פקודה ממתין</value>
++  </data>
++  <data name="AppNotification_ExecApprovalPending_MessageFormat" xml:space="preserve">
++    <value>{0} ממתין לאישור להפעלה: {1}</value>
++  </data>
++  <data name="AppNotification_ExecApprovalPending_OpenChatAction" xml:space="preserve">
++    <value>פתח צ'אט</value>
++  </data>
++  <data name="AppNotification_ExecApprovalPending_UnknownChatLabel" xml:space="preserve">
++    <value>צ'אט</value>
++  </data>
++  <data name="AppNotification_ExecApprovalPending_MainSessionLabel" xml:space="preserve">
++    <value>ראשי</value>
++  </data>
++  <data name="AppNotification_ExecApprovalPending_MainChatLabel" xml:space="preserve">
++    <value>צ'אט ראשי</value>
++  </data>
++  <data name="AppNotification_ExecApprovalPending_AgentChatLabelFormat" xml:space="preserve">
++    <value>{0} צ'אט</value>
++  </data>
++  <data name="AppNotification_ExecApprovalPending_AgentSlotLabelFormat" xml:space="preserve">
++    <value>{0} / {1}</value>
++  </data>
++  <data name="AppNotification_RepeatedBadgeFormat" xml:space="preserve">
++    <value>{0}x</value>
++  </data>
++  <data name="AppNotification_ShowMore" xml:space="preserve">
++    <value>הצג עוד</value>
++  </data>
++  <data name="AppNotification_ActionOpenConnection" xml:space="preserve">
++    <value>חיבור פתוח</value>
++  </data>
++  <data name="AppNotification_ActionOpenChannels" xml:space="preserve">
++    <value>פתח ערוצים</value>
++  </data>
++  <data name="AppNotification_ActionOpenSandbox" xml:space="preserve">
++    <value>פתח ארגז חול</value>
++  </data>
++  <data name="AppNotification_ActionOpenCron" xml:space="preserve">
++    <value>פתח Cron</value>
++  </data>
++  <data name="AppNotification_GatewayConnectionFailed_Title" xml:space="preserve">
++    <value>Gateway החיבור נכשל</value>
++  </data>
++  <data name="AppNotification_GatewayConnectionFailed_DefaultMessage" xml:space="preserve">
++    <value>OpenClaw לא ניתן היה להתחבר לפעיל Gateway.</value>
++  </data>
++  <data name="AppNotification_GatewayPairingRequired_Title" xml:space="preserve">
++    <value>Gateway נדרש אישור צימוד.</value>
++  </data>
++  <data name="AppNotification_GatewayPairingRequired_GenericMessage" xml:space="preserve">
++    <value>פתח את ״חיבור״ כדי להשלים את הצימוד עם ה־Gateway.</value>
++  </data>
++  <data name="AppNotification_GatewayPairingRequired_DeviceMessageFormat" xml:space="preserve">
++    <value>פתח את החיבור כדי לאשר את המכשיר {0}.</value>
++  </data>
++  <data name="AppNotification_WindowsNodeConnectionFailed_Title" xml:space="preserve">
++    <value>Windows Node החיבור נכשל.</value>
++  </data>
++  <data name="AppNotification_WindowsNodeConnectionFailed_DefaultMessage" xml:space="preserve">
++    <value>המכשיר Gateway מחובר, אך המכשיר Windows Node אינו זמין.</value>
++  </data>
++  <data name="AppNotification_WindowsNodeRateLimited_Title" xml:space="preserve">
++    <value>Windows Node מוגבל בקצב החיבור</value>
++  </data>
++  <data name="AppNotification_WindowsNodeRateLimited_DefaultMessage" xml:space="preserve">
++    <value>ה־Gateway מחובר, אך ה-Windows Node מוגבל זמנית בקצב.</value>
++  </data>
++  <data name="AppNotification_ChannelNeedsAttention_TitleFormat" xml:space="preserve">
++    <value>ערוץ {0} דורש תשומת לב</value>
++  </data>
++  <data name="AppNotification_ChannelNeedsAttention_StatusMessageFormat" xml:space="preserve">
++    <value>ה־Gateway מדווח על {0} כ-{1}.</value>
++  </data>
++  <data name="AppNotification_SandboxDisabled_Title" xml:space="preserve">
++    <value>Node ארגז החול כבוי: פקודות פועלות ללא הגבלה</value>
++  </data>
++  <data name="AppNotification_SandboxDisabled_Message" xml:space="preserve">
++    <value>פקודות Windows שהופעלו על ידי סוכן יפעלו ללא הגבלת ארגז חול עד ש-Node ארגז החול יופעל שוב.</value>
++  </data>
++  <data name="AppNotification_SandboxUnavailable_Title" xml:space="preserve">
++    <value>ארגז חול אינו זמין: גיבוי למארח</value>
++  </data>
++  <data name="AppNotification_SandboxUnavailable_MessageFormat" xml:space="preserve">
++    <value>{0}
++
++פקודות יפעלו על המארח ללא הגנת ארגז חול כל עוד ארגז חול אינו זמין.</value>
++  </data>
++  <data name="AppNotification_SandboxUnavailableBlocked_Title" xml:space="preserve">
++    <value>ארגז חול אינו זמין: פקודות חסומות</value>
++  </data>
++  <data name="AppNotification_SandboxUnavailableBlocked_MessageFormat" xml:space="preserve">
++    <value>{0}
++
++פקודות חסומות כל עוד ארגז חול אינו זמין מכיוון שחסימת גיבוי קפדנית מופעלת.</value>
++  </data>
++  <data name="AppNotification_SandboxUnavailable_DefaultReason" xml:space="preserve">
++    <value>פרימיטיביות של ארגז חול MXC אינן זמינות במחשב זה.</value>
++  </data>
++  <data name="AppNotification_CronRunFailed_Title" xml:space="preserve">
++    <value>משימת ה-Cron לא התחילה</value>
++  </data>
++  <data name="AppNotification_CronRunFailed_DefaultDetail" xml:space="preserve">
++    <value>הבקשה נכשלה.</value>
++  </data>
++  <data name="AppNotification_CronRunRejectedDetail" xml:space="preserve">
++    <value>ה־Gateway דחה את בקשת Cron.run.</value>
++  </data>
++  <data name="AppNotification_CronRunFailed_MessageFormat" xml:space="preserve">
++    <value>{0}: {1}</value>
++  </data>
++  <data name="NotificationsPage_Title.Text" xml:space="preserve">
++    <value>התראות</value>
++  </data>
++  <data name="NotificationsPage_Subtitle.Text" xml:space="preserve">
++    <value>סקור ומחק התראות פעילות OpenClaw.</value>
++  </data>
++  <data name="NotificationsPage_ClearButton.Content" xml:space="preserve">
++    <value>נקה</value>
++  </data>
++  <data name="NotificationsPage_EmptyTitle.Text" xml:space="preserve">
++    <value>אין התראות</value>
++  </data>
++  <data name="NotificationsPage_EmptyDescription.Text" xml:space="preserve">
++    <value>התראות אפליקציות חדשות יופיעו כאן עד שתסגור או תמחק אותן.</value>
++  </data>
++  <data name="NotificationsPage_DismissAutomationNameFormat" xml:space="preserve">
++    <value>סגור {0}</value>
++  </data>
++  <data name="NotificationsPage_MetadataSourceExecApproval" xml:space="preserve">
++    <value>אישור הפעלה</value>
++  </data>
++  <data name="NotificationsPage_MetadataCategoryNodeInvoke" xml:space="preserve">
++    <value>פקודה Node</value>
++  </data>
++  <data name="NotificationsPage_MetadataAuthentication" xml:space="preserve">
++    <value>אימות</value>
++  </data>
++  <data name="NotificationsPage_MetadataBindings" xml:space="preserve">
++    <value>קישורים</value>
++  </data>
++  <data name="NotificationsPage_MetadataChannels" xml:space="preserve">
++    <value>ערוצים</value>
++  </data>
++  <data name="NotificationsPage_MetadataConfig" xml:space="preserve">
++    <value>תצורה</value>
++  </data>
++  <data name="NotificationsPage_MetadataConnection" xml:space="preserve">
++    <value>חיבור</value>
++  </data>
++  <data name="NotificationsPage_MetadataCron" xml:space="preserve">
++    <value>Cron</value>
++  </data>
++  <data name="NotificationsPage_MetadataGateway" xml:space="preserve">
++    <value>Gateway</value>
++  </data>
++  <data name="NotificationsPage_MetadataJobs" xml:space="preserve">
++    <value>משימות</value>
++  </data>
++  <data name="NotificationsPage_MetadataLoad" xml:space="preserve">
++    <value>טעינה</value>
++  </data>
++  <data name="NotificationsPage_MetadataLifecycle" xml:space="preserve">
++    <value>מחזור חיים</value>
++  </data>
++  <data name="NotificationsPage_MetadataLocalGateway" xml:space="preserve">
++    <value>מקומי Gateway</value>
++  </data>
++  <data name="NotificationsPage_MetadataNode" xml:space="preserve">
++    <value>Node</value>
++  </data>
++  <data name="NotificationsPage_MetadataPairing" xml:space="preserve">
++    <value>זיווג</value>
++  </data>
++  <data name="NotificationsPage_MetadataSandbox" xml:space="preserve">
++    <value>ארגז חול</value>
++  </data>
++  <data name="NotificationsPage_MetadataSettings" xml:space="preserve">
++    <value>הגדרות</value>
++  </data>
++  <data name="NotificationsPage_MetadataStatus" xml:space="preserve">
++    <value>סטטוס</value>
++  </data>
++  <data name="NotificationsPage_MetadataSystemRun" xml:space="preserve">
++    <value>system.run</value>
++  </data>
++  <data name="Chat_Permission_Title" xml:space="preserve">
++    <value>נדרש אישור הפעלה</value>
++  </data>
++  <data name="Chat_Permission_CommandApprovalTitle" xml:space="preserve">
++    <value>נדרש אישור פקודה</value>
++  </data>
++  <data name="Chat_Permission_Subtitle" xml:space="preserve">
++    <value>נדרש אישור להפעלת הפקודה שלהלן על תוכנת לוויה Windows זו. אפשר פעם אחת להמשיך, אפשר תמיד לזכור פקודה זו, או דחה כדי לבטל.</value>
++  </data>
++  <data name="Chat_Permission_Caption" xml:space="preserve">
++    <value>אפשר פעם אחת חל רק על בקשה זו. אפשר תמיד שומר כלל היתר מדויק במידת האפשר.</value>
++  </data>
++  <data name="Chat_Permission_ResultSubmittedFormat" xml:space="preserve">
++    <value>אישור {0} הוגש עבור {1}.</value>
++  </data>
++  <data name="Chat_Root_ConnectingToGateway" xml:space="preserve">
++    <value>התחברות אל Gateway…</value>
++  </data>
++  <data name="Chat_Root_EmptyState_SelectSession" xml:space="preserve">
++    <value>בחר סשן מסרגל הצד כדי להתחיל לשוחח.</value>
++  </data>
++  <data name="Chat_Notification_SendFailed" xml:space="preserve">
++    <value>השליחה נכשלה</value>
++  </data>
++  <data name="Chat_Error_SendReturnedStatusFormat" xml:space="preserve">
++    <value>Gateway החזיר סטטוס שליחה '{0}'.</value>
++  </data>
++  <data name="Chat_Error_SendFailedFormat" xml:space="preserve">
++    <value>השליחה נכשלה: {0}</value>
++  </data>
++  <data name="Chat_Notification_AbortFailed" xml:space="preserve">
++    <value>ביטול נכשל</value>
++  </data>
++  <data name="Chat_Notification_LoadHistoryFailed" xml:space="preserve">
++    <value>טעינת היסטוריה נכשלה</value>
++  </data>
++  <data name="Chat_Notification_AssistantReplied" xml:space="preserve">
++    <value>העוזר ענה</value>
++  </data>
++  <data name="Chat_Notification_ConnectionInterrupted" xml:space="preserve">
