@@ -1,0 +1,236 @@
++        DetailPath.Text = string.IsNullOrEmpty(path) ? L("ConfigPage_FullConfig") : FriendlyLabel(path.Split('.').Last());
+ 
+         var nodeSchema = ResolveSchemaAtPath(GetSchemaRoot(_lastSchema.Value), path);
+         var displayElement = ConfigEditorModel.ApplyRelativeChanges(element, path, _pendingChanges);
+@@ -749,7 +749,7 @@ public sealed partial class ConfigPage : Page
+         var previewSnapshot = GetPreviewSnapshot();
+         if (!previewSnapshot.HasRoot)
+         {
+-            SelectedJsonCaption.Text = "Select a section to preview its JSON.";
++            SelectedJsonCaption.Text = L("ConfigPage_SelectSectionForJsonPreview");
+             RenderJsonDiff("{}", "{}");
+             return;
+         }
+@@ -796,7 +796,7 @@ public sealed partial class ConfigPage : Page
+         catch (Exception ex)
+         {
+             Logger.Warn($"[ConfigPage] Failed to build selected JSON preview: {ex.Message}");
+-            SelectedJsonCaption.Text = "Selected section JSON preview is unavailable.";
++            SelectedJsonCaption.Text = L("ConfigPage_SelectedJsonPreviewUnavailable");
+             RenderJsonDiff(gatewayElement.GetRawText(), proposedElement.GetRawText());
+         }
+     }
+@@ -1219,14 +1219,14 @@ public sealed partial class ConfigPage : Page
+         _showSchemaFallback = true;
+         ConfigTree.RootNodes.Clear();
+         DetailPanel.Children.Clear();
+-        DetailPlaceholder.Text = "Config cannot be loaded because this operator token does not have read permission.";
++        DetailPlaceholder.Text = L("ConfigPage_MissingReadPermissionPlaceholder");
+         DetailPlaceholder.Visibility = Visibility.Visible;
+         DetailBreadcrumb.Text = "";
+-        DetailPath.Text = "Config unavailable";
+-        DetailType.Text = "Missing operator.read permission";
++        DetailPath.Text = L("ConfigPage_ConfigUnavailable");
++        DetailType.Text = L("ConfigPage_MissingOperatorReadPermission");
+         ResetSectionButton.Visibility = Visibility.Collapsed;
+         RenderJsonDiff("{}", "{}");
+-        SelectedJsonCaption.Text = "Config preview is unavailable without read permission.";
++        SelectedJsonCaption.Text = L("ConfigPage_PreviewRequiresReadPermission");
+         ApplyPaneVisibility();
+     }
+ 
+@@ -1363,8 +1363,8 @@ public sealed partial class ConfigPage : Page
+     private async Task ShowDetailWithProgress(string path, JsonElement element)
+     {
+         var renderVersion = ++_detailRenderVersion;
+-        DetailPath.Text = string.IsNullOrEmpty(path) ? "Full config" : path;
+-        DetailType.Text = "Loading section...";
++        DetailPath.Text = string.IsNullOrEmpty(path) ? L("ConfigPage_FullConfig") : path;
++        DetailType.Text = L("ConfigPage_LoadingSection");
+         ResetSectionButton.Visibility = Visibility.Collapsed;
+         DetailLoadingText.Text = string.IsNullOrEmpty(path)
+             ? LocalizationHelper.GetString("ConfigPage_LoadingFullConfigPreview")
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/ConnectionPage.xaml b/src/OpenClaw.Tray.WinUI/Pages/ConnectionPage.xaml
+index 1cc80730..503465aa 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/ConnectionPage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/ConnectionPage.xaml
+@@ -481,7 +481,7 @@
+                                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                                    IsTextSelectionEnabled="True"
+                                                    TextWrapping="Wrap"/>
+-                                        <TextBlock x:Name="NodeTechCommandText"
++                                        <TextBlock FlowDirection="LeftToRight" x:Name="NodeTechCommandText"
+                                                    Style="{StaticResource CaptionTextBlockStyle}"
+                                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                                    IsTextSelectionEnabled="True"
+@@ -500,7 +500,7 @@
+                                                Style="{StaticResource CaptionTextBlockStyle}"
+                                                Foreground="{ThemeResource SystemFillColorCautionBrush}"
+                                                TextWrapping="Wrap"/>
+-                                    <TextBlock x:Name="NodePendingCommandText"
++                                    <TextBlock FlowDirection="LeftToRight" x:Name="NodePendingCommandText"
+                                                Style="{StaticResource CaptionTextBlockStyle}"
+                                                Foreground="{ThemeResource SystemFillColorCautionBrush}"
+                                                TextWrapping="Wrap"/>
+@@ -533,7 +533,7 @@
+                                         <ColumnDefinition Width="*"/>
+                                         <ColumnDefinition Width="Auto"/>
+                                     </Grid.ColumnDefinitions>
+-                                    <TextBlock Grid.Column="0"
++                                    <TextBlock FlowDirection="LeftToRight" Grid.Column="0"
+                                                x:Name="NodeTrustApproveCmdText"
+                                                FontFamily="Consolas" FontSize="12"
+                                                IsTextSelectionEnabled="True"
+@@ -557,7 +557,7 @@
+                                     <ColumnDefinition Width="*"/>
+                                     <ColumnDefinition Width="Auto"/>
+                                 </Grid.ColumnDefinitions>
+-                                <TextBlock Grid.Column="0"
++                                <TextBlock FlowDirection="LeftToRight" Grid.Column="0"
+                                            x:Name="NodeApproveCmdText"
+                                            FontFamily="Consolas" FontSize="12"
+                                            IsTextSelectionEnabled="True"
+@@ -639,7 +639,7 @@
+                                         <ColumnDefinition Width="*"/>
+                                         <ColumnDefinition Width="Auto"/>
+                                     </Grid.ColumnDefinitions>
+-                                    <TextBox x:Uid="ConnectionPage_PasteSetupCodeHere" Grid.Column="0"
++                                    <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionPage_PasteSetupCodeHere" Grid.Column="0"
+                                              x:Name="RecoveryRepairCodeBox"
+                                              PlaceholderText="Paste setup code here…"/>
+                                     <Button x:Uid="ConnectionPage_Apply" Grid.Column="1" Content="Apply"
+@@ -666,7 +666,7 @@
+                                         <ColumnDefinition Width="*"/>
+                                         <ColumnDefinition Width="Auto"/>
+                                     </Grid.ColumnDefinitions>
+-                                    <TextBlock Grid.Column="0"
++                                    <TextBlock FlowDirection="LeftToRight" Grid.Column="0"
+                                                x:Name="RecoveryApproveCmdText"
+                                                FontFamily="Consolas" FontSize="12"
+                                                IsTextSelectionEnabled="True"
+@@ -986,13 +986,13 @@
+ 
+                     <!-- Direct pane (default selected) -->
+                     <StackPanel x:Name="AddDirectPane" Spacing="8">
+-                        <TextBox x:Uid="ConnectionPage_GatewayURL" x:Name="DirectUrlBox"
++                        <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionPage_GatewayURL" x:Name="DirectUrlBox"
+                                  Header="Gateway URL"
+                                  PlaceholderText="ws://host.local:18790"
+                                  TextChanged="OnDirectInputChanged"
+                                  LostFocus="OnDirectUrlLostFocus"
+                                  AutomationProperties.AutomationId="AddDirectUrl"/>
+-                        <TextBox x:Uid="ConnectionPage_SharedToken" x:Name="DirectTokenBox"
++                        <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionPage_SharedToken" x:Name="DirectTokenBox"
+                                  Header="Shared token"
+                                  PlaceholderText="Paste shared gateway token"
+                                  AutomationProperties.AutomationId="AddDirectToken"/>
+@@ -1084,7 +1084,7 @@
+                                 <ColumnDefinition Width="*"/>
+                                 <ColumnDefinition Width="Auto"/>
+                             </Grid.ColumnDefinitions>
+-                            <TextBox x:Uid="ConnectionPage_PasteSetupCodeHere2" Grid.Column="0"
++                            <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionPage_PasteSetupCodeHere2" Grid.Column="0"
+                                      x:Name="AddSetupCodeBox"
+                                      PlaceholderText="Paste setup code here…"
+                                      TextChanged="OnSetupCodeTextChanged"
+@@ -1094,10 +1094,10 @@
+                                     AutomationProperties.AutomationId="AddSetupCodeDecode"/>
+                         </Grid>
+                         <StackPanel x:Name="AddSetupCodePreviewPanel" Spacing="2" Visibility="Collapsed">
+-                            <TextBlock x:Name="AddSetupCodePreviewUrl"
++                            <TextBlock FlowDirection="LeftToRight" x:Name="AddSetupCodePreviewUrl"
+                                        Style="{StaticResource CaptionTextBlockStyle}"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+-                            <TextBlock x:Name="AddSetupCodePreviewToken"
++                            <TextBlock FlowDirection="LeftToRight" x:Name="AddSetupCodePreviewToken"
+                                        Style="{StaticResource CaptionTextBlockStyle}"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                         </StackPanel>
+@@ -1160,12 +1160,12 @@
+                                     <ColumnDefinition Width="*"/>
+                                     <ColumnDefinition Width="*"/>
+                                 </Grid.ColumnDefinitions>
+-                                <TextBox x:Uid="ConnectionPage_SSHUser" Grid.Column="0"
++                                <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionPage_SSHUser" Grid.Column="0"
+                                          x:Name="AddSshUserBox"
+                                          Header="SSH user"
+                                          TextChanged="OnAddSshFieldChanged"
+                                          PlaceholderText="user"/>
+-                                <TextBox x:Uid="ConnectionPage_SSHHost" Grid.Column="1"
++                                <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionPage_SSHHost" Grid.Column="1"
+                                          x:Name="AddSshHostBox"
+                                          Header="SSH host"
+                                          TextChanged="OnAddSshFieldChanged"
+@@ -1176,11 +1176,11 @@
+                                     <ColumnDefinition Width="*"/>
+                                     <ColumnDefinition Width="*"/>
+                                 </Grid.ColumnDefinitions>
+-                                <TextBox x:Uid="ConnectionPage_SshServerPort" Grid.Column="0"
++                                <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionPage_SshServerPort" Grid.Column="0"
+                                          x:Name="AddSshServerPortBox"
+                                          Header="SSH port"
+                                          PlaceholderText="22"/>
+-                                <TextBox x:Uid="ConnectionPage_RemotePort" Grid.Column="1"
++                                <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionPage_RemotePort" Grid.Column="1"
+                                          x:Name="AddSshRemotePortBox"
+                                          Header="Remote port"
+                                          PlaceholderText="18789"/>
+@@ -1190,7 +1190,7 @@
+                                     <ColumnDefinition Width="*"/>
+                                     <ColumnDefinition Width="*"/>
+                                 </Grid.ColumnDefinitions>
+-                                <TextBox x:Uid="ConnectionPage_LocalPort" Grid.Column="0"
++                                <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionPage_LocalPort" Grid.Column="0"
+                                          x:Name="AddSshLocalPortBox"
+                                          Header="Local port"
+                                          PlaceholderText="18789"/>
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/CronPage.xaml b/src/OpenClaw.Tray.WinUI/Pages/CronPage.xaml
+index 4adf3824..c21e4b6a 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/CronPage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/CronPage.xaml
+@@ -64,7 +64,7 @@
+         </StackPanel>
+ 
+          <!-- Store path (hidden, just for data) -->
+-         <TextBlock x:Name="StorePathText" Visibility="Collapsed"/>
++         <TextBlock FlowDirection="LeftToRight" x:Name="StorePathText" Visibility="Collapsed"/>
+ 
+          <InfoBar x:Name="ConnectionInfoBar" x:Uid="CronPage_GatewayDisconnected" Grid.Row="1"
+                   IsOpen="False" IsClosable="False" Severity="Warning"
+@@ -130,7 +130,7 @@
+                         </Grid.ColumnDefinitions>
+                         <StackPanel Spacing="4" Grid.Column="0">
+                             <TextBlock x:Uid="CronPage_EXPRESSION" Text="Expression" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+-                            <TextBox x:Name="FormCronExpr" PlaceholderText="0 9 * * *"
++                            <TextBox FlowDirection="LeftToRight" x:Name="FormCronExpr" PlaceholderText="0 9 * * *"
+                                      FontFamily="Consolas"/>
+                         </StackPanel>
+                         <StackPanel Spacing="4" Grid.Column="1">
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/CronPage.xaml.cs b/src/OpenClaw.Tray.WinUI/Pages/CronPage.xaml.cs
+index 8b198e39..07ee1a48 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/CronPage.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/CronPage.xaml.cs
+@@ -1015,7 +1015,7 @@ public sealed partial class CronPage : Page
+ 
+         DispatcherQueue?.TryEnqueue(() =>
+         {
+-            SchedulerStatusText.Text = enabled ? "Enabled" : "Disabled";
++            SchedulerStatusText.Text = LocalizationHelper.GetString(enabled ? "Common_Enabled" : "Common_Disabled");
+             SchedulerStatusIndicator.Fill = enabled
+                 ? (Brush)Application.Current.Resources["SystemFillColorSuccessBrush"]
+                 : (Brush)Application.Current.Resources["SystemFillColorNeutralBrush"];
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/DebugPage.xaml b/src/OpenClaw.Tray.WinUI/Pages/DebugPage.xaml
+index afc40b63..4b77e2ed 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/DebugPage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/DebugPage.xaml
+@@ -257,7 +257,7 @@
+                                     <FontIcon Glyph="{x:Bind helpers:FluentIconCatalog.Copy, Mode=OneTime}"
+                                               FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
+                                 </toolkit:SettingsCard.ActionIcon>
+-                                <TextBlock x:Name="DeviceIdText"
++                                <TextBlock FlowDirection="LeftToRight" x:Name="DeviceIdText"
+                                            Text="—"
+                                            FontFamily="Consolas"
+                                            FontSize="12"
+@@ -272,7 +272,7 @@
+                                     <FontIcon Glyph="{x:Bind helpers:FluentIconCatalog.Copy, Mode=OneTime}"
