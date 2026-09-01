@@ -1,0 +1,35 @@
+             string.Join("; ", identicalWithoutRationale.Take(20)));
+     }
++
++    [Fact]
++    public void Hebrew_IsSubstantiallyTranslated()
++    {
++        var stringsDir = GetStringsDirectory();
++        var english = LoadResw(Path.Combine(stringsDir, "en-us", "Resources.resw"));
++        var hebrew = LoadResw(Path.Combine(stringsDir, "he-il", "Resources.resw"));
++
++        int translated = english.Count(kv =>
++            hebrew.TryGetValue(kv.Key, out var value) &&
++            !string.Equals(value, kv.Value, StringComparison.Ordinal));
++
++        Assert.True(translated >= english.Count * 0.95,
++            $"Expected at least 95% of Hebrew resources to differ from en-us; " +
++            $"translated {translated} of {english.Count}.");
++    }
+ }
+diff --git a/tests/OpenClaw.Tray.Tests/SessionTitleFormatterTests.cs b/tests/OpenClaw.Tray.Tests/SessionTitleFormatterTests.cs
+index b49ab0cd..b7fa71ad 100644
+--- a/tests/OpenClaw.Tray.Tests/SessionTitleFormatterTests.cs
++++ b/tests/OpenClaw.Tray.Tests/SessionTitleFormatterTests.cs
+@@ -192,7 +192,7 @@ public sealed class SessionTitleFormatterTests
+     public void SessionLocalizationResources_CoverGeneratedTitlesAndSubtitleLabels()
+     {
+         var root = TestRepositoryPaths.GetRepositoryRoot();
+-        foreach (var locale in new[] { "en-us", "fr-fr", "nl-nl", "zh-cn", "zh-tw" })
++        foreach (var locale in new[] { "en-us", "fr-fr", "he-il", "nl-nl", "zh-cn", "zh-tw" })
+         {
+             var resources = File.ReadAllText(Path.Combine(
+                 root,
+-- 
+2.51.1
+
