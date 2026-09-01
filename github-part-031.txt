@@ -1,0 +1,377 @@
++    <value>📷 מצלמה</value>
++  </data>
++  <data name="CameraPermStatus.Text" xml:space="preserve">
++    <value>לא ידוע</value>
++  </data>
++  <data name="PermissionsPage_TextBlock_114.Text" xml:space="preserve">
++    <value>🎤 מיקרופון</value>
++  </data>
++  <data name="MicPermStatus.Text" xml:space="preserve">
++    <value>לא ידוע</value>
++  </data>
++  <data name="PermissionsPage_TextBlock_118.Text" xml:space="preserve">
++    <value>🖥️ צילום מסך</value>
++  </data>
++  <data name="ScreenPermStatus.Text" xml:space="preserve">
++    <value>זמין</value>
++  </data>
++  <data name="PermissionsPage_Button_123.Content" xml:space="preserve">
++    <value>פתח Windows הגדרות פרטיות</value>
++  </data>
++  <data name="SessionsPage_TextBlock_10.Text" xml:space="preserve">
++    <value>💬 סשנים</value>
++  </data>
++  <data name="SessionsPage_Button_57.Content" xml:space="preserve">
++    <value>איפוס</value>
++  </data>
++  <data name="SessionsPage_Button_59.Content" xml:space="preserve">
++    <value>דחיסה</value>
++  </data>
++  <data name="SessionsPage_Button_61.Content" xml:space="preserve">
++    <value>מחיקה</value>
++  </data>
++  <data name="SessionsPage_TextBlock_73.Text" xml:space="preserve">
++    <value>אין הפעלות פעילות</value>
++  </data>
++  <data name="SessionsPage_TextBlock_84.Text" xml:space="preserve">
++    <value>🤖 דגמים זמינים</value>
++  </data>
++  <data name="SettingsPage_TextBlock_16.Text" xml:space="preserve">
++    <value>⚙️ הגדרות</value>
++  </data>
++  <data name="SettingsPage_TextBlock_17.Text" xml:space="preserve">
++    <value>העדפות אפליקציה מקומית עבור מחשב זה.</value>
++  </data>
++  <data name="SettingsPage_TextBlock_26.Text" xml:space="preserve">
++    <value>הפעלה</value>
++  </data>
++  <data name="AutoStartToggle.Header" xml:space="preserve">
++    <value>הפעלה אוטומטית עם Windows</value>
++  </data>
++  <data name="GlobalHotkeyToggle.Header" xml:space="preserve">
++    <value>מקשי קיצור גלובליים (קול, הגדרות)</value>
++  </data>
++  <data name="SettingsPage_TextBlock_41.Text" xml:space="preserve">
++    <value>התראות</value>
++  </data>
++  <data name="NotificationsToggle.Header" xml:space="preserve">
++    <value>הצג התראות</value>
++  </data>
++  <data name="NotificationSoundComboBox.Header" xml:space="preserve">
++    <value>צליל</value>
++  </data>
++  <data name="SettingsPage_ComboBoxItem_48.Content" xml:space="preserve">
++    <value>ברירת מחדל</value>
++  </data>
++  <data name="SettingsPage_ComboBoxItem_49.Content" xml:space="preserve">
++    <value>ללא</value>
++  </data>
++  <data name="SettingsPage_ComboBoxItem_50.Content" xml:space="preserve">
++    <value>עדין</value>
++  </data>
++  <data name="SettingsPage_TextBlock_52.Text" xml:space="preserve">
++    <value>הצג התראות עבור:</value>
++  </data>
++  <data name="NotifyHealthCb.Content" xml:space="preserve">
++    <value>התראות בריאות</value>
++  </data>
++  <data name="NotifyUrgentCb.Content" xml:space="preserve">
++    <value>הודעות דחופות</value>
++  </data>
++  <data name="NotifyReminderCb.Content" xml:space="preserve">
++    <value>תזכורות</value>
++  </data>
++  <data name="NotifyEmailCb.Content" xml:space="preserve">
++    <value>סיכומי דוא"ל</value>
++  </data>
++  <data name="NotifyCalendarCb.Content" xml:space="preserve">
++    <value>אירועי לוח שנה</value>
++  </data>
++  <data name="NotifyBuildCb.Content" xml:space="preserve">
++    <value>הודעות בנייה</value>
++  </data>
++  <data name="NotifyStockCb.Content" xml:space="preserve">
++    <value>התראות מניות</value>
++  </data>
++  <data name="NotifyInfoCb.Content" xml:space="preserve">
++    <value>הודעות מידע</value>
++  </data>
++  <data name="TestNotificationButton.Content" xml:space="preserve">
++    <value>שלח בדיקה התראה</value>
++  </data>
++  <data name="CancelButton.Content" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="SkillsPage_TextBlock_10.Text" xml:space="preserve">
++    <value>🧩 מיומנויות</value>
++  </data>
++  <data name="SkillsPage_ComboBoxItem_15.Content" xml:space="preserve">
++    <value>כל הסוכנים</value>
++  </data>
++  <data name="SkillsPage_TextBlock_81.Text" xml:space="preserve">
++    <value>לא הותקנו מיומנויות</value>
++  </data>
++  <data name="MarketplaceLink.Content" xml:space="preserve">
++    <value>עיון בשוק המיומנויות →</value>
++  </data>
++  <data name="UsagePage_TextBlock_21.Text" xml:space="preserve">
++    <value>עלות כוללת</value>
++  </data>
++  <data name="UsagePage_TextBlock_35.Text" xml:space="preserve">
++    <value>בקשות</value>
++  </data>
++  <data name="UsagePage_TextBlock_45.Text" xml:space="preserve">
++    <value>אסימונים</value>
++  </data>
++  <data name="UsagePage_TextBlock_55.Text" xml:space="preserve">
++    <value>ספקים</value>
++  </data>
++  <data name="Period7DaysItem.Text" xml:space="preserve">
++    <value>7 ימים</value>
++  </data>
++  <data name="Period30DaysItem.Text" xml:space="preserve">
++    <value>30 ימים</value>
++  </data>
++  <data name="UsagePage_ProviderLoading.Text" xml:space="preserve">
++    <value>טוען ספקים…</value>
++  </data>
++  <data name="UsagePage_NoProviders.Text" xml:space="preserve">
++    <value>לא הוגדרו ספקים</value>
++  </data>
++  <data name="UsagePage_TextBlock_70.Text" xml:space="preserve">
++    <value>פירוט ספקים</value>
++  </data>
++  <data name="UsagePage_TextBlock_100.Text" xml:space="preserve">
++    <value>עלות יומית</value>
++  </data>
++  <data name="WorkspacePage_TextBlock_22.Text" xml:space="preserve">
++    <value>סביבת עבודה</value>
++  </data>
++  <data name="WorkspacePage_FilesHeader.Text" xml:space="preserve">
++    <value>קבצים</value>
++  </data>
++  <data name="WorkspacePage_LoadingText.Text" xml:space="preserve">
++    <value>טוען סביבת עבודה קבצים…</value>
++  </data>
++  <data name="WorkspacePage_ViewMode_Rendered.Text" xml:space="preserve">
++    <value>מעובד</value>
++  </data>
++  <data name="WorkspacePage_ViewMode_Raw.Text" xml:space="preserve">
++    <value>גולמי</value>
++  </data>
++  <data name="WorkspacePage_DisconnectedMessage" xml:space="preserve">
++    <value>התחבר אל Gateway כדי להציג קבצי סביבת עבודה.</value>
++  </data>
++  <data name="WorkspacePage_NoFilesMessage" xml:space="preserve">
++    <value>לא נמצאו קבצי סביבת עבודה עבור סוכן זה.</value>
++  </data>
++  <data name="WorkspacePage_LoadingContent" xml:space="preserve">
++    <value>טוען תוכן…</value>
++  </data>
++  <data name="WorkspacePage_SearchBox.PlaceholderText" xml:space="preserve">
++    <value>חיפוש קבצים</value>
++  </data>
++  <data name="WorkspacePage_ParentFolderButton.Content" xml:space="preserve">
++    <value>למעלה</value>
++  </data>
++  <data name="WorkspacePage_OpenConnectionSettings.Content" xml:space="preserve">
++    <value>פתח הגדרות חיבור</value>
++  </data>
++  <data name="WorkspacePage_NoSearchResults.Text" xml:space="preserve">
++    <value>לא נמצאו קבצים התואמים את החיפוש שלך.</value>
++  </data>
++  <data name="WorkspacePage_NoFolderResults" xml:space="preserve">
++    <value>לא נמצאו קבצים בתיקייה זו.</value>
++  </data>
++  <data name="WorkspacePage_LoadErrorMessage" xml:space="preserve">
++    <value>לא ניתן היה לטעון את קבצי סביבת העבודה. נסה לרענן.</value>
++  </data>
++  <data name="WorkspacePage_UnsupportedMessage" xml:space="preserve">
++    <value>Gateway זה אינו תומך ברישום קבצי סביבת עבודה.</value>
++  </data>
++  <data name="WorkspacePage_Badge_Missing" xml:space="preserve">
++    <value>חסר</value>
++  </data>
++  <data name="WorkspacePage_Badge_Edited" xml:space="preserve">
++    <value>נערך</value>
++  </data>
++  <data name="WorkspacePage_Badge_Read" xml:space="preserve">
++    <value>נקרא</value>
++  </data>
++  <data name="WorkspacePage_FolderNote" xml:space="preserve">
++    <value>זוהי תיקייה.</value>
++  </data>
++  <data name="WorkspacePage_FileUnavailable" xml:space="preserve">
++    <value>לא ניתן היה לטעון קובץ זה.</value>
++  </data>
++  <data name="WorkspacePage_BrowserOnlyFileNote" xml:space="preserve">
++    <value>ניתן לצפות בתצוגה מקדימה רק של קבצים שנקראו או נערכו בהפעלה זו.</value>
++  </data>
++  <data name="WorkspacePage_OpenFolder" xml:space="preserve">
++    <value>פתיחה</value>
++  </data>
++  <data name="WorkspacePage_CopyPath" xml:space="preserve">
++    <value>העתקת נתיב</value>
++  </data>
++  <data name="WorkspacePage_CopyPathFailed" xml:space="preserve">
++    <value>לא ניתן היה להעתיק את הנתיב.</value>
++  </data>
++  <data name="WorkspacePage_FileType_File" xml:space="preserve">
++    <value>קובץ</value>
++  </data>
++  <data name="WorkspacePage_FileType_Folder" xml:space="preserve">
++    <value>תיקייה</value>
++  </data>
++  <data name="WorkspacePage_RootFolder" xml:space="preserve">
++    <value>שורש</value>
++  </data>
++  <data name="WorkspacePage_SearchResultsPath" xml:space="preserve">
++    <value>תוצאות חיפוש עבור "{0}"</value>
++  </data>
++  <data name="WorkspacePage_BrowserTruncated" xml:space="preserve">
++    <value>חלק מהתוצאות הושמטו. צמצם את החיפוש או פתח תיקייה.</value>
++  </data>
++  <data name="WorkspacePage_MissingFile" xml:space="preserve">
++    <value>(הקובץ לא נמצא בדיסק)</value>
++  </data>
++  <data name="WorkspacePage_TextBlock_34.Text" xml:space="preserve">
++    <value>רענון</value>
++  </data>
++  <data name="ChatWindow_TextBlock_29.Text" xml:space="preserve">
++    <value>צ'אט</value>
++  </data>
++  <data name="ChatWindow_TextBlock_60.Text" xml:space="preserve">
++    <value>התחבר אל Gateway כדי להתחיל בצ'אט</value>
++  </data>
++  <data name="TitleText.Text" xml:space="preserve">
++    <value>OpenClaw Windows שותף</value>
++  </data>
++  <data name="NavPaneToggleButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>פתח/י חלונית ניווט</value>
++  </data>
++  <data name="NavPaneToggleButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>פתח/י חלונית ניווט</value>
++  </data>
++  <data name="NavBackButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>חזרה</value>
++  </data>
++  <data name="NavBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>חזרה</value>
++  </data>
++  <data name="TitleStatusText.Text" xml:space="preserve">
++    <value>מנותק</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_79.Content" xml:space="preserve">
++    <value>דף הבית</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_82.Content" xml:space="preserve">
++    <value>צ'אט</value>
++  </data>
++  <data name="HubWindow_NavigationViewItemHeader_87.Content" xml:space="preserve">
++    <value>Gateway</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_88.Content" xml:space="preserve">
++    <value>חיבור</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_91.Content" xml:space="preserve">
++    <value>סשנים</value>
++  </data>
++  <data name="ConversationsNavItem.Content" xml:space="preserve">
++    <value>שיחות</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_94.Content" xml:space="preserve">
++    <value>זרם אירועים</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_97.Content" xml:space="preserve">
++    <value>מיומנויות</value>
++  </data>
++  <data name="AgentsNavItem.Content" xml:space="preserve">
++    <value>סוכנים</value>
++  </data>
++  <data name="DefaultAgentNavItem.Content" xml:space="preserve">
++    <value>ראשי</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_109.Content" xml:space="preserve">
++    <value>ערוצים</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_112.Content" xml:space="preserve">
++    <value>מופעים</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_115.Content" xml:space="preserve">
++    <value>קישורים</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_118.Content" xml:space="preserve">
++    <value>תצורה</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_121.Content" xml:space="preserve">
++    <value>שימוש</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_124.Content" xml:space="preserve">
++    <value>Cron</value>
++  </data>
++  <data name="HubWindow_NavigationViewItemHeader_129.Content" xml:space="preserve">
++    <value>מחשב זה</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_130.Content" xml:space="preserve">
++    <value>יכולות</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_133.Content" xml:space="preserve">
++    <value>הגדרות</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_136.Content" xml:space="preserve">
++    <value>הרשאות</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_145.Content" xml:space="preserve">
++    <value>אבחון</value>
++  </data>
++  <data name="Onboarding_UnknownPage" xml:space="preserve">
++    <value>דף לא ידוע</value>
++  </data>
++  <data name="Onboarding_Retry" xml:space="preserve">
++    <value>נסה שוב</value>
++  </data>
++  <data name="Onboarding_Ready_NodeModeActive" xml:space="preserve">
++    <value>🔌 Node מצב פעיל</value>
++  </data>
++  <data name="Onboarding_Ready_NodeModeActiveDetail" xml:space="preserve">
++    <value>מחשב זה יפעל כמחשב מרוחק Node. ה־Gateway יכול להפעיל פקודות צילום מסך, מצלמה ומערכת במחשב זה.</value>
++  </data>
++  <data name="Onboarding_Ready_Node_ScreenCapture" xml:space="preserve">
++    <value>צילום מסך</value>
++  </data>
++  <data name="Onboarding_Ready_Node_ScreenCapture_Sub" xml:space="preserve">
++    <value>גישה מרחוק למסך</value>
++  </data>
++  <data name="Onboarding_Ready_Node_Camera" xml:space="preserve">
++    <value>מצלמה</value>
++  </data>
++  <data name="Onboarding_Ready_Node_Camera_Sub" xml:space="preserve">
++    <value>גישה מרחוק למצלמה</value>
++  </data>
++  <data name="Onboarding_Ready_Node_SystemCmd" xml:space="preserve">
++    <value>פקודות מערכת</value>
++  </data>
++  <data name="Onboarding_Ready_Node_SystemCmd_Sub" xml:space="preserve">
++    <value>ביצוע פקודה מרחוק</value>
++  </data>
++  <data name="Onboarding_Ready_Node_Canvas" xml:space="preserve">
++    <value>עיבוד בד קנבס</value>
++  </data>
++  <data name="Onboarding_Ready_Node_Canvas_Sub" xml:space="preserve">
++    <value>פלט סביבת עבודה חזותית</value>
++  </data>
++  <data name="Onboarding_Ready_Node_Notify" xml:space="preserve">
++    <value>התראות</value>
++  </data>
++  <data name="Onboarding_Ready_Node_Notify_Sub" xml:space="preserve">
++    <value>התראות מערכת</value>
++  </data>
++  <data name="Onboarding_Wizard_Processing" xml:space="preserve">
++    <value>⏳ עיבוד…</value>
++  </data>
++  <data name="Onboarding_Wizard_ErrorEmptyGatewayResponse" xml:space="preserve">
++    <value>תגובה ריקה מה־Gateway</value>
++  </data>
++  <data name="Onboarding_Wizard_ErrorGatewayDisconnected" xml:space="preserve">
++    <value>Gateway מנותק</value>
++  </data>
