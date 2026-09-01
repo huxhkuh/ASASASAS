@@ -1,0 +1,293 @@
+index c24203b2..bf774f00 100644
+--- a/src/OpenClaw.Tray.WinUI/Windows/HubWindow.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Windows/HubWindow.xaml.cs
+@@ -99,6 +99,7 @@ public sealed partial class HubWindow : WindowEx
+     public HubWindow()
+     {
+         InitializeComponent();
++        LocalizationHelper.ApplyFlowDirection(RootGrid);
+         Title = AppIdentity.DisplayName;
+         RefreshDiagnosticsNavVisibility();
+         ApplyHighContrastFallbackIfNeeded();
+diff --git a/src/OpenClaw.Tray.WinUI/Windows/TrayMenuWindow.xaml.cs b/src/OpenClaw.Tray.WinUI/Windows/TrayMenuWindow.xaml.cs
+index 5f90a2dc..034d449f 100644
+--- a/src/OpenClaw.Tray.WinUI/Windows/TrayMenuWindow.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Windows/TrayMenuWindow.xaml.cs
+@@ -186,6 +186,7 @@ public sealed partial class TrayMenuWindow : WindowEx
+         _ownerMenu = ownerMenu;
+ 
+         InitializeComponent();
++        LocalizationHelper.ApplyFlowDirection(RootGrid);
+         Title = AppIdentity.DecorateWindowTitle("OpenClaw Menu");
+ 
+         // Configure as popup-style window
+@@ -435,6 +436,7 @@ public sealed partial class TrayMenuWindow : WindowEx
+         var flyoutItems = items.ToArray();
+ 
+         var chevron = FluentIconCatalog.Build(FluentIconCatalog.ChevronR, 12);
++        chevron.MirroredWhenRightToLeft = true;
+         chevron.Opacity = 0.6;
+         AutomationProperties.SetAccessibilityView(chevron, AccessibilityView.Raw);
+ 
+@@ -631,7 +633,7 @@ public sealed partial class TrayMenuWindow : WindowEx
+         var toggle = CreateMenuToggleSwitch(isOn, title);
+         toggle.Toggled += (s, e) =>
+         {
+-            stateLabel.Text = toggle.IsOn ? "On" : "Off";
++            stateLabel.Text = LocalizationHelper.GetString(toggle.IsOn ? "Common_On" : "Common_Off");
+             if (!string.IsNullOrEmpty(action))
+                 MenuItemClicked?.Invoke(this, action);
+         };
+@@ -764,6 +766,7 @@ public sealed partial class TrayMenuWindow : WindowEx
+         grid.Children.Add(content);
+ 
+         var chevron = FluentIconCatalog.Build(FluentIconCatalog.ChevronR, 12);
++        chevron.MirroredWhenRightToLeft = true;
+         chevron.Opacity = 0.6;
+         chevron.Margin = new Thickness(0, 0, 12, 0);
+         chevron.VerticalAlignment = VerticalAlignment.Center;
+diff --git a/src/OpenClaw.Tray.WinUI/Windows/VoiceOverlayWindow.xaml.cs b/src/OpenClaw.Tray.WinUI/Windows/VoiceOverlayWindow.xaml.cs
+index a91a4a2a..9263b8a8 100644
+--- a/src/OpenClaw.Tray.WinUI/Windows/VoiceOverlayWindow.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Windows/VoiceOverlayWindow.xaml.cs
+@@ -37,6 +37,7 @@ public sealed partial class VoiceOverlayWindow : WindowEx
+     public VoiceOverlayWindow(VoiceService voiceService, IOpenClawLogger logger, bool testOnly = false)
+     {
+         InitializeComponent();
++        OpenClawTray.Helpers.LocalizationHelper.ApplyFlowDirection((FrameworkElement)Content);
+         _voiceService = voiceService;
+         _logger = logger;
+         _testOnly = testOnly;
+diff --git a/tests/OpenClaw.Tray.Tests/AppRefactorContractTests.cs b/tests/OpenClaw.Tray.Tests/AppRefactorContractTests.cs
+index 63ef3ce8..73cce03b 100644
+--- a/tests/OpenClaw.Tray.Tests/AppRefactorContractTests.cs
++++ b/tests/OpenClaw.Tray.Tests/AppRefactorContractTests.cs
+@@ -868,7 +868,7 @@ public sealed class AppRefactorContractTests
+         };
+         const string runtimeContractKey = "PermissionsPage_PatternsAreMatchedLeft.Text";
+ 
+-        foreach (var locale in new[] { "fr-fr", "nl-nl", "zh-cn", "zh-tw" })
++        foreach (var locale in new[] { "fr-fr", "he-il", "nl-nl", "zh-cn", "zh-tw" })
+         {
+             var localized = ReadReswValues(Path.Combine(stringsRoot, locale, "Resources.resw"));
+             foreach (var key in localizedKeys)
+@@ -1172,11 +1172,11 @@ public sealed class AppRefactorContractTests
+ 
+         AssertInOrder(
+             code,
+-            "(\"wsl-platform\", \"Prepare and verify WSL platform\", [\"ensure-wsl-platform\"])",
+-            "(\"local-ai-engine\", \"Install verified llama-server\"",
+-            "(\"local-ai-model\", \"Download verified model from Hugging Face\"");
++            "(\"wsl-platform\", \"Setup_Progress_Group_WslPlatform\", [\"ensure-wsl-platform\"])",
++            "(\"local-ai-engine\", \"Setup_Progress_Group_LocalAiEngine\"",
++            "(\"local-ai-model\", \"Setup_Progress_Group_LocalAiModel\"");
+         Assert.Contains(
+-            "(\"wsl-networking\", \"Configure WSL access to Local AI\", [\"configure-local-ai-wsl-networking\"])",
++            "(\"wsl-networking\", \"Setup_Progress_Group_WslNetworking\", [\"configure-local-ai-wsl-networking\"])",
+             code);
+         Assert.DoesNotContain("Verify Local AI before WSL setup", code);
+     }
+@@ -1204,8 +1204,8 @@ public sealed class AppRefactorContractTests
+             startInstall,
+             "GetWslViabilityAsync(refresh: true)",
+             "if (wslViability.BlocksSetup)",
+-            "Title = \"WSL2 is not ready\"",
+-            "PrimaryButtonText = \"Try again\"",
++            "Title = SetupLocalization.GetString(\"Setup_Welcome_WslNotReady\")",
++            "PrimaryButtonText = SetupLocalization.GetString(\"Setup_Welcome_TryAgain\")",
+             "ExistingConfigDetector.Detect",
+             "NavigateToCapabilities()");
+         AssertInOrder(
+@@ -1382,7 +1382,7 @@ public sealed class AppRefactorContractTests
+         var detectProfile = ExtractMethod(source, "DetectProfileIndex");
+ 
+         Assert.Contains("x:Name=\"CapabilityExpander\"", xaml);
+-        Assert.Contains("\"Custom capabilities (review)\"", source);
++        Assert.Contains("\"Setup_Capabilities_CustomReview\"", source);
+         Assert.Contains("CapabilityExpander.IsExpanded = true", source);
+         Assert.Contains("_treatBundledAllOnAsPlaceholder ? 1 : 2", detectProfile);
+         Assert.Contains("return -1", detectProfile);
+@@ -1712,7 +1712,9 @@ public sealed class AppRefactorContractTests
+ 
+         // A failed inspection must stay recoverable instead of ending the flow on the
+         // recommended option with no way forward.
+-        Assert.Contains("PrimaryButtonText = \"Try again\"", method);
++        Assert.Contains(
++            "PrimaryButtonText = SetupLocalization.GetString(\"Setup_Welcome_TryAgain\")",
++            method);
+ 
+         Assert.Contains("AutomationProperties.AutomationId=\"WelcomeInstallCheckProgress\"", File.ReadAllText(
+             Path.Combine(root, "src", "OpenClaw.SetupEngine.UI", "Pages", "WelcomePage.xaml")));
+@@ -1744,14 +1746,16 @@ public sealed class AppRefactorContractTests
+ 
+         Assert.Contains("GetWslViabilityAsync(bool refresh = false)", setupWindow);
+         Assert.Contains("GetWslViabilityAsync(refresh: true)", method);
+-        Assert.Contains("PrimaryButtonText = \"Try again\"", method);
++        Assert.Contains(
++            "PrimaryButtonText = SetupLocalization.GetString(\"Setup_Welcome_TryAgain\")",
++            method);
+         Assert.Contains("if (retry != ContentDialogResult.Primary)", method);
+         AssertInOrder(
+             method,
+             "while (true)",
+             "GetWslViabilityAsync(refresh: true)",
+             "if (wslViability.BlocksSetup)",
+-            "PrimaryButtonText = \"Try again\"",
++            "PrimaryButtonText = SetupLocalization.GetString(\"Setup_Welcome_TryAgain\")",
+             "if (retry != ContentDialogResult.Primary)");
+     }
+ 
+diff --git a/tests/OpenClaw.Tray.Tests/ConnectionPageProtocolCompatibilityTests.cs b/tests/OpenClaw.Tray.Tests/ConnectionPageProtocolCompatibilityTests.cs
+index 3d86cd4e..d12dd073 100644
+--- a/tests/OpenClaw.Tray.Tests/ConnectionPageProtocolCompatibilityTests.cs
++++ b/tests/OpenClaw.Tray.Tests/ConnectionPageProtocolCompatibilityTests.cs
+@@ -170,7 +170,7 @@ public sealed class ConnectionPageProtocolCompatibilityTests
+     public void LocalizedProtocolCopy_UsesExpectedRangeAndCurrentPlaceholders()
+     {
+         var root = TestRepositoryPaths.GetRepositoryRoot();
+-        foreach (var locale in new[] { "en-us", "fr-fr", "nl-nl", "zh-cn", "zh-tw" })
++        foreach (var locale in new[] { "en-us", "fr-fr", "he-il", "nl-nl", "zh-cn", "zh-tw" })
+         {
+             var document = XDocument.Load(Path.Combine(
+                 root,
+diff --git a/tests/OpenClaw.Tray.Tests/LocalAiSetupUxContractTests.cs b/tests/OpenClaw.Tray.Tests/LocalAiSetupUxContractTests.cs
+index eaab47ba..45604d59 100644
+--- a/tests/OpenClaw.Tray.Tests/LocalAiSetupUxContractTests.cs
++++ b/tests/OpenClaw.Tray.Tests/LocalAiSetupUxContractTests.cs
+@@ -53,7 +53,7 @@ public sealed class LocalAiSetupUxContractTests
+             "SetupLocalization.GetString(\"Onboarding_Welcome_LocalAiAvailableBadge.Text\")", source);
+         Assert.Contains("AutomationProperties.GetName(InstallChoice)", source);
+ 
+-        foreach (string locale in new[] { "en-us", "fr-fr", "nl-nl", "zh-cn", "zh-tw" })
++        foreach (string locale in new[] { "en-us", "fr-fr", "he-il", "nl-nl", "zh-cn", "zh-tw" })
+         {
+             string resources = File.ReadAllText(Path.Combine(
+                 root, "src", "OpenClaw.Tray.WinUI", "Strings", locale, "Resources.resw"));
+@@ -205,7 +205,7 @@ public sealed class LocalAiSetupUxContractTests
+ 
+         Assert.Contains("x:Uid=\"Onboarding_LocalAi_RecheckAvailabilityButton\"", xaml);
+ 
+-        foreach (string locale in new[] { "en-us", "fr-fr", "nl-nl", "zh-cn", "zh-tw" })
++        foreach (string locale in new[] { "en-us", "fr-fr", "he-il", "nl-nl", "zh-cn", "zh-tw" })
+         {
+             string resources = File.ReadAllText(Path.Combine(
+                 root,
+@@ -279,7 +279,7 @@ public sealed class LocalAiSetupUxContractTests
+             "Onboarding_LocalAi_UnavailableDetailsDialogTitle",
+             "Onboarding_LocalAi_UnavailableDetailsDialogClose",
+         ];
+-        foreach (string locale in new[] { "en-us", "fr-fr", "nl-nl", "zh-cn", "zh-tw" })
++        foreach (string locale in new[] { "en-us", "fr-fr", "he-il", "nl-nl", "zh-cn", "zh-tw" })
+         {
+             string resources = File.ReadAllText(Path.Combine(
+                 root, "src", "OpenClaw.Tray.WinUI", "Strings", locale, "Resources.resw"));
+@@ -344,7 +344,7 @@ public sealed class LocalAiSetupUxContractTests
+ 
+         // A thrown probe failure and a successful-but-incomplete read both resolve to
+         // HardwareFactsIncomplete: one shared message, no separate "probe failure" key.
+-        foreach (string locale in new[] { "en-us", "fr-fr", "nl-nl", "zh-cn", "zh-tw" })
++        foreach (string locale in new[] { "en-us", "fr-fr", "he-il", "nl-nl", "zh-cn", "zh-tw" })
+         {
+             string resources = File.ReadAllText(Path.Combine(
+                 root, "src", "OpenClaw.Tray.WinUI", "Strings", locale, "Resources.resw"));
+@@ -453,7 +453,7 @@ public sealed class LocalAiSetupUxContractTests
+             "LocalAiPage_CheckingMessage",
+             "LocalAiPage_UnavailableProbeTitle",
+         ];
+-        foreach (string locale in new[] { "en-us", "fr-fr", "nl-nl", "zh-cn", "zh-tw" })
++        foreach (string locale in new[] { "en-us", "fr-fr", "he-il", "nl-nl", "zh-cn", "zh-tw" })
+         {
+             string resources = File.ReadAllText(Path.Combine(
+                 root, "src", "OpenClaw.Tray.WinUI", "Strings", locale, "Resources.resw"));
+diff --git a/tests/OpenClaw.Tray.Tests/LocalizationValidationTests.cs b/tests/OpenClaw.Tray.Tests/LocalizationValidationTests.cs
+index 1b3e2dd8..6f1cca29 100644
+--- a/tests/OpenClaw.Tray.Tests/LocalizationValidationTests.cs
++++ b/tests/OpenClaw.Tray.Tests/LocalizationValidationTests.cs
+@@ -20,6 +20,8 @@ public class LocalizationValidationTests
+         "Description",
+         "Header",
+         "Message",
++        "OffContent",
++        "OnContent",
+         "PlaceholderText",
+         "Text",
+         "Title",
+@@ -37,6 +39,8 @@ public class LocalizationValidationTests
+         "TrayMenuWindow_winexWindowEx_2.Title",
+         "Onboarding_Connection_QrButton",
+         "Onboarding_Connection_Token",
++        "SandboxPage_AllowInternet.OffContent",
++        "SandboxPage_AllowInternet.OnContent",
+         "WindowTitle_TrayMenu",
+         "WindowTitle_Update",
+         // VoiceOverlayWindow window-title key — matches the convention
+@@ -605,6 +609,14 @@ public class LocalizationValidationTests
+         "nl-nl",
+     };
+ 
++    // Fully translated locales are intentionally excluded from the legacy
++    // all-or-none check below. That check protects the older locale files,
++    // which still use synchronized English fallbacks for deferred sections.
++    private static readonly HashSet<string> FullyTranslatedLocales = new(StringComparer.OrdinalIgnoreCase)
++    {
++        "he-il",
++    };
++
+     private static bool IsInvariantOrDeferred(string key, string value) =>
+         InvariantOrDeferredResourceKeys.Contains(key)
+         || IsInvariantValue(value)
+@@ -620,6 +632,10 @@ public class LocalizationValidationTests
+         || key.StartsWith("HubWindow_Role_", StringComparison.Ordinal)
+         || key.StartsWith("HubWindow_Bell_", StringComparison.Ordinal)
+         || key.StartsWith("NotificationsFlyout_", StringComparison.Ordinal)
++        // SetupEngine.UI was previously hard-coded in English. The shared Setup_*
++        // keys now localize that surface; existing locales retain their current
++        // English fallback until their translations are supplied.
++        || key.StartsWith("Setup_", StringComparison.Ordinal)
+         // V2 onboarding redesign strings (V2_*) are intentionally English-only at first
+         // ship. They live in V2Strings.DefaultEnUs and the cutover seeded them into all
+         // five .resw files with English values. Translations land in a follow-up.
+@@ -681,13 +697,18 @@ public class LocalizationValidationTests
+     [Fact]
+     public void XamlControlsWithXUid_HaveMatchingEnUsResources()
+     {
+-        var winUiRoot = Path.Combine(TestRepositoryPaths.GetRepositoryRoot(), "src", "OpenClaw.Tray.WinUI");
++        var sourceRoots = new[]
++        {
++            Path.Combine(TestRepositoryPaths.GetRepositoryRoot(), "src", "OpenClaw.Tray.WinUI"),
++            Path.Combine(TestRepositoryPaths.GetRepositoryRoot(), "src", "OpenClaw.SetupEngine.UI"),
++        };
+         var resourceKeys = LoadResw(Path.Combine(GetStringsDirectory(), "en-us", "Resources.resw"))
+             .Keys
+             .ToHashSet(StringComparer.Ordinal);
+         var missing = new List<string>();
+ 
+-        foreach (var xamlPath in Directory.EnumerateFiles(winUiRoot, "*.xaml", SearchOption.AllDirectories)
++        foreach (var xamlPath in sourceRoots
++                     .SelectMany(root => Directory.EnumerateFiles(root, "*.xaml", SearchOption.AllDirectories))
+                      .Where(IsSourceXaml)
+                      .OrderBy(p => p, StringComparer.OrdinalIgnoreCase))
+         {
+@@ -776,10 +797,10 @@ public class LocalizationValidationTests
+     }
+ 
+     [Fact]
+-    public void AllFiveLocaleDirectories_Exist()
++    public void AllSupportedLocaleDirectories_Exist()
+     {
+         var stringsDir = GetStringsDirectory();
+-        string[] expected = ["en-us", "fr-fr", "nl-nl", "zh-cn", "zh-tw"];
++        string[] expected = ["en-us", "fr-fr", "he-il", "nl-nl", "zh-cn", "zh-tw"];
+ 
+         foreach (var locale in expected)
+         {
+@@ -938,6 +959,7 @@ public class LocalizationValidationTests
+         var stringsDir = GetStringsDirectory();
+         var referenceResw = LoadResw(Path.Combine(stringsDir, "en-us", "Resources.resw"));
+         var localeResw = GetNonEnglishLocaleDirectories(stringsDir)
++            .Where(d => !FullyTranslatedLocales.Contains(Path.GetFileName(d)))
+             .Select(d => (Locale: Path.GetFileName(d), Resources: LoadResw(Path.Combine(d, "Resources.resw"))))
+             .ToList();
+ 
+@@ -982,4 +1004,20 @@ public class LocalizationValidationTests
+             "Resources identical to en-us in every non-English locale need an invariant/deferred rationale. Entries: " +
