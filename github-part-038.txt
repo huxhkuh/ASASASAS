@@ -1,0 +1,331 @@
++  <data name="CronPage_ScheduleAtOption.Content" xml:space="preserve">
++    <value>ב</value>
++  </data>
++  <data name="CronPage_ScheduleCronOption.Content" xml:space="preserve">
++    <value>Cron</value>
++  </data>
++  <data name="CronPage_QUICKPRESETS.Text" xml:space="preserve">
++    <value>הגדרות מהירות</value>
++  </data>
++  <data name="CronPage_Hourly.Content" xml:space="preserve">
++    <value>⏰ כל שעה</value>
++  </data>
++  <data name="CronPage_Daily9am.Content" xml:space="preserve">
++    <value>🌅 כל יום 9 בבוקר</value>
++  </data>
++  <data name="CronPage_Daily6pm.Content" xml:space="preserve">
++    <value>🌆 כל יום 6 בערב</value>
++  </data>
++  <data name="CronPage_Weekdays.Content" xml:space="preserve">
++    <value>💼 ימי חול</value>
++  </data>
++  <data name="CronPage_Weekly.Content" xml:space="preserve">
++    <value>📅 שבועי</value>
++  </data>
++  <data name="CronPage_EXPRESSION.Text" xml:space="preserve">
++    <value>ביטוי</value>
++  </data>
++  <data name="CronPage_TIMEZONE.Text" xml:space="preserve">
++    <value>אזור זמן</value>
++  </data>
++  <data name="CronPage_Optional.PlaceholderText" xml:space="preserve">
++    <value>אופציונלי</value>
++  </data>
++  <data name="CronPage_AmericaNewYork.Content" xml:space="preserve">
++    <value>אמריקה/ניו יורק</value>
++  </data>
++  <data name="CronPage_AmericaChicago.Content" xml:space="preserve">
++    <value>אמריקה/שיקגו</value>
++  </data>
++  <data name="CronPage_AmericaDenver.Content" xml:space="preserve">
++    <value>אמריקה/דנבר</value>
++  </data>
++  <data name="CronPage_AmericaLosAngeles.Content" xml:space="preserve">
++    <value>אמריקה/לוס אנג'לס</value>
++  </data>
++  <data name="CronPage_EuropeLondon.Content" xml:space="preserve">
++    <value>אירופה/לונדון</value>
++  </data>
++  <data name="CronPage_EuropeBerlin.Content" xml:space="preserve">
++    <value>אירופה/ברלין</value>
++  </data>
++  <data name="CronPage_AsiaTokyo.Content" xml:space="preserve">
++    <value>אסיה/טוקיו</value>
++  </data>
++  <data name="CronPage_UTC.Content" xml:space="preserve">
++    <value>UTC</value>
++  </data>
++  <data name="CronPage_EVERY.Text" xml:space="preserve">
++    <value>כל</value>
++  </data>
++  <data name="CronPage_UNIT.Text" xml:space="preserve">
++    <value>יחידה</value>
++  </data>
++  <data name="CronPage_Minutes.Content" xml:space="preserve">
++    <value>דקות</value>
++  </data>
++  <data name="CronPage_Hours.Content" xml:space="preserve">
++    <value>שעות</value>
++  </data>
++  <data name="CronPage_Days.Content" xml:space="preserve">
++    <value>ימים</value>
++  </data>
++  <data name="CronPage_RUNAT.Text" xml:space="preserve">
++    <value>הפעלה ב-</value>
++  </data>
++  <data name="CronPage_Date.PlaceholderText" xml:space="preserve">
++    <value>תאריך</value>
++  </data>
++  <data name="CronPage_330PM.PlaceholderText" xml:space="preserve">
++    <value>15:30</value>
++  </data>
++  <data name="CronPage_DeleteJobAfterIt.Content" xml:space="preserve">
++    <value>מחיקת משימה אחריה ריצות</value>
++  </data>
++  <data name="CronPage_PROMPTPAYLOAD.Text" xml:space="preserve">
++    <value>הנחיה / מטען</value>
++  </data>
++  <data name="CronPage_WhatShouldTheAgent.PlaceholderText" xml:space="preserve">
++    <value>מה על הסוכן לעשות?</value>
++  </data>
++  <data name="CronPage_DELIVERY.Text" xml:space="preserve">
++    <value>מסירה</value>
++  </data>
++  <data name="CronPage_SilentNone.Content" xml:space="preserve">
++    <value>שקט (ללא)</value>
++  </data>
++  <data name="CronPage_NotifyMeAnnounce.Content" xml:space="preserve">
++    <value>הודע לי (הכרזה)</value>
++  </data>
++  <data name="CronPage_CHANNEL.Text" xml:space="preserve">
++    <value>ערוץ</value>
++  </data>
++  <data name="CronPage_EGWebchat.PlaceholderText" xml:space="preserve">
++    <value>לדוגמה צ'אט אינטרנטי</value>
++  </data>
++  <data name="CronPage_AdvancedOptions.Text" xml:space="preserve">
++    <value>אפשרויות מתקדמות</value>
++  </data>
++  <data name="CronPage_SESSIONBEHAVIOR.Text" xml:space="preserve">
++    <value>התנהגות סשן</value>
++  </data>
++  <data name="CronPage_NewSessionEachRun.Content" xml:space="preserve">
++    <value>סשן חדש בכל הפעלה</value>
++  </data>
++  <data name="CronPage_ResumeMainSession.Content" xml:space="preserve">
++    <value>חידוש סשן ראשי</value>
++  </data>
++  <data name="CronPage_WAKEMODE.Text" xml:space="preserve">
++    <value>מצב ערה</value>
++  </data>
++  <data name="CronPage_NowImmediate.Content" xml:space="preserve">
++    <value>עכשיו (מיידי)</value>
++  </data>
++  <data name="CronPage_QueueWaitForIdle.Content" xml:space="preserve">
++    <value>תור (המתנה לחוסר פעילות)</value>
++  </data>
++  <data name="CronPage_Cancel.Content" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="CronPage_CreateJob.Content" xml:space="preserve">
++    <value>יצירת משימה</value>
++  </data>
++  <data name="CronPage_LoadingCronJobs.Text" xml:space="preserve">
++    <value>טוען עבודות Cron...</value>
++  </data>
++  <data name="CronPage_NoCronJobsConfigured.Text" xml:space="preserve">
++    <value>לא הוגדרו משימות Cron</value>
++  </data>
++  <data name="CronPage_CronJobsWillAppear.Text" xml:space="preserve">
++    <value>עבודות Cron יופיעו כאן לאחר הגדרתן דרך Gateway</value>
++  </data>
++  <data name="DebugPage_Status.Title" xml:space="preserve">
++    <value>סטטוס</value>
++  </data>
++  <data name="DebugPage_Copied.Title" xml:space="preserve">
++    <value>הועתק</value>
++  </data>
++  <data name="DebugPage_NoOverride.Content" xml:space="preserve">
++    <value>אין עקיפה</value>
++  </data>
++  <data name="DebugPage_ForceGatewayChatUI.Content" xml:space="preserve">
++    <value>כפיית Gateway ממשק משתמש של צ'אט</value>
++  </data>
++  <data name="DebugPage_ForceCompanionChatUI.Content" xml:space="preserve">
++    <value>כפיית ממשק משתמש של צ'אט נלווה</value>
++  </data>
++  <data name="DebugPage_NoOverride2.Content" xml:space="preserve">
++    <value>אין עקיפה</value>
++  </data>
++  <data name="DebugPage_ForceGatewayChatUI2.Content" xml:space="preserve">
++    <value>כפיית Gateway ממשק משתמש של צ'אט</value>
++  </data>
++  <data name="DebugPage_ForceCompanionChatUI2.Content" xml:space="preserve">
++    <value>כפיית ממשק משתמש של צ'אט נלווה</value>
++  </data>
++  <data name="DebugPage_Refresh.Text" xml:space="preserve">
++    <value>רענון</value>
++  </data>
++  <data name="DebugPage_Copy.Text" xml:space="preserve">
++    <value>העתק</value>
++  </data>
++  <data name="DebugPage_OpenFile.Text" xml:space="preserve">
++    <value>פתח קובץ</value>
++  </data>
++  <data name="InstancesPage_PairingApprovalRequired.Text" xml:space="preserve">
++    <value>נדרש אישור צימוד</value>
++  </data>
++  <data name="InstancesPage_ANodeHasConnected.Text" xml:space="preserve">
++    <value>קובץ Node התחבר אך היכולות שלו לא יופעלו עד שתאשר את בקשת הצימוד.</value>
++  </data>
++  <data name="InstancesPage_ReviewOnConnectionPage.Content" xml:space="preserve">
++    <value>סקירה בדף החיבור</value>
++  </data>
++  <data name="PermissionsPage_Permissions.Text" xml:space="preserve">
++    <value>הרשאות</value>
++  </data>
++  <data name="PermissionsPage_NodeMode.Text" xml:space="preserve">
++    <value>מצב Node</value>
++  </data>
++  <data name="PermissionsPage_WhenOnThisPC.Text" xml:space="preserve">
++    <value>כאשר הוא מופעל, מחשב זה נרשם כ-Node ומציע את היכולות שלהלן לסוכנים דרך Gateway.</value>
++  </data>
++  <data name="PermissionsPage_Capabilities.Text" xml:space="preserve">
++    <value>יכולות</value>
++  </data>
++  <data name="PermissionsPage_ToggleIndividualFeaturesThat.Text" xml:space="preserve">
++    <value>החלף תכונות בודדות שסוכנים עשויים לבקש ממחשב זה.</value>
++  </data>
++  <data name="PermissionsPage_Integrations.Text" xml:space="preserve">
++    <value>אינטגרציות</value>
++  </data>
++  <data name="PermissionsPage_DefaultAction.Text" xml:space="preserve">
++    <value>פעולת ברירת מחדל</value>
++  </data>
++  <data name="PermissionsPage_WhatHappensWhenA.Text" xml:space="preserve">
++    <value>מה קורה כאשר פקודה אינה תואמת את רשימת ההיתרים של נתיב ההפעלה למטה.</value>
++  </data>
++  <data name="PermissionsPage_PatternsAreMatchedLeft.Text" xml:space="preserve">
++    <value>אפשר תמיד יוצר ערך הקשור לארגומנט עבור פקודת .exe מקורית מתאימה. ערכים שנוספים כאן הם נתיב בלבד ויכולים לאפשר התאמת קבצי הפעלה עם כל ארגומנט. דחה ובקש נשארים נשלטים על ידי פעולת ברירת מחדל. שינויים נשמרים אוטומטית.</value>
++  </data>
++  <data name="PermissionsPage_Saved.Text" xml:space="preserve">
++    <value>נשמר</value>
++  </data>
++  <data name="PermissionsPage_0Rules.Text" xml:space="preserve">
++    <value>0 רשומות</value>
++  </data>
++  <data name="PermissionsPage_NoRulesYetAdd.Text" xml:space="preserve">
++    <value>אין רשומות ברשימת היתרים של נתיב הרצה. אשר פקודת .exe מקורית מתאימה באמצעות Allow Always, או הוסף תבנית נתיב בלבד כגון **/hostname.exe.</value>
++  </data>
++  <data name="PermissionsPage_WindowsPrivacy.Text" xml:space="preserve">
++    <value>Windows פרטיות</value>
++  </data>
++  <data name="PermissionsPage_CameraMicrophoneAmpScreen.Text" xml:space="preserve">
++    <value>גישה למצלמה, מיקרופון ומסך</value>
++  </data>
++  <data name="PermissionsPage_SystemLevelPrivacyPermissions.Text" xml:space="preserve">
++    <value>הרשאות פרטיות ברמת המערכת מנוהלות על ידי Windows. פתח את Windows הגדרות פרטיות כדי להעניק או לבטל גישה ל-OpenClaw.</value>
++  </data>
++  <data name="SandboxPage_NodeSandboxIsOn.Text" xml:space="preserve">
++    <value>Node ארגז חול מופעל</value>
++  </data>
++  <data name="SandboxPage_ProgramsTheAgentRuns.Text" xml:space="preserve">
++    <value>תוכניות שהסוכן מפעיל במחשב זה כלואות.</value>
++  </data>
++  <data name="SandboxPage_WhatGetsContained.Text" xml:space="preserve">
++    <value>מה כלול</value>
++  </data>
++  <data name="SandboxPage_SeeWhichCommandsThis.Text" xml:space="preserve">
++    <value>ראה אילו פקודות מכסה דף זה ואילו דורשות בקרות שונות.</value>
++  </data>
++  <data name="SandboxPage_CommandsTheAgentRuns.Text" xml:space="preserve">
++    <value>פקודות שהסוכן מריץ דרך Windows Node (</value>
++  </data>
++  <data name="SandboxPage_SystemRun.Text" xml:space="preserve">
++    <value>system.run</value>
++  </data>
++  <data name="SandboxPage_AreContainedByThe.Text" xml:space="preserve">
++    <value>) כלולות על ידי ההגדרות שלהלן.</value>
++  </data>
++  <data name="SandboxPage_CommandsTheAgentRuns2.Text" xml:space="preserve">
++    <value>פקודות שהסוכן מריץ ישירות על Gateway אינן כלולות. אם Gateway מופעל על WSL במחשב זה, הם יכולים לגשת לקבצים, ללוח ולרשת Windows שלך: השתמש באישורי הביצוע של Gateway.</value>
++  </data>
++  <data name="SandboxPage_SandboxUnavailable.Title" xml:space="preserve">
++    <value>ארגז חול אינו זמין</value>
++  </data>
++  <data name="SandboxPage_LearnMoreAboutMXC.Content" xml:space="preserve">
++    <value>למידע נוסף על ארגז חול של MXC</value>
++  </data>
++  <data name="SandboxPage_SecurityLevel.Text" xml:space="preserve">
++    <value>רמת אבטחה</value>
++  </data>
++  <data name="SandboxPage_OneClickToSet.Text" xml:space="preserve">
++    <value>לחיצה אחת להגדרת כל פקד למטה. תיקיות מותאמות אישית נשארות כפי שהגדרת אותן.</value>
++  </data>
++  <data name="SandboxPage_LockedDown.Text" xml:space="preserve">
++    <value>🔒 נעול</value>
++  </data>
++  <data name="SandboxPage_NoInternetNoClipboard.Text" xml:space="preserve">
++    <value>אין אינטרנט, אין לוח כתיבה, אין תיקיות משתמש סטנדרטיות.</value>
++  </data>
++  <data name="SandboxPage_Recommended.Text" xml:space="preserve">
++    <value>🛡 מומלץ</value>
++  </data>
++  <data name="SandboxPage_InternetOnReadOnly.Text" xml:space="preserve">
++    <value>אינטרנט פעיל. קריאה בלבד במסמכים, הורדות, שולחן עבודה. קריאה מהלוח.</value>
++  </data>
++  <data name="SandboxPage_Unprotected.Text" xml:space="preserve">
++    <value>⚠ לא מוגן</value>
++  </data>
++  <data name="SandboxPage_InternetOnReadWrite.Text" xml:space="preserve">
++    <value>אינטרנט פעיל. קריאה+כתיבה במסמכים, הורדות, שולחן עבודה. קריאה+כתיבה מהלוח.</value>
++  </data>
++  <data name="SandboxPage_CustomFolderGrantsStill.Title" xml:space="preserve">
++    <value>מענקי תיקיות מותאמות אישית עדיין פעילים</value>
++  </data>
++  <data name="SandboxPage_Files.Text" xml:space="preserve">
++    <value>📁 קבצים</value>
++  </data>
++  <data name="SandboxPage_ByDefaultTheAgent.Text" xml:space="preserve">
++    <value>כברירת מחדל, לסוכן יש רק תיקיית סביבת עבודה זמנית שהוא יכול לקרוא ולכתוב בה. הענק גישה לתיקיות המשתמש למטה. מפתחות SSH, פרופילי דפדפן והגדרות של OpenClaw תמיד חסומים.</value>
++  </data>
++  <data name="SandboxPage_Documents.Text" xml:space="preserve">
++    <value>מסמכים</value>
++  </data>
++  <data name="SandboxPage_Blocked.Content" xml:space="preserve">
++    <value>חסום</value>
++  </data>
++  <data name="SandboxPage_ReadOnly.Content" xml:space="preserve">
++    <value>קריאה בלבד</value>
++  </data>
++  <data name="SandboxPage_ReadAmpWrite.Content" xml:space="preserve">
++    <value>קריאה וכתיבה</value>
++  </data>
++  <data name="SandboxPage_Downloads.Text" xml:space="preserve">
++    <value>הורדות</value>
++  </data>
++  <data name="SandboxPage_Blocked2.Content" xml:space="preserve">
++    <value>חסום</value>
++  </data>
++  <data name="SandboxPage_ReadOnly2.Content" xml:space="preserve">
++    <value>קריאה בלבד</value>
++  </data>
++  <data name="SandboxPage_ReadAmpWrite2.Content" xml:space="preserve">
++    <value>קריאה וכתיבה</value>
++  </data>
++  <data name="SandboxPage_Desktop.Text" xml:space="preserve">
++    <value>שולחן עבודה</value>
++  </data>
++  <data name="SandboxPage_Blocked3.Content" xml:space="preserve">
++    <value>חסום</value>
++  </data>
++  <data name="SandboxPage_ReadOnly3.Content" xml:space="preserve">
++    <value>קריאה בלבד</value>
++  </data>
++  <data name="SandboxPage_ReadAmpWrite3.Content" xml:space="preserve">
++    <value>קריאה וכתיבה</value>
++  </data>
++  <data name="SandboxPage_ToolDirectoriesOnYour.Text" xml:space="preserve">
++    <value>ספריות כלים בנתיב שלך ניתנות גם לקריאה בלבד בתוך ארגז החול, כך שכלי פקודה line כמו git, Node, python ו-dotnet שמישים. שורשי כונן לעולם לא מוענקים.</value>
++  </data>
++  <data name="SandboxPage_CustomFolders.Text" xml:space="preserve">
