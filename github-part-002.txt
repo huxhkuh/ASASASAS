@@ -1,0 +1,218 @@
++        Write-Host "The installed app was not modified." -ForegroundColor Yellow
++    }
++    Write-Host "Copy this entire window back to the person who supplied the kit."
++    exit 1
++}
+diff --git a/docs/LOCALIZATION.md b/docs/LOCALIZATION.md
+index af4af4dc..26ec1fb0 100644
+--- a/docs/LOCALIZATION.md
++++ b/docs/LOCALIZATION.md
+@@ -8,6 +8,7 @@ OpenClaw Tray uses WinUI `.resw` resource files for localization. Windows automa
+ |----------|--------|---------------|
+ | English (US) | `en-us` | `Strings/en-us/Resources.resw` |
+ | French (France) | `fr-fr` | `Strings/fr-fr/Resources.resw` |
++| Hebrew (Israel) | `he-il` | `Strings/he-il/Resources.resw` |
+ | Dutch (Netherlands) | `nl-nl` | `Strings/nl-nl/Resources.resw` |
+ | Chinese (Simplified) | `zh-cn` | `Strings/zh-cn/Resources.resw` |
+ | Chinese (Traditional) | `zh-tw` | `Strings/zh-tw/Resources.resw` |
+@@ -71,13 +72,14 @@ Windows picks the language automatically based on the user's OS display language
+ Set the `OPENCLAW_LANGUAGE` environment variable before launching the app:
+ 
+ ```powershell
+-$env:OPENCLAW_LANGUAGE = "fr-fr"  # or nl-nl, zh-cn, zh-tw
++$env:OPENCLAW_LANGUAGE = "fr-fr"  # or he-il, nl-nl, zh-cn, zh-tw
+ .\run-app-local.ps1 -NoBuild
+ ```
+ 
+ This overrides `LocalizationHelper.GetString()` calls for menus, toasts, dialogs, and the onboarding wizard. The language is validated against the supported locale list.
+ 
+-> **Note:** XAML `x:Uid` bindings follow the OS display language. For full localization testing including XAML elements, change your Windows display language in Settings → Time & Language.
++The override also sets the Windows application language before XAML is initialized,
++so `x:Uid` bindings and runtime lookups use the same language during local testing.
+ 
+ ## Resource Key Naming Conventions
+ 
+diff --git a/scripts/Test-Localization.ps1 b/scripts/Test-Localization.ps1
+index 2ae4c66a..9c6b7ef4 100644
+--- a/scripts/Test-Localization.ps1
++++ b/scripts/Test-Localization.ps1
+@@ -32,9 +32,21 @@ $ErrorActionPreference = 'Stop'
+ 
+ $repoRoot = Resolve-Path (Join-Path $PSScriptRoot '..')
+ $winUiRoot = Join-Path $repoRoot 'src\OpenClaw.Tray.WinUI'
++$setupUiRoot = Join-Path $repoRoot 'src\OpenClaw.SetupEngine.UI'
++$xamlRoots = @($winUiRoot, $setupUiRoot)
+ $stringsDir = Join-Path $winUiRoot 'Strings'
+ $enUsResw = Join-Path $stringsDir 'en-us\Resources.resw'
+-$localizableAttributes = @('Content', 'Description', 'Header', 'Message', 'PlaceholderText', 'Text', 'Title')
++$localizableAttributes = @(
++    'Content',
++    'Description',
++    'Header',
++    'Message',
++    'OffContent',
++    'OnContent',
++    'PlaceholderText',
++    'Text',
++    'Title'
++)
+ 
+ function Get-RelativePath {
+     param(
+@@ -87,7 +99,7 @@ function Test-IsLocalizableValue {
+ function Test-IsSourceXaml {
+     param([System.IO.FileInfo]$File)
+ 
+-    $relativePath = Get-RelativePath $winUiRoot $File.FullName
++    $relativePath = Get-RelativePath $repoRoot $File.FullName
+     $segments = $relativePath -split '[\\/]'
+     # Build output can contain generated/copied XAML; only source XAML should drive localization findings.
+     return $segments -notcontains 'bin' -and $segments -notcontains 'obj'
+@@ -98,7 +110,8 @@ function Get-XamlLocalizationFindings {
+     $missingResources = [System.Collections.Generic.List[string]]::new()
+     $hardcodedValues = [System.Collections.Generic.List[string]]::new()
+ 
+-    Get-ChildItem -LiteralPath $winUiRoot -Recurse -Filter *.xaml -File |
++    $xamlRoots |
++        ForEach-Object { Get-ChildItem -LiteralPath $_ -Recurse -Filter *.xaml -File } |
+         Where-Object { Test-IsSourceXaml $_ } |
+         Sort-Object FullName |
+         ForEach-Object {
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/AdvancedSetupPage.xaml b/src/OpenClaw.SetupEngine.UI/Pages/AdvancedSetupPage.xaml
+index 5bcc582d..ed202c78 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/AdvancedSetupPage.xaml
++++ b/src/OpenClaw.SetupEngine.UI/Pages/AdvancedSetupPage.xaml
+@@ -11,10 +11,10 @@
+             <Image Source="ms-appx:///OpenClaw.SetupEngine.UI/Assets/Setup/OpenClawMascot.png"
+                    Width="44" Height="44" HorizontalAlignment="Center"
+                    AutomationProperties.AccessibilityView="Raw" />
+-            <TextBlock Text="Connect to an existing gateway"
++            <TextBlock x:Uid="Setup_AdvancedSetupPage_TextBlock_1" Text="Connect to an existing gateway"
+                        Style="{StaticResource TitleTextBlockStyle}"
+                        TextAlignment="Center" HorizontalAlignment="Center" />
+-            <TextBlock TextWrapping="Wrap" TextAlignment="Center" MaxWidth="520"
++            <TextBlock x:Uid="Setup_AdvancedSetupPage_TextBlock_2" TextWrapping="Wrap" TextAlignment="Center" MaxWidth="520"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        HorizontalAlignment="Center"
+@@ -29,8 +29,8 @@
+                           FontSize="20" VerticalAlignment="Top" IsTextScaleFactorEnabled="False"
+                           Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                 <StackPanel Grid.Column="1" Spacing="2">
+-                    <TextBlock Text="Add a gateway" Style="{StaticResource BodyStrongTextBlockStyle}" />
+-                    <TextBlock TextWrapping="Wrap" Style="{StaticResource CaptionTextBlockStyle}"
++                    <TextBlock x:Uid="Setup_AdvancedSetupPage_TextBlock_3" Text="Add a gateway" Style="{StaticResource BodyStrongTextBlockStyle}" />
++                    <TextBlock x:Uid="Setup_AdvancedSetupPage_TextBlock_4" TextWrapping="Wrap" Style="{StaticResource CaptionTextBlockStyle}"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Text="In Connection, choose Add a gateway, then pick how to connect: Setup code or Direct (URL + token)." />
+                 </StackPanel>
+@@ -41,8 +41,9 @@
+                           FontSize="20" VerticalAlignment="Top" IsTextScaleFactorEnabled="False"
+                           Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                 <StackPanel Grid.Column="1" Spacing="2">
+-                    <TextBlock Text="Point it at your gateway" Style="{StaticResource BodyStrongTextBlockStyle}" />
+-                    <TextBlock TextWrapping="Wrap" Style="{StaticResource CaptionTextBlockStyle}"
++                    <TextBlock x:Uid="Setup_AdvancedSetupPage_TextBlock_5" Text="Point it at your gateway" Style="{StaticResource BodyStrongTextBlockStyle}" />
++                    <TextBlock x:Uid="Setup_AdvancedSetupPage_TextBlock_GatewayExample"
++                               TextWrapping="Wrap" Style="{StaticResource CaptionTextBlockStyle}"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Text="Connect to a gateway running here, on another PC, or remote. For example, use ws://host.local:18790." />
+                 </StackPanel>
+@@ -53,8 +54,8 @@
+                           FontSize="20" VerticalAlignment="Top" IsTextScaleFactorEnabled="False"
+                           Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                 <StackPanel Grid.Column="1" Spacing="2">
+-                    <TextBlock Text="Pair this device" Style="{StaticResource BodyStrongTextBlockStyle}" />
+-                    <TextBlock TextWrapping="Wrap" Style="{StaticResource CaptionTextBlockStyle}"
++                    <TextBlock x:Uid="Setup_AdvancedSetupPage_TextBlock_6" Text="Pair this device" Style="{StaticResource BodyStrongTextBlockStyle}" />
++                    <TextBlock x:Uid="Setup_AdvancedSetupPage_TextBlock_7" TextWrapping="Wrap" Style="{StaticResource CaptionTextBlockStyle}"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Text="Paste a setup code from the gateway host, or your shared token, so the gateway trusts this PC." />
+                 </StackPanel>
+@@ -65,8 +66,8 @@
+                           FontSize="20" VerticalAlignment="Top" IsTextScaleFactorEnabled="False"
+                           Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                 <StackPanel Grid.Column="1" Spacing="2">
+-                    <TextBlock Text="Optional: SSH tunnel" Style="{StaticResource BodyStrongTextBlockStyle}" />
+-                    <TextBlock TextWrapping="Wrap" Style="{StaticResource CaptionTextBlockStyle}"
++                    <TextBlock x:Uid="Setup_AdvancedSetupPage_TextBlock_8" Text="Optional: SSH tunnel" Style="{StaticResource BodyStrongTextBlockStyle}" />
++                    <TextBlock x:Uid="Setup_AdvancedSetupPage_TextBlock_9" TextWrapping="Wrap" Style="{StaticResource CaptionTextBlockStyle}"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Text="If your gateway isn't directly reachable, any method can tunnel over SSH." />
+                 </StackPanel>
+@@ -75,7 +76,7 @@
+         </StackPanel>
+ 
+         <Grid Grid.Row="2" ColumnDefinitions="*,Auto">
+-            <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8"
++            <StackPanel x:Uid="Setup_AdvancedSetupPage_StackPanel_1" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         IsTabStop="False" AutomationProperties.Name="Step 2 of 6">
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+@@ -85,10 +86,10 @@
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+             </StackPanel>
+-            <Button x:Name="BackButton" Grid.Column="0" Content="Back"
++            <Button x:Uid="Setup_AdvancedSetupPage_BackButton" x:Name="BackButton" Grid.Column="0" Content="Back"
+                     MinWidth="100" HorizontalAlignment="Left"
+                     Click="Back_Click" />
+-            <Button x:Name="OpenConnectionButton" Grid.Column="1" Content="Open Companion Settings"
++            <Button x:Uid="Setup_AdvancedSetupPage_OpenConnectionButton" x:Name="OpenConnectionButton" Grid.Column="1" Content="Open Companion Settings"
+                     MinWidth="100" HorizontalAlignment="Right"
+                     Style="{StaticResource AccentButtonStyle}"
+                     Click="OpenConnection_Click" />
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/CapabilitiesPage.xaml b/src/OpenClaw.SetupEngine.UI/Pages/CapabilitiesPage.xaml
+index c40d557b..15391456 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/CapabilitiesPage.xaml
++++ b/src/OpenClaw.SetupEngine.UI/Pages/CapabilitiesPage.xaml
+@@ -11,7 +11,7 @@
+             <Image Source="ms-appx:///OpenClaw.SetupEngine.UI/Assets/Setup/OpenClawMascot.png"
+                    Width="44" Height="44" HorizontalAlignment="Center"
+                    AutomationProperties.AccessibilityView="Raw" />
+-            <TextBlock Text="Set up the WSL gateway"
++            <TextBlock x:Uid="Setup_CapabilitiesPage_TextBlock_1" Text="Set up the WSL gateway"
+                        Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Center" />
+         </StackPanel>
+ 
+@@ -34,51 +34,51 @@
+                             <TextBlock x:Name="StepTitle" Style="{StaticResource BodyStrongTextBlockStyle}" TextWrapping="Wrap" />
+ 
+                             <StackPanel x:Name="Step1Content" Spacing="8">
+-                                <TextBlock TextWrapping="Wrap"
++                                <TextBlock x:Uid="Setup_CapabilitiesPage_TextBlock_2" TextWrapping="Wrap"
+                                            Style="{StaticResource BodyTextBlockStyle}"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                            Text="OpenClaw runs your agent in a private, self-hosted gateway on this PC. Pick what it's allowed to do. You can change this later in Companion Settings." />
+                                 <RadioButtons x:Name="ProfileRadio" SelectionChanged="Profile_Changed" MaxColumns="1">
+-                                    <RadioButton AutomationProperties.Name="Read-only">
++                                    <RadioButton x:Uid="Setup_CapabilitiesPage_RadioButton_1" AutomationProperties.Name="Read-only">
+                                         <StackPanel Spacing="1">
+-                                            <TextBlock Text="Read-only" Style="{StaticResource BodyStrongTextBlockStyle}" />
+-                                            <TextBlock Text="See your screen, render on canvas, read device info. No commands."
++                                            <TextBlock x:Uid="Setup_CapabilitiesPage_TextBlock_3" Text="Read-only" Style="{StaticResource BodyStrongTextBlockStyle}" />
++                                            <TextBlock x:Uid="Setup_CapabilitiesPage_TextBlock_4" Text="See your screen, render on canvas, read device info. No commands."
+                                                        Style="{StaticResource CaptionTextBlockStyle}"
+                                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                         </StackPanel>
+                                     </RadioButton>
+-                                    <RadioButton AutomationProperties.Name="Standard (Recommended)">
++                                    <RadioButton x:Uid="Setup_CapabilitiesPage_RadioButton_2" AutomationProperties.Name="Standard (Recommended)">
+                                         <StackPanel Spacing="1">
+                                             <StackPanel Orientation="Horizontal" Spacing="8">
+-                                                <TextBlock Text="Standard" Style="{StaticResource BodyStrongTextBlockStyle}" VerticalAlignment="Center" />
++                                                <TextBlock x:Uid="Setup_CapabilitiesPage_TextBlock_5" Text="Standard" Style="{StaticResource BodyStrongTextBlockStyle}" VerticalAlignment="Center" />
+                                                 <Border CornerRadius="4" Padding="7,1" VerticalAlignment="Center"
+                                                         BorderBrush="{ThemeResource AccentTextFillColorPrimaryBrush}" BorderThickness="1">
+-                                                    <TextBlock Text="Recommended"
++                                                    <TextBlock x:Uid="Setup_CapabilitiesPage_TextBlock_6" Text="Recommended"
+                                                                Style="{StaticResource CaptionTextBlockStyle}"
+                                                                Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                                                 </Border>
+                                             </StackPanel>
+-                                            <TextBlock Text="Read-only plus run commands, edit files, and use text-to-speech and speech-to-text."
++                                            <TextBlock x:Uid="Setup_CapabilitiesPage_TextBlock_7" Text="Read-only plus run commands, edit files, and use text-to-speech and speech-to-text."
+                                                        Style="{StaticResource CaptionTextBlockStyle}"
+                                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                         </StackPanel>
+                                     </RadioButton>
