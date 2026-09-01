@@ -1,0 +1,345 @@
++    <value>פרוקסי מהימן / Tailscale</value>
++  </data>
++  <data name="ConnectionPage_RemoteSetupHelpAuthTitle.Text" xml:space="preserve">
++    <value>אישור</value>
++  </data>
++  <data name="HubWindow_StatusFlyout_Title.Text" xml:space="preserve">
++    <value>חיבור</value>
++  </data>
++  <data name="HubWindow_StatusFlyout_OpenConnection.Content" xml:space="preserve">
++    <value>פתיחת החיבור</value>
++  </data>
++  <data name="HubWindow_StatusFlyout_GatewayLabel.Text" xml:space="preserve">
++    <value>Gateway</value>
++  </data>
++  <data name="HubWindow_StatusFlyout_Reconnect.Content" xml:space="preserve">
++    <value>התחבר מחדש</value>
++  </data>
++  <data name="HubWindow_StatusFlyout_OperatorLabel.Text" xml:space="preserve">
++    <value>מפעיל</value>
++  </data>
++  <data name="HubWindow_StatusFlyout_NodeLabel.Text" xml:space="preserve">
++    <value>Node</value>
++  </data>
++  <data name="HubWindow_StatusFlyout_Approve.Content" xml:space="preserve">
++    <value>אישור…</value>
++  </data>
++  <data name="HubWindow_StatusPill_Tooltip" xml:space="preserve">
++    <value>סטטוס חיבור</value>
++  </data>
++  <data name="HubWindow_Bell_Tooltip" xml:space="preserve">
++    <value>התראות</value>
++  </data>
++  <data name="HubWindow_Pill_Ready" xml:space="preserve">
++    <value>מוכן</value>
++  </data>
++  <data name="HubWindow_Pill_PairingRequired" xml:space="preserve">
++    <value>נדרשת התאמה</value>
++  </data>
++  <data name="HubWindow_Pill_Degraded" xml:space="preserve">
++    <value>פעילות חלקית</value>
++  </data>
++  <data name="HubWindow_Role_Off" xml:space="preserve">
++    <value>כבוי</value>
++  </data>
++  <data name="HubWindow_Role_PairingRequired" xml:space="preserve">
++    <value>נדרשת התאמה</value>
++  </data>
++  <data name="HubWindow_Role_PairingRejected" xml:space="preserve">
++    <value>צימוד נדחה</value>
++  </data>
++  <data name="HubWindow_Role_RateLimited" xml:space="preserve">
++    <value>קצב מוגבל</value>
++  </data>
++  <data name="HubWindow_Role_Disabled" xml:space="preserve">
++    <value>מושבת</value>
++  </data>
++  <data name="NotificationsFlyout_ClearAll.Content" xml:space="preserve">
++    <value>נקה הכל</value>
++  </data>
++  <data name="NotificationsFlyout_EmptyTitle.Text" xml:space="preserve">
++    <value>אין התראות</value>
++  </data>
++  <data name="NotificationsFlyout_OpenPage.Content" xml:space="preserve">
++    <value>פתח התראות</value>
++  </data>
++  <data name="NotificationsFlyout_ActiveCountFormat" xml:space="preserve">
++    <value>{0} פעיל</value>
++  </data>
++  <data name="HubWindow_Role_PermissionsIncomplete" xml:space="preserve">
++    <value>הרשאות לא הושלמו</value>
++  </data>
++  <data name="SettingsPage_About.Text" xml:space="preserve">
++    <value>אודות</value>
++  </data>
++  <data name="SettingsPage_AppInfoExpander.Header" xml:space="preserve">
++    <value>מידע על האפליקציה</value>
++  </data>
++  <data name="SettingsPage_AppInfoCheckUpdates.Content" xml:space="preserve">
++    <value>בדיקה עדכונים</value>
++  </data>
++  <data name="SettingsPage_AppInfoLabel_AppName.Text" xml:space="preserve">
++    <value>שם אפליקציה</value>
++  </data>
++  <data name="SettingsPage_AppInfoLabel_Version.Text" xml:space="preserve">
++    <value>גרסה</value>
++  </data>
++  <data name="SettingsPage_AppInfoLabel_BuildDate.Text" xml:space="preserve">
++    <value>תאריך בנייה</value>
++  </data>
++  <data name="SettingsPage_AppInfoLabel_Runtime.Text" xml:space="preserve">
++    <value>זמן ריצה</value>
++  </data>
++  <data name="SettingsPage_AppInfoLabel_Architecture.Text" xml:space="preserve">
++    <value>ארכיטקטורה</value>
++  </data>
++  <data name="SettingsPage_AppInfoLabel_Windows.Text" xml:space="preserve">
++    <value>Windows</value>
++  </data>
++  <data name="SettingsPage_AppInfoLabel_UpdateChannel.Text" xml:space="preserve">
++    <value>ערוץ עדכון</value>
++  </data>
++  <data name="SettingsPage_AppInfoLabel_InstallType.Text" xml:space="preserve">
++    <value>סוג התקנה</value>
++  </data>
++  <data name="SettingsPage_AppInfoRelatedLinks.Text" xml:space="preserve">
++    <value>קישורים קשורים</value>
++  </data>
++  <data name="SettingsPage_AppInfoDocumentation.Content" xml:space="preserve">
++    <value>תיעוד</value>
++  </data>
++  <data name="SettingsPage_AppInfoGitHub.Content" xml:space="preserve">
++    <value>GitHub</value>
++  </data>
++  <data name="SettingsPage_AppInfoDashboard.Content" xml:space="preserve">
++    <value>לוח מחוונים</value>
++  </data>
++  <data name="SettingsPage_GatewayInfoExpander.Header" xml:space="preserve">
++    <value>פרטי Gateway</value>
++  </data>
++  <data name="SettingsPage_GatewayInfoLabel_Version.Text" xml:space="preserve">
++    <value>גרסה</value>
++  </data>
++  <data name="SettingsPage_GatewayInfoLabel_Protocol.Text" xml:space="preserve">
++    <value>פרוטוקול</value>
++  </data>
++  <data name="SettingsPage_GatewayInfoLabel_AuthMode.Text" xml:space="preserve">
++    <value>מצב אימות</value>
++  </data>
++  <data name="SettingsPage_GatewayInfoLabel_Uptime.Text" xml:space="preserve">
++    <value>זמן פעולה</value>
++  </data>
++  <data name="SandboxPage_UnavailablePrimaryButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>פעולת ארגז חול</value>
++  </data>
++  <data name="SandboxPage_PresetLockedButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>הגדרת נעילה מוגדרת מראש: אין אינטרנט, אין לוח כתיבה, אין משתמש סטנדרטי תיקיות</value>
++  </data>
++  <data name="SandboxPage_PresetBalancedButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>הגדרה מומלצת: אינטרנט פעיל, קריאה בלבד במסמכים, הורדות, שולחן עבודה</value>
++  </data>
++  <data name="SandboxPage_PresetPermissiveButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>הגדרה לא מוגנת: אינטרנט פעיל, קריאה וכתיבה במסמכים, הורדות, שולחן עבודה</value>
++  </data>
++  <data name="SandboxPage_DocsAccessCombo.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>רמת גישה למסמכים</value>
++  </data>
++  <data name="SandboxPage_DownloadsAccessCombo.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>רמת גישה להורדות</value>
++  </data>
++  <data name="SandboxPage_DesktopAccessCombo.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>רמת גישה לשולחן העבודה</value>
++  </data>
++  <data name="SettingsPage_NotificationSoundComboBox.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>צליל התראה</value>
++  </data>
++  <data name="VoiceSettingsPage_LanguageCombo.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>שפת קול</value>
++  </data>
++  <data name="HubWindow_MainNavigation.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>ניווט ראשי</value>
++  </data>
++  <data name="JsonPreviewSplitter.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>שינוי גודל JSON תצוגה מקדימה</value>
++  </data>
++  <data name="JsonPreviewSplitter.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.LocalizedControlType" xml:space="preserve">
++    <value>מפצל</value>
++  </data>
++  <data name="PermissionsPage_ExecPolicySaved" xml:space="preserve">
++    <value>נשמר</value>
++  </data>
++  <data name="PermissionsPage_ExecPolicySaveFailed" xml:space="preserve">
++    <value>השמירה נכשלה</value>
++  </data>
++  <data name="SessionsPage_Status_Working" xml:space="preserve">
++    <value>עובד</value>
++  </data>
++  <data name="SessionsPage_Status_Ready" xml:space="preserve">
++    <value>מוכן</value>
++  </data>
++  <data name="SessionsPage_Status_NeedsAttention" xml:space="preserve">
++    <value>דורש תשומת לב</value>
++  </data>
++  <data name="SessionsPage_LastRunStopped" xml:space="preserve">
++    <value>הפעלה אחרונה הופסקה</value>
++  </data>
++  <data name="ConnectionPage_ProtocolGatewayUpdateRequired" xml:space="preserve">
++    <value>Gateway נדרש עדכון</value>
++  </data>
++  <data name="ConnectionPage_ProtocolGatewayUpdateDetail" xml:space="preserve">
++    <value>אפליקציית Gateway זו משתמשת בפרוטוקול v{0}. אפליקציית Windows זו תומכת ב-v{1}-v{2}. הפרוטוקול הנוכחי שלה הוא v{3}. עדכן את אפליקציית Gateway כדי להמשיך.</value>
++  </data>
++  <data name="ConnectionPage_ProtocolWindowsUpdateRequired" xml:space="preserve">
++    <value>נדרש עדכון לאפליקציית Windows</value>
++  </data>
++  <data name="ConnectionPage_ProtocolWindowsUpdateDetail" xml:space="preserve">
++    <value>אפליקציית Gateway זו דורשת פרוטוקול v{0}. אפליקציית Windows זו תומכת ב-v{1}-v{2}. הפרוטוקול הנוכחי שלה הוא v{3}. עדכן את אפליקציית Windows כדי להמשיך.</value>
++  </data>
++  <data name="ConnectionPage_ProtocolUnknownMismatch" xml:space="preserve">
++    <value>גרסה Gateway אינה נתמכת</value>
++  </data>
++  <data name="Chat_AssistantMedia_Preparing" xml:space="preserve">
++    <value>הכנת מדיה</value>
++  </data>
++  <data name="Chat_AssistantMedia_Unavailable" xml:space="preserve">
++    <value>מדיה אינה זמינה</value>
++  </data>
++  <data name="Chat_AssistantMedia_Retry" xml:space="preserve">
++    <value>נסה שוב</value>
++  </data>
++  <data name="Chat_AssistantMedia_Image" xml:space="preserve">
++    <value>תמונה</value>
++  </data>
++  <data name="Chat_AssistantMedia_Audio" xml:space="preserve">
++    <value>אודיו</value>
++  </data>
++  <data name="Chat_AssistantMedia_Video" xml:space="preserve">
++    <value>וידאו</value>
++  </data>
++  <data name="Chat_AssistantMedia_File" xml:space="preserve">
++    <value>קובץ</value>
++  </data>
++  <data name="Chat_AssistantMedia_Media" xml:space="preserve">
++    <value>מדיה</value>
++  </data>
++  <data name="Chat_AssistantMedia_ImagesOmitted" xml:space="preserve">
++    <value>{0} תמונות נוספות לא מוצגות</value>
++  </data>
++  <data name="Chat_AssistantMedia_MediaAttachment" xml:space="preserve">
++    <value>קובץ מצורף למדיה</value>
++  </data>
++  <data name="Chat_AssistantMedia_OpenImage" xml:space="preserve">
++    <value>פתח תמונה {0}</value>
++  </data>
++  <data name="Chat_AssistantMedia_Close" xml:space="preserve">
++    <value>סגור</value>
++  </data>
++  <data name="HubWindow_NavigationViewItem_LocalAi.Content" xml:space="preserve">
++    <value>Local AI</value>
++  </data>
++  <data name="LocalAiPage_Title.Text" xml:space="preserve">
++    <value>Local AI</value>
++  </data>
++  <data name="LocalAiPage_Intro.Text" xml:space="preserve">
++    <value>הפעל את הגרסה המקורית המאומתת llama-server באופן פרטי במחשב זה. מודלים נטענים רק כאשר מתבקש.</value>
++  </data>
++  <data name="LocalAiPage_UnavailableInfoBar.Title" xml:space="preserve">
++    <value>Local AI אינו זמין</value>
++  </data>
++  <data name="LocalAiPage_UnavailableDetailsButton.Content" xml:space="preserve">
++    <value>ראה מדוע</value>
++  </data>
++  <data name="LocalAiPage_UnavailableDetailsTip.Title" xml:space="preserve">
++    <value>מדוע Local AI אינו זמין</value>
++  </data>
++  <data name="LocalAiPage_RecheckAvailabilityButton.Content" xml:space="preserve">
++    <value>בדוק שוב</value>
++  </data>
++  <data name="LocalAiPage_UnavailableRequirementsMessage" xml:space="preserve">
++    <value>מכשיר זה אינו עומד בדרישה אחת או יותר של Local AI.</value>
++  </data>
++  <data name="LocalAiPage_UnavailableProbeMessage" xml:space="preserve">
++    <value>OpenClaw לא הצליח לאמת את דרישות Local AI כרגע. בדוק שוב לאחר אישור שמנהל ההתקן של NVIDIA זמין.</value>
++  </data>
++  <data name="LocalAiPage_EngineHeading.Text" xml:space="preserve">
++    <value>llama-server</value>
++  </data>
++  <data name="LocalAiPage_VersionLabel.Text" xml:space="preserve">
++    <value>גרסה</value>
++  </data>
++  <data name="LocalAiPage_EndpointLabel.Text" xml:space="preserve">
++    <value>נקודת קצה</value>
++  </data>
++  <data name="LocalAiPage_ProcessLabel.Text" xml:space="preserve">
++    <value>תהליך</value>
++  </data>
++  <data name="LocalAiPage_StartButton.Content" xml:space="preserve">
++    <value>הפעל נתב</value>
++  </data>
++  <data name="LocalAiPage_StopButton.Content" xml:space="preserve">
++    <value>עצור</value>
++  </data>
++  <data name="LocalAiPage_RestartButton.Content" xml:space="preserve">
++    <value>הפעלה מחדש</value>
++  </data>
++  <data name="LocalAiPage_OpenLogsButton.Content" xml:space="preserve">
++    <value>פתח יומנים</value>
++  </data>
++  <data name="LocalAiPage_ModelHeading.Text" xml:space="preserve">
++    <value>דגם</value>
++  </data>
++  <data name="LocalAiPage_RetrySetupButton.Content" xml:space="preserve">
++    <value>נסה שוב להתקין או להוריד</value>
++  </data>
++  <data name="LocalAiPage_ChangeModelDescription.Text" xml:space="preserve">
++    <value>פותח את ההתקנה כדי לבחור דגם אחר. החלפת ה- Local הקיים Gateway עדיין דורשת אישור.</value>
++  </data>
++  <data name="LocalAiPage_ChangeModelButton.Content" xml:space="preserve">
++    <value>שנה דגם</value>
++  </data>
++  <data name="LocalAiPage_GatewayHeading.Text" xml:space="preserve">
++    <value>חיבור Gateway</value>
++  </data>
++  <data name="LocalAiPage_RepairConnectionButton.Content" xml:space="preserve">
++    <value>תקן חיבור</value>
++  </data>
++  <data name="LocalAiPage_OpenChatButton.Content" xml:space="preserve">
++    <value>פתח צ'אט</value>
++  </data>
++  <data name="LocalAiPage_Engine_Running" xml:space="preserve">
++    <value>רץ</value>
++  </data>
++  <data name="LocalAiPage_Engine_Starting" xml:space="preserve">
++    <value>מתחיל</value>
++  </data>
++  <data name="LocalAiPage_Engine_Stopped" xml:space="preserve">
++    <value>נעצר</value>
++  </data>
++  <data name="LocalAiPage_Engine_Error" xml:space="preserve">
++    <value>שגיאה</value>
++  </data>
++  <data name="LocalAiPage_Engine_Managed" xml:space="preserve">
++    <value>מנוהל על ידי OpenClaw</value>
++  </data>
++  <data name="LocalAiPage_Engine_NotInstalled" xml:space="preserve">
++    <value>לא מותקן</value>
++  </data>
++  <data name="LocalAiPage_Model_NotInstalled" xml:space="preserve">
++    <value>לא מותקן</value>
++  </data>
++  <data name="LocalAiPage_Model_Unknown" xml:space="preserve">
++    <value>לא ידוע</value>
++  </data>
++  <data name="LocalAiPage_Model_Verified" xml:space="preserve">
++    <value>הורד ואומת</value>
++  </data>
++  <data name="LocalAiPage_Model_Loaded" xml:space="preserve">
++    <value>נטען בכרטיס המסך</value>
++  </data>
++  <data name="LocalAiPage_Gateway_Connected" xml:space="preserve">
++    <value>מחובר</value>
++  </data>
++  <data name="LocalAiPage_Gateway_Connecting" xml:space="preserve">
++    <value>מתחבר</value>
++  </data>
++  <data name="LocalAiPage_Gateway_NeedsAttention" xml:space="preserve">
