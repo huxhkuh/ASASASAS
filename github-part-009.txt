@@ -1,0 +1,265 @@
+                     Grid.Column="1" Content="Next"
+                     MinWidth="100" HorizontalAlignment="Right"
+                     Style="{StaticResource AccentButtonStyle}"
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/WelcomePage.xaml.cs b/src/OpenClaw.SetupEngine.UI/Pages/WelcomePage.xaml.cs
+index 5cd7c79b..fd922771 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/WelcomePage.xaml.cs
++++ b/src/OpenClaw.SetupEngine.UI/Pages/WelcomePage.xaml.cs
+@@ -187,10 +187,10 @@ public sealed partial class WelcomePage : Page
+ 
+                     var retry = await new ContentDialog
+                     {
+-                        Title = "WSL2 is not ready",
++                        Title = SetupLocalization.GetString("Setup_Welcome_WslNotReady"),
+                         Content = wslViability.Description,
+-                        PrimaryButtonText = "Try again",
+-                        CloseButtonText = "Cancel",
++                        PrimaryButtonText = SetupLocalization.GetString("Setup_Welcome_TryAgain"),
++                        CloseButtonText = SetupLocalization.GetString("Setup_Welcome_Cancel"),
+                         DefaultButton = ContentDialogButton.Primary,
+                         XamlRoot = readinessRoot,
+                     }.ShowAsync();
+@@ -224,10 +224,10 @@ public sealed partial class WelcomePage : Page
+                     // instead of ending the flow on the recommended option.
+                     var retry = await new ContentDialog
+                     {
+-                        Title = "Could not inspect WSL",
++                        Title = SetupLocalization.GetString("Setup_Welcome_WslInspectionFailed"),
+                         Content = ex.Message,
+-                        PrimaryButtonText = "Try again",
+-                        CloseButtonText = "Cancel",
++                        PrimaryButtonText = SetupLocalization.GetString("Setup_Welcome_TryAgain"),
++                        CloseButtonText = SetupLocalization.GetString("Setup_Welcome_Cancel"),
+                         DefaultButton = ContentDialogButton.Primary,
+                         XamlRoot = errorRoot,
+                     }.ShowAsync();
+@@ -250,15 +250,15 @@ public sealed partial class WelcomePage : Page
+             var dialog = new ContentDialog
+             {
+                 Title = requiresDestructiveConfirmation
+-                    ? $"Permanently delete WSL distro '{config.DistroName}'?"
++                    ? SetupLocalization.Format("Setup_Welcome_DeleteDistroFormat", config.DistroName)
+                     : existing.HasLocalGateway || existing.HasDistro || existing.HasDistroDataDirectory
+-                        ? "Replace existing WSL gateway?"
+-                        : "Install a new WSL gateway?",
++                        ? SetupLocalization.GetString("Setup_Welcome_ReplaceWslGateway")
++                        : SetupLocalization.GetString("Setup_Welcome_InstallWslGateway"),
+                 Content = summary,
+                 PrimaryButtonText = requiresDestructiveConfirmation
+-                    ? "Delete and replace"
+-                    : "Continue",
+-                CloseButtonText = "Cancel",
++                    ? SetupLocalization.GetString("Setup_Welcome_DeleteAndReplace")
++                    : SetupLocalization.GetString("Setup_Welcome_Continue"),
++                CloseButtonText = SetupLocalization.GetString("Setup_Welcome_Cancel"),
+                 DefaultButton = ContentDialogButton.Close,
+                 XamlRoot = xamlRoot,
+             };
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/WizardPage.xaml b/src/OpenClaw.SetupEngine.UI/Pages/WizardPage.xaml
+index 91250417..d592a776 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/WizardPage.xaml
++++ b/src/OpenClaw.SetupEngine.UI/Pages/WizardPage.xaml
+@@ -10,9 +10,9 @@
+             <Image Source="ms-appx:///OpenClaw.SetupEngine.UI/Assets/Setup/OpenClawMascot.png"
+                    Width="44" Height="44" HorizontalAlignment="Center"
+                    AutomationProperties.AccessibilityView="Raw" />
+-            <TextBlock Text="OpenClaw onboard"
++            <TextBlock x:Uid="Setup_WizardPage_TextBlock_1" Text="OpenClaw onboard"
+                        Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Center" />
+-            <TextBlock x:Name="StatusText" Text="Connecting to gateway..."
++            <TextBlock x:Uid="Setup_WizardPage_StatusText" x:Name="StatusText" Text="Connecting to gateway..."
+                        Style="{StaticResource CaptionTextBlockStyle}"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        HorizontalAlignment="Center" />
+@@ -42,7 +42,7 @@
+                             BorderThickness="1"
+                             BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}">
+                         <StackPanel Spacing="6">
+-                            <TextBlock Text="Live gateway output"
++                            <TextBlock x:Uid="Setup_WizardPage_TextBlock_2" Text="Live gateway output"
+                                        Style="{StaticResource CaptionTextBlockStyle}"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                             <RichTextBlock x:Name="ConsoleBannerBlock"
+@@ -54,8 +54,8 @@
+                     </Border>
+                     <ListView x:Name="SelectOptions" Visibility="Collapsed" SelectionMode="Single" />
+                     <StackPanel x:Name="MultiOptions" Visibility="Collapsed" Spacing="8" />
+-                    <TextBox x:Name="TextInput" Visibility="Collapsed" PlaceholderText="Enter value" />
+-                    <PasswordBox x:Name="SecretInput" Visibility="Collapsed" PlaceholderText="Enter value" />
++                    <TextBox x:Uid="Setup_WizardPage_TextInput" x:Name="TextInput" Visibility="Collapsed" PlaceholderText="Enter value" />
++                    <PasswordBox x:Uid="Setup_WizardPage_SecretInput" x:Name="SecretInput" Visibility="Collapsed" PlaceholderText="Enter value" />
+                     <TextBlock x:Name="ErrorText"
+                                Visibility="Collapsed"
+                                Foreground="{ThemeResource SystemFillColorCriticalBrush}"
+@@ -65,11 +65,11 @@
+                                 Visibility="Collapsed"
+                                 Orientation="Horizontal"
+                                 Spacing="12">
+-                        <Button x:Name="OpenGatewayTerminalButton"
++                        <Button x:Uid="Setup_WizardPage_OpenGatewayTerminalButton" x:Name="OpenGatewayTerminalButton"
+                                 Content="Open terminal"
+                                 MinWidth="100"
+                                 Click="OpenGatewayTerminal_Click" />
+-                        <Button x:Name="RestartGatewayButton"
++                        <Button x:Uid="Setup_WizardPage_RestartGatewayButton" x:Name="RestartGatewayButton"
+                                 Content="Restart gateway"
+                                 MinWidth="100"
+                                 Click="RestartGateway_Click" />
+@@ -81,7 +81,7 @@
+         </ScrollViewer>
+ 
+         <Grid Grid.Row="2" ColumnDefinitions="*,Auto">
+-            <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8"
++            <StackPanel x:Uid="Setup_WizardPage_StackPanel_1" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="8"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         IsTabStop="False" AutomationProperties.Name="Step 5 of 6">
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+@@ -92,7 +92,7 @@
+                 <Border Width="8" Height="8" CornerRadius="4" VerticalAlignment="Center" Background="{ThemeResource SetupInactiveDotBrush}" />
+             </StackPanel>
+             <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Spacing="8">
+-                <DropDownButton x:Name="MoreOptionsButton"
++                <DropDownButton x:Uid="Setup_WizardPage_MoreOptionsButton" x:Name="MoreOptionsButton"
+                                 Content="More options"
+                                 MinWidth="100"
+                                 Background="Transparent"
+@@ -101,14 +101,14 @@
+                                 AutomationProperties.Name="More onboarding options">
+                     <DropDownButton.Flyout>
+                         <MenuFlyout Placement="Top">
+-                            <MenuFlyoutItem Text="Restart onboard" Click="StartOver_Click">
++                            <MenuFlyoutItem x:Uid="Setup_WizardPage_MenuFlyoutItem_1" Text="Restart onboard" Click="StartOver_Click">
+                                 <MenuFlyoutItem.Icon>
+                                     <FontIcon Glyph="&#xE72C;" IsTextScaleFactorEnabled="False" />
+                                 </MenuFlyoutItem.Icon>
+                             </MenuFlyoutItem>
+-                            <MenuFlyoutItem Text="Skip &amp; exit" Click="SkipWizard_Click">
++                            <MenuFlyoutItem x:Uid="Setup_WizardPage_MenuFlyoutItem_2" Text="Skip &amp; exit" Click="SkipWizard_Click">
+                                 <MenuFlyoutItem.Icon>
+-                                    <FontIcon Glyph="&#xE72A;" IsTextScaleFactorEnabled="False" />
++                                    <FontIcon Glyph="&#xE72A;" MirroredWhenRightToLeft="True" IsTextScaleFactorEnabled="False" />
+                                 </MenuFlyoutItem.Icon>
+                             </MenuFlyoutItem>
+                         </MenuFlyout>
+@@ -119,10 +119,10 @@
+                         Orientation="Horizontal"
+                         HorizontalAlignment="Right"
+                         Spacing="12">
+-                <Button x:Name="SecondaryButton" Content="Skip"
++                <Button x:Uid="Setup_WizardPage_SecondaryButton" x:Name="SecondaryButton" Content="Skip"
+                         MinWidth="100"
+                         Click="Secondary_Click" IsEnabled="False" />
+-                <Button x:Name="PrimaryButton" Content="Continue"
++                <Button x:Uid="Setup_WizardPage_PrimaryButton" x:Name="PrimaryButton" Content="Continue"
+                         MinWidth="100"
+                         Style="{StaticResource AccentButtonStyle}"
+                         Click="Primary_Click" IsEnabled="False" />
+diff --git a/src/OpenClaw.SetupEngine.UI/Pages/WizardPage.xaml.cs b/src/OpenClaw.SetupEngine.UI/Pages/WizardPage.xaml.cs
+index 27abbb48..1a688033 100644
+--- a/src/OpenClaw.SetupEngine.UI/Pages/WizardPage.xaml.cs
++++ b/src/OpenClaw.SetupEngine.UI/Pages/WizardPage.xaml.cs
+@@ -66,21 +66,23 @@ public sealed partial class WizardPage : Page
+         BusyRing.Visibility = Visibility.Collapsed;
+         BusyRing.IsActive = false;
+         ShowRecoveryActions();
+-        AppendTranscriptTurn("Welcome: let's connect your agent", null);
+-        AppendTranscriptTurn("Choose your AI provider", "Anthropic: Claude");
+-        AppendTranscriptTurn("Paste your API key", "••••••");
++        AppendTranscriptTurn(SetupLocalization.GetString("Setup_Wizard_PreviewWelcome"), null);
++        AppendTranscriptTurn(
++            SetupLocalization.GetString("Setup_Wizard_PreviewProvider"),
++            "Anthropic: Claude");
++        AppendTranscriptTurn(SetupLocalization.GetString("Setup_Wizard_PreviewApiKey"), "••••••");
+ 
+         if (SetupPreview.RequestedPage == "wizard-error")
+         {
+-            TitleText.Text = "OpenClaw onboard hit a problem";
+-            ShowError("The gateway restarted before the current wizard step finished. Your setup is still installed; choose Start wizard again, or use More options to restart onboard or skip and exit.");
++            TitleText.Text = SetupLocalization.GetString("Setup_Wizard_PreviewErrorTitle");
++            ShowError(SetupLocalization.GetString("Setup_Wizard_PreviewErrorBody"));
+             return;
+         }
+ 
+-        StatusText.Text = "A few quick questions to connect your agent";
++        StatusText.Text = SetupLocalization.GetString("Setup_Wizard_Intro");
+         _stepType = "select";
+         _stepId = "model";
+-        TitleText.Text = "Default AI model";
++        TitleText.Text = SetupLocalization.GetString("Setup_Wizard_DefaultModel");
+         SelectOptions.Visibility = Visibility.Visible;
+         foreach (var (val, lbl) in new[] { ("opus", "claude-opus-4.8"), ("sonnet", "claude-sonnet-4.6"), ("haiku", "claude-haiku-4.5") })
+         {
+@@ -91,7 +93,7 @@ public sealed partial class WizardPage : Page
+             });
+         }
+         SelectOptions.SelectedIndex = 0;
+-        PrimaryButton.Content = "Continue";
++        PrimaryButton.Content = SetupLocalization.GetString("Setup_Wizard_Continue");
+         PrimaryButton.IsEnabled = true;
+         SecondaryButton.Visibility = Visibility.Collapsed;
+     }
+@@ -126,7 +128,7 @@ public sealed partial class WizardPage : Page
+             _totalProgressPolls = 0;
+             _lastProgressStepId = "";
+             _stepVisits.Clear();
+-            SetBusy("Connecting to gateway...");
++            SetBusy(SetupLocalization.GetString("Setup_Wizard_Connecting"));
+             var client = await ConnectClientAsync();
+             if (generation != _operationGeneration)
+             {
+@@ -136,7 +138,7 @@ public sealed partial class WizardPage : Page
+ 
+             _client = client;
+             _client.StatusChanged += OnWizardClientStatusChanged;
+-            SetBusy("Starting wizard...");
++            SetBusy(SetupLocalization.GetString("Setup_Wizard_Starting"));
+             StartConsoleTail();
+             var payload = await _client.SendWizardRequestAsync("wizard.start", timeoutMs: 30_000);
+             if (generation != _operationGeneration)
+@@ -151,7 +153,7 @@ public sealed partial class WizardPage : Page
+             if (generation != _operationGeneration)
+                 return;
+ 
+-            await EnterWizardErrorAsync($"Gateway wizard failed: {ex.Message}");
++            await EnterWizardErrorAsync(SetupLocalization.Format("Setup_Wizard_FailedFormat", ex.Message));
+         }
+     }
+ 
+@@ -268,7 +270,7 @@ public sealed partial class WizardPage : Page
+                 return;
+             }
+ 
+-            _ = EnterWizardErrorAsync("Gateway connection was lost while the wizard was running.");
++            _ = EnterWizardErrorAsync(SetupLocalization.GetString("Setup_Wizard_ConnectionLost"));
+         });
+     }
+ 
+@@ -300,7 +302,7 @@ public sealed partial class WizardPage : Page
+ 
+             if (!payload.TryGetProperty("step", out var step))
+             {
+-                ShowError("Gateway wizard returned an invalid response.");
++                ShowError(SetupLocalization.GetString("Setup_Wizard_InvalidResponse"));
+                 return;
+             }
+ 
+@@ -328,7 +330,7 @@ public sealed partial class WizardPage : Page
+ 
+             if (string.IsNullOrWhiteSpace(_stepId))
+             {
+-                ShowError("Gateway wizard step is missing an id.");
++                ShowError(SetupLocalization.GetString("Setup_Wizard_MissingStepId"));
+                 return;
+             }
+ 
+@@ -345,12 +347,17 @@ public sealed partial class WizardPage : Page
+                 _totalProgressPolls++;
+                 if (_progressPolls > WizardTimeouts.MaxProgressPollsPerStep)
+                 {
+-                    ShowError($"Gateway wizard progress step '{_stepId}' did not complete after {WizardTimeouts.MaxProgressPollsPerStep} updates.");
++                    ShowError(SetupLocalization.Format(
++                        "Setup_Wizard_ProgressTimeoutFormat",
++                        _stepId,
++                        WizardTimeouts.MaxProgressPollsPerStep));
+                     return;
+                 }
