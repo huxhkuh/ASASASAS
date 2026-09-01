@@ -1,0 +1,228 @@
++  <data name="ChannelsPage_ConfigSavedNotRunningMessage" xml:space="preserve"><value>The gateway accepted the settings but didn't start the channel. Expand the channel below: the Status section and the diagnostic disclosure will show why.</value></data>
++  <data name="ChannelsPage_ChannelRunningTitleFormat" xml:space="preserve"><value>{0} is running</value></data>
++  <data name="ChannelsPage_ChannelRunningMessage" xml:space="preserve"><value>Configuration saved and the channel is up.</value></data>
++  <data name="ChannelsPage_Copy" xml:space="preserve"><value>Copy</value></data>
++  <data name="ChannelsPage_Copied" xml:space="preserve"><value>Copied</value></data>
++  <data name="ChannelsPage_CopyFailed" xml:space="preserve"><value>Copy failed</value></data>
++  <data name="ChannelsPage_AfterProviderInstallMessage" xml:space="preserve"><value>After installing the provider on your gateway host, come back and click Show QR again.</value></data>
++  <data name="ChannelsPage_NotConnectedForQr" xml:space="preserve"><value>Not connected to a gateway. Open Connection settings to connect first.</value></data>
++  <data name="ChannelsPage_RequestingQr" xml:space="preserve"><value>Requesting QR code from the gateway…</value></data>
++  <data name="ChannelsPage_LinkNotConnectedFormat" xml:space="preserve"><value>Couldn't link {0}. Not connected to the gateway.</value></data>
++  <data name="ChannelsPage_ThisChannel" xml:space="preserve"><value>This channel</value></data>
++  <data name="ChannelsPage_LinkingUnavailableFormat" xml:space="preserve"><value>{0} linking isn't available on this gateway yet: see how to enable it below.</value></data>
++  <data name="ChannelsPage_LinkGatewayErrorFormat" xml:space="preserve"><value>Couldn't link {0}. The gateway returned an error: see details below.</value></data>
++  <data name="ChannelsPage_AlreadyLinkedFormat" xml:space="preserve"><value>{0} is already linked.</value></data>
++  <data name="ChannelsPage_NoQrReturnedFormat" xml:space="preserve"><value>Gateway didn't return a QR for {0}. See details below for what it returned.</value></data>
++  <data name="ChannelsPage_WhatsAppQrInstructions" xml:space="preserve"><value>Open WhatsApp on your phone → Settings → Linked devices → scan this QR.</value></data>
++  <data name="ChannelsPage_GenericQrInstructions" xml:space="preserve"><value>Open the mobile app's linked-devices screen and scan this QR.</value></data>
++  <data name="ChannelsPage_StillWaitingQr" xml:space="preserve"><value>Still waiting: click Show QR again if the code has expired.</value></data>
++  <data name="ChannelsPage_LinkWaitFailedFormat" xml:space="preserve"><value>Link wait failed for {0}. See details below.</value></data>
++  <data name="ChannelsPage_LinkedFormat" xml:space="preserve"><value>{0} linked.</value></data>
++  <data name="ChannelsPage_QrMalformedDataUrl" xml:space="preserve"><value>QR decode failed: malformed data URL from gateway.</value></data>
++  <data name="ChannelsPage_QrInvalidBase64" xml:space="preserve"><value>QR decode failed: invalid base64 from gateway.</value></data>
++  <data name="ChannelsPage_QrDecodeFailedFormat" xml:space="preserve"><value>QR decode failed: {0}</value></data>
++  <data name="ChannelsPage_RunInstallCommandMessage" xml:space="preserve"><value>Run this command on the machine that hosts your gateway. After it finishes, come back and click Refresh.</value></data>
++  <data name="ChannelsPage_PluginInstallDocs" xml:space="preserve"><value>Plugin install docs →</value></data>
++  <data name="ChannelsPage_InstallPluginSection" xml:space="preserve"><value>Install plugin on your gateway</value></data>
++  <data name="ChannelsPage_NotConnectedTitle" xml:space="preserve"><value>Not connected</value></data>
++  <data name="ChannelsPage_ConnectBeforeUnlink" xml:space="preserve"><value>Connect to a gateway before unlinking this device.</value></data>
++  <data name="ChannelsPage_ConnectBeforeDisconnect" xml:space="preserve"><value>Connect to a gateway before disconnecting this channel.</value></data>
++  <data name="ChannelsPage_UnlinkDialogTitleFormat" xml:space="preserve"><value>Unlink {0} from this device?</value></data>
++  <data name="ChannelsPage_DisconnectDialogTitleFormat" xml:space="preserve"><value>Disconnect {0} and forget credentials?</value></data>
++  <data name="ChannelsPage_UnlinkDialogMessage" xml:space="preserve"><value>This unlinks the channel from this device. Your account stays paired on your phone: scan a fresh QR to reconnect.</value></data>
++  <data name="ChannelsPage_DisconnectDialogMessage" xml:space="preserve"><value>This signs out the channel and clears the stored credentials. You'll need to re-enter them to reconnect.</value></data>
++  <data name="ChannelsPage_Unlink" xml:space="preserve"><value>Unlink</value></data>
++  <data name="ChannelsPage_Disconnect" xml:space="preserve"><value>Disconnect</value></data>
++  <data name="ChannelsPage_UnlinkFailedTitle" xml:space="preserve"><value>Unlink failed</value></data>
++  <data name="ChannelsPage_DisconnectFailedTitle" xml:space="preserve"><value>Disconnect failed</value></data>
++  <data name="ChannelsPage_UnlinkFailedMessageFormat" xml:space="preserve"><value>Could not unlink {0}. The gateway may not support this action.</value></data>
++  <data name="ChannelsPage_DisconnectFailedMessageFormat" xml:space="preserve"><value>Could not disconnect {0}. The gateway may not support this action.</value></data>
++  <data name="Checkpoints_LoadFailedTitle" xml:space="preserve"><value>Couldn't load checkpoints</value></data>
++  <data name="Checkpoints_NotSupportedTitle" xml:space="preserve"><value>Not supported</value></data>
++  <data name="Checkpoints_NotSupportedMessage" xml:space="preserve"><value>This gateway doesn't support session compaction checkpoints. Update the gateway to use this.</value></data>
++  <data name="Checkpoints_DialogTitleFormat" xml:space="preserve"><value>Checkpoints: {0}</value></data>
++  <data name="Checkpoints_BranchLatest" xml:space="preserve"><value>Branch from latest</value></data>
++  <data name="Checkpoints_BranchLatestTargetable" xml:space="preserve"><value>Branch from latest targetable</value></data>
++  <data name="Checkpoints_RestoreLatest" xml:space="preserve"><value>Restore latest</value></data>
++  <data name="Checkpoints_Close" xml:space="preserve"><value>Close</value></data>
++  <data name="Checkpoints_EmptyMessage" xml:space="preserve"><value>No compaction checkpoints yet. Compacting this session creates one you can branch from or restore to.</value></data>
++  <data name="Checkpoints_ActionsHelp" xml:space="preserve"><value>Actions apply to the most recent checkpoint (top of the list). Branch starts a new session from it; Restore rolls this session back to it.</value></data>
++  <data name="Checkpoints_RestoreUnavailableMain" xml:space="preserve"><value>Restore is unavailable for the main session.</value></data>
++  <data name="Checkpoints_RestoreUnavailableAmbiguous" xml:space="preserve"><value>Restore is unavailable because the latest checkpoint can't be determined safely.</value></data>
++  <data name="Checkpoints_RestoreUnavailableSession" xml:space="preserve"><value>Restore isn't available for this session.</value></data>
++  <data name="Checkpoints_BranchUnavailableNoId" xml:space="preserve"><value>Branch is unavailable because no checkpoint has a checkpoint id.</value></data>
++  <data name="Checkpoints_BranchHelp" xml:space="preserve"><value>Branch starts a new session from the latest targetable checkpoint.</value></data>
++  <data name="Checkpoints_BranchFailedTitle" xml:space="preserve"><value>Branch failed</value></data>
++  <data name="Checkpoints_BranchNotSupportedMessage" xml:space="preserve"><value>This gateway doesn't support branching from a checkpoint. Update the gateway to use this.</value></data>
++  <data name="Checkpoints_BranchedTitle" xml:space="preserve"><value>Branched</value></data>
++  <data name="Checkpoints_CreatedSessionFormat" xml:space="preserve"><value>Created session {0}.</value></data>
++  <data name="Checkpoints_CreatedSessionMessage" xml:space="preserve"><value>Created a new session from the checkpoint.</value></data>
++  <data name="Checkpoints_BranchFailedMessage" xml:space="preserve"><value>Could not branch from the checkpoint.</value></data>
++  <data name="Checkpoints_RestoreNotSupportedMessage" xml:space="preserve"><value>This gateway doesn't support restoring a checkpoint. Update the gateway to use this.</value></data>
++  <data name="Checkpoints_ChangedTitle" xml:space="preserve"><value>Checkpoints changed</value></data>
++  <data name="Checkpoints_ChangedMessage" xml:space="preserve"><value>The latest checkpoint changed since you opened this. Reopen Checkpoints and try again.</value></data>
++  <data name="Checkpoints_RestoreFailedTitle" xml:space="preserve"><value>Restore failed</value></data>
++  <data name="Checkpoints_RestoredTitle" xml:space="preserve"><value>Restored</value></data>
++  <data name="Checkpoints_RestoredMessage" xml:space="preserve"><value>Rolled the session back to the checkpoint.</value></data>
++  <data name="Checkpoints_RestoreFailedMessage" xml:space="preserve"><value>Could not restore the checkpoint.</value></data>
++  <data name="SettingsPage_AppDisplayName.Text" xml:space="preserve"><value>OpenClaw Windows Companion</value></data>
+ </root>
+diff --git a/src/OpenClaw.Tray.WinUI/Strings/he-il/Resources.resw b/src/OpenClaw.Tray.WinUI/Strings/he-il/Resources.resw
+new file mode 100644
+index 00000000..ef4c6adb
+--- /dev/null
++++ b/src/OpenClaw.Tray.WinUI/Strings/he-il/Resources.resw
+@@ -0,0 +1,8392 @@
++<?xml version='1.0' encoding='utf-8'?>
++<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
++  <xs:schema id="root">
++    <xs:element name="root" ns1:IsDataSet="true">
++      <xs:complexType>
++        <xs:choice maxOccurs="unbounded">
++          <xs:element name="data">
++            <xs:complexType>
++              <xs:sequence>
++                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
++                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
++              </xs:sequence>
++              <xs:attribute name="name" type="xsd:string" use="required" />
++            </xs:complexType>
++          </xs:element>
++        </xs:choice>
++      </xs:complexType>
++    </xs:element>
++  </xs:schema>
++  <data name="SettingsConnectionHeader.Text" xml:space="preserve">
++    <value>חיבור</value>
++  </data>
++  <data name="SettingsStartupHeader.Text" xml:space="preserve">
++    <value>הפעלה</value>
++  </data>
++  <data name="SettingsNotificationsHeader.Text" xml:space="preserve">
++    <value>התראות</value>
++  </data>
++  <data name="SettingsAdvancedHeader.Text" xml:space="preserve">
++    <value>מתקדם (ניסיוני)</value>
++  </data>
++  <data name="SettingsGatewayUrlTextBox.Header" xml:space="preserve">
++    <value>Gateway URL</value>
++  </data>
++  <data name="SettingsGatewayUrlTextBox.PlaceholderText" xml:space="preserve">
++    <value>ws://localhost:18789 או https://host.tailnet.ts.net</value>
++  </data>
++  <data name="SettingsTokenTextBox.Header" xml:space="preserve">
++    <value>Token</value>
++  </data>
++  <data name="SettingsTokenTextBox.PlaceholderText" xml:space="preserve">
++    <value>ה־API token שלך</value>
++  </data>
++  <data name="SettingsAutoStartToggle.Header" xml:space="preserve">
++    <value>הפעלה אוטומטית עם Windows</value>
++  </data>
++  <data name="SettingsGlobalHotkeyToggle.Header" xml:space="preserve">
++    <value>מקשי קיצור גלובליים (קול, הגדרות)</value>
++  </data>
++  <data name="SettingsNotificationsToggle.Header" xml:space="preserve">
++    <value>הצג התראות</value>
++  </data>
++  <data name="SettingsNodeModeToggle.Header" xml:space="preserve">
++    <value>הפעלת מצב Node</value>
++  </data>
++  <data name="SettingsSoundComboBox.Header" xml:space="preserve">
++    <value>צליל</value>
++  </data>
++  <data name="SettingsSoundDefault.Content" xml:space="preserve">
++    <value>ברירת מחדל</value>
++  </data>
++  <data name="SettingsSoundNone.Content" xml:space="preserve">
++    <value>ללא</value>
++  </data>
++  <data name="SettingsSoundSubtle.Content" xml:space="preserve">
++    <value>עדין</value>
++  </data>
++  <data name="SettingsNotifyForLabel.Text" xml:space="preserve">
++    <value>הצג התראות עבור:</value>
++  </data>
++  <data name="SettingsNotifyFilterHint.Text" xml:space="preserve">
++    <value>סינון לפי מילות מפתח בהודעה (למשל, 'דוא"ל', 'תזכורת')</value>
++  </data>
++  <data name="SettingsNotifyHealthCb.Content" xml:space="preserve">
++    <value>התראות בריאות</value>
++  </data>
++  <data name="SettingsNotifyUrgentCb.Content" xml:space="preserve">
++    <value>הודעות דחופות</value>
++  </data>
++  <data name="SettingsNotifyReminderCb.Content" xml:space="preserve">
++    <value>תזכורות</value>
++  </data>
++  <data name="SettingsNotifyEmailCb.Content" xml:space="preserve">
++    <value>סיכומי דוא"ל</value>
++  </data>
++  <data name="SettingsNotifyCalendarCb.Content" xml:space="preserve">
++    <value>אירועי לוח שנה</value>
++  </data>
++  <data name="SettingsNotifyBuildCb.Content" xml:space="preserve">
++    <value>הודעות בנייה</value>
++  </data>
++  <data name="SettingsNotifyStockCb.Content" xml:space="preserve">
++    <value>התראות מניות</value>
++  </data>
++  <data name="SettingsNotifyInfoCb.Content" xml:space="preserve">
++    <value>הודעות מידע</value>
++  </data>
++  <data name="SettingsTestConnectionButton.Content" xml:space="preserve">
++    <value>בדיקה</value>
++  </data>
++  <data name="SettingsTestNotificationButton.Content" xml:space="preserve">
++    <value>שלח בדיקה התראה</value>
++  </data>
++  <data name="SettingsSaveButton.Content" xml:space="preserve">
++    <value>שמירה</value>
++  </data>
++  <data name="SettingsCancelButton.Content" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="SettingsNodeModeDescription.Text" xml:space="preserve">
++    <value>כאשר מופעל, מחשב זה יכול לקבל פקודות מהסוכן (בד ציור, צילומי מסך וכו').</value>
++  </data>
++  <data name="StatusUsageHeader.Text" xml:space="preserve">
++    <value>שימוש</value>
++  </data>
++  <data name="StatusSessionsHeader.Text" xml:space="preserve">
++    <value>הפעלות פעילות</value>
++  </data>
++  <data name="StatusChannelsHeader.Text" xml:space="preserve">
++    <value>ערוצים</value>
++  </data>
++  <data name="StatusGatewayTopologyHeader.Text" xml:space="preserve">
++    <value>GATEWAY טופולוגיה</value>
++  </data>
++  <data name="StatusSupportDebugHeader.Text" xml:space="preserve">
++    <value>תמיכה וניפוי באגים</value>
++  </data>
++  <data name="StatusPortDiagnosticsHeader.Text" xml:space="preserve">
++    <value>אבחון פורטים</value>
++  </data>
++  <data name="StatusPermissionsHeader.Text" xml:space="preserve">
++    <value>הרשאות</value>
++  </data>
++  <data name="StatusCostTrendHeader.Text" xml:space="preserve">
++    <value>מגמת עלויות ל-30 יום</value>
++  </data>
++  <data name="StatusExtensibilityHeader.Text" xml:space="preserve">
++    <value>יכולת הרחבה</value>
++  </data>
++  <data name="StatusNodesHeader.Text" xml:space="preserve">
++    <value>צמתים</value>
++  </data>
++  <data name="StatusRecentActivityHeader.Text" xml:space="preserve">
++    <value>אחרונים פעילות</value>
++  </data>
++  <data name="StatusCostLabel.Text" xml:space="preserve">
++    <value>עלות (חלון):</value>
++  </data>
++  <data name="StatusRequestsLabel.Text" xml:space="preserve">
++    <value>בקשות / טוקנים:</value>
++  </data>
++  <data name="StatusProvidersLabel.Text" xml:space="preserve">
++    <value>ספקים:</value>
