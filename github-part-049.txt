@@ -1,0 +1,341 @@
++    <value>בכל צילום בוחרים מה לשתף</value>
++  </data>
++  <data name="Setup_Permission_EnableCamera" xml:space="preserve">
++    <value>יש להפעיל בהגדרות כדי להשתמש במצלמה</value>
++  </data>
++  <data name="Setup_Permission_EnableLocation" xml:space="preserve">
++    <value>יש להפעיל בהגדרות כדי לשתף מיקום</value>
++  </data>
++  <data name="Setup_Permission_EnableMicrophone" xml:space="preserve">
++    <value>יש להפעיל בהגדרות כדי להשתמש במיקרופון</value>
++  </data>
++  <data name="Setup_Permission_EnableNotifications" xml:space="preserve">
++    <value>יש להפעיל בהגדרות כדי לקבל התראות</value>
++  </data>
++  <data name="Setup_Permission_Location" xml:space="preserve">
++    <value>מיקום</value>
++  </data>
++  <data name="Setup_Permission_LocationOn" xml:space="preserve">
++    <value>שירותי המיקום של Windows פעילים</value>
++  </data>
++  <data name="Setup_Permission_Microphone" xml:space="preserve">
++    <value>מיקרופון</value>
++  </data>
++  <data name="Setup_Permission_MicrophoneOn" xml:space="preserve">
++    <value>הגישה למיקרופון ב־Windows פעילה</value>
++  </data>
++  <data name="Setup_Permission_NoCamera" xml:space="preserve">
++    <value>לא זוהתה מצלמה</value>
++  </data>
++  <data name="Setup_Permission_NoMicrophone" xml:space="preserve">
++    <value>לא זוהה מיקרופון</value>
++  </data>
++  <data name="Setup_Permission_NotSupported" xml:space="preserve">
++    <value>לא נתמך במכשיר הזה</value>
++  </data>
++  <data name="Setup_Permission_Notifications" xml:space="preserve">
++    <value>התראות</value>
++  </data>
++  <data name="Setup_Permission_NotificationsOn" xml:space="preserve">
++    <value>ההתראות של Windows פעילות</value>
++  </data>
++  <data name="Setup_Permission_OpenSettings" xml:space="preserve">
++    <value>פתיחת ההגדרות</value>
++  </data>
++  <data name="Setup_Permission_OpenSettingsFormat" xml:space="preserve">
++    <value>פתיחת הגדרות {0}</value>
++  </data>
++  <data name="Setup_Permission_ScreenCapture" xml:space="preserve">
++    <value>צילום מסך</value>
++  </data>
++  <data name="Setup_Permission_ScreenCaptureTooltip" xml:space="preserve">
++    <value>ב־Windows אין מתג קבוע לצילום מסך. בכל צילום Windows מציג בורר, כדי שתוכלו לבחור בדיוק מה לשתף. אין צורך לתת הרשאה מראש.</value>
++  </data>
++  <data name="Setup_Permission_StatusUnknown" xml:space="preserve">
++    <value>לא ניתן לבדוק את המצב</value>
++  </data>
++  <data name="Setup_Permission_Unavailable" xml:space="preserve">
++    <value>לא זמין</value>
++  </data>
++  <data name="Setup_Progress_AnotherTaskActive" xml:space="preserve">
++    <value>משימת התקנה אחרת עדיין פעילה. המתינו לסיומה ולאחר מכן הפעילו את אשף OpenClaw.</value>
++  </data>
++  <data name="Setup_Progress_Cancelled" xml:space="preserve">
++    <value>ההתקנה בוטלה.</value>
++  </data>
++  <data name="Setup_Progress_PreviewLocalAi" xml:space="preserve">
++    <value>מוריד את המודל שנבחר מ־Hugging Face: נותרו כ־18 דקות</value>
++  </data>
++  <data name="Setup_Progress_PreviewWsl" xml:space="preserve">
++    <value>יוצר את מופע ה־WSL בשם OpenClawGateway: נותרו כ־4 דקות</value>
++  </data>
++  <data name="Setup_Progress_StepFailedFormat" xml:space="preserve">
++    <value>השלב ״{0}״ נכשל: {1}</value>
++  </data>
++  <data name="Setup_Progress_SubtitleFormat" xml:space="preserve">
++    <value>יוצר את מופע ה־WSL בשם {0}</value>
++  </data>
++  <data name="Setup_Progress_SubtitleWithLocalAiFormat" xml:space="preserve">
++    <value>יוצר את {0}, מתקין llama-server ומכין את המודל שנבחר</value>
++  </data>
++  <data name="Setup_Progress_TitleWithLocalAi" xml:space="preserve">
++    <value>מגדיר את OpenClaw ואת Local AI</value>
++  </data>
++  <data name="Setup_Welcome_Cancel" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="Setup_Welcome_Continue" xml:space="preserve">
++    <value>המשך</value>
++  </data>
++  <data name="Setup_Welcome_DeleteAndReplace" xml:space="preserve">
++    <value>מחיקה והחלפה</value>
++  </data>
++  <data name="Setup_Welcome_DeleteDistroFormat" xml:space="preserve">
++    <value>למחוק לצמיתות את הפצת ה־WSL ״{0}״?</value>
++  </data>
++  <data name="Setup_Welcome_InstallWslGateway" xml:space="preserve">
++    <value>להתקין WSL Gateway חדש?</value>
++  </data>
++  <data name="Setup_Welcome_ReplaceWslGateway" xml:space="preserve">
++    <value>להחליף את ה־WSL Gateway הקיים?</value>
++  </data>
++  <data name="Setup_Welcome_TryAgain" xml:space="preserve">
++    <value>ניסיון נוסף</value>
++  </data>
++  <data name="Setup_Welcome_WslInspectionFailed" xml:space="preserve">
++    <value>לא ניתן לבדוק את WSL</value>
++  </data>
++  <data name="Setup_Welcome_WslNotReady" xml:space="preserve">
++    <value>WSL2 אינו מוכן</value>
++  </data>
++  <data name="Setup_Wizard_ChooseAtLeastOne" xml:space="preserve">
++    <value>יש לבחור לפחות אפשרות חוקית אחת.</value>
++  </data>
++  <data name="Setup_Wizard_ChooseOption" xml:space="preserve">
++    <value>בחירת אפשרות</value>
++  </data>
++  <data name="Setup_Wizard_ChooseOptions" xml:space="preserve">
++    <value>בחירת אפשרויות</value>
++  </data>
++  <data name="Setup_Wizard_ChooseValidOption" xml:space="preserve">
++    <value>יש לבחור אפשרות חוקית.</value>
++  </data>
++  <data name="Setup_Wizard_Confirm" xml:space="preserve">
++    <value>אישור</value>
++  </data>
++  <data name="Setup_Wizard_ConnectionLost" xml:space="preserve">
++    <value>החיבור ל־Gateway נותק בזמן פעולת האשף.</value>
++  </data>
++  <data name="Setup_Wizard_Continue" xml:space="preserve">
++    <value>המשך</value>
++  </data>
++  <data name="Setup_Wizard_Copy" xml:space="preserve">
++    <value>העתקה</value>
++  </data>
++  <data name="Setup_Wizard_DefaultModel" xml:space="preserve">
++    <value>מודל AI ברירת מחדל</value>
++  </data>
++  <data name="Setup_Wizard_EnterValue" xml:space="preserve">
++    <value>יש להזין ערך כדי להמשיך.</value>
++  </data>
++  <data name="Setup_Wizard_EnterValueTitle" xml:space="preserve">
++    <value>הזנת ערך</value>
++  </data>
++  <data name="Setup_Wizard_FailedFormat" xml:space="preserve">
++    <value>אשף ה־Gateway נכשל: {0}</value>
++  </data>
++  <data name="Setup_Wizard_Intro" xml:space="preserve">
++    <value>כמה שאלות קצרות לחיבור הסוכן</value>
++  </data>
++  <data name="Setup_Wizard_InvalidResponse" xml:space="preserve">
++    <value>אשף ה־Gateway החזיר תגובה לא חוקית.</value>
++  </data>
++  <data name="Setup_Wizard_MissingStepId" xml:space="preserve">
++    <value>בשלב של אשף ה־Gateway חסר ID.</value>
++  </data>
++  <data name="Setup_Wizard_More" xml:space="preserve">
++    <value>אפשרויות נוספות ▾</value>
++  </data>
++  <data name="Setup_Wizard_NeedsAttention" xml:space="preserve">
++    <value>האשף דורש טיפול</value>
++  </data>
++  <data name="Setup_Wizard_No" xml:space="preserve">
++    <value>לא</value>
++  </data>
++  <data name="Setup_Wizard_NoOptions" xml:space="preserve">
++    <value>אשף ה־Gateway החזיר שלב בחירה ללא אפשרויות זמינות.</value>
++  </data>
++  <data name="Setup_Wizard_PreviewErrorBody" xml:space="preserve">
++    <value>ה־Gateway הופעל מחדש לפני סיום השלב הנוכחי. ההתקנה נשמרה; הפעילו שוב את האשף, או השתמשו באפשרויות הנוספות כדי להפעיל מחדש או לדלג ולצאת.</value>
++  </data>
++  <data name="Setup_Wizard_PreviewErrorTitle" xml:space="preserve">
++    <value>אירעה בעיה באשף OpenClaw</value>
++  </data>
++  <data name="Setup_Wizard_ProgressTimeoutFormat" xml:space="preserve">
++    <value>שלב ההתקדמות ״{0}״ לא הושלם לאחר {1} עדכונים.</value>
++  </data>
++  <data name="Setup_Wizard_ReconnectAfterRestartFailed" xml:space="preserve">
++    <value>ה־Gateway הופעל מחדש לאחר החלת ההגדרה, אך Companion לא הצליח לאמת את נקודת הקצה המנוהלת ולהתחבר אליה מחדש.</value>
++  </data>
++  <data name="Setup_Wizard_RepeatedStepFormat" xml:space="preserve">
++    <value>אשף ה־Gateway חזר על השלב ״{0}״ פעמים רבות מדי.</value>
++  </data>
++  <data name="Setup_Wizard_RestartFailedFormat" xml:space="preserve">
++    <value>הפעלת ה־Gateway מחדש נכשלה: {0}</value>
++  </data>
++  <data name="Setup_Wizard_RetryWindows" xml:space="preserve">
++    <value>ניסיון נוסף לשילוב עם Windows</value>
++  </data>
++  <data name="Setup_Wizard_SettingUp" xml:space="preserve">
++    <value>מבצע את ההגדרה…</value>
++  </data>
++  <data name="Setup_Wizard_Setup" xml:space="preserve">
++    <value>הגדרה</value>
++  </data>
++  <data name="Setup_Wizard_Skipped" xml:space="preserve">
++    <value>דולג</value>
++  </data>
++  <data name="Setup_Wizard_Skipping" xml:space="preserve">
++    <value>מדלג…</value>
++  </data>
++  <data name="Setup_Wizard_StartAgain" xml:space="preserve">
++    <value>הפעלת האשף מחדש</value>
++  </data>
++  <data name="Setup_Wizard_Submitting" xml:space="preserve">
++    <value>שולח…</value>
++  </data>
++  <data name="Setup_Wizard_TerminalOpenedFormat" xml:space="preserve">
++    <value>נפתח מסוף ב־{0}. התקינו את הכלי ולאחר מכן בחרו ״הפעלת ה־Gateway מחדש״.</value>
++  </data>
++  <data name="Setup_Wizard_TooManyStepsFormat" xml:space="preserve">
++    <value>אשף ה־Gateway חרג מ־{0} שלבים.</value>
++  </data>
++  <data name="Setup_Wizard_TotalProgressTimeoutFormat" xml:space="preserve">
++    <value>אשף ה־Gateway לא הסתיים לאחר {0} עדכוני התקדמות.</value>
++  </data>
++  <data name="Setup_Wizard_VerifyingRestart" xml:space="preserve">
++    <value>ה־Gateway הופעל מחדש; מאמת בעלות על נקודת הקצה…</value>
++  </data>
++  <data name="Setup_Wizard_WindowsNeedsAttention" xml:space="preserve">
++    <value>השילוב עם Windows דורש טיפול</value>
++  </data>
++  <data name="Setup_Wizard_Working" xml:space="preserve">
++    <value>מתבצע…</value>
++  </data>
++  <data name="Setup_Wizard_Yes" xml:space="preserve">
++    <value>כן</value>
++  </data>
++  <data name="Setup_Progress_Group_Preflight" xml:space="preserve">
++    <value>בדיקת תאימות המערכת ו־Local AI</value>
++  </data>
++  <data name="Setup_Progress_Group_WslPlatform" xml:space="preserve">
++    <value>הכנה ואימות של פלטפורמת WSL</value>
++  </data>
++  <data name="Setup_Progress_Group_LocalAiEngine" xml:space="preserve">
++    <value>התקנת llama-server מאומת</value>
++  </data>
++  <data name="Setup_Progress_Group_LocalAiModel" xml:space="preserve">
++    <value>הורדת מודל מאומת מ־Hugging Face</value>
++  </data>
++  <data name="Setup_Progress_Group_LocalAiVerify" xml:space="preserve">
++    <value>אימות Local AI</value>
++  </data>
++  <data name="Setup_Progress_Group_WslNetworking" xml:space="preserve">
++    <value>הגדרת גישת WSL אל Local AI</value>
++  </data>
++  <data name="Setup_Progress_Group_Cleanup" xml:space="preserve">
++    <value>הסרת ה־Gateway הקיים</value>
++  </data>
++  <data name="Setup_Progress_Group_Port" xml:space="preserve">
++    <value>בדיקת הפורט של ה־Gateway</value>
++  </data>
++  <data name="Setup_Progress_Group_WslCreate" xml:space="preserve">
++    <value>התקנת WSL Gateway נקי</value>
++  </data>
++  <data name="Setup_Progress_Group_WslConfigure" xml:space="preserve">
++    <value>הגדרת המופע</value>
++  </data>
++  <data name="Setup_Progress_Group_InstallCli" xml:space="preserve">
++    <value>התקנת OpenClaw</value>
++  </data>
++  <data name="Setup_Progress_Group_LocalAiWsl" xml:space="preserve">
++    <value>אימות גישת WSL אל Local AI</value>
++  </data>
++  <data name="Setup_Progress_Group_TailscaleAuth" xml:space="preserve">
++    <value>חיבור Tailscale</value>
++  </data>
++  <data name="Setup_Progress_Group_Configure" xml:space="preserve">
++    <value>הכנת ה־Gateway</value>
++  </data>
++  <data name="Setup_Progress_Group_Start" xml:space="preserve">
++    <value>הפעלת ה־Gateway</value>
++  </data>
++  <data name="Setup_Progress_Group_TailscaleServe" xml:space="preserve">
++    <value>פרסום ב־Tailscale</value>
++  </data>
++  <data name="Setup_Progress_Group_Pairing" xml:space="preserve">
++    <value>התאמת המכשיר</value>
++  </data>
++  <data name="Setup_Progress_Group_Finish" xml:space="preserve">
++    <value>מסיים את ההגדרה</value>
++  </data>
++
++  <data name="Setup_AdvancedSetupPage_TextBlock_GatewayExample.Text" xml:space="preserve">
++    <value>התחברו ל־Gateway שפועל במחשב הזה, במחשב אחר או מרחוק. לדוגמה: ws://host.local:18790.</value>
++  </data>
++
++  <data name="Setup_Wizard_PreviewWelcome" xml:space="preserve">
++    <value>ברוכים הבאים: נחבר את הסוכן שלכם</value>
++  </data>
++  <data name="Setup_Wizard_PreviewProvider" xml:space="preserve">
++    <value>בחירת ספק ה־AI</value>
++  </data>
++  <data name="Setup_Wizard_PreviewApiKey" xml:space="preserve">
++    <value>הדבקת מפתח ה־API</value>
++  </data>
++  <data name="Setup_Wizard_Connecting" xml:space="preserve">
++    <value>מתחבר ל־Gateway…</value>
++  </data>
++  <data name="Setup_Wizard_Starting" xml:space="preserve">
++    <value>מפעיל את האשף…</value>
++  </data>
++  <data name="Setup_Wizard_Loading" xml:space="preserve">
++    <value>טוען…</value>
++  </data>
++  <data name="Setup_Wizard_StartingOver" xml:space="preserve">
++    <value>מתחיל מחדש…</value>
++  </data>
++  <data name="Setup_Wizard_OpenTerminalFailedFormat" xml:space="preserve">
++    <value>לא ניתן לפתוח מסוף: {0}</value>
++  </data>
++  <data name="Setup_Wizard_RestartingFormat" xml:space="preserve">
++    <value>מפעיל מחדש את {0}…</value>
++  </data>
++  <data name="Setup_Wizard_SkippingWizard" xml:space="preserve">
++    <value>מדלג על האשף…</value>
++  </data>
++  <data name="Setup_Wizard_FinishingWindows" xml:space="preserve">
++    <value>מסיים את השילוב עם Windows…</value>
++  </data>
++  <data name="Setup_Wizard_WindowsGuidanceFailedFormat" xml:space="preserve">
++    <value>אשף OpenClaw הסתיים, אך לא ניתן להתקין את הנחיות ה־Windows Node: {0}</value>
++  </data>
++  <data name="Setup_Progress_CrashedFormat" xml:space="preserve">
++    <value>ההתקנה קרסה: {0}</value>
++  </data>
++  <data name="Setup_Capability_System_Name" xml:space="preserve">
++    <value>מערכת</value>
++  </data>
++  <data name="Setup_Capability_System_Description" xml:space="preserve">
++    <value>פקודות Shell, קבצים ולוח</value>
++  </data>
++  <data name="Setup_Capability_Canvas_Name" xml:space="preserve">
++    <value>Canvas</value>
++  </data>
++  <data name="Setup_Capability_Canvas_Description" xml:space="preserve">
++    <value>לוח והערות</value>
++  </data>
++  <data name="Setup_Capability_Screen_Name" xml:space="preserve">
++    <value>צילום מסך</value>
++  </data>
++  <data name="Setup_Capability_Screen_Description" xml:space="preserve">
