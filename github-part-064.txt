@@ -1,0 +1,223 @@
++++ b/src/OpenClaw.Tray.WinUI/Windows/ChatWindow.xaml.cs
+@@ -76,6 +76,7 @@ public sealed partial class ChatWindow : WindowEx
+         _token = token;
+         _chatUrl = ChatSurfaceResolver.BuildChatUrl(gatewayUrl, token);
+         InitializeComponent();
++        LocalizationHelper.ApplyFlowDirection((FrameworkElement)Content);
+         Title = AppIdentity.DecorateWindowTitle("OpenClaw Chat");
+ 
+         this.SetWindowSize(DefaultChatWidth, DefaultChatHeight);
+@@ -739,9 +740,9 @@ public sealed partial class ChatWindow : WindowEx
+         {
+             var dialog = new ContentDialog
+             {
+-                Title = "Cannot attach file",
++                Title = LocalizationHelper.GetString("ChatPage_CannotAttachFile"),
+                 Content = message,
+-                CloseButtonText = "OK",
++                CloseButtonText = LocalizationHelper.GetString("ChatPage_OK"),
+                 DefaultButton = ContentDialogButton.Close,
+                 XamlRoot = Content?.XamlRoot
+             };
+diff --git a/src/OpenClaw.Tray.WinUI/Windows/CommandPaletteDialog.xaml.cs b/src/OpenClaw.Tray.WinUI/Windows/CommandPaletteDialog.xaml.cs
+index 623b01c7..91344faf 100644
+--- a/src/OpenClaw.Tray.WinUI/Windows/CommandPaletteDialog.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Windows/CommandPaletteDialog.xaml.cs
+@@ -19,6 +19,7 @@ public sealed partial class CommandPaletteDialog : ContentDialog
+     public CommandPaletteDialog(List<CommandItem> commands, Action<CommandItem> onExecute)
+     {
+         InitializeComponent();
++        OpenClawTray.Helpers.LocalizationHelper.ApplyFlowDirection(this);
+         _allCommands = commands;
+         _onExecute = onExecute;
+         ResultsList.ItemsSource = commands.Take(10).ToList();
+diff --git a/src/OpenClaw.Tray.WinUI/Windows/ConnectionStatusWindow.xaml b/src/OpenClaw.Tray.WinUI/Windows/ConnectionStatusWindow.xaml
+index e1c84a27..bfb4d2d3 100644
+--- a/src/OpenClaw.Tray.WinUI/Windows/ConnectionStatusWindow.xaml
++++ b/src/OpenClaw.Tray.WinUI/Windows/ConnectionStatusWindow.xaml
+@@ -76,7 +76,7 @@
+             <!-- Credentials -->
+             <TextBlock x:Uid="ConnectionStatusWindow_CREDENTIALS" Text="CREDENTIALS" FontWeight="Bold" FontSize="11" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,0,0,4" CharacterSpacing="100"/>
+             <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="6" Padding="10">
+-                <TextBlock x:Name="CredentialsText" FontFamily="Consolas" FontSize="10.5" TextWrapping="Wrap" IsTextSelectionEnabled="True"/>
++                <TextBlock FlowDirection="LeftToRight" x:Name="CredentialsText" FontFamily="Consolas" FontSize="10.5" TextWrapping="Wrap" IsTextSelectionEnabled="True"/>
+             </Border>
+ 
+             <!-- Setup Code -->
+@@ -85,9 +85,9 @@
+                 <StackPanel Spacing="6">
+                     <TextBlock x:Uid="ConnectionStatusWindow_PasteASetupCode" Text="Paste a setup code to connect end-to-end." FontSize="10.5"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+-                    <TextBox x:Uid="ConnectionStatusWindow_PasteSetupCode" x:Name="SetupCodeBox" PlaceholderText="Paste setup code…" FontSize="11"
++                    <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionStatusWindow_PasteSetupCode" x:Name="SetupCodeBox" PlaceholderText="Paste setup code…" FontSize="11"
+                              TextChanged="OnSetupCodeChanged"/>
+-                    <TextBlock x:Name="SetupCodePreview" FontFamily="Consolas" FontSize="10"
++                    <TextBlock FlowDirection="LeftToRight" x:Name="SetupCodePreview" FontFamily="Consolas" FontSize="10"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap"/>
+                     <Grid ColumnSpacing="6">
+                         <Grid.ColumnDefinitions>
+@@ -95,7 +95,7 @@
+                             <ColumnDefinition Width="Auto"/>
+                             <ColumnDefinition Width="Auto"/>
+                         </Grid.ColumnDefinitions>
+-                        <TextBlock x:Name="SetupCodeResult" Grid.Column="0" FontSize="10.5"
++                        <TextBlock x:Name="SetupCodeResult" FlowDirection="LeftToRight" Grid.Column="0" FontSize="10.5"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center"/>
+                         <Button x:Uid="ConnectionStatusWindow_Connect" Grid.Column="1" x:Name="ConnectButton" Content="Connect" Click="OnConnect" Padding="8,3" FontSize="11"/>
+                         <Button x:Uid="ConnectionStatusWindow_Disconnect" Grid.Column="2" x:Name="DisconnectBtn" Content="Disconnect" Click="OnDisconnectClick" Padding="8,3" FontSize="11"/>
+@@ -109,14 +109,14 @@
+                 <StackPanel Spacing="6">
+                     <TextBlock x:Uid="ConnectionStatusWindow_ConnectWithAGateway" Text="Connect with a gateway URL and shared token (admin scope)." FontSize="10.5"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+-                    <TextBox x:Uid="ConnectionStatusWindow_WsLocalhost18790" x:Name="DirectUrlBox" PlaceholderText="ws://localhost:18790" Text="ws://localhost:18790" FontSize="11" Header="Gateway URL"/>
+-                    <TextBox x:Uid="ConnectionStatusWindow_SharedGatewayToken" x:Name="DirectTokenBox" PlaceholderText="Shared gateway token" FontSize="11" Header="Token"/>
++                    <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionStatusWindow_WsLocalhost18790" x:Name="DirectUrlBox" PlaceholderText="ws://localhost:18790" Text="ws://localhost:18790" FontSize="11" Header="Gateway URL"/>
++                    <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionStatusWindow_SharedGatewayToken" x:Name="DirectTokenBox" PlaceholderText="Shared gateway token" FontSize="11" Header="Token"/>
+                     <Grid ColumnSpacing="6">
+                         <Grid.ColumnDefinitions>
+                             <ColumnDefinition Width="*"/>
+                             <ColumnDefinition Width="Auto"/>
+                         </Grid.ColumnDefinitions>
+-                        <TextBlock x:Name="DirectConnectResult" Grid.Column="0" FontSize="10.5"
++                        <TextBlock x:Name="DirectConnectResult" FlowDirection="LeftToRight" Grid.Column="0" FontSize="10.5"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center"/>
+                         <Button x:Uid="ConnectionStatusWindow_Connect2" Grid.Column="1" Content="Connect" Click="OnDirectConnect" Padding="8,3" FontSize="11"
+                                 Style="{ThemeResource AccentButtonStyle}"/>
+@@ -131,23 +131,23 @@
+                                 <ColumnDefinition Width="*"/>
+                                 <ColumnDefinition Width="*"/>
+                             </Grid.ColumnDefinitions>
+-                            <TextBox x:Uid="ConnectionStatusWindow_SSHUser" x:Name="DiagSshUserBox" Grid.Column="0" Header="SSH User" PlaceholderText="user" FontSize="11"/>
+-                            <TextBox x:Uid="ConnectionStatusWindow_SSHHost" x:Name="DiagSshHostBox" Grid.Column="1" Header="SSH Host" PlaceholderText="192.168.x.x" FontSize="11"/>
++                            <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionStatusWindow_SSHUser" x:Name="DiagSshUserBox" Grid.Column="0" Header="SSH User" PlaceholderText="user" FontSize="11"/>
++                            <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionStatusWindow_SSHHost" x:Name="DiagSshHostBox" Grid.Column="1" Header="SSH Host" PlaceholderText="192.168.x.x" FontSize="11"/>
+                         </Grid>
+                         <Grid ColumnSpacing="6">
+                             <Grid.ColumnDefinitions>
+                                 <ColumnDefinition Width="*"/>
+                                 <ColumnDefinition Width="*"/>
+                             </Grid.ColumnDefinitions>
+-                            <TextBox x:Uid="ConnectionStatusWindow_SshServerPort" x:Name="DiagSshServerPortBox" Grid.Column="0" Header="SSH Port" PlaceholderText="22" Text="22" FontSize="11"/>
+-                            <TextBox x:Uid="ConnectionStatusWindow_RemotePort" x:Name="DiagSshRemotePortBox" Grid.Column="1" Header="Remote Port" PlaceholderText="18789" Text="18789" FontSize="11"/>
++                            <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionStatusWindow_SshServerPort" x:Name="DiagSshServerPortBox" Grid.Column="0" Header="SSH Port" PlaceholderText="22" Text="22" FontSize="11"/>
++                            <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionStatusWindow_RemotePort" x:Name="DiagSshRemotePortBox" Grid.Column="1" Header="Remote Port" PlaceholderText="18789" Text="18789" FontSize="11"/>
+                         </Grid>
+                         <Grid ColumnSpacing="6">
+                             <Grid.ColumnDefinitions>
+                                 <ColumnDefinition Width="*"/>
+                                 <ColumnDefinition Width="*"/>
+                             </Grid.ColumnDefinitions>
+-                            <TextBox x:Uid="ConnectionStatusWindow_LocalPort" x:Name="DiagSshLocalPortBox" Grid.Column="0" Header="Local Port" PlaceholderText="18790" Text="18790" FontSize="11"/>
++                            <TextBox FlowDirection="LeftToRight" x:Uid="ConnectionStatusWindow_LocalPort" x:Name="DiagSshLocalPortBox" Grid.Column="0" Header="Local Port" PlaceholderText="18790" Text="18790" FontSize="11"/>
+                         </Grid>
+                     </StackPanel>
+                 </StackPanel>
+@@ -174,7 +174,7 @@
+             <ScrollViewer Grid.Row="1" x:Name="TimelineScroll"
+                           Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="6" Padding="10"
+                           VerticalScrollBarVisibility="Auto">
+-                <RichTextBlock x:Name="TimelineRichText" FontFamily="Consolas" FontSize="11" IsTextSelectionEnabled="True" TextWrapping="Wrap"/>
++                <RichTextBlock x:Name="TimelineRichText" FlowDirection="LeftToRight" FontFamily="Consolas" FontSize="11" IsTextSelectionEnabled="True" TextWrapping="Wrap"/>
+             </ScrollViewer>
+         </Grid>
+     </Grid>
+diff --git a/src/OpenClaw.Tray.WinUI/Windows/ConnectionStatusWindow.xaml.cs b/src/OpenClaw.Tray.WinUI/Windows/ConnectionStatusWindow.xaml.cs
+index f91506c9..a16c6b41 100644
+--- a/src/OpenClaw.Tray.WinUI/Windows/ConnectionStatusWindow.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Windows/ConnectionStatusWindow.xaml.cs
+@@ -49,6 +49,7 @@ public sealed partial class ConnectionStatusWindow : WindowEx
+         IGatewayConnectionManager? manager = null)
+     {
+         InitializeComponent();
++        LocalizationHelper.ApplyFlowDirection((FrameworkElement)Content);
+         _diagnostics = diagnostics;
+         _registry = registry;
+         _manager = manager;
+diff --git a/src/OpenClaw.Tray.WinUI/Windows/DiagnosticsBundleDialog.xaml b/src/OpenClaw.Tray.WinUI/Windows/DiagnosticsBundleDialog.xaml
+index d13b85f8..573c9a4e 100644
+--- a/src/OpenClaw.Tray.WinUI/Windows/DiagnosticsBundleDialog.xaml
++++ b/src/OpenClaw.Tray.WinUI/Windows/DiagnosticsBundleDialog.xaml
+@@ -70,7 +70,7 @@
+                 Height="420"
+                 VerticalScrollBarVisibility="Auto"
+                 HorizontalScrollBarVisibility="Auto">
+-                <TextBox
++                <TextBox FlowDirection="LeftToRight"
+                     x:Name="BundleText"
+                     IsReadOnly="True"
+                     AcceptsReturn="True"
+diff --git a/src/OpenClaw.Tray.WinUI/Windows/DiagnosticsBundleDialog.xaml.cs b/src/OpenClaw.Tray.WinUI/Windows/DiagnosticsBundleDialog.xaml.cs
+index c9f56fef..8eb6d128 100644
+--- a/src/OpenClaw.Tray.WinUI/Windows/DiagnosticsBundleDialog.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Windows/DiagnosticsBundleDialog.xaml.cs
+@@ -24,6 +24,7 @@ public sealed partial class DiagnosticsBundleDialog : ContentDialog
+     public DiagnosticsBundleDialog()
+     {
+         InitializeComponent();
++        OpenClawTray.Helpers.LocalizationHelper.ApplyFlowDirection(this);
+         PrimaryButtonClick += OnCopyClick;
+         SecondaryButtonClick += OnSaveClick;
+     }
+@@ -61,12 +62,12 @@ public sealed partial class DiagnosticsBundleDialog : ContentDialog
+         // Do NOT close on copy — the user may want to also save the file
+         // before dismissing. Cancel the implicit close.
+         args.Cancel = true;
+-        PrimaryButtonText = "Copied";
++        PrimaryButtonText = LocalizationHelper.GetString("DiagnosticsBundleDialog_Copied");
+         var timer = DispatcherQueue.CreateTimer();
+         timer.Interval = TimeSpan.FromSeconds(2);
+         timer.Tick += (_, _) =>
+         {
+-            PrimaryButtonText = "Copy to clipboard";
++            PrimaryButtonText = LocalizationHelper.GetString("DiagnosticsBundleDialog_CopyToClipboard");
+             timer.Stop();
+         };
+         timer.Start();
+@@ -85,7 +86,7 @@ public sealed partial class DiagnosticsBundleDialog : ContentDialog
+             {
+                 try
+                 {
+-                    SecondaryButtonText = "Saving...";
++                    SecondaryButtonText = LocalizationHelper.GetString("DiagnosticsBundleDialog_Saving");
+                     var result = await SaveToFileAsync();
+                     SecondaryButtonText = result.ButtonText;
+                 }
+@@ -98,7 +99,7 @@ public sealed partial class DiagnosticsBundleDialog : ContentDialog
+                 timer.Interval = TimeSpan.FromSeconds(2);
+                 timer.Tick += (_, _) =>
+                 {
+-                    SecondaryButtonText = "Save to file";
++                    SecondaryButtonText = LocalizationHelper.GetString("DiagnosticsBundleDialog_SaveToFile");
+                     timer.Stop();
+                 };
+                 timer.Start();
+diff --git a/src/OpenClaw.Tray.WinUI/Windows/HubWindow.xaml b/src/OpenClaw.Tray.WinUI/Windows/HubWindow.xaml
+index 933301b0..d3595be5 100644
+--- a/src/OpenClaw.Tray.WinUI/Windows/HubWindow.xaml
++++ b/src/OpenClaw.Tray.WinUI/Windows/HubWindow.xaml
+@@ -52,6 +52,7 @@
+                                         HorizontalAlignment="Center"/>
+                     <FontIcon x:Name="BrandToggleGlyph"
+                               Glyph="&#xE90C;"
++                              MirroredWhenRightToLeft="True"
+                               FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                               FontSize="16"
+                               Opacity="0"
+@@ -84,6 +85,7 @@
+                         <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="{ThemeResource SubtleFillColorTertiary}"/>
+                     </Button.Resources>
+                     <FontIcon Glyph="&#xE76B;"
++                              MirroredWhenRightToLeft="True"
+                               FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                               FontSize="16"/>
+                 </Button>
+@@ -128,7 +130,7 @@
+                     </Button.Resources>
+                     <StackPanel Orientation="Horizontal" Spacing="7" VerticalAlignment="Center">
+                         <Ellipse x:Name="StatusPillDot" Width="10" Height="10" VerticalAlignment="Center" Fill="Gray"/>
+-                        <TextBlock x:Name="StatusPillText" Text="Disconnected"
++                        <TextBlock x:Uid="HubWindow_Disconnected" x:Name="StatusPillText" Text="Disconnected"
+                                    Style="{StaticResource CaptionTextBlockStyle}"
+                                    VerticalAlignment="Center"/>
+                         <FontIcon Glyph="&#xE70D;" FontSize="8" VerticalAlignment="Center"
+diff --git a/src/OpenClaw.Tray.WinUI/Windows/HubWindow.xaml.cs b/src/OpenClaw.Tray.WinUI/Windows/HubWindow.xaml.cs
