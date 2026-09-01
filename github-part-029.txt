@@ -1,0 +1,342 @@
++  <data name="Onboarding_Connection_StatusRateLimited" xml:space="preserve">
++    <value>קצב מוגבל: המתן רגע ונסה שוב</value>
++  </data>
++  <data name="Onboarding_Connection_RunOnGateway" xml:space="preserve">
++    <value>הפעל על Gateway שלך:</value>
++  </data>
++  <data name="Onboarding_Connection_ClickToCopy" xml:space="preserve">
++    <value>לחץ להעתקה</value>
++  </data>
++  <data name="Onboarding_Connection_CopyFailed" xml:space="preserve">
++    <value>העתקה נכשלה: לחץ כדי לנסות שוב</value>
++  </data>
++  <data name="Onboarding_Connection_Copied" xml:space="preserve">
++    <value>הועתק!</value>
++  </data>
++  <data name="Onboarding_Connection_StatusFailed" xml:space="preserve">
++    <value>החיבור נכשל: בדוק את URL ואת token, ולאחר מכן נסה שוב</value>
++  </data>
++  <data name="Onboarding_Wizard_StepError" xml:space="preserve">
++    <value>אירעה שגיאה בעיבוד שלב זה</value>
++  </data>
++  <data name="Onboarding_Connection_StatusDetecting" xml:space="preserve">
++    <value>מזהה Gateway...</value>
++  </data>
++  <data name="Onboarding_Connection_StatusDetected" xml:space="preserve">
++    <value>Gateway זוהה ביציאת הפיתוח</value>
++  </data>
++  <data name="Onboarding_Connection_StatusAuthenticating" xml:space="preserve">
++    <value>מאמת...</value>
++  </data>
++  <data name="Onboarding_Connection_Wsl" xml:space="preserve">
++    <value>WSL Gateway</value>
++  </data>
++  <data name="Onboarding_Connection_Ssh" xml:space="preserve">
++    <value>מנהרת SSH</value>
++  </data>
++  <data name="Onboarding_Connection_PasteSetup" xml:space="preserve">
++    <value>הדבקה</value>
++  </data>
++  <data name="Onboarding_Connection_QrButton" xml:space="preserve">
++    <value>QR</value>
++  </data>
++  <data name="Onboarding_Connection_QrFilePickerTitle" xml:space="preserve">
++    <value>ייבוא ​​תמונת QR</value>
++  </data>
++  <data name="Onboarding_Connection_QrDecodeFailed" xml:space="preserve">
++    <value>לא ניתן היה לפענח קוד התקנה מהתמונה הזו</value>
++  </data>
++  <data name="Onboarding_Connection_SshHint" xml:space="preserve">
++    <value>OpenClaw ייצור מנהרה מנוהלת SSH כדי להעביר את הפורט Gateway מהמארח המרוחק למחשב זה.</value>
++  </data>
++  <data name="Onboarding_Connection_SshUser" xml:space="preserve">
++    <value>משתמש SSH</value>
++  </data>
++  <data name="Onboarding_Connection_SshHost" xml:space="preserve">
++    <value>מארח SSH</value>
++  </data>
++  <data name="Onboarding_Connection_SshRemotePort" xml:space="preserve">
++    <value>יציאה מרוחקת Gateway</value>
++  </data>
++  <data name="Onboarding_Connection_SshLocalPort" xml:space="preserve">
++    <value>יציאה מקומית להעברה</value>
++  </data>
++  <data name="Onboarding_Connection_SshPreviewLabel" xml:space="preserve">
++    <value>מנהרה מנוהלת:</value>
++  </data>
++  <data name="Onboarding_Connection_SshUserInvalid" xml:space="preserve">
++    <value>הזן משתמש SSH חוקי לפני ההתחברות.</value>
++  </data>
++  <data name="Onboarding_Connection_SshHostInvalid" xml:space="preserve">
++    <value>הזן מארח SSH חוקי (לדוגמה, mac-studio.local) לפני ההתחברות.</value>
++  </data>
++  <data name="Onboarding_Connection_TopologyDetectedFmt" xml:space="preserve">
++    <value>זוהה: {0}</value>
++  </data>
++  <data name="Onboarding_Connection_LaterStatus" xml:space="preserve">
++    <value>ניתן להגדיר את Gateway מאוחר יותר בהגדרות.</value>
++  </data>
++  <data name="Onboarding_SetupWarning_Title" xml:space="preserve">
++    <value>הגדרת OpenClaw</value>
++  </data>
++  <data name="Onboarding_SetupWarning_Body" xml:space="preserve">
++    <value>OpenClaw מאפשר לסוכנים להריץ פקודות, לקרוא ולכתוב קבצים וללכוד צילומי מסך במחשב זה. הגדר אותו רק במחשב שאתה בוטח בו.
++
++⚠️ ההתקנה המקומית מתקינה מופע קטן WSL Linux המוקדש ל-OpenClaw. אם אתה מעדיף להתחבר ל-gateway קיים או מרוחק, בחר הגדרה מתקדמת.</value>
++  </data>
++  <data name="Onboarding_SetupWarning_SetupLocally" xml:space="preserve">
++    <value>הגדרה מקומית</value>
++  </data>
++  <data name="Onboarding_SetupWarning_Advanced" xml:space="preserve">
++    <value>הגדרה מתקדמת</value>
++  </data>
++  <data name="Onboarding_SetupWarning_ReplaceHeading" xml:space="preserve">
++    <value>⚠️ להחליף את התצורה הקיימת?</value>
++  </data>
++  <data name="Onboarding_SetupWarning_ReplaceBody" xml:space="preserve">
++    <value>מעבר קדימה יתנתק מה־Gateway הנוכחי ותאבד את כל ההגדרות.</value>
++  </data>
++  <data name="Onboarding_SetupWarning_ReplaceConfirm" xml:space="preserve">
++    <value>החלפת ההגדרות שלי</value>
++  </data>
++  <data name="Onboarding_SetupWarning_ReplaceCancel" xml:space="preserve">
++    <value>שמירה על ההגדרות שלי</value>
++  </data>
++  <data name="Onboarding_LocalSetup_Title" xml:space="preserve">
++    <value>הגדרה מקומית</value>
++  </data>
++  <data name="Onboarding_LocalSetup_SubtitleIdle" xml:space="preserve">
++    <value>מגדיר את ה־OpenClaw Gateway המקומי.</value>
++  </data>
++  <data name="Onboarding_LocalSetup_SubtitleSuccess" xml:space="preserve">
++    <value>ה־Gateway המקומי מוכן.</value>
++  </data>
++  <data name="Onboarding_LocalSetup_Retry" xml:space="preserve">
++    <value>ניסיון נוסף</value>
++  </data>
++  <data name="Onboarding_LocalSetup_TerminalFailure" xml:space="preserve">
++    <value>ההתקנה לא הושלמה.</value>
++  </data>
++  <data name="Onboarding_LocalSetup_DiagnosticsHint" xml:space="preserve">
++    <value>אבחון: aka.ms/wsllogs</value>
++  </data>
++  <data name="Onboarding_LocalSetup_Phase_Preflight" xml:space="preserve">
++    <value>בדיקת מערכת</value>
++  </data>
++  <data name="Onboarding_LocalSetup_Phase_CreateInstance" xml:space="preserve">
++    <value>התקנת Ubuntu</value>
++  </data>
++  <data name="Onboarding_LocalSetup_Phase_Configure" xml:space="preserve">
++    <value>הגדרת מופע</value>
++  </data>
++  <data name="Onboarding_LocalSetup_Phase_InstallCli" xml:space="preserve">
++    <value>התקנת OpenClaw</value>
++  </data>
++  <data name="Onboarding_LocalSetup_Phase_PrepareConfig" xml:space="preserve">
++    <value>הכנה Gateway</value>
++  </data>
++  <data name="Onboarding_LocalSetup_Phase_StartGateway" xml:space="preserve">
++    <value>הפעלה Gateway</value>
++  </data>
++  <data name="Onboarding_LocalSetup_Phase_MintToken" xml:space="preserve">
++    <value>יצירת קוד התקנה</value>
++  </data>
++  <data name="Onboarding_Welcome_Title" xml:space="preserve">
++    <value>ברוכים הבאים ל-OpenClaw</value>
++  </data>
++  <data name="Onboarding_Welcome_Subtitle" xml:space="preserve">
++    <value>עוזר הבינה המלאכותית שלך, במגש המערכת</value>
++  </data>
++  <data name="Onboarding_Welcome_SecurityTitle" xml:space="preserve">
++    <value>הודעת אבטחה</value>
++  </data>
++  <data name="Onboarding_Welcome_SecurityBody" xml:space="preserve">
++    <value>OpenClaw מפעיל סוכן בינה מלאכותית שיכול לבצע פקודות, לקרוא ולכתוב קבצים ולקיים אינטראקציה עם המערכת שלך בשמך.</value>
++  </data>
++  <data name="Onboarding_Welcome_TrustTitle" xml:space="preserve">
++    <value>הסוכן שלך יכול:</value>
++  </data>
++  <data name="Onboarding_Welcome_Trust_Commands" xml:space="preserve">
++    <value>להפעיל פקודות במחשב שלך</value>
++  </data>
++  <data name="Onboarding_Welcome_Trust_Files" xml:space="preserve">
++    <value>לקרוא ולכתוב קבצים</value>
++  </data>
++  <data name="Onboarding_Welcome_Trust_Screen" xml:space="preserve">
++    <value>ללכוד צילומי מסך</value>
++  </data>
++  <data name="AgentEventsPage_TextBlock_18.Text" xml:space="preserve">
++    <value>זרם אירועים</value>
++  </data>
++  <data name="AgentFilterCombo.Header" xml:space="preserve">
++    <value>סוכן</value>
++  </data>
++  <data name="AgentFilterCombo.PlaceholderText" xml:space="preserve">
++    <value>כל הסוכנים</value>
++  </data>
++  <data name="AgentEventsPage_IntroText.Text" xml:space="preserve">
++    <value>זרם בזמן אמת של פעילות סוכן: קריאות כלים, תגובות, שגיאות ואירועי מחזור חיים.</value>
++  </data>
++  <data name="AgentEventsPage_ComboBoxItem_26.Content" xml:space="preserve">
++    <value>כל הסוכנים</value>
++  </data>
++  <data name="AgentEventsPage_ToggleButton_36.Text" xml:space="preserve">
++    <value>כלי</value>
++  </data>
++  <data name="AgentEventsPage_ToggleButton_37.Text" xml:space="preserve">
++    <value>עוזר</value>
++  </data>
++  <data name="AgentEventsPage_ToggleButton_38.Text" xml:space="preserve">
++    <value>שגיאה</value>
++  </data>
++  <data name="AgentEventsPage_ToggleButton_39.Text" xml:space="preserve">
++    <value>מחזור חיים</value>
++  </data>
++  <data name="AgentEventsPage_ToggleButton_40.Text" xml:space="preserve">
++    <value>תוכנית</value>
++  </data>
++  <data name="AgentEventsPage_ToggleButton_41.Text" xml:space="preserve">
++    <value>אישור</value>
++  </data>
++  <data name="AgentEventsPage_ToggleButton_42.Text" xml:space="preserve">
++    <value>חשיבה</value>
++  </data>
++  <data name="AgentEventsPage_ToggleButton_43.Text" xml:space="preserve">
++    <value>תיקון</value>
++  </data>
++  <data name="AgentEventsPage_TextBlock_96.Text" xml:space="preserve">
++    <value>אין אירועים בהפעלה זו</value>
++  </data>
++  <data name="AgentEventsPage_TextBlock_99.Text" xml:space="preserve">
++    <value>אירועים זורמים כאן בזמן אמת בזמן שהסוכנים פועלים. ההיסטוריה נמחקת כאשר האפליקציה מופעלת מחדש.</value>
++  </data>
++  <data name="ClearButton.Content" xml:space="preserve">
++    <value>נקה</value>
++  </data>
++  <data name="ClearButton.Text" xml:space="preserve">
++    <value>נקה</value>
++  </data>
++  <data name="BindingsPage_TextBlock_16.Text" xml:space="preserve">
++    <value>קישורים</value>
++  </data>
++  <data name="BindingsPage_TextBlock_17.Text" xml:space="preserve">
++    <value>כללי ניתוב הודעות</value>
++  </data>
++  <data name="BindingsPage_TextBlock_25.Text" xml:space="preserve">
++    <value>רענון</value>
++  </data>
++  <data name="CapabilitiesPage_TextBlock_10.Text" xml:space="preserve">
++    <value>🖥️ מחשב זה</value>
++  </data>
++  <data name="PermissionsPage_IntroText.Text" xml:space="preserve">
++    <value>יכולות המכשיר המסופקות לסוכנים דרך Gateway. החלף מה מחשב זה יכול לעשות.</value>
++  </data>
++  <data name="PermissionsPage_McpHeader.Text" xml:space="preserve">
++    <value>שרת מקומי MCP</value>
++  </data>
++  <data name="PermissionsPage_McpDescription.Text" xml:space="preserve">
++    <value>מספק יכולות ללקוחות מקומיים MCP (כלים CLI, אינטגרציות) במחשב זה דרך HTTP.</value>
++  </data>
++  <data name="PermissionsPage_McpEndpointLabel.Text" xml:space="preserve">
++    <value>נקודת קצה:</value>
++  </data>
++  <data name="CopyMcpTokenButton.Content" xml:space="preserve">
++    <value>העתק Token</value>
++  </data>
++  <data name="CopyMcpUrlButton.Content" xml:space="preserve">
++    <value>העתק URL</value>
++  </data>
++  <data name="CapabilitiesPage_TextBlock_66.Text" xml:space="preserve">
++    <value>Node סטטוס</value>
++  </data>
++  <data name="NodeStatusText.Text" xml:space="preserve">
++    <value>מצב Node מושבת</value>
++  </data>
++  <data name="ChannelsPage_TextBlock_10.Text" xml:space="preserve">
++    <value>📡 ערוצים</value>
++  </data>
++  <data name="ConnectionWarning.Title" xml:space="preserve">
++    <value>לא מחובר</value>
++  </data>
++  <data name="ChannelsPage_TextBlock_22.Text" xml:space="preserve">
++    <value>לא הוגדרו ערוצים</value>
++  </data>
++  <data name="ChatPage_TextBlock_53.Text" xml:space="preserve">
++    <value>התחבר אל Gateway כדי להתחיל בצ'אט</value>
++  </data>
++  <data name="ChatPage_WaitingTitle.Text" xml:space="preserve">
++    <value>ממתין להתחלת הצ'אט…</value>
++  </data>
++  <data name="ChatPage_WaitingStatusText.Text" xml:space="preserve">
++    <value>ה־Gateway מחובר; משטח הצ'אט עדיין מתחבר.</value>
++  </data>
++  <data name="ConfigPage_TextBlock_17.Text" xml:space="preserve">
++    <value>תצורה</value>
++  </data>
++  <data name="ConfigPage_TextBlock_21.Text" xml:space="preserve">
++    <value>רענון</value>
++  </data>
++  <data name="ConfigPage_OpenConnection.Content" xml:space="preserve">
++    <value>חיבור פתוח</value>
++  </data>
++  <data name="ConfigPage_ConnectionInfoBar.Title" xml:space="preserve">
++    <value>Gateway מנותק</value>
++  </data>
++  <data name="ConfigPage_ConnectionInfoBar.Message" xml:space="preserve">
++    <value>התחבר ל־Gateway כדי לטעון ולשמור תצורה.</value>
++  </data>
++  <data name="ConfigPage_LoadingText.Text" xml:space="preserve">
++    <value>טוען Gateway תצורה...</value>
++  </data>
++  <data name="ConfigPage_EditorLabel.Text" xml:space="preserve">
++    <value>עורך</value>
++  </data>
++  <data name="ConfigSearchBox.PlaceholderText" xml:space="preserve">
++    <value>הגדרות סינון</value>
++  </data>
++  <data name="ToggleJsonPreviewButton.Content" xml:space="preserve">
++    <value>כווץ JSON</value>
++  </data>
++  <data name="ToggleJsonPreviewButton_Show.Content" xml:space="preserve">
++    <value>הצג JSON</value>
++  </data>
++  <data name="ResetSectionButton.Content" xml:space="preserve">
++    <value>איפוס מקטע</value>
++  </data>
++  <data name="DetailLoadingText.Text" xml:space="preserve">
++    <value>טוען מקטע...</value>
++  </data>
++  <data name="ConfigPage_LoadingFullConfigPreview" xml:space="preserve">
++    <value>טוען תצוגה מקדימה מלאה של התצורה...</value>
++  </data>
++  <data name="ConfigPage_LoadingSectionFormat" xml:space="preserve">
++    <value>טוען {0}...</value>
++  </data>
++  <data name="SelectedJsonPreviewTitle.Text" xml:space="preserve">
++    <value>JSON תצוגה מקדימה</value>
++  </data>
++  <data name="SelectedJsonCaption.Text" xml:space="preserve">
++    <value>השווה את הערך Gateway עם הערך המוצע שלא נשמר.</value>
++  </data>
++  <data name="CopySelectedJsonButton.Content" xml:space="preserve">
++    <value>העתק</value>
++  </data>
++  <data name="DiscardButton.Content" xml:space="preserve">
++    <value>בטל שינויים</value>
++  </data>
++  <data name="ConfigPage_TabViewItem_34.Text" xml:space="preserve">
++    <value>עורך</value>
++  </data>
++  <data name="DetailPath.Text" xml:space="preserve">
++    <value>בחר מקטע תצורה</value>
++  </data>
++  <data name="ConfigPage_TabViewItem_82.Text" xml:space="preserve">
++    <value>גולמי JSON</value>
++  </data>
++  <data name="ConfigPage_TextBlock_95.Text" xml:space="preserve">
++    <value>סכימה אינה זמינה</value>
++  </data>
++  <data name="ConfigPage_TextBlock_98.Text" xml:space="preserve">
++    <value>לא ניתן היה לטעון את סכימת התצורה Gateway. השתמש בלוח המחוונים של האינטרנט כדי לערוך הגדרות.</value>
++  </data>
++  <data name="OpenDashboardButton.Content" xml:space="preserve">
