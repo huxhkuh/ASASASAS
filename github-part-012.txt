@@ -1,0 +1,295 @@
++                LocalizationHelper.GetString("Checkpoints_BranchNotSupportedMessage"),
+                 InfoBarSeverity.Informational);
+         }
+         else if (result.Ok)
+         {
+             await ShowStatusAsync(
+-                "Branched",
++                LocalizationHelper.GetString("Checkpoints_BranchedTitle"),
+                 result.ResultSessionKey is { Length: > 0 } newKey
+-                    ? $"Created session {newKey}."
+-                    : "Created a new session from the checkpoint.",
++                    ? LocalizationHelper.Format("Checkpoints_CreatedSessionFormat", newKey)
++                    : LocalizationHelper.GetString("Checkpoints_CreatedSessionMessage"),
+                 InfoBarSeverity.Success);
+             _ = client.RequestSessionsAsync();
+         }
+         else
+         {
+             await ShowStatusAsync(
+-                "Branch failed",
+-                result.Error ?? "Could not branch from the checkpoint.",
++                LocalizationHelper.GetString("Checkpoints_BranchFailedTitle"),
++                result.Error ?? LocalizationHelper.GetString("Checkpoints_BranchFailedMessage"),
+                 InfoBarSeverity.Error);
+         }
+     }
+@@ -296,8 +295,8 @@ internal sealed class SessionCheckpointDialogCoordinator
+         if (!SessionActionPlanner.IsAllowed(SessionActionKind.Restore, mainState, out var blockedReason))
+         {
+             await ShowStatusAsync(
+-                "Action unavailable",
+-                blockedReason ?? "Restore isn't available for this session.",
++                LocalizationHelper.GetString("SessionsPage_ActionUnavailableTitle"),
++                blockedReason ?? LocalizationHelper.GetString("Checkpoints_RestoreUnavailableSession"),
+                 InfoBarSeverity.Informational);
+             return;
+         }
+@@ -326,8 +325,8 @@ internal sealed class SessionCheckpointDialogCoordinator
+         if (!SessionActionPlanner.IsAllowed(SessionActionKind.Restore, mainState, out blockedReason))
+         {
+             await ShowStatusAsync(
+-                "Action unavailable",
+-                blockedReason ?? "Restore isn't available for this session.",
++                LocalizationHelper.GetString("SessionsPage_ActionUnavailableTitle"),
++                blockedReason ?? LocalizationHelper.GetString("Checkpoints_RestoreUnavailableSession"),
+                 InfoBarSeverity.Informational);
+             return;
+         }
+@@ -338,8 +337,8 @@ internal sealed class SessionCheckpointDialogCoordinator
+             if (!fresh.IsSupported)
+             {
+                 await ShowStatusAsync(
+-                    "Not supported",
+-                    "This gateway doesn't support restoring a checkpoint. Update the gateway to use this.",
++                    LocalizationHelper.GetString("Checkpoints_NotSupportedTitle"),
++                    LocalizationHelper.GetString("Checkpoints_RestoreNotSupportedMessage"),
+                     InfoBarSeverity.Informational);
+                 return;
+             }
+@@ -348,15 +347,15 @@ internal sealed class SessionCheckpointDialogCoordinator
+             if (freshLatest is null || !string.Equals(freshLatest.Id, checkpointId, StringComparison.Ordinal))
+             {
+                 await ShowStatusAsync(
+-                    "Checkpoints changed",
+-                    "The latest checkpoint changed since you opened this. Reopen Checkpoints and try again.",
++                    LocalizationHelper.GetString("Checkpoints_ChangedTitle"),
++                    LocalizationHelper.GetString("Checkpoints_ChangedMessage"),
+                     InfoBarSeverity.Warning);
+                 return;
+             }
+         }
+         catch (Exception ex)
+         {
+-            await ShowStatusAsync("Restore failed", ex.Message, InfoBarSeverity.Error);
++            await ShowStatusAsync(LocalizationHelper.GetString("Checkpoints_RestoreFailedTitle"), ex.Message, InfoBarSeverity.Error);
+             return;
+         }
+ 
+@@ -367,15 +366,15 @@ internal sealed class SessionCheckpointDialogCoordinator
+         }
+         catch (Exception ex)
+         {
+-            await ShowStatusAsync("Restore failed", ex.Message, InfoBarSeverity.Error);
++            await ShowStatusAsync(LocalizationHelper.GetString("Checkpoints_RestoreFailedTitle"), ex.Message, InfoBarSeverity.Error);
+             return;
+         }
+ 
+         if (!result.IsSupported)
+         {
+             await ShowStatusAsync(
+-                "Not supported",
+-                "This gateway doesn't support restoring a checkpoint. Update the gateway to use this.",
++                LocalizationHelper.GetString("Checkpoints_NotSupportedTitle"),
++                LocalizationHelper.GetString("Checkpoints_RestoreNotSupportedMessage"),
+                 InfoBarSeverity.Informational);
+         }
+         else if (result.Ok)
+@@ -384,16 +383,16 @@ internal sealed class SessionCheckpointDialogCoordinator
+                 await chatProvider.ReplaceHistoryAfterCheckpointRestoreAsync(key);
+ 
+             await ShowStatusAsync(
+-                "Restored",
+-                "Rolled the session back to the checkpoint.",
++                LocalizationHelper.GetString("Checkpoints_RestoredTitle"),
++                LocalizationHelper.GetString("Checkpoints_RestoredMessage"),
+                 InfoBarSeverity.Success);
+             _ = client.RequestSessionsAsync();
+         }
+         else
+         {
+             await ShowStatusAsync(
+-                "Restore failed",
+-                result.Error ?? "Could not restore the checkpoint.",
++                LocalizationHelper.GetString("Checkpoints_RestoreFailedTitle"),
++                result.Error ?? LocalizationHelper.GetString("Checkpoints_RestoreFailedMessage"),
+                 InfoBarSeverity.Error);
+         }
+     }
+@@ -440,7 +439,7 @@ internal sealed class SessionCheckpointDialogCoordinator
+         {
+             Title = title,
+             Content = message,
+-            CloseButtonText = "Close",
++            CloseButtonText = LocalizationHelper.GetString("Checkpoints_Close"),
+             DefaultButton = ContentDialogButton.Close,
+             XamlRoot = _xamlRoot,
+         };
+diff --git a/src/OpenClaw.Tray.WinUI/Helpers/LocalizationHelper.cs b/src/OpenClaw.Tray.WinUI/Helpers/LocalizationHelper.cs
+index 53bf2887..89ee9da4 100644
+--- a/src/OpenClaw.Tray.WinUI/Helpers/LocalizationHelper.cs
++++ b/src/OpenClaw.Tray.WinUI/Helpers/LocalizationHelper.cs
+@@ -1,4 +1,6 @@
+ using System.Collections.Concurrent;
++using System.Globalization;
++using Microsoft.UI.Xaml;
+ using Microsoft.Windows.ApplicationModel.Resources;
+ using OpenClaw.Shared;
+ using OpenClawTray.Services;
+@@ -39,6 +41,35 @@ public static class LocalizationHelper
+         return Manager.CreateResourceContext();
+     }
+ 
++    /// <summary>
++    /// Gets the layout direction for the active UI language. This deliberately uses
++    /// the language qualifier override when present so local localization runs match
++    /// the direction Windows would select for the same display language.
++    /// </summary>
++    public static FlowDirection CurrentFlowDirection
++    {
++        get
++        {
++            var language = _languageOverride ?? CultureInfo.CurrentUICulture.Name;
++            try
++            {
++                return CultureInfo.GetCultureInfo(language).TextInfo.IsRightToLeft
++                    ? FlowDirection.RightToLeft
++                    : FlowDirection.LeftToRight;
++            }
++            catch (CultureNotFoundException)
++            {
++                return CultureInfo.CurrentUICulture.TextInfo.IsRightToLeft
++                    ? FlowDirection.RightToLeft
++                    : FlowDirection.LeftToRight;
++            }
++        }
++    }
++
++    /// <summary>Applies the active language direction to a native XAML surface.</summary>
++    public static void ApplyFlowDirection(FrameworkElement element) =>
++        element.FlowDirection = CurrentFlowDirection;
++
+     public static string GetString(string resourceKey)
+     {
+         var found = TryGetValueAsString(resourceKey, out var value, out var lookupFailure);
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/AgentEventsPage.xaml b/src/OpenClaw.Tray.WinUI/Pages/AgentEventsPage.xaml
+index 10b3cd55..15debe04 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/AgentEventsPage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/AgentEventsPage.xaml
+@@ -101,7 +101,7 @@
+                                            FontWeight="SemiBold"
+                                            Foreground="White" VerticalAlignment="Center"/>
+                             </Border>
+-                            <TextBlock Grid.Column="1" Text="{Binding FormattedTime}" VerticalAlignment="Center"
++                            <TextBlock FlowDirection="LeftToRight" Grid.Column="1" Text="{Binding FormattedTime}" VerticalAlignment="Center"
+                                        Style="{StaticResource CaptionTextBlockStyle}"
+                                        FontFamily="Consolas" Margin="8,0,0,0"
+                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+@@ -122,11 +122,11 @@
+                                        IsTextSelectionEnabled="True" Visibility="Collapsed"/>
+ 
+                             <StackPanel Spacing="4">
+-                                <TextBlock Text="{Binding RunId}"
++                                <TextBlock FlowDirection="LeftToRight" Text="{Binding RunId}"
+                                            Style="{StaticResource CaptionTextBlockStyle}"
+                                            FontFamily="Consolas"
+                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+-                                <TextBlock Text="{Binding DataJson}" TextWrapping="Wrap"
++                                <TextBlock FlowDirection="LeftToRight" Text="{Binding DataJson}" TextWrapping="Wrap"
+                                            Style="{StaticResource CaptionTextBlockStyle}"
+                                            FontFamily="Consolas"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/BindingsPage.xaml b/src/OpenClaw.Tray.WinUI/Pages/BindingsPage.xaml
+index 296e5812..64c68b41 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/BindingsPage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/BindingsPage.xaml
+@@ -104,7 +104,7 @@
+                                 </StackPanel>
+ 
+                                 <!-- Arrow -->
+-                                <FontIcon Grid.Column="2" Glyph="&#xE72A;" FontSize="14"
++                                <FontIcon Grid.Column="2" Glyph="&#xE72A;" FontSize="14" MirroredWhenRightToLeft="True"
+                                           VerticalAlignment="Center"
+                                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+ 
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/ChannelsPage.xaml.cs b/src/OpenClaw.Tray.WinUI/Pages/ChannelsPage.xaml.cs
+index 02031826..0f157d8c 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/ChannelsPage.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/ChannelsPage.xaml.cs
+@@ -358,8 +358,8 @@ public sealed partial class ChannelsPage : Page
+             if (cts.IsCancellationRequested) return;
+             if (snapshot == null)
+             {
+-                ErrorBar.Title = "Couldn't refresh channels";
+-                ErrorBar.Message = "The gateway didn't return a channels.status response. Try Refresh again.";
++                ErrorBar.Title = LocalizationHelper.GetString("ChannelsPage_RefreshFailedTitle");
++                ErrorBar.Message = LocalizationHelper.GetString("ChannelsPage_RefreshFailedMessage");
+                 SetInfoBarOpen(ErrorBar, true);
+                 return;
+             }
+@@ -450,14 +450,14 @@ public sealed partial class ChannelsPage : Page
+                 // Gateway accepted config.set but the channel still isn't
+                 // configured/running. Don't lie about it.
+                 SaveBanner.Severity = InfoBarSeverity.Warning;
+-                SaveBanner.Title = $"{pending.ChannelId}: config saved, but not running yet";
+-                SaveBanner.Message = "The gateway accepted the settings but didn't start the channel. Expand the channel below: the Status section and the diagnostic disclosure will show why.";
++                SaveBanner.Title = LocalizationHelper.Format("ChannelsPage_ConfigSavedNotRunningTitleFormat", pending.ChannelId);
++                SaveBanner.Message = LocalizationHelper.GetString("ChannelsPage_ConfigSavedNotRunningMessage");
+             }
+             else if (!_pendingBannerIsAction && pending.Severity == InfoBarSeverity.Success && record != null && record.IsConfigured)
+             {
+                 SaveBanner.Severity = InfoBarSeverity.Success;
+-                SaveBanner.Title = $"{pending.ChannelId} is running";
+-                SaveBanner.Message = "Configuration saved and the channel is up.";
++                SaveBanner.Title = LocalizationHelper.Format("ChannelsPage_ChannelRunningTitleFormat", pending.ChannelId);
++                SaveBanner.Message = LocalizationHelper.GetString("ChannelsPage_ChannelRunningMessage");
+                 // Clear the cached form values now that we're confirmed running.
+                 _formValuesByChannel.Remove(pending.ChannelId);
+             }
+@@ -1809,7 +1809,7 @@ public sealed partial class ChannelsPage : Page
+             Grid.SetColumn(cmdBox, 0);
+             cmdRow.Children.Add(cmdBox);
+ 
+-            var copyBtn = new Button { Content = "Copy" };
++            var copyBtn = new Button { Content = LocalizationHelper.GetString("ChannelsPage_Copy") };
+             Grid.SetColumn(copyBtn, 1);
+             copyBtn.Click += (_, _) =>
+             {
+@@ -1818,16 +1818,16 @@ public sealed partial class ChannelsPage : Page
+                     var pkgData = new DataPackage();
+                     pkgData.SetText(cmd);
+                     Clipboard.SetContent(pkgData);
+-                    copyBtn.Content = "Copied";
++                    copyBtn.Content = LocalizationHelper.GetString("ChannelsPage_Copied");
+                     _ = Task.Delay(1200).ContinueWith(_ =>
+                     {
+                         if (DispatcherQueue == null) return;
+-                        DispatcherQueue.TryEnqueue(() => copyBtn.Content = "Copy");
++                        DispatcherQueue.TryEnqueue(() => copyBtn.Content = LocalizationHelper.GetString("ChannelsPage_Copy"));
+                     }, TaskScheduler.Default);
+                 }
+                 catch
+                 {
+-                    copyBtn.Content = "Copy failed";
++                    copyBtn.Content = LocalizationHelper.GetString("ChannelsPage_CopyFailed");
+                 }
+             };
+             cmdRow.Children.Add(copyBtn);
+@@ -1835,7 +1835,7 @@ public sealed partial class ChannelsPage : Page
+ 
+             recoveryPanel.Children.Add(new TextBlock
+             {
+-                Text = "After installing the provider on your gateway host, come back and click Show QR again.",
++                Text = LocalizationHelper.GetString("ChannelsPage_AfterProviderInstallMessage"),
+                 TextWrapping = TextWrapping.Wrap,
+                 Style = (Style)Application.Current.Resources["CaptionTextBlockStyle"],
+                 Foreground = (Brush)Application.Current.Resources["TextFillColorSecondaryBrush"],
+@@ -1871,7 +1871,7 @@ public sealed partial class ChannelsPage : Page
+         if (client == null)
+         {
+             qrImage.Visibility = Visibility.Collapsed;
+-            messageBlock.Text = "Not connected to a gateway. Open Connection settings to connect first.";
++            messageBlock.Text = LocalizationHelper.GetString("ChannelsPage_NotConnectedForQr");
+             HideDiagnostic();
+             HideRecovery();
+             return;
