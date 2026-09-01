@@ -1,0 +1,284 @@
++                        InfoBarSeverity.Informational);
+                     return;
+                 }
+             }
+@@ -505,7 +511,10 @@ public sealed partial class SessionsPage : Page
+                 _ => true,
+             };
+             if (!sent)
+-                ShowActionInfo($"{kind} failed", "The gateway didn't accept the request. Try again.", InfoBarSeverity.Error);
++                ShowActionInfo(
++                    LocalizationHelper.Format("SessionsPage_ActionFailedTitleFormat", kind),
++                    LocalizationHelper.GetString("SessionsPage_ActionRejectedMessage"),
++                    InfoBarSeverity.Error);
+         }
+         catch (Exception ex)
+         {
+@@ -538,7 +547,10 @@ public sealed partial class SessionsPage : Page
+         var hwnd = ResolveHostHwnd();
+         if (hwnd == IntPtr.Zero)
+         {
+-            ShowActionInfo("Export unavailable", "Open the app window before exporting a transcript.", InfoBarSeverity.Informational);
++            ShowActionInfo(
++                LocalizationHelper.GetString("SessionsPage_ExportUnavailableTitle"),
++                LocalizationHelper.GetString("SessionsPage_ExportRequiresWindowMessage"),
++                InfoBarSeverity.Informational);
+             return;
+         }
+ 
+@@ -549,23 +561,32 @@ public sealed partial class SessionsPage : Page
+         }
+         catch (NotSupportedException)
+         {
+-            ShowActionInfo("Not supported", "This gateway doesn't support exporting a transcript. Update the gateway to use this.", InfoBarSeverity.Informational);
++            ShowActionInfo(
++                LocalizationHelper.GetString("SessionsPage_ExportNotSupportedTitle"),
++                LocalizationHelper.GetString("SessionsPage_ExportNotSupportedMessage"),
++                InfoBarSeverity.Informational);
+             return;
+         }
+         catch (InvalidOperationException ex) when (ex.Message.Contains("unknown method", StringComparison.OrdinalIgnoreCase))
+         {
+-            ShowActionInfo("Not supported", "This gateway doesn't support exporting a transcript. Update the gateway to use this.", InfoBarSeverity.Informational);
++            ShowActionInfo(
++                LocalizationHelper.GetString("SessionsPage_ExportNotSupportedTitle"),
++                LocalizationHelper.GetString("SessionsPage_ExportNotSupportedMessage"),
++                InfoBarSeverity.Informational);
+             return;
+         }
+         catch (Exception ex)
+         {
+-            ShowActionFailure("Export failed", ex);
++            ShowActionFailure(LocalizationHelper.GetString("SessionsPage_ExportFailedTitle"), ex);
+             return;
+         }
+ 
+         if (history.Messages.Count == 0)
+         {
+-            ShowActionInfo("Nothing to export", "This session has no transcript yet.", InfoBarSeverity.Informational);
++            ShowActionInfo(
++                LocalizationHelper.GetString("SessionsPage_NothingToExportTitle"),
++                LocalizationHelper.GetString("SessionsPage_NothingToExportMessage"),
++                InfoBarSeverity.Informational);
+             return;
+         }
+ 
+@@ -577,18 +598,21 @@ public sealed partial class SessionsPage : Page
+                 SuggestedFileName = System.IO.Path.GetFileNameWithoutExtension(
+                     SessionTranscriptFormatter.SuggestFileName(key)),
+             };
+-            picker.FileTypeChoices.Add("Text file", new List<string> { ".txt" });
++            picker.FileTypeChoices.Add(LocalizationHelper.GetString("SessionsPage_TextFileType"), new List<string> { ".txt" });
+             WinRT.Interop.InitializeWithWindow.Initialize(picker, hwnd);
+ 
+             var file = await picker.PickSaveFileAsync();
+             if (file == null) return; // user cancelled
+ 
+             await FileIO.WriteTextAsync(file, SessionTranscriptFormatter.Format(history));
+-            ShowActionInfo("Transcript exported", $"Saved {history.Messages.Count} messages to {file.Name}.", InfoBarSeverity.Success);
++            ShowActionInfo(
++                LocalizationHelper.GetString("SessionsPage_TranscriptExportedTitle"),
++                LocalizationHelper.Format("SessionsPage_TranscriptExportedMessageFormat", history.Messages.Count, file.Name),
++                InfoBarSeverity.Success);
+         }
+         catch (Exception ex)
+         {
+-            ShowActionFailure("Export failed", ex);
++            ShowActionFailure(LocalizationHelper.GetString("SessionsPage_ExportFailedTitle"), ex);
+         }
+     }
+ 
+@@ -660,16 +684,27 @@ public sealed partial class SessionsPage : Page
+             {
+                 if (result.Compacted == true)
+                 {
+-                    var kept = result.Kept.HasValue ? $" Kept {result.Kept.Value} lines." : "";
+-                    ShowActionInfo("Checkpoint created", $"Compacted {result.Key ?? "session"}.{kept} View it from the session's Checkpoints menu.", InfoBarSeverity.Success);
++                    var kept = result.Kept.HasValue
++                        ? LocalizationHelper.Format("SessionsPage_CompactedKeptFormat", result.Kept.Value)
++                        : "";
++                    ShowActionInfo(
++                        LocalizationHelper.GetString("SessionsPage_CheckpointCreatedTitle"),
++                        LocalizationHelper.Format("SessionsPage_CheckpointCreatedMessageFormat", result.Key ?? LocalizationHelper.GetString("SessionsPage_SessionFallback"), kept),
++                        InfoBarSeverity.Success);
+                 }
+                 else if (result.Compacted == false)
+                 {
+-                    ShowActionInfo("Nothing to compact", $"{result.Key ?? "Session"} was already compact; no checkpoint was created.", InfoBarSeverity.Informational);
++                    ShowActionInfo(
++                        LocalizationHelper.GetString("SessionsPage_NothingToCompactTitle"),
++                        LocalizationHelper.Format("SessionsPage_NothingToCompactMessageFormat", result.Key ?? LocalizationHelper.GetString("SessionsPage_SessionFallback")),
++                        InfoBarSeverity.Informational);
+                 }
+                 else
+                 {
+-                    ShowActionInfo("Session compacted", $"Compacted {result.Key ?? "session"}. Refresh Checkpoints to see any new entries.", InfoBarSeverity.Success);
++                    ShowActionInfo(
++                        LocalizationHelper.GetString("SessionsPage_SessionCompactedTitle"),
++                        LocalizationHelper.Format("SessionsPage_SessionCompactedMessageFormat", result.Key ?? LocalizationHelper.GetString("SessionsPage_SessionFallback")),
++                        InfoBarSeverity.Success);
+                 }
+             }
+             ApplyFilter();
+@@ -695,11 +730,15 @@ public sealed partial class SessionsPage : Page
+ 
+         if (RefreshLabel is not null)
+         {
+-            RefreshLabel.Text = "Refreshing...";
++            RefreshLabel.Text = LocalizationHelper.GetString("SessionsPage_Refreshing");
+             _refreshTimer?.Stop();
+             _refreshTimer = DispatcherQueue.CreateTimer();
+             _refreshTimer.Interval = TimeSpan.FromSeconds(1);
+-            _refreshTimer.Tick += (t, a) => { RefreshLabel.Text = "Refresh"; _refreshTimer.Stop(); };
++            _refreshTimer.Tick += (t, a) =>
++            {
++                RefreshLabel.Text = LocalizationHelper.GetString("SessionsPage_Refresh");
++                _refreshTimer.Stop();
++            };
+             _refreshTimer.Start();
+         }
+     }
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/SettingsPage.xaml b/src/OpenClaw.Tray.WinUI/Pages/SettingsPage.xaml
+index 331d2a5c..bd737c71 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/SettingsPage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/SettingsPage.xaml
+@@ -488,6 +488,7 @@
+                                            Style="{StaticResource CaptionTextBlockStyle}"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                 <TextBlock Grid.Row="0" Grid.Column="1"
++                                           x:Uid="SettingsPage_AppDisplayName"
+                                            Text="OpenClaw Windows Companion"
+                                            Style="{StaticResource BodyTextBlockStyle}"
+                                            IsTextSelectionEnabled="True"/>
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/SettingsPage.xaml.cs b/src/OpenClaw.Tray.WinUI/Pages/SettingsPage.xaml.cs
+index 1e42caee..8ce0e50c 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/SettingsPage.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/SettingsPage.xaml.cs
+@@ -173,8 +173,12 @@ public sealed partial class SettingsPage : Page
+         if (CurrentApp.AppState?.Status == ConnectionStatus.Connected && self != null)
+         {
+             GatewayVersionText.Text = self.VersionText;
+-            GatewayProtocolText.Text = self.Protocol.HasValue ? $"v{self.Protocol}" : "unknown";
+-            GatewayAuthText.Text = string.IsNullOrWhiteSpace(self.AuthMode) ? "unknown" : self.AuthMode;
++            GatewayProtocolText.Text = self.Protocol.HasValue
++                ? $"v{self.Protocol}"
++                : LocalizationHelper.GetString("Common_Unknown");
++            GatewayAuthText.Text = string.IsNullOrWhiteSpace(self.AuthMode)
++                ? LocalizationHelper.GetString("Common_Unknown")
++                : self.AuthMode;
+             CaptureGatewayUptimeSample(self);
+             RefreshGatewayUptimeText();
+         }
+@@ -272,8 +276,8 @@ public sealed partial class SettingsPage : Page
+         try
+         {
+             new ToastContentBuilder()
+-                .AddText("Test Notification")
+-                .AddText("This is a test notification from OpenClaw settings.")
++                .AddText(LocalizationHelper.GetString("SettingsPage_TestNotificationTitle"))
++                .AddText(LocalizationHelper.GetString("SettingsPage_TestNotificationMessage"))
+                 .Show();
+         }
+         catch (Exception ex)
+@@ -339,28 +343,24 @@ public sealed partial class SettingsPage : Page
+         var dialogContent = new StackPanel { Spacing = 8 };
+         dialogContent.Children.Add(new TextBlock
+         {
+-            Text = "This will permanently remove the following:",
++            Text = LocalizationHelper.GetString("SettingsPage_RemoveGatewayDialogIntro"),
+             TextWrapping = TextWrapping.Wrap
+         });
+         dialogContent.Children.Add(new TextBlock
+         {
+-            Text = $"• WSL distro: {AppIdentity.SetupDistroName} (and its disk image)\n" +
+-                   "• Autostart registry entry\n" +
+-                   "• Gateway credentials (token and bootstrap token cleared)\n" +
+-                   "• Setup state (onboarding will reset)",
++            Text = LocalizationHelper.Format("SettingsPage_RemoveGatewayDialogItemsFormat", AppIdentity.SetupDistroName),
+             TextWrapping = TextWrapping.Wrap,
+             Opacity = 0.7
+         });
+         dialogContent.Children.Add(new TextBlock
+         {
+-            Text = "Preserved: Your MCP token and root device key are NOT deleted.\n" +
+-                   "Removed: Local gateway identity credentials and registry records.",
++            Text = LocalizationHelper.GetString("SettingsPage_RemoveGatewayDialogPreserved"),
+             TextWrapping = TextWrapping.Wrap,
+             Opacity = 0.7
+         });
+         dialogContent.Children.Add(new TextBlock
+         {
+-            Text = "This cannot be undone.",
++            Text = LocalizationHelper.GetString("SettingsPage_RemoveGatewayDialogIrreversible"),
+             TextWrapping = TextWrapping.Wrap,
+             Margin = new Microsoft.UI.Xaml.Thickness(0, 4, 0, 0),
+             Opacity = 0.7
+@@ -368,10 +368,10 @@ public sealed partial class SettingsPage : Page
+ 
+         var dialog = new ContentDialog
+         {
+-            Title = "Remove Local Gateway?",
++            Title = LocalizationHelper.GetString("SettingsPage_RemoveGatewayDialogTitle"),
+             Content = dialogContent,
+-            PrimaryButtonText = "Remove Local Gateway",
+-            CloseButtonText = "Cancel",
++            PrimaryButtonText = LocalizationHelper.GetString("SettingsPage_RemoveLocalGatewayButton"),
++            CloseButtonText = LocalizationHelper.GetString("SessionActionPrompt_CancelLabel"),
+             DefaultButton = ContentDialogButton.Close,
+             XamlRoot = XamlRoot
+         };
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/SkillsPage.xaml.cs b/src/OpenClaw.Tray.WinUI/Pages/SkillsPage.xaml.cs
+index ef7cd93d..eb528f1a 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/SkillsPage.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/SkillsPage.xaml.cs
+@@ -286,7 +286,9 @@ public sealed partial class SkillsPage : Page
+             Tag = s.SkillKey,
+             Padding = new Thickness(6, 4, 6, 4), MinWidth = 0, MinHeight = 0
+         };
+-        ToolTipService.SetToolTip(toggleBtn, s.IsEnabled ? "Disable" : "Enable");
++        ToolTipService.SetToolTip(
++            toggleBtn,
++            LocalizationHelper.GetString(s.IsEnabled ? "SkillsPage_Disable" : "SkillsPage_Enable"));
+         toggleBtn.Content = new FontIcon { Glyph = s.IsEnabled ? "\uE769" : "\uE768", FontSize = 12 };
+         toggleBtn.Click += OnToggleSkillClick;
+         Grid.SetRow(toggleBtn, 0);
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/UsagePage.xaml b/src/OpenClaw.Tray.WinUI/Pages/UsagePage.xaml
+index 16fa531d..5efee26c 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/UsagePage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/UsagePage.xaml
+@@ -49,7 +49,7 @@
+                     <StackPanel Spacing="4">
+                         <TextBlock x:Uid="UsagePage_TextBlock_35" Text="Requests" Style="{StaticResource CaptionTextBlockStyle}"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+-                        <TextBlock x:Name="RequestCountText" Text="—"
++                        <TextBlock x:Name="RequestCountText" FlowDirection="LeftToRight" Text="—"
+                                    Style="{StaticResource SubtitleTextBlockStyle}"/>
+                     </StackPanel>
+                 </Border>
+@@ -61,7 +61,7 @@
+                     <StackPanel Spacing="4">
+                         <TextBlock x:Uid="UsagePage_TextBlock_45" Text="Tokens" Style="{StaticResource CaptionTextBlockStyle}"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+-                        <TextBlock x:Name="TokenCountText" Text="—"
++                        <TextBlock x:Name="TokenCountText" FlowDirection="LeftToRight" Text="—"
+                                    Style="{StaticResource SubtitleTextBlockStyle}"/>
+                     </StackPanel>
+                 </Border>
+@@ -73,7 +73,7 @@
+                     <StackPanel Spacing="4">
+                         <TextBlock x:Uid="UsagePage_TextBlock_55" Text="Providers" Style="{StaticResource CaptionTextBlockStyle}"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+-                        <TextBlock x:Name="ProviderCountText" Text="—"
++                        <TextBlock x:Name="ProviderCountText" FlowDirection="LeftToRight" Text="—"
+                                    Style="{StaticResource SubtitleTextBlockStyle}"/>
+                     </StackPanel>
+                 </Border>
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/UsagePage.xaml.cs b/src/OpenClaw.Tray.WinUI/Pages/UsagePage.xaml.cs
+index c03297bf..e1b007c7 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/UsagePage.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/UsagePage.xaml.cs
+@@ -23,10 +23,6 @@ public sealed partial class UsagePage : Page
+     private readonly AsyncListLoadingState _dailyCostLoading = new();
+     private DateTime _lastAppliedUsageCostUpdatedAtUtc = DateTime.MinValue;
+ 
+-    private const string DailyEmptyMessage = "No daily usage for this period";
