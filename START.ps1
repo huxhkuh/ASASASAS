@@ -26,7 +26,7 @@ function Ensure-Git {
     }
 
     Write-Host "Installing Git for Windows..." -ForegroundColor Cyan
-    & winget.exe install --id Git.Git -e --accept-source-agreements --accept-package-agreements --disable-interactivity
+    & winget.exe install --id Git.Git --source winget -e --accept-source-agreements --accept-package-agreements --disable-interactivity
     if ($LASTEXITCODE -ne 0) {
         throw "Git installation failed with exit code $LASTEXITCODE."
     }
@@ -41,43 +41,63 @@ try {
     Write-Host "Preparing OpenClaw Hebrew..." -ForegroundColor Magenta
     Ensure-Git
 
+    $sourceIsPrepared = $false
     if (Test-Path -LiteralPath $workDirectory) {
-        throw "The folder already exists: $workDirectory. Rename or remove it, then rerun the script."
-    }
-
-    $patchParts = @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter "github-part-*.txt" -File | Sort-Object Name)
-    if ($patchParts.Count -eq 0) {
-        throw "Hebrew localization patch files are missing."
-    }
-
-    $writer = [System.IO.File]::CreateText($patchFile)
-    try {
-        foreach ($part in $patchParts) {
-            $writer.Write([System.IO.File]::ReadAllText($part.FullName))
+        $currentSubject = & git.exe -C $workDirectory log -1 --format=%s 2>$null
+        $sourceIsPrepared = $LASTEXITCODE -eq 0 -and $currentSubject -eq "Add complete Hebrew localization and RTL support"
+        if (-not $sourceIsPrepared) {
+            throw "The folder exists but does not contain the prepared Hebrew source: $workDirectory"
         }
-    } finally {
-        $writer.Dispose()
+
+        Write-Host "Reusing the Hebrew source that was already prepared." -ForegroundColor Green
     }
 
-    Write-Host "Downloading the pinned OpenClaw source..." -ForegroundColor Cyan
-    & git.exe clone $upstreamRepository $workDirectory
-    if ($LASTEXITCODE -ne 0) {
-        throw "Could not clone the OpenClaw repository."
+    if (-not $sourceIsPrepared) {
+        $patchParts = @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter "github-part-*.txt" -File | Sort-Object Name)
+        if ($patchParts.Count -eq 0) {
+            throw "Hebrew localization patch files are missing."
+        }
+
+        $writer = [System.IO.File]::CreateText($patchFile)
+        try {
+            foreach ($part in $patchParts) {
+                $writer.Write([System.IO.File]::ReadAllText($part.FullName))
+            }
+        } finally {
+            $writer.Dispose()
+        }
+
+        Write-Host "Downloading the pinned OpenClaw source..." -ForegroundColor Cyan
+        & git.exe clone $upstreamRepository $workDirectory
+        if ($LASTEXITCODE -ne 0) {
+            throw "Could not clone the OpenClaw repository."
+        }
+
+        & git.exe -C $workDirectory checkout $baseCommit
+        if ($LASTEXITCODE -ne 0) {
+            throw "Could not check out the required OpenClaw version."
+        }
+
+        Write-Host "Applying the complete Hebrew localization..." -ForegroundColor Cyan
+        & git.exe -C $workDirectory am $patchFile
+        if ($LASTEXITCODE -ne 0) {
+            throw "The Hebrew localization patch could not be applied."
+        }
     }
 
-    & git.exe -C $workDirectory checkout $baseCommit
-    if ($LASTEXITCODE -ne 0) {
-        throw "Could not check out the required OpenClaw version."
-    }
-
-    Write-Host "Applying the complete Hebrew localization..." -ForegroundColor Cyan
-    & git.exe -C $workDirectory am $patchFile
-    if ($LASTEXITCODE -ne 0) {
-        throw "The Hebrew localization patch could not be applied."
+    $upgradeScript = Join-Path $workDirectory "UPGRADE-TO-HEBREW.ps1"
+    $upgradeContent = [System.IO.File]::ReadAllText($upgradeScript)
+    $oldWingetCommand = '& winget.exe install --id $PackageId -e'
+    $fixedWingetCommand = '& winget.exe install --id $PackageId --source winget -e'
+    if ($upgradeContent.Contains($oldWingetCommand)) {
+        $upgradeContent = $upgradeContent.Replace($oldWingetCommand, $fixedWingetCommand)
+        [System.IO.File]::WriteAllText($upgradeScript, $upgradeContent)
+    } elseif (-not $upgradeContent.Contains($fixedWingetCommand)) {
+        throw "Could not configure the upgrade script to use the winget community source."
     }
 
     Write-Host "Starting the tested in-place upgrade..." -ForegroundColor Cyan
-    & (Join-Path $workDirectory "UPGRADE-TO-HEBREW.ps1")
+    & $upgradeScript
     if ($LASTEXITCODE -ne 0) {
         throw "The upgrade script stopped with exit code $LASTEXITCODE."
     }
