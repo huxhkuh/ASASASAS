@@ -1,0 +1,133 @@
++  <data name="SandboxPage_EnableUnavailableDialogMessageFormat" xml:space="preserve"><value>אי אפשר להפעיל את Node Sandbox מפני שאין כרגע במחשב backend תקין של MXC.&#x0A;&#x0A;{0}&#x0A;&#x0A;עד ש־MXC יהיה זמין, פקודות שהסוכן מפעיל ימשיכו לרוץ ישירות במערכת המארחת.</value></data>
++  <data name="SandboxPage_EnableUnavailableDialogClose" xml:space="preserve"><value>אישור</value></data>
++  <data name="SandboxPage_TimeoutLabelFormat" xml:space="preserve"><value>זמן מרבי לכל פקודה: {0} שניות</value></data>
++  <data name="DiagnosticsBundleDialog_Copied" xml:space="preserve"><value>הועתק</value></data>
++  <data name="DiagnosticsBundleDialog_CopyToClipboard" xml:space="preserve"><value>העתקה ללוח</value></data>
++  <data name="DiagnosticsBundleDialog_Saving" xml:space="preserve"><value>שומר…</value></data>
++  <data name="DiagnosticsBundleDialog_SaveToFile" xml:space="preserve"><value>שמירה בקובץ</value></data>
++  <data name="Activation_ConfirmActionTitle" xml:space="preserve"><value>אישור פעולה של OpenClaw</value></data>
++  <data name="Activation_ConfirmActionMessageFormat" xml:space="preserve"><value>קישור חיצוני מבקש לבצע את הפעולה: {0}.</value></data>
++  <data name="Activation_Allow" xml:space="preserve"><value>אישור</value></data>
++  <data name="SchemaConfigEditor_RemoveItem" xml:space="preserve"><value>הסרת פריט</value></data>
++  <data name="Common_On" xml:space="preserve"><value>פעיל</value></data>
++  <data name="Common_Off" xml:space="preserve"><value>כבוי</value></data>
++  <data name="Common_Enabled" xml:space="preserve"><value>מופעל</value></data>
++  <data name="Common_Disabled" xml:space="preserve"><value>מושבת</value></data>
++  <data name="TrayMenu_NoUsageData" xml:space="preserve"><value>עדיין אין נתוני שימוש</value></data>
++  <data name="ChannelsPage_RefreshFailedTitle" xml:space="preserve"><value>רענון הערוצים נכשל</value></data>
++  <data name="ChannelsPage_RefreshFailedMessage" xml:space="preserve"><value>ה־Gateway לא החזיר תשובת channels.status. יש לנסות לרענן שוב.</value></data>
++  <data name="ChannelsPage_ConfigSavedNotRunningTitleFormat" xml:space="preserve"><value>{0}: ההגדרות נשמרו, אך הערוץ עדיין אינו פעיל</value></data>
++  <data name="ChannelsPage_ConfigSavedNotRunningMessage" xml:space="preserve"><value>ה־Gateway קיבל את ההגדרות אך לא הפעיל את הערוץ. יש לפתוח את הערוץ למטה; אזור הסטטוס ופרטי האבחון יסבירו מה קרה.</value></data>
++  <data name="ChannelsPage_ChannelRunningTitleFormat" xml:space="preserve"><value>{0} פעיל</value></data>
++  <data name="ChannelsPage_ChannelRunningMessage" xml:space="preserve"><value>ההגדרות נשמרו והערוץ פעיל.</value></data>
++  <data name="ChannelsPage_Copy" xml:space="preserve"><value>העתקה</value></data>
++  <data name="ChannelsPage_Copied" xml:space="preserve"><value>הועתק</value></data>
++  <data name="ChannelsPage_CopyFailed" xml:space="preserve"><value>ההעתקה נכשלה</value></data>
++  <data name="ChannelsPage_AfterProviderInstallMessage" xml:space="preserve"><value>לאחר התקנת ה־provider במחשב שמארח את ה־Gateway, יש לחזור וללחוץ שוב על „הצגת QR”.</value></data>
++  <data name="ChannelsPage_NotConnectedForQr" xml:space="preserve"><value>אין חיבור ל־Gateway. יש להתחבר תחילה דרך הגדרות החיבור.</value></data>
++  <data name="ChannelsPage_RequestingQr" xml:space="preserve"><value>מבקש קוד QR מה־Gateway…</value></data>
++  <data name="ChannelsPage_LinkNotConnectedFormat" xml:space="preserve"><value>לא היה אפשר לקשר את {0}: אין חיבור ל־Gateway.</value></data>
++  <data name="ChannelsPage_ThisChannel" xml:space="preserve"><value>הערוץ הזה</value></data>
++  <data name="ChannelsPage_LinkingUnavailableFormat" xml:space="preserve"><value>קישור {0} עדיין אינו זמין ב־Gateway הזה. למטה מוסבר כיצד להפעיל אותו.</value></data>
++  <data name="ChannelsPage_LinkGatewayErrorFormat" xml:space="preserve"><value>קישור {0} נכשל. ה־Gateway החזיר שגיאה; הפרטים מופיעים למטה.</value></data>
++  <data name="ChannelsPage_AlreadyLinkedFormat" xml:space="preserve"><value>{0} כבר מקושר.</value></data>
++  <data name="ChannelsPage_NoQrReturnedFormat" xml:space="preserve"><value>ה־Gateway לא החזיר קוד QR עבור {0}. התשובה שהתקבלה מופיעה בפרטים למטה.</value></data>
++  <data name="ChannelsPage_WhatsAppQrInstructions" xml:space="preserve"><value>פתחו WhatsApp בטלפון ← הגדרות ← מכשירים מקושרים, וסרקו את קוד ה־QR.</value></data>
++  <data name="ChannelsPage_GenericQrInstructions" xml:space="preserve"><value>פתחו באפליקציה בטלפון את מסך המכשירים המקושרים וסרקו את קוד ה־QR.</value></data>
++  <data name="ChannelsPage_StillWaitingQr" xml:space="preserve"><value>עדיין ממתין. אם הקוד פג, יש ללחוץ שוב על „הצגת QR”.</value></data>
++  <data name="ChannelsPage_LinkWaitFailedFormat" xml:space="preserve"><value>ההמתנה לקישור {0} נכשלה. הפרטים מופיעים למטה.</value></data>
++  <data name="ChannelsPage_LinkedFormat" xml:space="preserve"><value>{0} קושר בהצלחה.</value></data>
++  <data name="ChannelsPage_QrMalformedDataUrl" xml:space="preserve"><value>פענוח ה־QR נכשל: ה־Gateway החזיר data URL לא תקין.</value></data>
++  <data name="ChannelsPage_QrInvalidBase64" xml:space="preserve"><value>פענוח ה־QR נכשל: ה־Gateway החזיר base64 לא תקין.</value></data>
++  <data name="ChannelsPage_QrDecodeFailedFormat" xml:space="preserve"><value>פענוח ה־QR נכשל: {0}</value></data>
++  <data name="ChannelsPage_RunInstallCommandMessage" xml:space="preserve"><value>יש להריץ את הפקודה במחשב שמארח את ה־Gateway. לאחר שתסתיים, חוזרים לכאן ולוחצים על „רענון”.</value></data>
++  <data name="ChannelsPage_PluginInstallDocs" xml:space="preserve"><value>תיעוד התקנת plugin ←</value></data>
++  <data name="ChannelsPage_InstallPluginSection" xml:space="preserve"><value>התקנת plugin ב־Gateway</value></data>
++  <data name="ChannelsPage_NotConnectedTitle" xml:space="preserve"><value>אין חיבור</value></data>
++  <data name="ChannelsPage_ConnectBeforeUnlink" xml:space="preserve"><value>יש להתחבר ל־Gateway לפני ניתוק הקישור מהמכשיר.</value></data>
++  <data name="ChannelsPage_ConnectBeforeDisconnect" xml:space="preserve"><value>יש להתחבר ל־Gateway לפני ניתוק הערוץ.</value></data>
++  <data name="ChannelsPage_UnlinkDialogTitleFormat" xml:space="preserve"><value>לנתק את הקישור של {0} מהמכשיר הזה?</value></data>
++  <data name="ChannelsPage_DisconnectDialogTitleFormat" xml:space="preserve"><value>לנתק את {0} ולמחוק את פרטי ההזדהות?</value></data>
++  <data name="ChannelsPage_UnlinkDialogMessage" xml:space="preserve"><value>הערוץ ינותק מהמכשיר הזה, אך החשבון יישאר מקושר בטלפון. כדי להתחבר מחדש יהיה צורך לסרוק קוד QR חדש.</value></data>
++  <data name="ChannelsPage_DisconnectDialogMessage" xml:space="preserve"><value>הערוץ ינותק ופרטי ההזדהות השמורים יימחקו. כדי להתחבר מחדש יהיה צורך להזין אותם שוב.</value></data>
++  <data name="ChannelsPage_Unlink" xml:space="preserve"><value>ניתוק קישור</value></data>
++  <data name="ChannelsPage_Disconnect" xml:space="preserve"><value>ניתוק</value></data>
++  <data name="ChannelsPage_UnlinkFailedTitle" xml:space="preserve"><value>ניתוק הקישור נכשל</value></data>
++  <data name="ChannelsPage_DisconnectFailedTitle" xml:space="preserve"><value>הניתוק נכשל</value></data>
++  <data name="ChannelsPage_UnlinkFailedMessageFormat" xml:space="preserve"><value>לא היה אפשר לנתק את הקישור של {0}. ייתכן שה־Gateway אינו תומך בפעולה.</value></data>
++  <data name="ChannelsPage_DisconnectFailedMessageFormat" xml:space="preserve"><value>לא היה אפשר לנתק את {0}. ייתכן שה־Gateway אינו תומך בפעולה.</value></data>
++  <data name="Checkpoints_LoadFailedTitle" xml:space="preserve"><value>טעינת Checkpoints נכשלה</value></data>
++  <data name="Checkpoints_NotSupportedTitle" xml:space="preserve"><value>אין תמיכה</value></data>
++  <data name="Checkpoints_NotSupportedMessage" xml:space="preserve"><value>ה־Gateway הזה אינו תומך ב־Checkpoints של Session לאחר Compact. יש לעדכן את ה־Gateway כדי להשתמש באפשרות.</value></data>
++  <data name="Checkpoints_DialogTitleFormat" xml:space="preserve"><value>Checkpoints: ‏{0}</value></data>
++  <data name="Checkpoints_BranchLatest" xml:space="preserve"><value>יצירת Branch מהאחרון</value></data>
++  <data name="Checkpoints_BranchLatestTargetable" xml:space="preserve"><value>יצירת Branch מה־Checkpoint האחרון הזמין</value></data>
++  <data name="Checkpoints_RestoreLatest" xml:space="preserve"><value>שחזור האחרון</value></data>
++  <data name="Checkpoints_Close" xml:space="preserve"><value>סגירה</value></data>
++  <data name="Checkpoints_EmptyMessage" xml:space="preserve"><value>עדיין אין Checkpoints של Compact. ביצוע Compact ל־Session ייצור Checkpoint שאפשר ליצור ממנו Branch או לשחזר אליו.</value></data>
++  <data name="Checkpoints_ActionsHelp" xml:space="preserve"><value>הפעולות חלות על ה־Checkpoint האחרון, שמופיע בראש הרשימה. Branch יוצר ממנו Session חדש; שחזור מחזיר אליו את ה־Session הנוכחי.</value></data>
++  <data name="Checkpoints_RestoreUnavailableMain" xml:space="preserve"><value>אי אפשר לבצע שחזור ב־Session הראשי.</value></data>
++  <data name="Checkpoints_RestoreUnavailableAmbiguous" xml:space="preserve"><value>אי אפשר לבצע שחזור מפני שלא ניתן לקבוע בבטחה מהו ה־Checkpoint האחרון.</value></data>
++  <data name="Checkpoints_RestoreUnavailableSession" xml:space="preserve"><value>השחזור אינו זמין ל־Session הזה.</value></data>
++  <data name="Checkpoints_BranchUnavailableNoId" xml:space="preserve"><value>אי אפשר ליצור Branch מפני שאין Checkpoint עם ID.</value></data>
++  <data name="Checkpoints_BranchHelp" xml:space="preserve"><value>Branch יוצר Session חדש מה־Checkpoint האחרון שיש לו יעד תקין.</value></data>
++  <data name="Checkpoints_BranchFailedTitle" xml:space="preserve"><value>יצירת ה־Branch נכשלה</value></data>
++  <data name="Checkpoints_BranchNotSupportedMessage" xml:space="preserve"><value>ה־Gateway הזה אינו תומך ביצירת Branch מ־Checkpoint. יש לעדכן את ה־Gateway כדי להשתמש באפשרות.</value></data>
++  <data name="Checkpoints_BranchedTitle" xml:space="preserve"><value>ה־Branch נוצר</value></data>
++  <data name="Checkpoints_CreatedSessionFormat" xml:space="preserve"><value>נוצר Session ‏{0}.</value></data>
++  <data name="Checkpoints_CreatedSessionMessage" xml:space="preserve"><value>נוצר Session חדש מה־Checkpoint.</value></data>
++  <data name="Checkpoints_BranchFailedMessage" xml:space="preserve"><value>לא היה אפשר ליצור Branch מה־Checkpoint.</value></data>
++  <data name="Checkpoints_RestoreNotSupportedMessage" xml:space="preserve"><value>ה־Gateway הזה אינו תומך בשחזור Checkpoint. יש לעדכן את ה־Gateway כדי להשתמש באפשרות.</value></data>
++  <data name="Checkpoints_ChangedTitle" xml:space="preserve"><value>רשימת ה־Checkpoints השתנתה</value></data>
++  <data name="Checkpoints_ChangedMessage" xml:space="preserve"><value>ה־Checkpoint האחרון השתנה מאז פתיחת החלון. יש לפתוח מחדש את Checkpoints ולנסות שוב.</value></data>
++  <data name="Checkpoints_RestoreFailedTitle" xml:space="preserve"><value>השחזור נכשל</value></data>
++  <data name="Checkpoints_RestoredTitle" xml:space="preserve"><value>השחזור הושלם</value></data>
++  <data name="Checkpoints_RestoredMessage" xml:space="preserve"><value>ה־Session הוחזר למצב של ה־Checkpoint.</value></data>
++  <data name="Checkpoints_RestoreFailedMessage" xml:space="preserve"><value>לא היה אפשר לשחזר את ה־Checkpoint.</value></data>
++  <data name="SettingsPage_AppDisplayName.Text" xml:space="preserve"><value>OpenClaw Windows Companion</value></data>
++</root>
+diff --git a/src/OpenClaw.Tray.WinUI/Strings/nl-nl/Resources.resw b/src/OpenClaw.Tray.WinUI/Strings/nl-nl/Resources.resw
+index fcda3750..d3ae0faf 100644
+--- a/src/OpenClaw.Tray.WinUI/Strings/nl-nl/Resources.resw
++++ b/src/OpenClaw.Tray.WinUI/Strings/nl-nl/Resources.resw
+@@ -7080,4 +7080,1052 @@ Het binaire bestand wxc-exec is niet gevonden. {1} Als dit een ontwikkelaarsbuil
+   <data name="LocalAiPage_UnavailableProbeTitle" xml:space="preserve"><value>Beschikbaarheid van lokale AI kon niet worden geverifieerd</value></data>
+   <data name="LocalAiPage_CheckingTitle" xml:space="preserve"><value>Beschikbaarheid van lokale AI controleren</value></data>
+   <data name="LocalAiPage_CheckingMessage" xml:space="preserve"><value>OpenClaw controleert of dit apparaat lokale AI kan uitvoeren. Dit duurt slechts een moment.</value></data>
++
++  <data name="Setup_AdvancedSetupPage_BackButton.Content" xml:space="preserve">
++    <value>Back</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_OpenConnectionButton.Content" xml:space="preserve">
++    <value>Open Companion Settings</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>Step 2 of 6</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_1.Text" xml:space="preserve">
++    <value>Connect to an existing gateway</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_2.Text" xml:space="preserve">
++    <value>We'll open Companion Settings next. Nothing gets installed. Here's what you'll do there:</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_3.Text" xml:space="preserve">
++    <value>Add a gateway</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_4.Text" xml:space="preserve">
++    <value>In Connection, choose Add a gateway, then pick how to connect: Setup code or Direct (URL + token).</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_5.Text" xml:space="preserve">
++    <value>Point it at your gateway</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_6.Text" xml:space="preserve">
++    <value>Pair this device</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_7.Text" xml:space="preserve">
++    <value>Paste a setup code from the gateway host, or your shared token, so the gateway trusts this PC.</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_8.Text" xml:space="preserve">
++    <value>Optional: SSH tunnel</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_9.Text" xml:space="preserve">
++    <value>If your gateway isn't directly reachable, any method can tunnel over SSH.</value>
++  </data>
