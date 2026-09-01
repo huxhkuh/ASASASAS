@@ -1,0 +1,155 @@
++    <value>צילומי מסך והקלטה</value>
++  </data>
++  <data name="Setup_Capability_Camera_Name" xml:space="preserve">
++    <value>מצלמה</value>
++  </data>
++  <data name="Setup_Capability_Camera_Description" xml:space="preserve">
++    <value>תמונות וסרטונים מהמצלמה</value>
++  </data>
++  <data name="Setup_Capability_Location_Name" xml:space="preserve">
++    <value>מיקום</value>
++  </data>
++  <data name="Setup_Capability_Location_Description" xml:space="preserve">
++    <value>שיתוף מיקום המכשיר</value>
++  </data>
++  <data name="Setup_Capability_Browser_Name" xml:space="preserve">
++    <value>דפדפן</value>
++  </data>
++  <data name="Setup_Capability_Browser_Description" xml:space="preserve">
++    <value>גלישה ואוטומציה בדפדפן</value>
++  </data>
++  <data name="Setup_Capability_Tts_Name" xml:space="preserve">
++    <value>טקסט לדיבור</value>
++  </data>
++  <data name="Setup_Capability_Tts_Description" xml:space="preserve">
++    <value>הקראת טקסט בקול</value>
++  </data>
++  <data name="Setup_Capability_Stt_Name" xml:space="preserve">
++    <value>דיבור לטקסט</value>
++  </data>
++  <data name="Setup_Capability_Stt_Description" xml:space="preserve">
++    <value>תמלול שמע מדובר</value>
++  </data>
++  <data name="Setup_Capabilities_GpuEligibleFormat" xml:space="preserve">
++    <value>זוהה {0} עם {1}. המודל שנבחר דורש {2}.</value>
++  </data>
++  <data name="Setup_Capabilities_GpuBusyFormat" xml:space="preserve">
++    <value>זוהה {0}, אך רק {1} מתוך {2} זיכרון GPU נדרש פנוי כעת. סגרו יישומים שמשתמשים ב־GPU ונסו שוב.</value>
++  </data>
++  <data name="Setup_Capabilities_EngineDetailFormat" xml:space="preserve">
++    <value>llama-server עבור Windows; הורדה מאומתת בגודל {0}</value>
++  </data>
++  <data name="Setup_Capabilities_ModelDetailFormat" xml:space="preserve">
++    <value>{0}, בגודל {1} מ־Hugging Face</value>
++  </data>
++  <data name="Setup_Capabilities_SettingsDetailFormat" xml:space="preserve">
++    <value>הקשר {0}K, מטמון FP16 KV, העברה מלאה ל־CUDA; נטען בבקשה הראשונה</value>
++  </data>
++  <data name="Setup_Capabilities_TailscaleConnectedFormat" xml:space="preserve">
++    <value>Windows Tailscale מחובר בתור {0}.</value>
++  </data>
++  <data name="Setup_Capabilities_CustomReview" xml:space="preserve">
++    <value>יכולות מותאמות אישית (לבדיקה)</value>
++  </data>
++  <data name="Setup_Capabilities_UnknownAmount" xml:space="preserve">
++    <value>כמות לא ידועה</value>
++  </data>
++
++  <data name="SandboxPage_AllowInternet.OffContent" xml:space="preserve">
++    <value>כבוי: הסוכן אינו יכול לגשת לאינטרנט</value>
++  </data>
++  <data name="SandboxPage_AllowInternet.OnContent" xml:space="preserve">
++    <value>מופעל: הסוכן יכול להתחבר לנקודות קצה ציבוריות באינטרנט</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_InfoBar_1.Message" xml:space="preserve">
++    <value>סוכן ה־AI שתחברו (לדוגמה Claude) יכול לבצע פעולות משמעותיות במחשב הזה, כולל הרצת פקודות, קריאה וכתיבה של קבצים וצילום המסך. הפעולות תלויות בהרשאות שתיתנו.
++
++הגדירו זאת רק במחשב שאתם סומכים עליו, והמשיכו רק אם הסיכונים ברורים לכם ואתם סומכים על ההנחיות והחיבורים שבהם תשתמשו. בשלבים הבאים תוכלו לבחור בדיוק מה לאפשר.</value>
++  </data>
++  <data name="Setup_CompletePage_NodeModeBanner.Message" xml:space="preserve">
++    <value>המחשב הזה יפעל כ־Node מרוחק. ה־Gateway יוכל להפעיל בו צילום מסך, מצלמה ופקודות מערכת.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiUnavailablePanel.Message" xml:space="preserve">
++    <value>המחשב הזה אינו עומד באחת או יותר מדרישות Local AI.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_SeveralGb.Text" xml:space="preserve"><value>כמה GB</value></data>
++  <data name="Setup_CapabilitiesPage_TailscaleSignInBrowser.Content" xml:space="preserve"><value>כניסה דרך הדפדפן</value></data>
++  <data name="Setup_CapabilitiesPage_TailscaleOneOffAuthKey.Content" xml:space="preserve"><value>שימוש במפתח אימות חד־פעמי</value></data>
++  <data name="Setup_Window_StartupPreferenceSaveFailedFormat" xml:space="preserve"><value>ההגדרה הסתיימה, אבל שמירת העדפת ההפעלה נכשלה: {0}</value></data>
++  <data name="SessionsPage_ActionUnavailableTitle" xml:space="preserve"><value>הפעולה אינה זמינה</value></data>
++  <data name="SessionsPage_ActionUnavailableMessage" xml:space="preserve"><value>אי אפשר לבצע את הפעולה הזו.</value></data>
++  <data name="SessionsPage_DeleteUnavailableMessage" xml:space="preserve"><value>אי אפשר למחוק את ה־Session הזה.</value></data>
++  <data name="SessionsPage_ActionFailedTitleFormat" xml:space="preserve"><value>הפעולה {0} נכשלה</value></data>
++  <data name="SessionsPage_ActionRejectedMessage" xml:space="preserve"><value>ה־Gateway לא קיבל את הבקשה. אפשר לנסות שוב.</value></data>
++  <data name="SessionsPage_ExportUnavailableTitle" xml:space="preserve"><value>הייצוא אינו זמין</value></data>
++  <data name="SessionsPage_ExportRequiresWindowMessage" xml:space="preserve"><value>יש לפתוח את חלון האפליקציה לפני ייצוא התמליל.</value></data>
++  <data name="SessionsPage_ExportNotSupportedTitle" xml:space="preserve"><value>אין תמיכה</value></data>
++  <data name="SessionsPage_ExportNotSupportedMessage" xml:space="preserve"><value>ה־Gateway הזה אינו תומך בייצוא תמליל. יש לעדכן אותו כדי להשתמש באפשרות הזו.</value></data>
++  <data name="SessionsPage_ExportFailedTitle" xml:space="preserve"><value>הייצוא נכשל</value></data>
++  <data name="SessionsPage_NothingToExportTitle" xml:space="preserve"><value>אין מה לייצא</value></data>
++  <data name="SessionsPage_NothingToExportMessage" xml:space="preserve"><value>עדיין אין תמליל ל־Session הזה.</value></data>
++  <data name="SessionsPage_TextFileType" xml:space="preserve"><value>קובץ טקסט</value></data>
++  <data name="SessionsPage_TranscriptExportedTitle" xml:space="preserve"><value>התמליל יוצא</value></data>
++  <data name="SessionsPage_TranscriptExportedMessageFormat" xml:space="preserve"><value>{0} הודעות נשמרו בקובץ {1}.</value></data>
++  <data name="SessionsPage_CompactedKeptFormat" xml:space="preserve"><value> נשמרו {0} שורות.</value></data>
++  <data name="SessionsPage_CheckpointCreatedTitle" xml:space="preserve"><value>נוצר Checkpoint</value></data>
++  <data name="SessionsPage_CheckpointCreatedMessageFormat" xml:space="preserve"><value>בוצע Compact ל־{0}.{1} אפשר לצפות בתוצאה בתפריט Checkpoints של ה־Session.</value></data>
++  <data name="SessionsPage_NothingToCompactTitle" xml:space="preserve"><value>אין מה לצמצם</value></data>
++  <data name="SessionsPage_NothingToCompactMessageFormat" xml:space="preserve"><value>כבר בוצע Compact ל־{0}, ולכן לא נוצר Checkpoint.</value></data>
++  <data name="SessionsPage_SessionCompactedTitle" xml:space="preserve"><value>ה־Session צומצם</value></data>
++  <data name="SessionsPage_SessionCompactedMessageFormat" xml:space="preserve"><value>בוצע Compact ל־{0}. יש לרענן את Checkpoints כדי לראות רשומות חדשות.</value></data>
++  <data name="SessionsPage_SessionFallback" xml:space="preserve"><value>Session</value></data>
++  <data name="SessionsPage_Refreshing" xml:space="preserve"><value>מרענן…</value></data>
++  <data name="SessionsPage_Refresh" xml:space="preserve"><value>רענון</value></data>
++  <data name="SettingsPage_TestNotificationTitle" xml:space="preserve"><value>התראת בדיקה</value></data>
++  <data name="SettingsPage_TestNotificationMessage" xml:space="preserve"><value>זוהי התראת בדיקה מהגדרות OpenClaw.</value></data>
++  <data name="SettingsPage_RemoveGatewayDialogIntro" xml:space="preserve"><value>הפריטים הבאים יוסרו לצמיתות:</value></data>
++  <data name="SettingsPage_RemoveGatewayDialogItemsFormat" xml:space="preserve"><value>• הפצת WSL:‏ {0} (כולל קובץ הדיסק שלה)&#x0A;• רשומת ההפעלה האוטומטית ב־Registry&#x0A;• פרטי ההזדהות של ה־Gateway (ה־token וה־bootstrap token יימחקו)&#x0A;• מצב ההגדרה (תהליך ההיכרות יאותחל)</value></data>
++  <data name="SettingsPage_RemoveGatewayDialogPreserved" xml:space="preserve"><value>יישמרו: ה־MCP token ומפתח ההתקן הראשי לא יימחקו.&#x0A;יוסרו: פרטי הזהות של ה־Gateway המקומי ורשומות ה־Registry.</value></data>
++  <data name="SettingsPage_RemoveGatewayDialogIrreversible" xml:space="preserve"><value>אי אפשר לבטל את הפעולה הזו.</value></data>
++  <data name="SettingsPage_RemoveGatewayDialogTitle" xml:space="preserve"><value>להסיר את ה־Gateway המקומי?</value></data>
++  <data name="VoiceSettingsPage_InlineRecording" xml:space="preserve"><value>מקליט</value></data>
++  <data name="VoiceSettingsPage_InlineStop" xml:space="preserve"><value>עצירה</value></data>
++  <data name="VoiceSettingsPage_InlineStartFailed" xml:space="preserve"><value>לא היה אפשר להפעיל את הקלט הקולי</value></data>
++  <data name="VoiceSettingsPage_InlineRecord" xml:space="preserve"><value>הקלטה</value></data>
++  <data name="VoiceSettingsPage_InlineDone" xml:space="preserve"><value>הסתיים</value></data>
++  <data name="ConfigPage_SelectSectionForJsonPreview" xml:space="preserve"><value>יש לבחור מקטע כדי להציג תצוגה מקדימה של ה־JSON שלו.</value></data>
++  <data name="ConfigPage_SelectedJsonPreviewUnavailable" xml:space="preserve"><value>תצוגת ה־JSON של המקטע שנבחר אינה זמינה.</value></data>
++  <data name="ConfigPage_MissingReadPermissionPlaceholder" xml:space="preserve"><value>אי אפשר לטעון את התצורה מפני של־operator token הזה אין הרשאת קריאה.</value></data>
++  <data name="ConfigPage_MissingOperatorReadPermission" xml:space="preserve"><value>חסרה הרשאת operator.read</value></data>
++  <data name="ConfigPage_PreviewRequiresReadPermission" xml:space="preserve"><value>תצוגת התצורה אינה זמינה בלי הרשאת קריאה.</value></data>
++  <data name="ConfigPage_LoadingSection" xml:space="preserve"><value>המקטע נטען…</value></data>
++  <data name="SkillsPage_Disable" xml:space="preserve"><value>השבתה</value></data>
++  <data name="SkillsPage_Enable" xml:space="preserve"><value>הפעלה</value></data>
++  <data name="UsagePage_DisconnectedListMessage" xml:space="preserve"><value>הטעינה נכשלה. יש לבדוק את החיבור ל־Gateway.</value></data>
++  <data name="UsagePage_DailyEmptyMessage" xml:space="preserve"><value>אין נתוני שימוש יומיים לתקופה הזו</value></data>
++  <data name="UsagePage_ProviderEmptyMessage" xml:space="preserve"><value>לא הוגדרו ספקים</value></data>
++  <data name="DebugPage_NoLogFile" xml:space="preserve"><value>לא נמצא קובץ log.</value></data>
++  <data name="DebugPage_ReadLogFailedFormat" xml:space="preserve"><value>קריאת ה־log נכשלה: {0}</value></data>
++  <data name="DebugPage_PreparingDiagnosticsBundle" xml:space="preserve"><value>מכין חבילת אבחון…</value></data>
++  <data name="DebugPage_SupportContext" xml:space="preserve"><value>פרטי תמיכה</value></data>
++  <data name="DebugPage_SummaryDebugBundle" xml:space="preserve"><value>סיכום חבילת Debug</value></data>
++  <data name="DebugPage_BrowserSetupGuidance" xml:space="preserve"><value>הנחיות להגדרת הדפדפן</value></data>
++  <data name="DebugPage_PortDiagnostics" xml:space="preserve"><value>אבחון ports</value></data>
++  <data name="DebugPage_CapabilityDiagnostics" xml:space="preserve"><value>אבחון יכולות</value></data>
++  <data name="DebugPage_NotFound" xml:space="preserve"><value>לא נמצא</value></data>
++  <data name="DebugPage_NoDeviceKeyFile" xml:space="preserve"><value>לא נמצא קובץ מפתח התקן</value></data>
++  <data name="DebugPage_ErrorFormat" xml:space="preserve"><value>שגיאה: {0}</value></data>
++  <data name="Common_Unknown" xml:space="preserve"><value>לא ידוע</value></data>
++  <data name="Toast_NodeModeHealthStreaming" xml:space="preserve"><value>מצב Node מחובר; נתוני תקינות ה־Gateway מתקבלים בזמן אמת.</value></data>
++  <data name="Toast_SshTunnelTitle" xml:space="preserve"><value>מנהרת SSH</value></data>
++  <data name="Toast_SshTunnelNotEnabled" xml:space="preserve"><value>מצב מנהרת SSH מנוהלת אינו פעיל.</value></data>
++  <data name="Toast_SshTunnelRestarted" xml:space="preserve"><value>המנהרה הופעלה מחדש והאימות הושלם.</value></data>
++  <data name="Toast_SshTunnelRestartFailedTitle" xml:space="preserve"><value>הפעלה מחדש של מנהרת SSH נכשלה</value></data>
++  <data name="Toast_SshTunnelRestartFailedMessage" xml:space="preserve"><value>לא היה אפשר לאמת את המנהרה המנוהלת או את החיבור המאומת ל־Gateway.</value></data>
++  <data name="Toast_SshTunnelCheckSettings" xml:space="preserve"><value>יש לבדוק את הגדרות מנהרת ה־SSH ואת קובצי ה־log.</value></data>
++  <data name="Setup_RestartFailedMessage" xml:space="preserve"><value>הגדרת OpenClaw הסתיימה, אבל ההפעלה מחדש של יישום המגש נכשלה. היישום הנוכחי ימשיך לפעול; יש לסגור את OpenClaw ולפתוח אותו מחדש.</value></data>
++  <data name="Setup_RestartDialogTitle" xml:space="preserve"><value>הפעלה מחדש של OpenClaw</value></data>
++  <data name="SandboxPage_CheckingAvailabilityTitle" xml:space="preserve"><value>בודק את זמינות ה־Sandbox…</value></data>
++  <data name="SandboxPage_CheckingAvailabilityMessage" xml:space="preserve"><value>בודק אם המחשב יכול לבודד את הפקודות שהסוכן מריץ.</value></data>
++  <data name="SandboxPage_StatusLimitedTitle" xml:space="preserve"><value>Node Sandbox פעיל: בידוד מוגבל</value></data>
++  <data name="SandboxPage_TurnOffDialogTitle" xml:space="preserve"><value>לכבות את Node Sandbox?</value></data>
++  <data name="SandboxPage_TurnOffDialogMessage" xml:space="preserve"><value>פקודות Windows שהסוכן מפעיל ירוצו בהרשאות שלכם ועלולות לגשת לקבצים, לרשת, ללוח ולהגדרות OpenClaw.&#x0A;&#x0A;זהו מצב בסיכון גבוה. יש להשתמש בו רק אם אתם סומכים על הסוכן וזקוקים לכך לצורכי Debug או ביצועים.</value></data>
++  <data name="SandboxPage_TurnOffDialogPrimary" xml:space="preserve"><value>כיבוי</value></data>
++  <data name="SandboxPage_TurnOffDialogCancel" xml:space="preserve"><value>ביטול</value></data>
++  <data name="SandboxPage_EnableUnavailableDialogTitle" xml:space="preserve"><value>Node Sandbox אינו זמין</value></data>
