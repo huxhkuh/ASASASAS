@@ -1,0 +1,186 @@
++  <data name="ChannelsPage_ConfigSavedNotRunningMessage" xml:space="preserve"><value>The gateway accepted the settings but didn't start the channel. Expand the channel below: the Status section and the diagnostic disclosure will show why.</value></data>
++  <data name="ChannelsPage_ChannelRunningTitleFormat" xml:space="preserve"><value>{0} is running</value></data>
++  <data name="ChannelsPage_ChannelRunningMessage" xml:space="preserve"><value>Configuration saved and the channel is up.</value></data>
++  <data name="ChannelsPage_Copy" xml:space="preserve"><value>Copy</value></data>
++  <data name="ChannelsPage_Copied" xml:space="preserve"><value>Copied</value></data>
++  <data name="ChannelsPage_CopyFailed" xml:space="preserve"><value>Copy failed</value></data>
++  <data name="ChannelsPage_AfterProviderInstallMessage" xml:space="preserve"><value>After installing the provider on your gateway host, come back and click Show QR again.</value></data>
++  <data name="ChannelsPage_NotConnectedForQr" xml:space="preserve"><value>Not connected to a gateway. Open Connection settings to connect first.</value></data>
++  <data name="ChannelsPage_RequestingQr" xml:space="preserve"><value>Requesting QR code from the gateway…</value></data>
++  <data name="ChannelsPage_LinkNotConnectedFormat" xml:space="preserve"><value>Couldn't link {0}. Not connected to the gateway.</value></data>
++  <data name="ChannelsPage_ThisChannel" xml:space="preserve"><value>This channel</value></data>
++  <data name="ChannelsPage_LinkingUnavailableFormat" xml:space="preserve"><value>{0} linking isn't available on this gateway yet: see how to enable it below.</value></data>
++  <data name="ChannelsPage_LinkGatewayErrorFormat" xml:space="preserve"><value>Couldn't link {0}. The gateway returned an error: see details below.</value></data>
++  <data name="ChannelsPage_AlreadyLinkedFormat" xml:space="preserve"><value>{0} is already linked.</value></data>
++  <data name="ChannelsPage_NoQrReturnedFormat" xml:space="preserve"><value>Gateway didn't return a QR for {0}. See details below for what it returned.</value></data>
++  <data name="ChannelsPage_WhatsAppQrInstructions" xml:space="preserve"><value>Open WhatsApp on your phone → Settings → Linked devices → scan this QR.</value></data>
++  <data name="ChannelsPage_GenericQrInstructions" xml:space="preserve"><value>Open the mobile app's linked-devices screen and scan this QR.</value></data>
++  <data name="ChannelsPage_StillWaitingQr" xml:space="preserve"><value>Still waiting: click Show QR again if the code has expired.</value></data>
++  <data name="ChannelsPage_LinkWaitFailedFormat" xml:space="preserve"><value>Link wait failed for {0}. See details below.</value></data>
++  <data name="ChannelsPage_LinkedFormat" xml:space="preserve"><value>{0} linked.</value></data>
++  <data name="ChannelsPage_QrMalformedDataUrl" xml:space="preserve"><value>QR decode failed: malformed data URL from gateway.</value></data>
++  <data name="ChannelsPage_QrInvalidBase64" xml:space="preserve"><value>QR decode failed: invalid base64 from gateway.</value></data>
++  <data name="ChannelsPage_QrDecodeFailedFormat" xml:space="preserve"><value>QR decode failed: {0}</value></data>
++  <data name="ChannelsPage_RunInstallCommandMessage" xml:space="preserve"><value>Run this command on the machine that hosts your gateway. After it finishes, come back and click Refresh.</value></data>
++  <data name="ChannelsPage_PluginInstallDocs" xml:space="preserve"><value>Plugin install docs →</value></data>
++  <data name="ChannelsPage_InstallPluginSection" xml:space="preserve"><value>Install plugin on your gateway</value></data>
++  <data name="ChannelsPage_NotConnectedTitle" xml:space="preserve"><value>Not connected</value></data>
++  <data name="ChannelsPage_ConnectBeforeUnlink" xml:space="preserve"><value>Connect to a gateway before unlinking this device.</value></data>
++  <data name="ChannelsPage_ConnectBeforeDisconnect" xml:space="preserve"><value>Connect to a gateway before disconnecting this channel.</value></data>
++  <data name="ChannelsPage_UnlinkDialogTitleFormat" xml:space="preserve"><value>Unlink {0} from this device?</value></data>
++  <data name="ChannelsPage_DisconnectDialogTitleFormat" xml:space="preserve"><value>Disconnect {0} and forget credentials?</value></data>
++  <data name="ChannelsPage_UnlinkDialogMessage" xml:space="preserve"><value>This unlinks the channel from this device. Your account stays paired on your phone: scan a fresh QR to reconnect.</value></data>
++  <data name="ChannelsPage_DisconnectDialogMessage" xml:space="preserve"><value>This signs out the channel and clears the stored credentials. You'll need to re-enter them to reconnect.</value></data>
++  <data name="ChannelsPage_Unlink" xml:space="preserve"><value>Unlink</value></data>
++  <data name="ChannelsPage_Disconnect" xml:space="preserve"><value>Disconnect</value></data>
++  <data name="ChannelsPage_UnlinkFailedTitle" xml:space="preserve"><value>Unlink failed</value></data>
++  <data name="ChannelsPage_DisconnectFailedTitle" xml:space="preserve"><value>Disconnect failed</value></data>
++  <data name="ChannelsPage_UnlinkFailedMessageFormat" xml:space="preserve"><value>Could not unlink {0}. The gateway may not support this action.</value></data>
++  <data name="ChannelsPage_DisconnectFailedMessageFormat" xml:space="preserve"><value>Could not disconnect {0}. The gateway may not support this action.</value></data>
++  <data name="Checkpoints_LoadFailedTitle" xml:space="preserve"><value>Couldn't load checkpoints</value></data>
++  <data name="Checkpoints_NotSupportedTitle" xml:space="preserve"><value>Not supported</value></data>
++  <data name="Checkpoints_NotSupportedMessage" xml:space="preserve"><value>This gateway doesn't support session compaction checkpoints. Update the gateway to use this.</value></data>
++  <data name="Checkpoints_DialogTitleFormat" xml:space="preserve"><value>Checkpoints: {0}</value></data>
++  <data name="Checkpoints_BranchLatest" xml:space="preserve"><value>Branch from latest</value></data>
++  <data name="Checkpoints_BranchLatestTargetable" xml:space="preserve"><value>Branch from latest targetable</value></data>
++  <data name="Checkpoints_RestoreLatest" xml:space="preserve"><value>Restore latest</value></data>
++  <data name="Checkpoints_Close" xml:space="preserve"><value>Close</value></data>
++  <data name="Checkpoints_EmptyMessage" xml:space="preserve"><value>No compaction checkpoints yet. Compacting this session creates one you can branch from or restore to.</value></data>
++  <data name="Checkpoints_ActionsHelp" xml:space="preserve"><value>Actions apply to the most recent checkpoint (top of the list). Branch starts a new session from it; Restore rolls this session back to it.</value></data>
++  <data name="Checkpoints_RestoreUnavailableMain" xml:space="preserve"><value>Restore is unavailable for the main session.</value></data>
++  <data name="Checkpoints_RestoreUnavailableAmbiguous" xml:space="preserve"><value>Restore is unavailable because the latest checkpoint can't be determined safely.</value></data>
++  <data name="Checkpoints_RestoreUnavailableSession" xml:space="preserve"><value>Restore isn't available for this session.</value></data>
++  <data name="Checkpoints_BranchUnavailableNoId" xml:space="preserve"><value>Branch is unavailable because no checkpoint has a checkpoint id.</value></data>
++  <data name="Checkpoints_BranchHelp" xml:space="preserve"><value>Branch starts a new session from the latest targetable checkpoint.</value></data>
++  <data name="Checkpoints_BranchFailedTitle" xml:space="preserve"><value>Branch failed</value></data>
++  <data name="Checkpoints_BranchNotSupportedMessage" xml:space="preserve"><value>This gateway doesn't support branching from a checkpoint. Update the gateway to use this.</value></data>
++  <data name="Checkpoints_BranchedTitle" xml:space="preserve"><value>Branched</value></data>
++  <data name="Checkpoints_CreatedSessionFormat" xml:space="preserve"><value>Created session {0}.</value></data>
++  <data name="Checkpoints_CreatedSessionMessage" xml:space="preserve"><value>Created a new session from the checkpoint.</value></data>
++  <data name="Checkpoints_BranchFailedMessage" xml:space="preserve"><value>Could not branch from the checkpoint.</value></data>
++  <data name="Checkpoints_RestoreNotSupportedMessage" xml:space="preserve"><value>This gateway doesn't support restoring a checkpoint. Update the gateway to use this.</value></data>
++  <data name="Checkpoints_ChangedTitle" xml:space="preserve"><value>Checkpoints changed</value></data>
++  <data name="Checkpoints_ChangedMessage" xml:space="preserve"><value>The latest checkpoint changed since you opened this. Reopen Checkpoints and try again.</value></data>
++  <data name="Checkpoints_RestoreFailedTitle" xml:space="preserve"><value>Restore failed</value></data>
++  <data name="Checkpoints_RestoredTitle" xml:space="preserve"><value>Restored</value></data>
++  <data name="Checkpoints_RestoredMessage" xml:space="preserve"><value>Rolled the session back to the checkpoint.</value></data>
++  <data name="Checkpoints_RestoreFailedMessage" xml:space="preserve"><value>Could not restore the checkpoint.</value></data>
++  <data name="SettingsPage_AppDisplayName.Text" xml:space="preserve"><value>OpenClaw Windows Companion</value></data>
+ </root>
+diff --git a/src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw b/src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw
+index fb45940d..36b19b74 100644
+--- a/src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw
++++ b/src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw
+@@ -7079,4 +7079,1052 @@ Le binaire wxc-exec est introuvable. {1} S'il s'agit d'une build développeur, c
+   <data name="LocalAiPage_UnavailableProbeTitle" xml:space="preserve"><value>La disponibilité de l'IA locale n'a pas pu être vérifiée</value></data>
+   <data name="LocalAiPage_CheckingTitle" xml:space="preserve"><value>Vérification de la disponibilité de l'IA locale</value></data>
+   <data name="LocalAiPage_CheckingMessage" xml:space="preserve"><value>OpenClaw vérifie si cet appareil peut exécuter l'IA locale. Cela ne prend qu'un instant.</value></data>
++
++  <data name="Setup_AdvancedSetupPage_BackButton.Content" xml:space="preserve">
++    <value>Back</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_OpenConnectionButton.Content" xml:space="preserve">
++    <value>Open Companion Settings</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>Step 2 of 6</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_1.Text" xml:space="preserve">
++    <value>Connect to an existing gateway</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_2.Text" xml:space="preserve">
++    <value>We'll open Companion Settings next. Nothing gets installed. Here's what you'll do there:</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_3.Text" xml:space="preserve">
++    <value>Add a gateway</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_4.Text" xml:space="preserve">
++    <value>In Connection, choose Add a gateway, then pick how to connect: Setup code or Direct (URL + token).</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_5.Text" xml:space="preserve">
++    <value>Point it at your gateway</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_6.Text" xml:space="preserve">
++    <value>Pair this device</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_7.Text" xml:space="preserve">
++    <value>Paste a setup code from the gateway host, or your shared token, so the gateway trusts this PC.</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_8.Text" xml:space="preserve">
++    <value>Optional: SSH tunnel</value>
++  </data>
++  <data name="Setup_AdvancedSetupPage_TextBlock_9.Text" xml:space="preserve">
++    <value>If your gateway isn't directly reachable, any method can tunnel over SSH.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_BackButton.Content" xml:space="preserve">
++    <value>Back</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_CapabilityExpander.Header" xml:space="preserve">
++    <value>Fine-tune individual capabilities (optional)</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_Expander_1.Header" xml:space="preserve">
++    <value>Show the exact commands &amp; files</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_GatewayServiceDetailText.Text" xml:space="preserve">
++    <value>Loopback only. It is not reachable from your network or the internet.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_InstallCliDetailText.Text" xml:space="preserve">
++    <value>Fetched over HTTPS; runs as a non-root openclaw user inside the instance.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_InstallDistroDetailText.Text" xml:space="preserve">
++    <value>WSL distro "OpenClawGateway" in your AppData. Separate from any Ubuntu you already have. Disk use grows dynamically.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_InstallDistroTitleText.Text" xml:space="preserve">
++    <value>Install an isolated Ubuntu 24.04 instance</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiModelSelector.AutomationProperties.Name" xml:space="preserve">
++    <value>Local AI model</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiNetworkingConsentCheckBox.AutomationProperties.Name" xml:space="preserve">
++    <value>Allow the global WSL networking change and one-time WSL shutdown</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiNetworkingConsentCheckBox.Content" xml:space="preserve">
++    <value>I understand and allow this global WSL change and one-time shutdown.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiNetworkingConsentPanel.Title" xml:space="preserve">
++    <value>WSL networking change required</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiNetworkingInspectionError.Title" xml:space="preserve">
++    <value>Could not check WSL networking</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiOptionContent.AutomationProperties.Name" xml:space="preserve">
++    <value>Local AI setup options</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiToggle.AutomationProperties.Name" xml:space="preserve">
++    <value>Set up Local AI on this PC</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_LocalAiUnavailablePanel.Title" xml:space="preserve">
++    <value>Local AI is not available</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_PrimaryButton.Content" xml:space="preserve">
++    <value>Next</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_RadioButton_1.AutomationProperties.Name" xml:space="preserve">
++    <value>Read-only</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_RadioButton_2.AutomationProperties.Name" xml:space="preserve">
++    <value>Standard (Recommended)</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_RadioButton_3.AutomationProperties.Name" xml:space="preserve">
++    <value>Full access</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>Step 3 of 6</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TailscaleAuthKeyBox.PlaceholderText" xml:space="preserve">
++    <value>Tailscale auth key (not saved)</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TailscaleStatusText.Text" xml:space="preserve">
++    <value>Check Windows Tailscale before continuing.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TailscaleTrustAuthToggle.Header" xml:space="preserve">
++    <value>Trust Tailscale identities for gateway authentication</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TailscaleTrustAuthToggle.OffContent" xml:space="preserve">
++    <value>Disabled</value>
++  </data>
