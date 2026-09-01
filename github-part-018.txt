@@ -1,0 +1,329 @@
++  <data name="Setup_CapabilitiesPage_TextBlock_1.Text" xml:space="preserve">
++    <value>Set up the WSL gateway</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_10.Text" xml:space="preserve">
++    <value>Local AI setup is independent of this choice and does not require Full access.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_11.Text" xml:space="preserve">
++    <value>Basic device info and status stay available while Node Mode is on.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_12.Text" xml:space="preserve">
++    <value>Grant the Windows permissions your selected capabilities need: now, or later from Settings. The agent only uses what you allow.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_13.Text" xml:space="preserve">
++    <value>Local AI on this PC</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_14.Text" xml:space="preserve">
++    <value>OpenClaw installs a verified native llama-server and downloads a pinned GGUF model from Hugging Face.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_15.Text" xml:space="preserve">
++    <value>Model</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_16.Text" xml:space="preserve">
++    <value>Local AI needs mirrored WSL networking. Setup will update your global .wslconfig and stop all running WSL distributions once. No distributions are deleted. Save any work in WSL first.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_17.Text" xml:space="preserve">
++    <value>Tailnet access with Tailscale Serve</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_18.Text" xml:space="preserve">
++    <value>Publish this private gateway as HTTPS/WSS to your Tailscale tailnet. Windows Tailscale must already be signed in; setup root owns Serve.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_19.Text" xml:space="preserve">
++    <value>Off by default. Enable only when your Tailscale ACLs should be part of the gateway access-control boundary; OpenClaw receives only a restricted identity lookup, not Tailscale operator control.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_2.Text" xml:space="preserve">
++    <value>OpenClaw runs your agent in a private, self-hosted gateway on this PC. Pick what it's allowed to do. You can change this later in Companion Settings.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_20.Text" xml:space="preserve">
++    <value>Download &amp; install the OpenClaw CLI</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_21.Text" xml:space="preserve">
++    <value>Run a local gateway service</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_22.Text" xml:space="preserve">
++    <value>May ask for admin once</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_23.Text" xml:space="preserve">
++    <value>Only if the Windows WSL platform isn't installed yet. One-time per machine.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_3.Text" xml:space="preserve">
++    <value>Read-only</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_4.Text" xml:space="preserve">
++    <value>See your screen, render on canvas, read device info. No commands.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_5.Text" xml:space="preserve">
++    <value>Standard</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_6.Text" xml:space="preserve">
++    <value>Recommended</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_7.Text" xml:space="preserve">
++    <value>Read-only plus run commands, edit files, and use text-to-speech and speech-to-text.</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_8.Text" xml:space="preserve">
++    <value>Full access</value>
++  </data>
++  <data name="Setup_CapabilitiesPage_TextBlock_9.Text" xml:space="preserve">
++    <value>Everything, plus camera, location, and browser control.</value>
++  </data>
++  <data name="Setup_CompletePage_FallbackButton.Content" xml:space="preserve">
++    <value>Retry with validated fallback</value>
++  </data>
++  <data name="Setup_CompletePage_GatewaySummaryText.Text" xml:space="preserve">
++    <value>OpenClawGateway · 127.0.0.1:18789</value>
++  </data>
++  <data name="Setup_CompletePage_LaunchButton.Content" xml:space="preserve">
++    <value>Finish</value>
++  </data>
++  <data name="Setup_CompletePage_LocalAiSummaryTitle.Text" xml:space="preserve">
++    <value>Local AI verified</value>
++  </data>
++  <data name="Setup_CompletePage_NodeModeBanner.Title" xml:space="preserve">
++    <value>Node mode enabled</value>
++  </data>
++  <data name="Setup_CompletePage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>Step 6 of 6</value>
++  </data>
++  <data name="Setup_CompletePage_StartupToggle.OffContent" xml:space="preserve">
++    <value>Off</value>
++  </data>
++  <data name="Setup_CompletePage_StartupToggle.OnContent" xml:space="preserve">
++    <value>On</value>
++  </data>
++  <data name="Setup_CompletePage_SubtitleText.Text" xml:space="preserve">
++    <value>OpenClaw is ready to go</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_1.Text" xml:space="preserve">
++    <value>Local gateway running</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_2.Text" xml:space="preserve">
++    <value>Device paired</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_3.Text" xml:space="preserve">
++    <value>This PC is connected and ready to use</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_4.Text" xml:space="preserve">
++    <value>Capability profile applied</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_5.Text" xml:space="preserve">
++    <value>Editable any time in Companion Settings</value>
++  </data>
++  <data name="Setup_CompletePage_TextBlock_6.Text" xml:space="preserve">
++    <value>Launch OpenClaw at startup</value>
++  </data>
++  <data name="Setup_CompletePage_TitleText.Text" xml:space="preserve">
++    <value>All set!</value>
++  </data>
++  <data name="Setup_CompletePage_ViewLogLink.Content" xml:space="preserve">
++    <value>View full log →</value>
++  </data>
++  <data name="Setup_ProgressPage_DotsPanel.AutomationProperties.Name" xml:space="preserve">
++    <value>Step 4 of 6</value>
++  </data>
++  <data name="Setup_ProgressPage_Expander_1.Header" xml:space="preserve">
++    <value>Live activity</value>
++  </data>
++  <data name="Setup_ProgressPage_OnboardButton.Content" xml:space="preserve">
++    <value>Start OpenClaw onboard</value>
++  </data>
++  <data name="Setup_ProgressPage_OpenLogButton.Content" xml:space="preserve">
++    <value>Open log file</value>
++  </data>
++  <data name="Setup_ProgressPage_TailscaleAuthorizationLink.Content" xml:space="preserve">
++    <value>Open Tailscale authorization</value>
++  </data>
++  <data name="Setup_ProgressPage_TailscaleAuthorizationPanel.Title" xml:space="preserve">
++    <value>Authorize Tailscale</value>
++  </data>
++  <data name="Setup_ProgressPage_TextBlock_1.Text" xml:space="preserve">
++    <value>Gateway installed</value>
++  </data>
++  <data name="Setup_ProgressPage_TextBlock_2.Text" xml:space="preserve">
++    <value>Your private OpenClaw gateway is up and running on this PC.</value>
++  </data>
++  <data name="Setup_ProgressPage_TextBlock_3.Text" xml:space="preserve">
++    <value>Up next: OpenClaw onboard</value>
++  </data>
++  <data name="Setup_ProgressPage_TextBlock_4.Text" xml:space="preserve">
++    <value>A few quick questions. Choose your AI provider, model, and key to connect your agent.</value>
++  </data>
++  <data name="Setup_ProgressPage_TitleText.Text" xml:space="preserve">
++    <value>Setting up OpenClaw</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_ContinueButton.Content" xml:space="preserve">
++    <value>Continue</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_InfoBar_1.Title" xml:space="preserve">
++    <value>Security notice</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>Step 1 of 6</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_TextBlock_1.Text" xml:space="preserve">
++    <value>Welcome to OpenClaw</value>
++  </data>
++  <data name="Setup_SecurityNoticePage_TextBlock_2.Text" xml:space="preserve">
++    <value>OpenClaw runs your personal AI agent through a private gateway on this PC: reachable from chat apps like WhatsApp or Telegram.</value>
++  </data>
++  <data name="Setup_SetupWindow_TextBlock_1.Text" xml:space="preserve">
++    <value>OpenClaw Setup</value>
++  </data>
++  <data name="Setup_SetupWindow_Window_1.Title" xml:space="preserve">
++    <value>OpenClaw Setup</value>
++  </data>
++  <data name="Setup_WelcomePage_BackButton.Content" xml:space="preserve">
++    <value>Back</value>
++  </data>
++  <data name="Setup_WelcomePage_ConnectChoice.AutomationProperties.Name" xml:space="preserve">
++    <value>Connect to an existing gateway</value>
++  </data>
++  <data name="Setup_WelcomePage_GatewayChoiceSelector.AutomationProperties.HelpText" xml:space="preserve">
++    <value>Choose one gateway setup method.</value>
++  </data>
++  <data name="Setup_WelcomePage_GatewayChoiceSelector.AutomationProperties.Name" xml:space="preserve">
++    <value>Gateway setup method</value>
++  </data>
++  <data name="Setup_WelcomePage_InstallCheckProgress.AutomationProperties.Name" xml:space="preserve">
++    <value>Checking WSL readiness and existing setup</value>
++  </data>
++  <data name="Setup_WelcomePage_InstallChoice.AutomationProperties.Name" xml:space="preserve">
++    <value>Install a local gateway (WSL), recommended</value>
++  </data>
++  <data name="Setup_WelcomePage_InstallTitle.Text" xml:space="preserve">
++    <value>Install a local gateway (WSL)</value>
++  </data>
++  <data name="Setup_WelcomePage_NextButton.Content" xml:space="preserve">
++    <value>Next</value>
++  </data>
++  <data name="Setup_WelcomePage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>Step 2 of 6</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_1.Text" xml:space="preserve">
++    <value>Set up OpenClaw</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_2.Text" xml:space="preserve">
++    <value>OpenClaw runs your agent through a gateway. Choose how to set it up on this PC. You can change this later.</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_3.Text" xml:space="preserve">
++    <value>Recommended</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_4.Text" xml:space="preserve">
++    <value>A private, self-hosted OpenClaw gateway in an isolated Ubuntu WSL instance. We'll show exactly what gets installed before anything runs.</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_5.Text" xml:space="preserve">
++    <value>Connect to an existing gateway</value>
++  </data>
++  <data name="Setup_WelcomePage_TextBlock_6.Text" xml:space="preserve">
++    <value>Already run an OpenClaw gateway: here, on another machine, or remote? Pair without installing a gateway or configuring Local AI on this PC.</value>
++  </data>
++  <data name="Setup_WizardPage_MenuFlyoutItem_1.Text" xml:space="preserve">
++    <value>Restart onboard</value>
++  </data>
++  <data name="Setup_WizardPage_MenuFlyoutItem_2.Text" xml:space="preserve">
++    <value>Skip &amp; exit</value>
++  </data>
++  <data name="Setup_WizardPage_MoreOptionsButton.AutomationProperties.Name" xml:space="preserve">
++    <value>More onboarding options</value>
++  </data>
++  <data name="Setup_WizardPage_MoreOptionsButton.Content" xml:space="preserve">
++    <value>More options</value>
++  </data>
++  <data name="Setup_WizardPage_OpenGatewayTerminalButton.Content" xml:space="preserve">
++    <value>Open terminal</value>
++  </data>
++  <data name="Setup_WizardPage_PrimaryButton.Content" xml:space="preserve">
++    <value>Continue</value>
++  </data>
++  <data name="Setup_WizardPage_RestartGatewayButton.Content" xml:space="preserve">
++    <value>Restart gateway</value>
++  </data>
++  <data name="Setup_WizardPage_SecondaryButton.Content" xml:space="preserve">
++    <value>Skip</value>
++  </data>
++  <data name="Setup_WizardPage_SecretInput.PlaceholderText" xml:space="preserve">
++    <value>Enter value</value>
++  </data>
++  <data name="Setup_WizardPage_StackPanel_1.AutomationProperties.Name" xml:space="preserve">
++    <value>Step 5 of 6</value>
++  </data>
++  <data name="Setup_WizardPage_StatusText.Text" xml:space="preserve">
++    <value>Connecting to gateway...</value>
++  </data>
++  <data name="Setup_WizardPage_TextBlock_1.Text" xml:space="preserve">
++    <value>OpenClaw onboard</value>
++  </data>
++  <data name="Setup_WizardPage_TextBlock_2.Text" xml:space="preserve">
++    <value>Live gateway output</value>
++  </data>
++  <data name="Setup_WizardPage_TextInput.PlaceholderText" xml:space="preserve">
++    <value>Enter value</value>
++  </data>
++
++  <data name="Setup_Capabilities_AllPermissionsFormat" xml:space="preserve">
++    <value>All {0} granted</value>
++  </data>
++  <data name="Setup_Capabilities_CheckingTailscale" xml:space="preserve">
++    <value>Checking Windows Tailscale…</value>
++  </data>
++  <data name="Setup_Capabilities_Install" xml:space="preserve">
++    <value>Install &amp; set up</value>
++  </data>
++  <data name="Setup_Capabilities_ModelNotQualified" xml:space="preserve">
++    <value>This model is not qualified for the detected hardware.</value>
++  </data>
++  <data name="Setup_Capabilities_Next" xml:space="preserve">
++    <value>Next</value>
++  </data>
++  <data name="Setup_Capabilities_PermissionStatusErrorFormat" xml:space="preserve">
++    <value>You can continue setup. Review permissions later in Settings. Details: {0}</value>
++  </data>
++  <data name="Setup_Capabilities_PermissionStatusErrorTitle" xml:space="preserve">
++    <value>Couldn't read Windows permission status</value>
++  </data>
++  <data name="Setup_Capabilities_PermissionsFormat" xml:space="preserve">
++    <value>{0} of {1} granted</value>
++  </data>
++  <data name="Setup_Capabilities_ProfileCustomFormat" xml:space="preserve">
++    <value>{0} of {1} capabilities</value>
++  </data>
++  <data name="Setup_Capabilities_ProfileFull" xml:space="preserve">
++    <value>Full access</value>
++  </data>
++  <data name="Setup_Capabilities_ProfileReadOnly" xml:space="preserve">
++    <value>Read-only</value>
++  </data>
++  <data name="Setup_Capabilities_ProfileStandard" xml:space="preserve">
++    <value>Standard</value>
++  </data>
++  <data name="Setup_Capabilities_StepCapabilities" xml:space="preserve">
++    <value>What should your agent be able to do?</value>
++  </data>
++  <data name="Setup_Capabilities_StepPermissions" xml:space="preserve">
++    <value>Windows permissions</value>
++  </data>
++  <data name="Setup_Capabilities_StepReview" xml:space="preserve">
++    <value>What setup will install on this PC</value>
++  </data>
++  <data name="Setup_Capabilities_TailscaleRequired" xml:space="preserve">
++    <value>Windows Tailscale must be installed and signed in before setup can continue.</value>
++  </data>
++  <data name="Setup_Complete_Close" xml:space="preserve">
++    <value>Close</value>
++  </data>
++  <data name="Setup_Complete_LocalAiReadyDescription" xml:space="preserve">
++    <value>The native llama-server router is ready. The model loads on the first request.</value>
++  </data>
++  <data name="Setup_Complete_OpenChat" xml:space="preserve">
++    <value>Open chat</value>
++  </data>
++  <data name="Setup_Complete_OpenClawAndLocalAiReady" xml:space="preserve">
++    <value>OpenClaw and Local AI are ready</value>
++  </data>
++  <data name="Setup_Complete_OpenHelp" xml:space="preserve">
++    <value>Open help link →</value>
++  </data>
++  <data name="Setup_Complete_RetryFallbackFormat" xml:space="preserve">
++    <value>Retry with validated fallback {0}</value>
++  </data>
++  <data name="Setup_Complete_SetupFailed" xml:space="preserve">
