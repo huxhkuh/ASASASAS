@@ -1,0 +1,281 @@
++  <data name="SandboxPage_WindowsUnsupportedTitle" xml:space="preserve">
++    <value>גרסת Windows שלך עדיין לא תומכת ב-Sandboxing</value>
++  </data>
++  <data name="SandboxPage_WindowsUnsupportedMessageFormat" xml:space="preserve">
++    <value>{0}
++
++{1} Sandboxing דורש גירסת Windows עדכנית עם הפרימיטיבים של AppContainer שנשלחו. התקן את העדכונים האחרונים של Windows (או הצטרף לתוכנית Insider Windows עבור הגירסאות החדשות ביותר) כדי לאפשר בלימה.</value>
++  </data>
++  <data name="SandboxPage_OpenWindowsUpdate" xml:space="preserve">
++    <value>פתח את עדכון Windows</value>
++  </data>
++  <data name="SandboxPage_ComponentsMissingTitle" xml:space="preserve">
++    <value>רכיבי Sandboxing חסרים</value>
++  </data>
++  <data name="SandboxPage_ComponentsMissingMessageFormat" xml:space="preserve">
++    <value>{0}
++
++לא ניתן היה לאתר את הקובץ הבינארי wxc-exec. {1} אם זוהי גרסה של מפתח, בנה את אפליקציית המגש כך ש-wxc-exec.exe יועתק לתיקיית הפלט. אחרת, התקן מחדש את האפליקציה הנלווית כדי לשחזר את ארגז החול.</value>
++  </data>
++  <data name="SandboxPage_ShowInstallInstructions" xml:space="preserve">
++    <value>הצג הוראות התקנה</value>
++  </data>
++  <data name="SandboxPage_UnavailableTitle" xml:space="preserve">
++    <value>ארגז חול אינו זמין: גיבוי למארח</value>
++  </data>
++  <data name="SandboxPage_UnavailableBlockedTitle" xml:space="preserve">
++    <value>ארגז חול אינו זמין: פקודות חסומות</value>
++  </data>
++  <data name="SettingsPage_LocalGatewayRemovedTitle" xml:space="preserve">
++    <value>מקומי Gateway הוסר</value>
++  </data>
++  <data name="SettingsPage_LocalGatewayRemovedMessage" xml:space="preserve">
++    <value>ההתקנה אופסה; ניתן להפעיל מחדש את ההתקנה מתפריט המגש.</value>
++  </data>
++  <data name="SettingsPage_LocalGatewayRemovalErrorsMessage" xml:space="preserve">
++    <value>ההסרה הושלמה עם שגיאות. בדוק את היומנים לקבלת פרטים.</value>
++  </data>
++  <data name="SettingsPage_LocalGatewayRemovalCancelledTitle" xml:space="preserve">
++    <value>ההסרה בוטלה</value>
++  </data>
++  <data name="SettingsPage_LocalGatewayRemovalCancelledMessage" xml:space="preserve">
++    <value>Gateway עשוי להיות במצב של הסרה חלקית. בדוק את היומנים או נסה שוב.</value>
++  </data>
++  <data name="SettingsPage_ViewLogs" xml:space="preserve">
++    <value>הצג יומנים</value>
++  </data>
++  <data name="SettingsPage_LocalGatewayRemovalFailedTitle" xml:space="preserve">
++    <value>ההסרה נכשלה</value>
++  </data>
++  <data name="SettingsPage_RemoveLocalGatewayButton" xml:space="preserve">
++    <value>הסר מקומי Gateway</value>
++  </data>
++  <data name="SettingsPage_RemovingDistro" xml:space="preserve">
++    <value>הסרת הפצה…</value>
++  </data>
++  <data name="SettingsPage_RemovingLocalGatewayMessage" xml:space="preserve">
++    <value>הסרת ההפצה המקומית Gateway. פעולה זו עשויה להימשך 10-30 שניות…</value>
++  </data>
++  <data name="CronPage_NextWakeFormat" xml:space="preserve">
++    <value>· התעוררות הבאה: {0}</value>
++  </data>
++  <data name="ChatWindow_UnableToLoadChatCredentials" xml:space="preserve">
++    <value>לא ניתן לטעון את הצ'אט. Gateway URL או token אינם זמינים.</value>
++  </data>
++  <data name="ChatWindow_UnableToLoadChatRetryFormat" xml:space="preserve">
++    <value>לא ניתן לטעון את הצ'אט. אנא נסה שוב. ({0})</value>
++  </data>
++  <data name="ChatWindow_WebViewFailedFormat" xml:space="preserve">
++    <value>WebView2 נכשל: {0}</value>
++  </data>
++  <data name="CanvasWindow_WebViewInitFailedFormat" xml:space="preserve">
++    <value>אתחול WebView2 נכשל: {0}</value>
++  </data>
++  <data name="CanvasWindow_NavigationFailedFormat" xml:space="preserve">
++    <value>הניווט נכשל: {0}</value>
++  </data>
++  <data name="ConnectionPage_GatewayHostControlsDescription_Format" xml:space="preserve">
++    <value>פתח מעטפת או נהל את השירות המקומי Gateway ב-{0}.</value>
++  </data>
++  <data name="CronPage_JobCompleted" xml:space="preserve">
++    <value>המשימה הושלמה</value>
++  </data>
++  <data name="CronPage_JobCompletedRanSuccessfully" xml:space="preserve">
++    <value>"{0}" פעל בהצלחה והוסר.</value>
++  </data>
++  <data name="CronPage_RunNotStarted" xml:space="preserve">
++    <value>ההפעלה לא הופעלה</value>
++  </data>
++  <data name="CronPage_RunNotStartedGeneric" xml:space="preserve">
++    <value>{0} לא הופעל.</value>
++  </data>
++  <data name="CronPage_RunNotStartedWithReason" xml:space="preserve">
++    <value>{0} לא הופעל: {1}</value>
++  </data>
++  <data name="GatewayHostAccess_NoTerminalAccess" xml:space="preserve">
++    <value>ל־Gateway זה אין גישה למסוף WSL או SSH.</value>
++  </data>
++  <data name="GatewayHostAccess_NoWslOrSshDisabled" xml:space="preserve">
++    <value>קובץ Gateway זה לא נוצר עם WSL ואין לו מנהרה SSH.</value>
++  </data>
++  <data name="GatewayHostAccess_OpenSshTerminalLabel" xml:space="preserve">
++    <value>פתח טרמינל SSH</value>
++  </data>
++  <data name="GatewayHostAccess_OpenSshTerminalTooltip_Format" xml:space="preserve">
++    <value>פתח טרמינל SSH אל {0}@{1}.</value>
++  </data>
++  <data name="GatewayHostAccess_OpenTerminalInWslTooltip_Format" xml:space="preserve">
++    <value>פתח טרמינל בקובץ {0} WSL Gateway.</value>
++  </data>
++  <data name="GatewayHostAccess_OpenTerminalLabel" xml:space="preserve">
++    <value>פתח טרמינל</value>
++  </data>
++  <data name="SessionsPage_OpenChatButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
++    <value>פתח בצ'אט</value>
++  </data>
++  <data name="SessionsPage_OpenChatButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
++    <value>פתח סשן זה בצ'אט</value>
++  </data>
++  <data name="SkillsPage_BadgeDisabled" xml:space="preserve">
++    <value>מושבת</value>
++  </data>
++  <data name="SkillsPage_BadgeEnabled" xml:space="preserve">
++    <value>מופעל</value>
++  </data>
++  <data name="SkillsPage_CountFormat" xml:space="preserve">
++    <value>({0}/{1} מופעל)</value>
++  </data>
++  <data name="SkillsPage_DisabledHeaderFormat" xml:space="preserve">
++    <value>מושבת ({0})</value>
++  </data>
++  <data name="SkillsPage_EnabledHeaderFormat" xml:space="preserve">
++    <value>מופעל ({0})</value>
++  </data>
++  <data name="ConnectionPage_CopyTrustApproval.Content" xml:space="preserve">
++    <value>העתק</value>
++  </data>
++  <data name="ConnectionPage_NodeApprovalRequired" xml:space="preserve">
++    <value>Node נדרש אישור</value>
++  </data>
++  <data name="ConnectionPage_NodeReapprovalRequired" xml:space="preserve">
++    <value>Node נדרש אישור חוזר</value>
++  </data>
++  <data name="ConnectionPage_NodeBodyApprovalRequired" xml:space="preserve">
++    <value>הצהרות ממתינות אינן בתוקף עד שבקשה זו תאושר ו-Node יתחבר מחדש.</value>
++  </data>
++  <data name="ConnectionPage_NodeBodyReapprovalRequired" xml:space="preserve">
++    <value>הגישה המאושרת הנוכחית נשארת בתוקף. אשר את שינויי ההצהרה הממתינות, ולאחר מכן התחבר מחדש.</value>
++  </data>
++  <data name="ConnectionPage_NodeTrustApprovalHelp" xml:space="preserve">
++    <value>הפעל פקודה זו על המארח Gateway כדי לאשר את ההצהרות הממתינות. המגש לא יאשר אוטומטית.</value>
++  </data>
++  <data name="ConnectionPage_NodeTrustDiscoveryHelp" xml:space="preserve">
++    <value>הפעל פקודה זו על המארח Gateway כדי לרשום בקשות ממתינות. לאחר מכן אשר בקשה תקפה במפורש. פקודה זו אינה מאשרת דבר.</value>
++  </data>
++  <data name="ConnectionPage_NodeReconnectAfterApproval" xml:space="preserve">
++    <value>התחברות מחדש לאחר אישור</value>
++  </data>
++  <data name="ConnectionPage_NodeSurfaceNone" xml:space="preserve">
++    <value>ללא</value>
++  </data>
++  <data name="ConnectionPage_NodeTechnicalDetails.Text" xml:space="preserve">
++    <value>הצג פרטים טכניים</value>
++  </data>
++  <data name="ConnectionPage_NodePillState_Active" xml:space="preserve">
++    <value>שיתוף כעת</value>
++  </data>
++  <data name="ConnectionPage_NodePillState_Pending" xml:space="preserve">
++    <value>מופעל, עדיין לא פעיל</value>
++  </data>
++  <data name="ConnectionPage_NodePillState_NeedsGatewayToken" xml:space="preserve">
++    <value>נדרש שיתוף Gateway token</value>
++  </data>
++  <data name="ConnectionPage_NodePillState_Off" xml:space="preserve">
++    <value>כבוי</value>
++  </data>
++  <data name="ConnectionPage_NodeCap_Device" xml:space="preserve">
++    <value>פרטי מכשיר</value>
++  </data>
++  <data name="ConnectionPage_NodeCap_System" xml:space="preserve">
++    <value>גישת מערכת</value>
++  </data>
++  <data name="ConnectionPage_NodeEffectiveCapabilities" xml:space="preserve">
++    <value>יכולות מאושרות/תקפות: {0}</value>
++  </data>
++  <data name="ConnectionPage_NodeEffectiveCommands" xml:space="preserve">
++    <value>פקודות מאושרות/תקפות: {0}</value>
++  </data>
++  <data name="ConnectionPage_NodeEffectivePermissions" xml:space="preserve">
++    <value>הרשאות מאושרות/תקפות: {0}</value>
++  </data>
++  <data name="ConnectionPage_NodePendingDeclaredCapabilities" xml:space="preserve">
++    <value>יכולות מוצהרות ממתינות: {0}</value>
++  </data>
++  <data name="ConnectionPage_NodePendingDeclaredCommands" xml:space="preserve">
++    <value>פקודות מוצהרות ממתינות: {0}</value>
++  </data>
++  <data name="ConnectionPage_NodePendingDeclaredPermissions" xml:space="preserve">
++    <value>הרשאות מוצהרות ממתינות: {0}</value>
++  </data>
++  <data name="ConnectionPage_AdviceCleartextTitle" xml:space="preserve">
++    <value>חיבור לא מוצפן</value>
++  </data>
++  <data name="ConnectionPage_AdviceCleartextMessage" xml:space="preserve">
++    <value>חיבור מרוחק זה Gateway משתמש ב-ws://.. ה־token שלך יישלח בטקסט רגיל. השתמש ב-wss:// (TLS), מנהרה SSH, או פרוקסי מהימן / Tailscale.</value>
++  </data>
++  <data name="ConnectionPage_AdviceSecureTitle" xml:space="preserve">
++    <value>מוצפן (TLS)</value>
++  </data>
++  <data name="ConnectionPage_AdviceSecureMessage" xml:space="preserve">
++    <value>ה־Gateway הזה משתמש ב-TLS. ה־token שלך מוגן במעבר כאשר האישור מאושר.</value>
++  </data>
++  <data name="ConnectionPage_AdviceTunnelTitle" xml:space="preserve">
++    <value>מנהרת SSH</value>
++  </data>
++  <data name="ConnectionPage_AdviceTunnelMessage" xml:space="preserve">
++    <value>התעבורה ל־Gateway זה מוצפנת דרך מנהרת SSH.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryHeaderTokenDrift" xml:space="preserve">
++    <value>התאמה מחדש של מכשיר זה:</value>
++  </data>
++  <data name="ConnectionPage_RecoveryHeaderScope" xml:space="preserve">
++    <value>שדרוג גישת מכשיר זה:</value>
++  </data>
++  <data name="ConnectionPage_RecoveryHeaderTls" xml:space="preserve">
++    <value>תקן את החיבור המאובטח:</value>
++  </data>
++  <data name="ConnectionPage_RecoveryTokenDriftBullet1" xml:space="preserve">
++    <value>ה־Gateway כבר לא סומך על ה־token השמור של מכשיר זה (הוא עבר סיבוב או בוטל).</value>
++  </data>
++  <data name="ConnectionPage_RecoveryTokenDriftBullet2" xml:space="preserve">
++    <value>קבל קוד הגדרה חדש מהמארח Gateway והדבק אותו למטה כדי לבצע התאמה מחדש.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryScopeBullet1" xml:space="preserve">
++    <value>מכשיר זה אומת אך חסרים בו הטווחים הדרושים לו (לדוגמה operator.admin או operator.pairing).</value>
++  </data>
++  <data name="ConnectionPage_RecoveryScopeBullet2" xml:space="preserve">
++    <value>בצע התאמה מחדש עם קוד הגדרה חדש כדי לבקש את הטווחים הנדרשים, או לאשר את הטווחים הגבוהים יותר במארח Gateway.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryTlsBullet1" xml:space="preserve">
++    <value>לא ניתן היה ליצור את TLS/התעבורה המאובטחת של Gateway.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryTlsBullet2" xml:space="preserve">
++    <value>אמת את האישור במארח Gateway, או התחבר דרך wss:// או מנהרה SSH.</value>
++  </data>
++  <data name="ConnectionPage_TokenOrPasswordHint.Text" xml:space="preserve">
++    <value>הדבק Gateway token משותף, או השאר אותו ריק כדי להתאים אותו לקוד התקנה.</value>
++  </data>
++  <data name="ConnectionPage_RemoteSetupHelpDirect.Text" xml:space="preserve">
++    <value>התחבר ל-wss:// או https:// כאשר ל־Gateway יש אישור מהימן. ה־token שלך מוצפן במעבר לאחר אימות האישור.</value>
++  </data>
++  <data name="ConnectionPage_RemoteSetupHelpTunnel.Text" xml:space="preserve">
++    <value>כאשר ה־Gateway מאזין רק במארח מקומי, הרחב את "השתמש במנהרה SSH" למטה. המגש מעביר פורט מקומי דרך SSH כך שהתעבורה תישאר מוצפנת.</value>
++  </data>
++  <data name="ConnectionPage_RemoteSetupHelpProxy.Text" xml:space="preserve">
++    <value>אם Tailscale או פרוקסי הפוך כבר מצפין את הנתיב, ws:// רגיל URL מעל הרשת הפרטית הזו תקין.</value>
++  </data>
++  <data name="ConnectionPage_RemoteSetupHelpAuth.Text" xml:space="preserve">
++    <value>הדבק token משותף, או השאר אותו ריק והתאם עם קוד התקנה. התאמה מחדש גם משדרגת את טווחי המכשיר.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryHeaderRateLimited" xml:space="preserve">
++    <value>המתן לפני חיבור מחדש:</value>
++  </data>
++  <data name="ConnectionPage_RecoveryRateLimitedBullet1" xml:space="preserve">
++    <value>ה־Gateway מגביל את הקצב של הלקוח הזה לאחר ניסיונות כושלים חוזרים.</value>
++  </data>
++  <data name="ConnectionPage_RecoveryRateLimitedBullet2" xml:space="preserve">
++    <value>הפסק את הניסיון החוזר לרגע, ולאחר מכן התחבר מחדש לאחר תיקון token, הסיסמה או מצב ההתאמה.</value>
++  </data>
++  <data name="ConnectionPage_RemoteSetupHelpLink.Text" xml:space="preserve">
++    <value>כיצד ניתן להתחבר ל־Gateway מרוחק?</value>
++  </data>
++  <data name="ConnectionPage_RemoteSetupHelpTip.Title" xml:space="preserve">
++    <value>התחברות לשלט רחוק Gateway</value>
++  </data>
++  <data name="ConnectionPage_RemoteSetupHelpDirectTitle.Text" xml:space="preserve">
++    <value>ישיר (TLS)</value>
++  </data>
++  <data name="ConnectionPage_RemoteSetupHelpTunnelTitle.Text" xml:space="preserve">
++    <value>מנהרת SSH</value>
++  </data>
++  <data name="ConnectionPage_RemoteSetupHelpProxyTitle.Text" xml:space="preserve">
