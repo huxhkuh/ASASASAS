@@ -1,0 +1,376 @@
++    <value>Setup failed</value>
++  </data>
++  <data name="Setup_Complete_UnknownError" xml:space="preserve">
++    <value>Unknown error</value>
++  </data>
++  <data name="Setup_Complete_UpdateWsl" xml:space="preserve">
++    <value>Update WSL →</value>
++  </data>
++  <data name="Setup_Complete_ViewLogFormat" xml:space="preserve">
++    <value>View full log → {0}</value>
++  </data>
++  <data name="Setup_Permission_Allowed" xml:space="preserve">
++    <value>Allowed</value>
++  </data>
++  <data name="Setup_Permission_AskEveryTime" xml:space="preserve">
++    <value>Ask every time</value>
++  </data>
++  <data name="Setup_Permission_Camera" xml:space="preserve">
++    <value>Camera</value>
++  </data>
++  <data name="Setup_Permission_CameraOn" xml:space="preserve">
++    <value>Windows camera access is on</value>
++  </data>
++  <data name="Setup_Permission_ChooseEveryCapture" xml:space="preserve">
++    <value>You choose what to share each capture</value>
++  </data>
++  <data name="Setup_Permission_EnableCamera" xml:space="preserve">
++    <value>Turn on in Settings to use the camera</value>
++  </data>
++  <data name="Setup_Permission_EnableLocation" xml:space="preserve">
++    <value>Turn on in Settings to share location</value>
++  </data>
++  <data name="Setup_Permission_EnableMicrophone" xml:space="preserve">
++    <value>Turn on in Settings to use the microphone</value>
++  </data>
++  <data name="Setup_Permission_EnableNotifications" xml:space="preserve">
++    <value>Turn on in Settings to get alerts</value>
++  </data>
++  <data name="Setup_Permission_Location" xml:space="preserve">
++    <value>Location</value>
++  </data>
++  <data name="Setup_Permission_LocationOn" xml:space="preserve">
++    <value>Windows location is on</value>
++  </data>
++  <data name="Setup_Permission_Microphone" xml:space="preserve">
++    <value>Microphone</value>
++  </data>
++  <data name="Setup_Permission_MicrophoneOn" xml:space="preserve">
++    <value>Windows microphone access is on</value>
++  </data>
++  <data name="Setup_Permission_NoCamera" xml:space="preserve">
++    <value>No camera detected</value>
++  </data>
++  <data name="Setup_Permission_NoMicrophone" xml:space="preserve">
++    <value>No microphone detected</value>
++  </data>
++  <data name="Setup_Permission_NotSupported" xml:space="preserve">
++    <value>Not supported on this device</value>
++  </data>
++  <data name="Setup_Permission_Notifications" xml:space="preserve">
++    <value>Notifications</value>
++  </data>
++  <data name="Setup_Permission_NotificationsOn" xml:space="preserve">
++    <value>Windows notifications are on</value>
++  </data>
++  <data name="Setup_Permission_OpenSettings" xml:space="preserve">
++    <value>Open Settings</value>
++  </data>
++  <data name="Setup_Permission_OpenSettingsFormat" xml:space="preserve">
++    <value>Open {0} settings</value>
++  </data>
++  <data name="Setup_Permission_ScreenCapture" xml:space="preserve">
++    <value>Screen capture</value>
++  </data>
++  <data name="Setup_Permission_ScreenCaptureTooltip" xml:space="preserve">
++    <value>Windows has no on/off setting for screen capture. Each time the agent captures your screen, Windows shows a picker so you choose exactly what to share. There is nothing to allow in advance.</value>
++  </data>
++  <data name="Setup_Permission_StatusUnknown" xml:space="preserve">
++    <value>Couldn't check status</value>
++  </data>
++  <data name="Setup_Permission_Unavailable" xml:space="preserve">
++    <value>Unavailable</value>
++  </data>
++  <data name="Setup_Progress_AnotherTaskActive" xml:space="preserve">
++    <value>Another setup task is still active. Wait for it to finish, then start OpenClaw onboard.</value>
++  </data>
++  <data name="Setup_Progress_Cancelled" xml:space="preserve">
++    <value>Setup was cancelled.</value>
++  </data>
++  <data name="Setup_Progress_PreviewLocalAi" xml:space="preserve">
++    <value>Downloading the selected Hugging Face model: about 18 minutes left</value>
++  </data>
++  <data name="Setup_Progress_PreviewWsl" xml:space="preserve">
++    <value>Creating OpenClawGateway WSL instance: about 4 minutes left</value>
++  </data>
++  <data name="Setup_Progress_StepFailedFormat" xml:space="preserve">
++    <value>Step '{0}' failed: {1}</value>
++  </data>
++  <data name="Setup_Progress_SubtitleFormat" xml:space="preserve">
++    <value>Creating {0} WSL instance</value>
++  </data>
++  <data name="Setup_Progress_SubtitleWithLocalAiFormat" xml:space="preserve">
++    <value>Creating {0}, installing llama-server, and preparing the selected model</value>
++  </data>
++  <data name="Setup_Progress_TitleWithLocalAi" xml:space="preserve">
++    <value>Setting up OpenClaw and Local AI</value>
++  </data>
++  <data name="Setup_Welcome_Cancel" xml:space="preserve">
++    <value>Cancel</value>
++  </data>
++  <data name="Setup_Welcome_Continue" xml:space="preserve">
++    <value>Continue</value>
++  </data>
++  <data name="Setup_Welcome_DeleteAndReplace" xml:space="preserve">
++    <value>Delete and replace</value>
++  </data>
++  <data name="Setup_Welcome_DeleteDistroFormat" xml:space="preserve">
++    <value>Permanently delete WSL distro '{0}'?</value>
++  </data>
++  <data name="Setup_Welcome_InstallWslGateway" xml:space="preserve">
++    <value>Install a new WSL gateway?</value>
++  </data>
++  <data name="Setup_Welcome_ReplaceWslGateway" xml:space="preserve">
++    <value>Replace existing WSL gateway?</value>
++  </data>
++  <data name="Setup_Welcome_TryAgain" xml:space="preserve">
++    <value>Try again</value>
++  </data>
++  <data name="Setup_Welcome_WslInspectionFailed" xml:space="preserve">
++    <value>Could not inspect WSL</value>
++  </data>
++  <data name="Setup_Welcome_WslNotReady" xml:space="preserve">
++    <value>WSL2 is not ready</value>
++  </data>
++  <data name="Setup_Wizard_ChooseAtLeastOne" xml:space="preserve">
++    <value>Choose at least one valid option.</value>
++  </data>
++  <data name="Setup_Wizard_ChooseOption" xml:space="preserve">
++    <value>Choose an option</value>
++  </data>
++  <data name="Setup_Wizard_ChooseOptions" xml:space="preserve">
++    <value>Choose options</value>
++  </data>
++  <data name="Setup_Wizard_ChooseValidOption" xml:space="preserve">
++    <value>Choose a valid option.</value>
++  </data>
++  <data name="Setup_Wizard_Confirm" xml:space="preserve">
++    <value>Confirm</value>
++  </data>
++  <data name="Setup_Wizard_ConnectionLost" xml:space="preserve">
++    <value>Gateway connection was lost while the wizard was running.</value>
++  </data>
++  <data name="Setup_Wizard_Continue" xml:space="preserve">
++    <value>Continue</value>
++  </data>
++  <data name="Setup_Wizard_Copy" xml:space="preserve">
++    <value>Copy</value>
++  </data>
++  <data name="Setup_Wizard_DefaultModel" xml:space="preserve">
++    <value>Default AI model</value>
++  </data>
++  <data name="Setup_Wizard_EnterValue" xml:space="preserve">
++    <value>Enter a value to continue.</value>
++  </data>
++  <data name="Setup_Wizard_EnterValueTitle" xml:space="preserve">
++    <value>Enter value</value>
++  </data>
++  <data name="Setup_Wizard_FailedFormat" xml:space="preserve">
++    <value>Gateway wizard failed: {0}</value>
++  </data>
++  <data name="Setup_Wizard_Intro" xml:space="preserve">
++    <value>A few quick questions to connect your agent</value>
++  </data>
++  <data name="Setup_Wizard_InvalidResponse" xml:space="preserve">
++    <value>Gateway wizard returned an invalid response.</value>
++  </data>
++  <data name="Setup_Wizard_MissingStepId" xml:space="preserve">
++    <value>Gateway wizard step is missing an id.</value>
++  </data>
++  <data name="Setup_Wizard_More" xml:space="preserve">
++    <value>More ▾</value>
++  </data>
++  <data name="Setup_Wizard_NeedsAttention" xml:space="preserve">
++    <value>Wizard needs attention</value>
++  </data>
++  <data name="Setup_Wizard_No" xml:space="preserve">
++    <value>No</value>
++  </data>
++  <data name="Setup_Wizard_NoOptions" xml:space="preserve">
++    <value>Gateway wizard returned a choice step without any selectable options.</value>
++  </data>
++  <data name="Setup_Wizard_PreviewErrorBody" xml:space="preserve">
++    <value>The gateway restarted before the current wizard step finished. Your setup is still installed; choose Start wizard again, or use More options to restart onboard or skip and exit.</value>
++  </data>
++  <data name="Setup_Wizard_PreviewErrorTitle" xml:space="preserve">
++    <value>OpenClaw onboard hit a problem</value>
++  </data>
++  <data name="Setup_Wizard_ProgressTimeoutFormat" xml:space="preserve">
++    <value>Gateway wizard progress step '{0}' did not complete after {1} updates.</value>
++  </data>
++  <data name="Setup_Wizard_ReconnectAfterRestartFailed" xml:space="preserve">
++    <value>The gateway restarted after applying setup, but Companion could not verify and reconnect to its managed endpoint.</value>
++  </data>
++  <data name="Setup_Wizard_RepeatedStepFormat" xml:space="preserve">
++    <value>Gateway wizard repeated step '{0}' too many times.</value>
++  </data>
++  <data name="Setup_Wizard_RestartFailedFormat" xml:space="preserve">
++    <value>Restarting the gateway failed: {0}</value>
++  </data>
++  <data name="Setup_Wizard_RetryWindows" xml:space="preserve">
++    <value>Retry Windows integration</value>
++  </data>
++  <data name="Setup_Wizard_SettingUp" xml:space="preserve">
++    <value>Setting things up…</value>
++  </data>
++  <data name="Setup_Wizard_Setup" xml:space="preserve">
++    <value>Setup</value>
++  </data>
++  <data name="Setup_Wizard_Skipped" xml:space="preserve">
++    <value>Skipped</value>
++  </data>
++  <data name="Setup_Wizard_Skipping" xml:space="preserve">
++    <value>Skipping...</value>
++  </data>
++  <data name="Setup_Wizard_StartAgain" xml:space="preserve">
++    <value>Start wizard again</value>
++  </data>
++  <data name="Setup_Wizard_Submitting" xml:space="preserve">
++    <value>Submitting...</value>
++  </data>
++  <data name="Setup_Wizard_TerminalOpenedFormat" xml:space="preserve">
++    <value>Opened a terminal in {0}. Install the tool, then choose Restart gateway.</value>
++  </data>
++  <data name="Setup_Wizard_TooManyStepsFormat" xml:space="preserve">
++    <value>Gateway wizard exceeded {0} steps.</value>
++  </data>
++  <data name="Setup_Wizard_TotalProgressTimeoutFormat" xml:space="preserve">
++    <value>Gateway wizard did not finish after {0} progress updates.</value>
++  </data>
++  <data name="Setup_Wizard_VerifyingRestart" xml:space="preserve">
++    <value>Gateway restarted; verifying endpoint ownership...</value>
++  </data>
++  <data name="Setup_Wizard_WindowsNeedsAttention" xml:space="preserve">
++    <value>Windows integration needs attention</value>
++  </data>
++  <data name="Setup_Wizard_Working" xml:space="preserve">
++    <value>Working…</value>
++  </data>
++  <data name="Setup_Wizard_Yes" xml:space="preserve">
++    <value>Yes</value>
++  </data>
++  <data name="Setup_Progress_Group_Preflight" xml:space="preserve">
++    <value>Check system and Local AI compatibility</value>
++  </data>
++  <data name="Setup_Progress_Group_WslPlatform" xml:space="preserve">
++    <value>Prepare and verify WSL platform</value>
++  </data>
++  <data name="Setup_Progress_Group_LocalAiEngine" xml:space="preserve">
++    <value>Install verified llama-server</value>
++  </data>
++  <data name="Setup_Progress_Group_LocalAiModel" xml:space="preserve">
++    <value>Download verified model from Hugging Face</value>
++  </data>
++  <data name="Setup_Progress_Group_LocalAiVerify" xml:space="preserve">
++    <value>Verify Local AI</value>
++  </data>
++  <data name="Setup_Progress_Group_WslNetworking" xml:space="preserve">
++    <value>Configure WSL access to Local AI</value>
++  </data>
++  <data name="Setup_Progress_Group_Cleanup" xml:space="preserve">
++    <value>Removing existing gateway</value>
++  </data>
++  <data name="Setup_Progress_Group_Port" xml:space="preserve">
++    <value>Checking gateway port</value>
++  </data>
++  <data name="Setup_Progress_Group_WslCreate" xml:space="preserve">
++    <value>Installing clean WSL gateway</value>
++  </data>
++  <data name="Setup_Progress_Group_WslConfigure" xml:space="preserve">
++    <value>Configuring instance</value>
++  </data>
++  <data name="Setup_Progress_Group_InstallCli" xml:space="preserve">
++    <value>Installing OpenClaw</value>
++  </data>
++  <data name="Setup_Progress_Group_LocalAiWsl" xml:space="preserve">
++    <value>Verify WSL access to Local AI</value>
++  </data>
++  <data name="Setup_Progress_Group_TailscaleAuth" xml:space="preserve">
++    <value>Connecting Tailscale</value>
++  </data>
++  <data name="Setup_Progress_Group_Configure" xml:space="preserve">
++    <value>Preparing gateway</value>
++  </data>
++  <data name="Setup_Progress_Group_Start" xml:space="preserve">
++    <value>Starting gateway</value>
++  </data>
++  <data name="Setup_Progress_Group_TailscaleServe" xml:space="preserve">
++    <value>Publishing on Tailscale</value>
++  </data>
++  <data name="Setup_Progress_Group_Pairing" xml:space="preserve">
++    <value>Pairing device</value>
++  </data>
++  <data name="Setup_Progress_Group_Finish" xml:space="preserve">
++    <value>Finishing setup</value>
++  </data>
++
++  <data name="Setup_AdvancedSetupPage_TextBlock_GatewayExample.Text" xml:space="preserve">
++    <value>Connect to a gateway running here, on another PC, or remote. For example, use ws://host.local:18790.</value>
++  </data>
++
++  <data name="Setup_Wizard_PreviewWelcome" xml:space="preserve">
++    <value>Welcome: let's connect your agent</value>
++  </data>
++  <data name="Setup_Wizard_PreviewProvider" xml:space="preserve">
++    <value>Choose your AI provider</value>
++  </data>
++  <data name="Setup_Wizard_PreviewApiKey" xml:space="preserve">
++    <value>Paste your API key</value>
++  </data>
++  <data name="Setup_Wizard_Connecting" xml:space="preserve">
++    <value>Connecting to gateway...</value>
++  </data>
++  <data name="Setup_Wizard_Starting" xml:space="preserve">
++    <value>Starting wizard...</value>
++  </data>
++  <data name="Setup_Wizard_Loading" xml:space="preserve">
++    <value>Loading...</value>
++  </data>
++  <data name="Setup_Wizard_StartingOver" xml:space="preserve">
++    <value>Starting over...</value>
++  </data>
++  <data name="Setup_Wizard_OpenTerminalFailedFormat" xml:space="preserve">
++    <value>Couldn't open a terminal: {0}</value>
++  </data>
++  <data name="Setup_Wizard_RestartingFormat" xml:space="preserve">
++    <value>Restarting {0}...</value>
++  </data>
++  <data name="Setup_Wizard_SkippingWizard" xml:space="preserve">
++    <value>Skipping wizard...</value>
++  </data>
++  <data name="Setup_Wizard_FinishingWindows" xml:space="preserve">
++    <value>Finishing Windows integration...</value>
++  </data>
++  <data name="Setup_Wizard_WindowsGuidanceFailedFormat" xml:space="preserve">
++    <value>OpenClaw onboard finished, but Windows node guidance could not be installed: {0}</value>
++  </data>
++  <data name="Setup_Progress_CrashedFormat" xml:space="preserve">
++    <value>Setup crashed: {0}</value>
++  </data>
++  <data name="Setup_Capability_System_Name" xml:space="preserve">
++    <value>System</value>
++  </data>
++  <data name="Setup_Capability_System_Description" xml:space="preserve">
++    <value>Shell commands, files, clipboard</value>
++  </data>
++  <data name="Setup_Capability_Canvas_Name" xml:space="preserve">
++    <value>Canvas</value>
++  </data>
++  <data name="Setup_Capability_Canvas_Description" xml:space="preserve">
++    <value>Whiteboard and annotations</value>
++  </data>
++  <data name="Setup_Capability_Screen_Name" xml:space="preserve">
++    <value>Screen capture</value>
++  </data>
++  <data name="Setup_Capability_Screen_Description" xml:space="preserve">
++    <value>Screenshots and recording</value>
++  </data>
++  <data name="Setup_Capability_Camera_Name" xml:space="preserve">
++    <value>Camera</value>
++  </data>
++  <data name="Setup_Capability_Camera_Description" xml:space="preserve">
++    <value>Webcam photos and video</value>
++  </data>
++  <data name="Setup_Capability_Location_Name" xml:space="preserve">
++    <value>Location</value>
++  </data>
