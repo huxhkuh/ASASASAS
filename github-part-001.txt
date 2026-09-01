@@ -1,0 +1,361 @@
+From 43f3a08063194a71b9b3ed654b3474c4e7248ce1 Mon Sep 17 00:00:00 2001
+From: OpenClaw Hebrew Localization <openclaw-hebrew@users.noreply.github.com>
+Date: Tue, 1 Sep 2026 22:05:33 +0100
+Subject: [PATCH] Add complete Hebrew localization and RTL support
+
+---
+ DEVELOPMENT.md                                |    2 +-
+ README-HE.md                                  |   33 +
+ UPGRADE-TO-HEBREW.ps1                         |  223 +
+ docs/LOCALIZATION.md                          |    6 +-
+ scripts/Test-Localization.ps1                 |   19 +-
+ .../Pages/AdvancedSetupPage.xaml              |   27 +-
+ .../Pages/CapabilitiesPage.xaml               |  104 +-
+ .../Pages/CapabilitiesPage.xaml.cs            |  122 +-
+ .../Pages/CompletePage.xaml                   |   37 +-
+ .../Pages/CompletePage.xaml.cs                |   34 +-
+ .../Pages/ProgressPage.xaml                   |   26 +-
+ .../Pages/ProgressPage.xaml.cs                |   78 +-
+ .../Pages/SecurityNoticePage.xaml             |   10 +-
+ .../Pages/SetupPermissionHelper.cs            |   68 +-
+ .../Pages/WelcomePage.xaml                    |   28 +-
+ .../Pages/WelcomePage.xaml.cs                 |   24 +-
+ .../Pages/WizardPage.xaml                     |   28 +-
+ .../Pages/WizardPage.xaml.cs                  |  133 +-
+ .../SetupLocalization.cs                      |   28 +
+ src/OpenClaw.SetupEngine.UI/SetupWindow.xaml  |    4 +-
+ .../SetupWindow.xaml.cs                       |   13 +-
+ .../App.ActivationRouter.cs                   |    8 +-
+ src/OpenClaw.Tray.WinUI/App.xaml.cs           |   33 +-
+ .../Controls/SchemaConfigEditor.xaml.cs       |    2 +-
+ .../SessionCheckpointDialogCoordinator.cs     |   83 +-
+ .../Helpers/LocalizationHelper.cs             |   31 +
+ .../Pages/AgentEventsPage.xaml                |    6 +-
+ .../Pages/BindingsPage.xaml                   |    2 +-
+ .../Pages/ChannelsPage.xaml.cs                |   96 +-
+ src/OpenClaw.Tray.WinUI/Pages/ChatPage.xaml   |    2 +-
+ src/OpenClaw.Tray.WinUI/Pages/ConfigPage.xaml |    2 +-
+ .../Pages/ConfigPage.xaml.cs                  |   18 +-
+ .../Pages/ConnectionPage.xaml                 |   32 +-
+ src/OpenClaw.Tray.WinUI/Pages/CronPage.xaml   |    4 +-
+ .../Pages/CronPage.xaml.cs                    |    2 +-
+ src/OpenClaw.Tray.WinUI/Pages/DebugPage.xaml  |    6 +-
+ .../Pages/DebugPage.xaml.cs                   |   28 +-
+ .../Pages/LocalAiPage.xaml                    |    6 +-
+ .../Pages/PermissionsPage.xaml                |    6 +-
+ .../Pages/SandboxPage.xaml.cs                 |   25 +-
+ .../Pages/SessionsPage.xaml.cs                |   73 +-
+ .../Pages/SettingsPage.xaml                   |    1 +
+ .../Pages/SettingsPage.xaml.cs                |   30 +-
+ .../Pages/SkillsPage.xaml.cs                  |    4 +-
+ src/OpenClaw.Tray.WinUI/Pages/UsagePage.xaml  |    6 +-
+ .../Pages/UsagePage.xaml.cs                   |   10 +-
+ .../Pages/VoiceSettingsPage.xaml              |   12 +-
+ .../Pages/VoiceSettingsPage.xaml.cs           |   12 +-
+ .../Pages/WorkspacePage.xaml                  |    2 +-
+ .../Presentation/TrayMenuPresenter.cs         |    3 +-
+ .../Strings/en-us/Resources.resw              | 1048 ++
+ .../Strings/fr-fr/Resources.resw              | 1048 ++
+ .../Strings/he-il/Resources.resw              | 8392 +++++++++++++++++
+ .../Strings/nl-nl/Resources.resw              | 1048 ++
+ .../Strings/zh-cn/Resources.resw              | 1048 ++
+ .../Strings/zh-tw/Resources.resw              | 1048 ++
+ .../Windows/A2UICanvasWindow.xaml.cs          |    1 +
+ .../Windows/CanvasWindow.xaml.cs              |    1 +
+ .../Windows/ChatWindow.xaml                   |    2 +-
+ .../Windows/ChatWindow.xaml.cs                |    5 +-
+ .../Windows/CommandPaletteDialog.xaml.cs      |    1 +
+ .../Windows/ConnectionStatusWindow.xaml       |   26 +-
+ .../Windows/ConnectionStatusWindow.xaml.cs    |    1 +
+ .../Windows/DiagnosticsBundleDialog.xaml      |    2 +-
+ .../Windows/DiagnosticsBundleDialog.xaml.cs   |    9 +-
+ .../Windows/HubWindow.xaml                    |    4 +-
+ .../Windows/HubWindow.xaml.cs                 |    1 +
+ .../Windows/TrayMenuWindow.xaml.cs            |    5 +-
+ .../Windows/VoiceOverlayWindow.xaml.cs        |    1 +
+ .../AppRefactorContractTests.cs               |   26 +-
+ ...onnectionPageProtocolCompatibilityTests.cs |    2 +-
+ .../LocalAiSetupUxContractTests.cs            |   10 +-
+ .../LocalizationValidationTests.cs            |   46 +-
+ .../SessionTitleFormatterTests.cs             |    2 +-
+ 74 files changed, 14763 insertions(+), 606 deletions(-)
+ create mode 100644 README-HE.md
+ create mode 100644 UPGRADE-TO-HEBREW.ps1
+ create mode 100644 src/OpenClaw.Tray.WinUI/Strings/he-il/Resources.resw
+
+diff --git a/DEVELOPMENT.md b/DEVELOPMENT.md
+index a02c14d8..e36731a9 100644
+--- a/DEVELOPMENT.md
++++ b/DEVELOPMENT.md
+@@ -897,7 +897,7 @@ Direct `dotnet build` without the script will fail with "WindowsAppSDKSelfContai
+ |----------|---------|
+ | `OPENCLAW_FORCE_ONBOARDING=1` | Show onboarding wizard even if a token already exists |
+ | `OPENCLAW_SKIP_UPDATE_CHECK=1` | Skip the update dialog (useful during testing) |
+-| `OPENCLAW_LANGUAGE=fr-fr` | Override UI language (validated: en-us, fr-fr, nl-nl, zh-cn, zh-tw) |
++| `OPENCLAW_LANGUAGE=fr-fr` | Override UI language (validated: en-us, fr-fr, he-il, nl-nl, zh-cn, zh-tw) |
+ | `OPENCLAW_GATEWAY_PORT=19001` | Override default gateway port for local dev |
+ | `OPENCLAW_VISUAL_TEST=1` | Enable automatic screenshot capture on page transitions |
+ | `OPENCLAW_VISUAL_TEST_DIR=path` | Output directory for visual test screenshots |
+diff --git a/README-HE.md b/README-HE.md
+new file mode 100644
+index 00000000..74b25c7f
+--- /dev/null
++++ b/README-HE.md
+@@ -0,0 +1,33 @@
++# שדרוג OpenClaw לעברית
++
++הערכה הזו בונה גרסת Windows בעברית ומתקינה אותה כשדרוג מעל ההתקנה הרגילה של OpenClaw Companion.
++
++אין להסיר קודם את האפליקציה האנגלית. המתקין משתמש באותו מזהה אפליקציה ובאותה תיקיית התקנה, ולכן הוא מחליף את קובצי התוכנה ושומר את ההגדרות, חיבורי ה־Gateway ונתוני המשתמש.
++
++## הפעלה
++
++1. חלץ את כל קובצי ה־ZIP לתיקייה רגילה במחשב.
++2. פתח PowerShell בתוך התיקייה שחולצה.
++3. הרץ:
++
++```powershell
++powershell -ExecutionPolicy Bypass -File .\UPGRADE-TO-HEBREW.ps1
++```
++
++הסקריפט יבצע את הפעולות הבאות:
++
++1. יוודא שכלי הבנייה הדרושים מותקנים. אם חסר כלי, הוא יתקין אותו באמצעות winget.
++2. יריץ את הבנייה המלאה ואת בדיקות המאגר.
++3. יבנה מתקין Release עבור win-x64, בלי זהות הפיתוח הנפרדת.
++4. יסגור את OpenClaw רק לאחר שהבנייה והבדיקות הצליחו.
++5. יגבה את `%APPDATA%\OpenClawTray` ואת `%LOCALAPPDATA%\OpenClawTray` לתיקייה במסמכים.
++6. יפעיל את המתקין כשדרוג מעל האפליקציה הקיימת.
++7. יגדיר את `OPENCLAW_LANGUAGE` לערך `he-IL` ויפעיל את האפליקציה.
++
++המחשב צריך להיות מחובר לאינטרנט בזמן הבנייה הראשונה. התהליך עשוי להימשך זמן מה ולהציג בקשות הרשאה של Windows.
++
++## אחרי ההתקנה
++
++בדוק את מסך הפתיחה, Settings, תפריט מגש המערכת, חלונות האישור והחיבור ל־Gateway. אל תמחק את תיקיית הגיבוי עד שהכול עובד.
++
++אם התהליך נעצר, אין להסיר את האפליקציה. העתק את כל הפלט מחלון PowerShell ושלח אותו לבדיקה. ההתקנה הקיימת אינה משתנה לפני שהבנייה, הבדיקות ויצירת המתקין מסתיימות בהצלחה.
+diff --git a/UPGRADE-TO-HEBREW.ps1 b/UPGRADE-TO-HEBREW.ps1
+new file mode 100644
+index 00000000..dad2f926
+--- /dev/null
++++ b/UPGRADE-TO-HEBREW.ps1
+@@ -0,0 +1,223 @@
++[CmdletBinding()]
++param()
++
++Set-StrictMode -Version Latest
++$ErrorActionPreference = "Stop"
++
++$repoRoot = $PSScriptRoot
++$installerVersion = "2026.9.1"
++$installedExe = Join-Path $env:LOCALAPPDATA "OpenClawTray\OpenClaw.Tray.WinUI.exe"
++$backupRoot = $null
++$previousLanguage = [Environment]::GetEnvironmentVariable("OPENCLAW_LANGUAGE", "User")
++$languageChanged = $false
++$installSucceeded = $false
++
++function Write-Step {
++    param([string]$Message)
++    Write-Host "`n=== $Message ===" -ForegroundColor Cyan
++}
++
++function Refresh-ProcessPath {
++    $machinePath = [Environment]::GetEnvironmentVariable("Path", "Machine")
++    $userPath = [Environment]::GetEnvironmentVariable("Path", "User")
++    $env:Path = @($machinePath, $userPath) -join ";"
++}
++
++function Invoke-WingetInstall {
++    param(
++        [Parameter(Mandatory = $true)]
++        [string]$PackageId
++    )
++
++    if (-not (Get-Command winget.exe -ErrorAction SilentlyContinue)) {
++        throw "Windows Package Manager (winget) is required. Install App Installer from Microsoft Store, then rerun this script."
++    }
++
++    Write-Step "Installing prerequisite: $PackageId"
++    & winget.exe install --id $PackageId -e --accept-source-agreements --accept-package-agreements --disable-interactivity
++    if ($LASTEXITCODE -ne 0) {
++        throw "winget could not install $PackageId (exit code $LASTEXITCODE)."
++    }
++
++    Refresh-ProcessPath
++}
++
++function Ensure-Prerequisites {
++    Write-Step "Checking Windows build prerequisites"
++
++    if (-not [System.Environment]::Is64BitOperatingSystem) {
++        throw "This upgrade kit requires 64-bit Windows."
++    }
++
++    if (-not (Get-Command git.exe -ErrorAction SilentlyContinue)) {
++        Invoke-WingetInstall -PackageId "Git.Git"
++    }
++
++    $hasNet10 = $false
++    if (Get-Command dotnet.exe -ErrorAction SilentlyContinue) {
++        $hasNet10 = [bool](& dotnet.exe --list-sdks 2>$null | Where-Object { $_ -match "^10\." })
++    }
++    if (-not $hasNet10) {
++        Invoke-WingetInstall -PackageId "Microsoft.DotNet.SDK.10"
++    }
++
++    if (-not (Get-Command npm.cmd -ErrorAction SilentlyContinue)) {
++        Invoke-WingetInstall -PackageId "OpenJS.NodeJS.LTS"
++    }
++
++    $windowsSdkRoot = Join-Path ${env:ProgramFiles(x86)} "Windows Kits\10\Include"
++    $hasWindowsSdk = Test-Path -LiteralPath $windowsSdkRoot
++    if (-not $hasWindowsSdk) {
++        Invoke-WingetInstall -PackageId "Microsoft.WindowsSDK.10.0.26100"
++    }
++
++    Refresh-ProcessPath
++
++    foreach ($command in @("git.exe", "dotnet.exe", "npm.cmd")) {
++        if (-not (Get-Command $command -ErrorAction SilentlyContinue)) {
++            throw "$command is still unavailable after prerequisite setup. Restart Windows and rerun this script."
++        }
++    }
++}
++
++function Invoke-DotNetTest {
++    param([string]$Project)
++
++    & dotnet.exe test $Project --no-restore
++    if ($LASTEXITCODE -ne 0) {
++        throw "Tests failed: $Project"
++    }
++}
++
++function Stop-OpenClaw {
++    $processes = Get-Process -Name "OpenClaw.Tray.WinUI" -ErrorAction SilentlyContinue
++    if ($processes) {
++        Write-Step "Closing the running OpenClaw app"
++        $processes | Stop-Process -Force
++        Start-Sleep -Seconds 2
++    }
++}
++
++function Copy-DirectoryToBackup {
++    param(
++        [string]$Source,
++        [string]$Destination
++    )
++
++    if (-not (Test-Path -LiteralPath $Source)) {
++        return
++    }
++
++    $parent = Split-Path -Parent $Destination
++    New-Item -ItemType Directory -Path $parent -Force | Out-Null
++    Copy-Item -LiteralPath $Source -Destination $Destination -Recurse -Force
++}
++
++function Backup-OpenClawData {
++    $documents = [Environment]::GetFolderPath([Environment+SpecialFolder]::MyDocuments)
++    $script:backupRoot = Join-Path $documents ("OpenClaw-Hebrew-Backup-" + (Get-Date -Format "yyyyMMdd-HHmmss"))
++    New-Item -ItemType Directory -Path $script:backupRoot -Force | Out-Null
++
++    $roamingSource = Join-Path $env:APPDATA "OpenClawTray"
++    $localSource = Join-Path $env:LOCALAPPDATA "OpenClawTray"
++    Copy-DirectoryToBackup -Source $roamingSource -Destination (Join-Path $script:backupRoot "Roaming\OpenClawTray")
++    Copy-DirectoryToBackup -Source $localSource -Destination (Join-Path $script:backupRoot "Local\OpenClawTray")
++
++    @(
++        "Created: $(Get-Date -Format o)"
++        "Roaming source: $roamingSource"
++        "Local source: $localSource"
++        "Upgrade identity: release"
++        "Upgrade version: $installerVersion"
++    ) | Set-Content -LiteralPath (Join-Path $script:backupRoot "backup-info.txt") -Encoding UTF8
++
++    Write-Host "Backup created at: $script:backupRoot" -ForegroundColor Green
++}
++
++try {
++    Set-Location $repoRoot
++    Refresh-ProcessPath
++
++    Write-Host "OpenClaw Hebrew in-place upgrade" -ForegroundColor Magenta
++    if (Test-Path -LiteralPath $installedExe) {
++        Write-Host "Existing standard installation found: $installedExe"
++    } else {
++        Write-Warning "The standard installation was not found. The installer can still perform a fresh installation."
++    }
++
++    Ensure-Prerequisites
++
++    $env:OPENCLAW_REPO_ROOT = $repoRoot
++
++    Write-Step "Running the required full repository build"
++    & (Join-Path $repoRoot "build.ps1") -Configuration Release
++    if ($LASTEXITCODE -ne 0) {
++        throw "The repository build failed. The installed app was not changed."
++    }
++
++    Write-Step "Running shared tests"
++    Invoke-DotNetTest -Project ".\tests\OpenClaw.Shared.Tests\OpenClaw.Shared.Tests.csproj"
++
++    Write-Step "Running tray and localization tests"
++    Invoke-DotNetTest -Project ".\tests\OpenClaw.Tray.Tests\OpenClaw.Tray.Tests.csproj"
++
++    Write-Step "Building the x64 release installer"
++    & (Join-Path $repoRoot "scripts\build-inno-local.ps1") `
++        -Arch x64 `
++        -Configuration Release `
++        -Version $installerVersion `
++        -Fast `
++        -InstallInno
++    if ($LASTEXITCODE -ne 0) {
++        throw "The installer build failed. The installed app was not changed."
++    }
++
++    $installer = Join-Path $repoRoot "Output\OpenClawCompanion-Setup-x64.exe"
++    if (-not (Test-Path -LiteralPath $installer)) {
++        throw "The expected installer was not created: $installer"
++    }
++
++    Stop-OpenClaw
++
++    Write-Step "Backing up the existing installation and user data"
++    Backup-OpenClawData
++
++    [Environment]::SetEnvironmentVariable("OPENCLAW_LANGUAGE", "he-IL", "User")
++    $env:OPENCLAW_LANGUAGE = "he-IL"
++    $languageChanged = $true
++
++    Write-Step "Installing Hebrew as an upgrade over the existing app"
++    $installerProcess = Start-Process -FilePath $installer -Wait -PassThru
++    if ($installerProcess.ExitCode -ne 0) {
++        throw "The installer ended with exit code $($installerProcess.ExitCode)."
++    }
++
++    if (-not (Test-Path -LiteralPath $installedExe)) {
++        throw "Installation finished, but the installed executable was not found at $installedExe."
++    }
++
++    $installSucceeded = $true
++
++    if (-not (Get-Process -Name "OpenClaw.Tray.WinUI" -ErrorAction SilentlyContinue)) {
++        Start-Process -FilePath $installedExe
++    }
++
++    Write-Step "Upgrade completed"
++    Write-Host "OpenClaw is now configured to launch in Hebrew." -ForegroundColor Green
++    Write-Host "Your backup is at: $backupRoot"
++    Write-Host "Do not delete the backup until you have verified Settings, onboarding, tray menus, and your Gateway connection."
++} catch {
++    if ($languageChanged -and -not $installSucceeded) {
++        [Environment]::SetEnvironmentVariable("OPENCLAW_LANGUAGE", $previousLanguage, "User")
++        $env:OPENCLAW_LANGUAGE = $previousLanguage
++    }
++
++    Write-Host "`nUpgrade stopped: $($_.Exception.Message)" -ForegroundColor Red
++    if ($backupRoot) {
++        Write-Host "Backup retained at: $backupRoot" -ForegroundColor Yellow
++    } else {
