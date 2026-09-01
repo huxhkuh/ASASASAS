@@ -1,0 +1,318 @@
++    <value>SSH הפורט חייב להיות 1-65535</value>
++  </data>
++  <data name="ConnectionPage_SshRemotePortInvalid" xml:space="preserve">
++    <value>SSH הפורט המרוחק חייב להיות 1–65535</value>
++  </data>
++  <data name="ConnectionPage_SshLocalPortInvalid" xml:space="preserve">
++    <value>SSH הפורט המקומי חייב להיות 1–65535</value>
++  </data>
++  <data name="ConnectionPage_TunnelRestartTriggered" xml:space="preserve">
++    <value>הפעלה מחדש של המנהרה הופעלה.</value>
++  </data>
++  <data name="ConnectionPage_TunnelRestartFailed" xml:space="preserve">
++    <value>הפעלה מחדש של המנהרה נכשלה: {0}</value>
++  </data>
++  <data name="ConnectionPage_RepairedReconnecting" xml:space="preserve">
++    <value>בוצע התאמה מחדש. מתחבר מחדש…</value>
++  </data>
++  <data name="ConnectionPage_CouldNotApplyCode" xml:space="preserve">
++    <value>לא ניתן היה להחיל את הקוד.</value>
++  </data>
++  <data name="ConnectionPage_PleaseEnterSetupCode" xml:space="preserve">
++    <value>אנא הדבק קוד התקנה.</value>
++  </data>
++  <data name="ConnectionPage_Applying" xml:space="preserve">
++    <value>החלה…</value>
++  </data>
++  <data name="ConnectionPage_AppliedGateway" xml:space="preserve">
++    <value>Gateway הוחל: {0}</value>
++  </data>
++  <data name="ConnectionPage_InvalidSetupCode" xml:space="preserve">
++    <value>קוד התקנה לא חוקי</value>
++  </data>
++  <data name="ConnectionPage_InvalidUrl" xml:space="preserve">
++    <value>URL לא חוקי</value>
++  </data>
++  <data name="ConnectionPage_ConnectionFailed" xml:space="preserve">
++    <value>החיבור נכשל</value>
++  </data>
++  <data name="ConnectionPage_UnknownError" xml:space="preserve">
++    <value>שגיאה לא ידועה</value>
++  </data>
++  <data name="ConnectionPage_PreviewGateway" xml:space="preserve">
++    <value>Gateway: {0}</value>
++  </data>
++  <data name="ConnectionPage_PreviewGatewayNotSpecified" xml:space="preserve">
++    <value>(לא צוין)</value>
++  </data>
++  <data name="ConnectionPage_PreviewNoToken" xml:space="preserve">
++    <value>(לא צוין token)</value>
++  </data>
++  <data name="ConnectionPage_PreviewToken" xml:space="preserve">
++    <value>Token: {0}</value>
++  </data>
++  <data name="ConnectionPage_PressScan" xml:space="preserve">
++    <value>לחץ על התחל סריקה כדי לחפש שערים ברשת שלך.</value>
++  </data>
++  <data name="ConnectionPage_ScanningNetwork" xml:space="preserve">
++    <value>סורק את הרשת שלך…</value>
++  </data>
++  <data name="ConnectionPage_NoGatewaysFound" xml:space="preserve">
++    <value>לא נמצאו שערים ברשת שלך.</value>
++  </data>
++  <data name="ConnectionPage_DiscoveredOnNetwork" xml:space="preserve">
++    <value>התגלה ברשת שלך ({0})</value>
++  </data>
++  <data name="ConnectionPage_ScanFailed" xml:space="preserve">
++    <value>הסריקה נכשלה: {0}</value>
++  </data>
++  <data name="ConnectionPage_Stop" xml:space="preserve">
++    <value>עצור</value>
++  </data>
++  <data name="ConnectionPage_ScanAction" xml:space="preserve">
++    <value>סריקה</value>
++  </data>
++  <data name="ConnectionPage_Add" xml:space="preserve">
++    <value>הוסף</value>
++  </data>
++  <data name="ConnectionPage_PickDiscoveredGateway" xml:space="preserve">
++    <value>בחר Gateway שהתגלה למעלה כדי להתחבר.</value>
++  </data>
++  <data name="ConnectionPage_RemoveGatewayTitle" xml:space="preserve">
++    <value>להסיר את Gateway?</value>
++  </data>
++  <data name="ConnectionPage_RemoveGatewayMessage" xml:space="preserve">
++    <value>פעולה זו תשכח את {0} ואת האישורים שלו במחשב זה.</value>
++  </data>
++  <data name="ConnectionPage_CancelAction" xml:space="preserve">
++    <value>ביטול</value>
++  </data>
++  <data name="ConnectionPage_GatewayConnectionFailed" xml:space="preserve">
++    <value>Gateway החיבור נכשל.</value>
++  </data>
++  <data name="ConnectionPage_ApprovalsSingular" xml:space="preserve">
++    <value>אישור אחד ממתין לך</value>
++  </data>
++  <data name="ConnectionPage_ApprovalsPlural" xml:space="preserve">
++    <value>{0} אישורים ממתינים לך</value>
++  </data>
++  <data name="ConnectionPage_DeviceLabel" xml:space="preserve">
++    <value>מכשיר · {0}</value>
++  </data>
++  <data name="ConnectionPage_NodeLabel" xml:space="preserve">
++    <value>Node · {0}</value>
++  </data>
++  <data name="ConnectionPage_RepairRequest" xml:space="preserve">
++    <value>⚠️ בקשת תיקון</value>
++  </data>
++  <data name="ConnectionPage_Approve" xml:space="preserve">
++    <value>אישור</value>
++  </data>
++  <data name="ConnectionPage_Deny" xml:space="preserve">
++    <value>דחה</value>
++  </data>
++  <data name="ConnectionPage_ApprovePairingRequest" xml:space="preserve">
++    <value>אישור בקשת צימוד</value>
++  </data>
++  <data name="ConnectionPage_DenyPairingRequest" xml:space="preserve">
++    <value>דחיית בקשת צימוד</value>
++  </data>
++  <data name="ConnectionPage_AuthModeBootstrap" xml:space="preserve">
++    <value>אתחול</value>
++  </data>
++  <data name="ConnectionPage_AuthModeSharedToken" xml:space="preserve">
++    <value>משותף token</value>
++  </data>
++  <data name="ConnectionPage_AuthModeDeviceToken" xml:space="preserve">
++    <value>מכשיר token</value>
++  </data>
++  <data name="ConnectionPage_UnknownPlatform" xml:space="preserve">
++    <value>לא ידוע</value>
++  </data>
++  <data name="ConnectionPage_ConnectionTimeout" xml:space="preserve">
++    <value>תם הזמן שהוקצב להמתנה להשלמת החיבור Gateway.</value>
++  </data>
++  <data name="ChannelsPage_UnavailableOnWindows" xml:space="preserve">
++    <value>ערוץ זה דורש מארח macOS. לא ניתן להגדיר אותו ממכונה Windows.</value>
++  </data>
++  <data name="ChannelsPage_ReplaceCredentials" xml:space="preserve">
++    <value>החלפת אישורים</value>
++  </data>
++  <data name="ChannelsPage_Configuration" xml:space="preserve">
++    <value>תצורה</value>
++  </data>
++  <data name="ChannelsPage_CaptionQrLogout" xml:space="preserve">
++    <value>נתק את המכשיר מהערוץ. סרוק QR חדש כדי להתחבר מחדש: החשבון שלך נשאר משויך בטלפון שלך.</value>
++  </data>
++  <data name="ChannelsPage_CaptionStopLogout" xml:space="preserve">
++    <value>השהה את הערוץ באופן זמני: האישורים נשמרים כדי שתוכל להפעיל אותו שוב. או התנתק לחלוטין כדי לנקות אותם.</value>
++  </data>
++  <data name="ChannelsPage_CaptionStartLogout" xml:space="preserve">
++    <value>הפעל את הערוץ: הוא יתחיל לטפל בהודעות עם האישורים המאוחסנים. או התנתק לחלוטין כדי לנקות אותם.</value>
++  </data>
++  <data name="ChannelsPage_CaptionStopOnly" xml:space="preserve">
++    <value>השהה את הערוץ: האישורים נשמרים כדי שתוכל להפעיל אותו שוב.</value>
++  </data>
++  <data name="ChannelsPage_CaptionStartOnly" xml:space="preserve">
++    <value>הפעל את הערוץ: הוא יתחיל לטפל בהודעות עם האישורים המאוחסנים.</value>
++  </data>
++  <data name="ChannelsPage_Start" xml:space="preserve">
++    <value>התחלה</value>
++  </data>
++  <data name="ChannelsPage_Stop" xml:space="preserve">
++    <value>עצור</value>
++  </data>
++  <data name="ChannelsPage_Logout" xml:space="preserve">
++    <value>יציאה</value>
++  </data>
++  <data name="ChannelsPage_DisconnectForget" xml:space="preserve">
++    <value>ניתוק ושכחת אישורים</value>
++  </data>
++  <data name="ChannelsPage_Controls" xml:space="preserve">
++    <value>פקדים</value>
++  </data>
++  <data name="ChannelsPage_HelpWhatsApp" xml:space="preserve">
++    <value>WhatsApp עזרה לגבי מכשירים מקושרים →</value>
++  </data>
++  <data name="ChannelsPage_HelpSignal" xml:space="preserve">
++    <value>Signal עזרה לגבי מכשירים מקושרים →</value>
++  </data>
++  <data name="ChannelsPage_HelpTelegram" xml:space="preserve">
++    <value>כיצד ליצור בוט Telegram →</value>
++  </data>
++  <data name="ChannelsPage_HelpDiscord" xml:space="preserve">
++    <value>כיצד ליצור בוט Discord →</value>
++  </data>
++  <data name="ChannelsPage_HelpGoogleChat" xml:space="preserve">
++    <value>כיצד להוסיף webhook Google Chat →</value>
++  </data>
++  <data name="ChannelsPage_HelpSlack" xml:space="preserve">
++    <value>לוח בקרה של האפליקציה Slack →</value>
++  </data>
++  <data name="ChannelsPage_HelpNostr" xml:space="preserve">
++    <value>אודות Nostr →</value>
++  </data>
++  <data name="ChannelsPage_HelpIMessage" xml:space="preserve">
++    <value>אודות macOS הודעות →</value>
++  </data>
++  <data name="ChannelsPage_GuideWhatsAppHeadline" xml:space="preserve">
++    <value>קשר את הטלפון WhatsApp שלך</value>
++  </data>
++  <data name="ChannelsPage_GuideWhatsAppStep1" xml:space="preserve">
++    <value>לחץ על "הצג QR" במקטע הקישור למטה.</value>
++  </data>
++  <data name="ChannelsPage_GuideWhatsAppStep2" xml:space="preserve">
++    <value>בטלפון שלך: WhatsApp → הגדרות → מכשירים מקושרים → קשר מכשיר.</value>
++  </data>
++  <data name="ChannelsPage_GuideWhatsAppStep3" xml:space="preserve">
++    <value>סרוק את קוד ה-QR שמופיע כאן.</value>
++  </data>
++  <data name="ChannelsPage_GuideSignalHeadline" xml:space="preserve">
++    <value>קשר את הטלפון Signal שלך</value>
++  </data>
++  <data name="ChannelsPage_GuideSignalStep1" xml:space="preserve">
++    <value>לחץ על "הצג QR" במקטע הקישור למטה.</value>
++  </data>
++  <data name="ChannelsPage_GuideSignalStep2" xml:space="preserve">
++    <value>בטלפון שלך: Signal → הגדרות → מכשירים מקושרים → קשר מכשיר חדש.</value>
++  </data>
++  <data name="ChannelsPage_GuideSignalStep3" xml:space="preserve">
++    <value>סרוק את קוד ה-QR שמופיע כאן.</value>
++  </data>
++  <data name="ChannelsPage_GuideTelegramHeadline" xml:space="preserve">
++    <value>התחבר Telegram דרך בוט</value>
++  </data>
++  <data name="ChannelsPage_GuideTelegramStep1" xml:space="preserve">
++    <value>פתח את Telegram ושלח הודעה אל @BotFather.</value>
++  </data>
++  <data name="ChannelsPage_GuideTelegramStep2" xml:space="preserve">
++    <value>שלח /newbot ופעל לפי ההנחיות. העתק את הבוט token בסוף.</value>
++  </data>
++  <data name="ChannelsPage_GuideTelegramStep3" xml:space="preserve">
++    <value>הדבק את token בטופס התצורה למטה.</value>
++  </data>
++  <data name="ChannelsPage_GuideTelegramStep4" xml:space="preserve">
++    <value>לחץ על "שמור והתחל". הערוץ יתחיל אוטומטית.</value>
++  </data>
++  <data name="ChannelsPage_GuideDiscordHeadline" xml:space="preserve">
++    <value>התחברות Discord דרך בוט</value>
++  </data>
++  <data name="ChannelsPage_GuideDiscordStep1" xml:space="preserve">
++    <value>פתחו את פורטל המפתחים Discord, לאחר מכן צרו או בחרו אפליקציה.</value>
++  </data>
++  <data name="ChannelsPage_GuideDiscordStep2" xml:space="preserve">
++    <value>פתחו את הבוט, הוסיפו בוט במידת הצורך, לאחר מכן אפסו והעתיקו את token שלו.</value>
++  </data>
++  <data name="ChannelsPage_GuideDiscordStep3" xml:space="preserve">
++    <value>הדבקו את הבוט token בטופס התצורה למטה.</value>
++  </data>
++  <data name="ChannelsPage_GuideDiscordStep4" xml:space="preserve">
++    <value>לחצו על "שמור והתחל", לאחר מכן הוסיפו את הבוט לשרת שלכם עם קישור ההתקנה של OAuth2 שלו.</value>
++  </data>
++  <data name="ChannelsPage_GuideGoogleChatHeadline" xml:space="preserve">
++    <value>התחברות Google Chat דרך webhook</value>
++  </data>
++  <data name="ChannelsPage_GuideGoogleChatStep1" xml:space="preserve">
++    <value>ב- Google Chat, פתחו את החלל → ניהול webhooks → הוספת webhook.</value>
++  </data>
++  <data name="ChannelsPage_GuideGoogleChatStep2" xml:space="preserve">
++    <value>העתק את ה-webhook URL.</value>
++  </data>
++  <data name="ChannelsPage_GuideGoogleChatStep3" xml:space="preserve">
++    <value>הדבק את URL בטופס התצורה למטה.</value>
++  </data>
++  <data name="ChannelsPage_GuideGoogleChatStep4" xml:space="preserve">
++    <value>לחץ על "שמור והתחל".</value>
++  </data>
++  <data name="ChannelsPage_GuideSlackHeadline" xml:space="preserve">
++    <value>התחבר Slack דרך אפליקציה</value>
++  </data>
++  <data name="ChannelsPage_GuideSlackStep1" xml:space="preserve">
++    <value>צור אפליקציית Slack בכתובת api.slack.com/apps והתקן אותה בסביבת העבודה שלך.</value>
++  </data>
++  <data name="ChannelsPage_GuideSlackStep2" xml:space="preserve">
++    <value>העתק את הבוט token (xoxb-…) ואת סוד החתימה.</value>
++  </data>
++  <data name="ChannelsPage_GuideSlackStep3" xml:space="preserve">
++    <value>הדבק את שניהם בטופס התצורה למטה.</value>
++  </data>
++  <data name="ChannelsPage_GuideSlackStep4" xml:space="preserve">
++    <value>לחץ על "שמור והתחל".</value>
++  </data>
++  <data name="ChannelsPage_GuideNostrHeadline" xml:space="preserve">
++    <value>התחבר Nostr דרך ממסרים</value>
++  </data>
++  <data name="ChannelsPage_GuideNostrStep1" xml:space="preserve">
++    <value>צור או הדבק מפתח פרטי (nsec).</value>
++  </data>
++  <data name="ChannelsPage_GuideNostrStep2" xml:space="preserve">
++    <value>בחר כתובת URL אחת או יותר של ממסר (לדוגמה wss://relay.damus.io).</value>
++  </data>
++  <data name="ChannelsPage_GuideNostrStep3" xml:space="preserve">
++    <value>הדבק את שניהם בטופס התצורה למטה.</value>
++  </data>
++  <data name="ChannelsPage_GuideNostrStep4" xml:space="preserve">
++    <value>לחץ על "שמור והתחל".</value>
++  </data>
++  <data name="ChannelsPage_GuideIMessageHeadline" xml:space="preserve">
++    <value>iMessage הוא macOS בלבד</value>
++  </data>
++  <data name="ChannelsPage_GuideIMessageStep1" xml:space="preserve">
++    <value>iMessage קורא את מסד הנתונים המקומי של Messages.app, שקיים רק ב-macOS.</value>
++  </data>
++  <data name="ChannelsPage_GuideIMessageStep2" xml:space="preserve">
++    <value>כדי להשתמש ב-iMessage עם OpenClaw, הפעל את Gateway במחשב Mac במקום במארח Windows זה.</value>
++  </data>
++  <data name="ChannelsPage_GuideIMessageStep3" xml:space="preserve">
++    <value>כל שאר הערוצים ברשימה זו פועלים כשורה ממארח ​​Windows Gateway.</value>
++  </data>
++  <data name="ChannelsPage_GuideGenericHeadline" xml:space="preserve">
++    <value>חבר ערוץ זה</value>
++  </data>
++  <data name="ChannelsPage_GuideGenericStep1" xml:space="preserve">
++    <value>"{0}" הוא ערוץ תוסף. עיין בתיעוד שלו עבור השדות הדרושים לו.</value>
++  </data>
++  <data name="ChannelsPage_GuideGenericStep2" xml:space="preserve">
++    <value>השתמש ב"פתח דף תצורה" בקטע תצורה למטה כדי להוסיף הגדרות תחת ערוצים.{0}.</value>
++  </data>
++  <data name="ChannelsPage_GuideGenericStep3" xml:space="preserve">
