@@ -1,0 +1,251 @@
+                                               FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
+                                 </toolkit:SettingsCard.ActionIcon>
+-                                <TextBlock x:Name="PublicKeyText"
++                                <TextBlock FlowDirection="LeftToRight" x:Name="PublicKeyText"
+                                            Text="—"
+                                            FontFamily="Consolas"
+                                            FontSize="11"
+@@ -313,7 +313,7 @@
+                            <StackPanel Spacing="8"
+                                        Padding="24,16,24,16"
+                                        HorizontalAlignment="Stretch">
+-                               <TextBox x:Uid="DiagnosticsPage_OpenTelemetryEndpointBox"
++                               <TextBox FlowDirection="LeftToRight" x:Uid="DiagnosticsPage_OpenTelemetryEndpointBox"
+                                         x:Name="OpenTelemetryEndpointBox"
+                                         Header="Endpoint URL"
+                                         PlaceholderText="http://localhost:4317"
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/DebugPage.xaml.cs b/src/OpenClaw.Tray.WinUI/Pages/DebugPage.xaml.cs
+index 8b03633a..a92619e0 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/DebugPage.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/DebugPage.xaml.cs
+@@ -332,9 +332,9 @@ public sealed partial class DebugPage : Page
+         {
+             DetailRichText.Blocks.Add(new Paragraph
+             {
+-                Inlines = { new Run { Text = "No log file found.", Foreground = DimTextBrush } }
++                Inlines = { new Run { Text = LocalizationHelper.GetString("DebugPage_NoLogFile"), Foreground = DimTextBrush } }
+             });
+-            AppendPlain("No log file found.\n");
++            AppendPlain(LocalizationHelper.GetString("DebugPage_NoLogFile") + "\n");
+             return;
+         }
+ 
+@@ -352,7 +352,7 @@ public sealed partial class DebugPage : Page
+             if (_detailMode != DetailMode.Log || _detailGeneration != generation) return;
+             DetailRichText.Blocks.Add(new Paragraph
+             {
+-                Inlines = { new Run { Text = $"Failed to read log: {ex.Message}", Foreground = ErrorTextBrush } }
++                Inlines = { new Run { Text = LocalizationHelper.Format("DebugPage_ReadLogFailedFormat", ex.Message), Foreground = ErrorTextBrush } }
+             });
+             return;
+         }
+@@ -486,9 +486,9 @@ public sealed partial class DebugPage : Page
+         // Just-in-time HWND resolution so a Hub-window close that happens
+         // between dialog open and Save click can't land a stale handle in
+         // the file picker (Hanselman v2 #4).
+-        dialog.Configure("Preparing diagnostics bundle…", headerCaption, suggestedFileName,
++        dialog.Configure(LocalizationHelper.GetString("DebugPage_PreparingDiagnosticsBundle"), headerCaption, suggestedFileName,
+             hwndProvider: () => CurrentApp.GetHubWindowHandle());
+-        dialog.SetBundleText("Preparing diagnostics bundle…", isReady: false);
++        dialog.SetBundleText(LocalizationHelper.GetString("DebugPage_PreparingDiagnosticsBundle"), isReady: false);
+         var updateTask = UpdateBundleDialogWhenReadyAsync(dialog, buildTask);
+         await Task.Yield();
+         try
+@@ -522,21 +522,21 @@ public sealed partial class DebugPage : Page
+     }
+ 
+     private void OnCopySupportContext(object sender, RoutedEventArgs e)
+-        => CopyDiagnosticText("Support context", CommandCenterTextHelper.BuildSupportContext);
++        => CopyDiagnosticText(LocalizationHelper.GetString("DebugPage_SupportContext"), CommandCenterTextHelper.BuildSupportContext);
+ 
+     private void OnCopyDebugBundle(object sender, RoutedEventArgs e)
+         => CopyDiagnosticText(
+-            "Summary debug bundle",
++            LocalizationHelper.GetString("DebugPage_SummaryDebugBundle"),
+             CommandCenterTextHelper.BuildDebugBundle);
+ 
+     private void OnCopyBrowserSetup(object sender, RoutedEventArgs e)
+-        => CopyDiagnosticText("Browser setup guidance", CommandCenterTextHelper.BuildBrowserSetupGuidance);
++        => CopyDiagnosticText(LocalizationHelper.GetString("DebugPage_BrowserSetupGuidance"), CommandCenterTextHelper.BuildBrowserSetupGuidance);
+ 
+     private void OnCopyPortDiagnostics(object sender, RoutedEventArgs e)
+-        => CopyDiagnosticText("Port diagnostics", s => CommandCenterTextHelper.BuildPortDiagnosticsSummary(s.PortDiagnostics));
++        => CopyDiagnosticText(LocalizationHelper.GetString("DebugPage_PortDiagnostics"), s => CommandCenterTextHelper.BuildPortDiagnosticsSummary(s.PortDiagnostics));
+ 
+     private void OnCopyCapabilityDiagnostics(object sender, RoutedEventArgs e)
+-        => CopyDiagnosticText("Capability diagnostics", CommandCenterTextHelper.BuildCapabilityDiagnosticsSummary);
++        => CopyDiagnosticText(LocalizationHelper.GetString("DebugPage_CapabilityDiagnostics"), CommandCenterTextHelper.BuildCapabilityDiagnosticsSummary);
+ 
+     private void CopyDiagnosticText(string label, Func<GatewayCommandCenterState, string> build)
+     {
+@@ -628,7 +628,7 @@ public sealed partial class DebugPage : Page
+                 }
+                 else
+                 {
+-                    DeviceIdText.Text = "Not found";
++                    DeviceIdText.Text = LocalizationHelper.GetString("DebugPage_NotFound");
+                 }
+ 
+                 if (doc.RootElement.TryGetProperty("publicKey", out var pk))
+@@ -639,18 +639,18 @@ public sealed partial class DebugPage : Page
+                 }
+                 else
+                 {
+-                    PublicKeyText.Text = "Not found";
++                    PublicKeyText.Text = LocalizationHelper.GetString("DebugPage_NotFound");
+                 }
+             }
+             else
+             {
+-                DeviceIdText.Text = "No device key file";
++                DeviceIdText.Text = LocalizationHelper.GetString("DebugPage_NoDeviceKeyFile");
+                 PublicKeyText.Text = "—";
+             }
+         }
+         catch (Exception ex)
+         {
+-            DeviceIdText.Text = $"Error: {ex.Message}";
++            DeviceIdText.Text = LocalizationHelper.Format("DebugPage_ErrorFormat", ex.Message);
+             PublicKeyText.Text = "—";
+         }
+     }
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/LocalAiPage.xaml b/src/OpenClaw.Tray.WinUI/Pages/LocalAiPage.xaml
+index 0bd220c1..796051d8 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/LocalAiPage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/LocalAiPage.xaml
+@@ -82,13 +82,13 @@
+                     <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="16" RowSpacing="6">
+                         <TextBlock x:Uid="LocalAiPage_VersionLabel" Text="Version"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+-                        <TextBlock x:Name="EngineVersionText" Grid.Column="1"/>
++                        <TextBlock x:Name="EngineVersionText" FlowDirection="LeftToRight" Grid.Column="1"/>
+                         <TextBlock x:Uid="LocalAiPage_EndpointLabel" Grid.Row="1" Text="Endpoint"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+-                        <TextBlock x:Name="EndpointText" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
++                        <TextBlock FlowDirection="LeftToRight" x:Name="EndpointText" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"/>
+                         <TextBlock x:Uid="LocalAiPage_ProcessLabel" Grid.Row="2" Text="Process"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+-                        <TextBlock x:Name="ProcessIdText" Grid.Row="2" Grid.Column="1"/>
++                        <TextBlock x:Name="ProcessIdText" FlowDirection="LeftToRight" Grid.Row="2" Grid.Column="1"/>
+                     </Grid>
+                     <TextBlock x:Name="EngineDetailText" TextWrapping="Wrap"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/PermissionsPage.xaml b/src/OpenClaw.Tray.WinUI/Pages/PermissionsPage.xaml
+index 14d1c80b..979fed34 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/PermissionsPage.xaml
++++ b/src/OpenClaw.Tray.WinUI/Pages/PermissionsPage.xaml
+@@ -168,7 +168,7 @@
+                             <TextBlock x:Uid="PermissionsPage_McpEndpointLabel" Grid.Column="0" Text="Endpoint:" VerticalAlignment="Center"
+                                        Style="{StaticResource CaptionTextBlockStyle}"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+-                            <TextBlock x:Name="McpEndpointText" Grid.Column="1" IsTextSelectionEnabled="True"
++                            <TextBlock FlowDirection="LeftToRight" x:Name="McpEndpointText" Grid.Column="1" IsTextSelectionEnabled="True"
+                                        VerticalAlignment="Center" FontFamily="Consolas"
+                                        Style="{StaticResource CaptionTextBlockStyle}"/>
+                         </Grid>
+@@ -285,7 +285,7 @@
+                                         <ColumnDefinition Width="Auto"/>
+                                         <ColumnDefinition Width="Auto"/>
+                                     </Grid.ColumnDefinitions>
+-                                    <TextBlock Grid.Column="0" Text="{Binding Pattern}"
++                                    <TextBlock FlowDirection="LeftToRight" Grid.Column="0" Text="{Binding Pattern}"
+                                                FontFamily="Consolas" FontSize="13"
+                                                VerticalAlignment="Center"
+                                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+@@ -324,7 +324,7 @@
+                             <ColumnDefinition Width="Auto"/>
+                         </Grid.ColumnDefinitions>
+                         <StackPanel Grid.Column="0" Spacing="4">
+-                            <TextBox x:Uid="NewRulePattern" x:Name="NewRulePattern"
++                            <TextBox FlowDirection="LeftToRight" x:Uid="NewRulePattern" x:Name="NewRulePattern"
+                                      PlaceholderText="Executable-path pattern (e.g. **/hostname.exe)"
+                                      FontFamily="Consolas"
+                                      AutomationProperties.AutomationId="NewExecAllowlistPatternTextBox"/>
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/SandboxPage.xaml.cs b/src/OpenClaw.Tray.WinUI/Pages/SandboxPage.xaml.cs
+index 74e5e8a4..12ae2ab0 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/SandboxPage.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/SandboxPage.xaml.cs
+@@ -216,8 +216,8 @@ public sealed partial class SandboxPage : Page
+         {
+             // Probe still running on the background thread — neutral interim state.
+             SandboxStatusIcon.Text = "⏳";
+-            SandboxStatusTitle.Text = "Checking sandbox availability…";
+-            SandboxStatusSubtext.Text = "Verifying that this PC can contain commands the agent runs.";
++            SandboxStatusTitle.Text = L("SandboxPage_CheckingAvailabilityTitle");
++            SandboxStatusSubtext.Text = L("SandboxPage_CheckingAvailabilityMessage");
+             SandboxEnabledToggle.Visibility = Visibility.Collapsed;
+             return;
+         }
+@@ -255,7 +255,7 @@ public sealed partial class SandboxPage : Page
+             {
+                 // Contained, but only via a weaker, last-resort isolation tier
+                 // (e.g. DACL augmentation). Surface as a caution rather than a block.
+-                SandboxStatusTitle.Text = "Node Sandbox is on: limited containment";
++                SandboxStatusTitle.Text = L("SandboxPage_StatusLimitedTitle");
+                 SandboxStatusSubtext.Text =
+                     "Programs the agent runs are contained, but this PC only supports a fallback isolation tier" +
+                     $"{(string.IsNullOrEmpty(availability.IsolationTier) ? "" : $" ({availability.IsolationTier})")}. " +
+@@ -662,10 +662,10 @@ public sealed partial class SandboxPage : Page
+ 
+             var dialog = new ContentDialog
+             {
+-                Title = "Turn off Node Sandbox?",
+-                Content = "Agent-started Windows commands will run as you and may access your files, network, clipboard, and OpenClaw settings.\n\nThis is the high-risk mode. Only do this if you trust the agent and need it for debugging or performance.",
+-                PrimaryButtonText = "Turn off",
+-                CloseButtonText = "Cancel",
++                Title = L("SandboxPage_TurnOffDialogTitle"),
++                Content = L("SandboxPage_TurnOffDialogMessage"),
++                PrimaryButtonText = L("SandboxPage_TurnOffDialogPrimary"),
++                CloseButtonText = L("SandboxPage_TurnOffDialogCancel"),
+                 DefaultButton = ContentDialogButton.Close,
+                 XamlRoot = this.XamlRoot,
+             };
+@@ -720,12 +720,9 @@ public sealed partial class SandboxPage : Page
+             : L("SandboxPage_UnavailableDefaultReason");
+         var dialog = new ContentDialog
+         {
+-            Title = "Node Sandbox unavailable",
+-            Content =
+-                "Node Sandbox can't be turned on because this PC does not currently have a usable MXC backend.\n\n" +
+-                $"{reasonText}\n\n" +
+-                "Agent-started commands will keep using the host execution path until MXC is available.",
+-            CloseButtonText = "OK",
++            Title = L("SandboxPage_EnableUnavailableDialogTitle"),
++            Content = Lf("SandboxPage_EnableUnavailableDialogMessageFormat", reasonText),
++            CloseButtonText = L("SandboxPage_EnableUnavailableDialogClose"),
+             DefaultButton = ContentDialogButton.Close,
+             XamlRoot = this.XamlRoot,
+         };
+@@ -972,7 +969,7 @@ public sealed partial class SandboxPage : Page
+     {
+         if (_suppress) return;
+         var secs = (int)Math.Round(e.NewValue);
+-        TimeoutLabel.Text = $"Max time per command: {secs} sec";
++        TimeoutLabel.Text = Lf("SandboxPage_TimeoutLabelFormat", secs);
+         if (CurrentApp.Settings is not { } s) return;
+         s.SandboxTimeoutMs = secs * 1000;
+         Save();
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/SessionsPage.xaml.cs b/src/OpenClaw.Tray.WinUI/Pages/SessionsPage.xaml.cs
+index c0a67781..85245133 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/SessionsPage.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/SessionsPage.xaml.cs
+@@ -477,7 +477,10 @@ public sealed partial class SessionsPage : Page
+ 
+         if (!SessionActionPlanner.IsAllowed(kind, isMainState, out var blockedReason))
+         {
+-            ShowActionInfo("Action unavailable", blockedReason ?? "This action isn't available.", InfoBarSeverity.Informational);
++            ShowActionInfo(
++                LocalizationHelper.GetString("SessionsPage_ActionUnavailableTitle"),
++                blockedReason ?? LocalizationHelper.GetString("SessionsPage_ActionUnavailableMessage"),
++                InfoBarSeverity.Informational);
+             return;
+         }
+ 
+@@ -492,7 +495,10 @@ public sealed partial class SessionsPage : Page
+                 var latestState = ResolveMainState(key, vm);
+                 if (!SessionActionPlanner.IsAllowed(kind, latestState, out blockedReason))
+                 {
+-                    ShowActionInfo("Action unavailable", blockedReason ?? "Delete isn't available for this session.", InfoBarSeverity.Informational);
++                    ShowActionInfo(
++                        LocalizationHelper.GetString("SessionsPage_ActionUnavailableTitle"),
++                        blockedReason ?? LocalizationHelper.GetString("SessionsPage_DeleteUnavailableMessage"),
