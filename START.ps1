@@ -115,6 +115,32 @@ try {
         [System.IO.File]::WriteAllText($sourcePath, $sourceContent)
     }
 
+    $sessionsPagePath = Join-Path $workDirectory "src\OpenClaw.Tray.WinUI\Pages\SessionsPage.xaml.cs"
+    $sessionsPageContent = [System.IO.File]::ReadAllText($sessionsPagePath)
+    $sessionsPageContent = $sessionsPageContent.Replace(
+        'LocalizationHelper.GetString("SessionsPage_Refresh")',
+        'LocalizationHelper.GetString("SessionsPage_RefreshAction")')
+    [System.IO.File]::WriteAllText($sessionsPagePath, $sessionsPageContent)
+
+    $stringsDirectory = Join-Path $workDirectory "src\OpenClaw.Tray.WinUI\Strings"
+    foreach ($resourceFile in Get-ChildItem -LiteralPath $stringsDirectory -Filter "Resources.resw" -File -Recurse) {
+        $resourceContent = [System.IO.File]::ReadAllText($resourceFile.FullName)
+        $resourceContent = $resourceContent.Replace(
+            '<data name="SessionsPage_Refresh"',
+            '<data name="SessionsPage_RefreshAction"')
+        [System.IO.File]::WriteAllText($resourceFile.FullName, $resourceContent)
+    }
+
+    $buildScript = Join-Path $workDirectory "build.ps1"
+    $buildContent = [System.IO.File]::ReadAllText($buildScript)
+    $buildContent = $buildContent.Replace(
+        '$successCount = ($buildResults.Values | Where-Object { $_ -eq $true }).Count',
+        '$successCount = @($buildResults.Values | Where-Object { $_ -eq $true }).Count')
+    $buildContent = $buildContent.Replace(
+        '$failCount = ($buildResults.Values | Where-Object { $_ -eq $false }).Count',
+        '$failCount = @($buildResults.Values | Where-Object { $_ -eq $false }).Count')
+    [System.IO.File]::WriteAllText($buildScript, $buildContent)
+
     Write-Host "Starting the tested in-place upgrade..." -ForegroundColor Cyan
     & $upgradeScript
     if ($LASTEXITCODE -ne 0) {
