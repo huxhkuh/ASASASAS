@@ -203,6 +203,35 @@ try {
     $upgradeContent = $upgradeContent.Replace(
         '& dotnet.exe test $Project --no-restore',
         '& dotnet.exe test $Project')
+
+    if (-not $upgradeContent.Contains('openclaw-hebrew-installer.log')) {
+        $installStepLine = '    Write-Step "Installing Hebrew as an upgrade over the existing app"'
+        $installerDiagnostics = @'
+    $installerLog = Join-Path $env:TEMP "openclaw-hebrew-installer.log"
+    Remove-Item -LiteralPath $installerLog -Force -ErrorAction SilentlyContinue
+    $installerArguments = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /CLOSEAPPLICATIONS /LOG=`"$installerLog`""
+'@
+        if (-not $upgradeContent.Contains($installStepLine)) {
+            throw "Could not enable installer diagnostics in the upgrade script."
+        }
+        $upgradeContent = $upgradeContent.Replace(
+            $installStepLine,
+            $installStepLine + [Environment]::NewLine + $installerDiagnostics.TrimEnd())
+        $upgradeContent = $upgradeContent.Replace(
+            '$installerProcess = Start-Process -FilePath $installer -Wait -PassThru',
+            '$installerProcess = Start-Process -FilePath $installer -ArgumentList $installerArguments -Wait -PassThru')
+        $installerFailureDiagnostics = @'
+        if (Test-Path -LiteralPath $installerLog) {
+            Write-Host "`n=== Installer log (last 80 lines) ===" -ForegroundColor Yellow
+            Get-Content -LiteralPath $installerLog -Tail 80 | Out-Host
+            Copy-Item -LiteralPath $installerLog -Destination (Join-Path $backupRoot "installer-failure.log") -Force
+        }
+        throw "The installer ended with exit code $($installerProcess.ExitCode)."
+'@
+        $upgradeContent = $upgradeContent.Replace(
+            '        throw "The installer ended with exit code $($installerProcess.ExitCode)."',
+            $installerFailureDiagnostics.TrimEnd())
+    }
     [System.IO.File]::WriteAllText($upgradeScript, $upgradeContent)
 
     foreach ($relativeSourcePath in @(
