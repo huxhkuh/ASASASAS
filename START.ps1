@@ -144,7 +144,9 @@ try {
     $sourceIsPrepared = $false
     if (Test-Path -LiteralPath $workDirectory) {
         $currentSubject = & git.exe -C $workDirectory log -1 --format=%s 2>$null
-        $sourceIsPrepared = $LASTEXITCODE -eq 0 -and $currentSubject -eq "Add complete Hebrew localization and RTL support"
+        $sourceIsPrepared = $LASTEXITCODE -eq 0 -and $currentSubject -in @(
+            "Add complete Hebrew localization and RTL support",
+            "Localize connection recovery runtime states")
         if (-not $sourceIsPrepared) {
             throw "The folder exists but does not contain the prepared Hebrew source: $workDirectory"
         }
@@ -182,6 +184,23 @@ try {
         & git.exe -C $workDirectory am $patchFile
         if ($LASTEXITCODE -ne 0) {
             throw "The Hebrew localization patch could not be applied."
+        }
+
+        $hotfixParts = @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter "hotfix-part-*.txt" -File | Sort-Object Name)
+        if ($hotfixParts.Count -gt 0) {
+            $hotfixWriter = [System.IO.File]::CreateText($patchFile)
+            try {
+                foreach ($part in $hotfixParts) {
+                    $hotfixWriter.Write([System.IO.File]::ReadAllText($part.FullName))
+                }
+            } finally {
+                $hotfixWriter.Dispose()
+            }
+
+            & git.exe -C $workDirectory am $patchFile
+            if ($LASTEXITCODE -ne 0) {
+                throw "The Hebrew runtime localization hotfix could not be applied."
+            }
         }
     }
 
