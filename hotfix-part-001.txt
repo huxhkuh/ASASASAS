@@ -1,0 +1,194 @@
+                  : err,
+@@ -683,8 +703,10 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.StatusErr,
+                 StripAccent = ConnectionAccent.Critical,
+                 StripHeadline = "Can't reach gateway",
++                StripHeadlineResourceKey = "ConnectionPage_StatusCannotReachGateway",
+                 StripSub = "SSH tunnel is down: " + (err.Length > 0 ? err : "last attempt failed."),
+                 StripPrimaryLabel = "Restart tunnel",
++                StripPrimaryLabelResourceKey = "ConnectionPage_ActionRestartTunnel",
+                 StripPrimaryAction = ConnectionPrimaryAction.RestartTunnel,
+                 RecoveryDetail = err,
+                 ActiveGatewayDisplayName = name,
+@@ -700,6 +722,7 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.StatusErr,
+                 StripAccent = ConnectionAccent.Critical,
+                 StripHeadline = "Can't reach gateway",
++                StripHeadlineResourceKey = "ConnectionPage_StatusCannotReachGateway",
+                 StripSub = string.IsNullOrEmpty(err) ? "Gateway returned an error." : err,
+                 StripPrimaryLabel = "Retry",
+                 StripPrimaryAction = ConnectionPrimaryAction.Retry,
+@@ -718,6 +741,7 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.StatusErr,
+                 StripAccent = ConnectionAccent.Critical,
+                 StripHeadline = "Can't reach gateway",
++                StripHeadlineResourceKey = "ConnectionPage_StatusCannotReachGateway",
+                 StripSub = string.IsNullOrEmpty(err)
+                     ? (string.IsNullOrEmpty(url)
+                         ? "Connection refused."
+diff --git a/src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw b/src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw
+index edcb1f81..d2d9e4db 100644
+--- a/src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw
++++ b/src/OpenClaw.Tray.WinUI/Strings/en-us/Resources.resw
+@@ -8051,7 +8051,7 @@ Only set this up on a computer you trust, and only continue if you understand th
+   <data name="SessionsPage_SessionCompactedMessageFormat" xml:space="preserve"><value>Compacted {0}. Refresh Checkpoints to see any new entries.</value></data>
+   <data name="SessionsPage_SessionFallback" xml:space="preserve"><value>session</value></data>
+   <data name="SessionsPage_Refreshing" xml:space="preserve"><value>Refreshing…</value></data>
+-  <data name="SessionsPage_Refresh" xml:space="preserve"><value>Refresh</value></data>
++  <data name="SessionsPage_RefreshAction" xml:space="preserve"><value>Refresh</value></data>
+   <data name="SettingsPage_TestNotificationTitle" xml:space="preserve"><value>Test notification</value></data>
+   <data name="SettingsPage_TestNotificationMessage" xml:space="preserve"><value>This is a test notification from OpenClaw settings.</value></data>
+   <data name="SettingsPage_RemoveGatewayDialogIntro" xml:space="preserve"><value>This will permanently remove the following:</value></data>
+@@ -8191,4 +8191,28 @@ Only set this up on a computer you trust, and only continue if you understand th
+   <data name="Checkpoints_RestoredMessage" xml:space="preserve"><value>Rolled the session back to the checkpoint.</value></data>
+   <data name="Checkpoints_RestoreFailedMessage" xml:space="preserve"><value>Could not restore the checkpoint.</value></data>
+   <data name="SettingsPage_AppDisplayName.Text" xml:space="preserve"><value>OpenClaw Windows Companion</value></data>
++  <data name="ConnectionPage_StatusDisconnecting" xml:space="preserve"><value>Disconnecting…</value></data>
++  <data name="ConnectionPage_StatusNoGateway" xml:space="preserve"><value>No gateway yet</value></data>
++  <data name="ConnectionPage_StatusNoGatewayDetail" xml:space="preserve"><value>Add a gateway to get started.</value></data>
++  <data name="ConnectionPage_StatusNotConnected" xml:space="preserve"><value>Not connected</value></data>
++  <data name="ConnectionPage_StatusNotConnectedDetail" xml:space="preserve"><value>Pick a gateway below, or add a new one.</value></data>
++  <data name="ConnectionPage_StatusConnecting" xml:space="preserve"><value>Connecting…</value></data>
++  <data name="ConnectionPage_StatusReachingGateway" xml:space="preserve"><value>Reaching gateway</value></data>
++  <data name="ConnectionPage_StatusConnected" xml:space="preserve"><value>Connected</value></data>
++  <data name="ConnectionPage_StatusConnectionDegraded" xml:space="preserve"><value>Connection degraded</value></data>
++  <data name="ConnectionPage_StatusAwaitingApproval" xml:space="preserve"><value>Awaiting approval</value></data>
++  <data name="ConnectionPage_StatusAwaitingApprovalDetail" xml:space="preserve"><value>Approve this client on the gateway host. Connection will resume automatically.</value></data>
++  <data name="ConnectionPage_StatusTailscaleUnavailable" xml:space="preserve"><value>Tailscale gateway unavailable</value></data>
++  <data name="ConnectionPage_StatusLocalPortConflict" xml:space="preserve"><value>Local gateway port conflict</value></data>
++  <data name="ConnectionPage_StatusLocalPortConflictDetail" xml:space="preserve"><value>Another process is using this managed gateway address. OpenClaw will not send gateway credentials to an unverified listener.</value></data>
++  <data name="ConnectionPage_StatusAuthenticationFailed" xml:space="preserve"><value>Authentication failed</value></data>
++  <data name="ConnectionPage_StatusDeviceNeedsRepairing" xml:space="preserve"><value>Device needs re-pairing</value></data>
++  <data name="ConnectionPage_StatusInsufficientAccess" xml:space="preserve"><value>Not enough access</value></data>
++  <data name="ConnectionPage_StatusSecureConnectionFailed" xml:space="preserve"><value>Secure connection failed</value></data>
++  <data name="ConnectionPage_StatusRateLimited" xml:space="preserve"><value>Too many failed attempts</value></data>
++  <data name="ConnectionPage_StatusCannotReachGateway" xml:space="preserve"><value>Can't reach gateway</value></data>
++  <data name="ConnectionPage_ActionRestartTunnel" xml:space="preserve"><value>Restart tunnel</value></data>
++  <data name="ConnectionError_NoOperatorCredential" xml:space="preserve"><value>No operator credential available. Add a shared/bootstrap gateway token or re-pair this PC.</value></data>
++  <data name="ConnectionError_CorruptDeviceToken" xml:space="preserve"><value>No operator credential is available because the stored device token is corrupt. Re-pair this PC or add a shared/bootstrap gateway token.</value></data>
++  <data name="ConnectionError_UnreadableDeviceToken" xml:space="preserve"><value>No operator credential is available because the stored device token cannot be read. Check file permissions, re-pair this PC, or add a shared/bootstrap gateway token.</value></data>
+ </root>
+diff --git a/src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw b/src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw
+index 36b19b74..436a7a3c 100644
+--- a/src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw
++++ b/src/OpenClaw.Tray.WinUI/Strings/fr-fr/Resources.resw
+@@ -7987,7 +7987,7 @@ Only set this up on a computer you trust, and only continue if you understand th
+   <data name="SessionsPage_SessionCompactedMessageFormat" xml:space="preserve"><value>Compacted {0}. Refresh Checkpoints to see any new entries.</value></data>
+   <data name="SessionsPage_SessionFallback" xml:space="preserve"><value>session</value></data>
+   <data name="SessionsPage_Refreshing" xml:space="preserve"><value>Refreshing…</value></data>
+-  <data name="SessionsPage_Refresh" xml:space="preserve"><value>Refresh</value></data>
++  <data name="SessionsPage_RefreshAction" xml:space="preserve"><value>Refresh</value></data>
+   <data name="SettingsPage_TestNotificationTitle" xml:space="preserve"><value>Test notification</value></data>
+   <data name="SettingsPage_TestNotificationMessage" xml:space="preserve"><value>This is a test notification from OpenClaw settings.</value></data>
+   <data name="SettingsPage_RemoveGatewayDialogIntro" xml:space="preserve"><value>This will permanently remove the following:</value></data>
+@@ -8127,4 +8127,28 @@ Only set this up on a computer you trust, and only continue if you understand th
+   <data name="Checkpoints_RestoredMessage" xml:space="preserve"><value>Rolled the session back to the checkpoint.</value></data>
+   <data name="Checkpoints_RestoreFailedMessage" xml:space="preserve"><value>Could not restore the checkpoint.</value></data>
+   <data name="SettingsPage_AppDisplayName.Text" xml:space="preserve"><value>OpenClaw Windows Companion</value></data>
++  <data name="ConnectionPage_StatusDisconnecting" xml:space="preserve"><value>Disconnecting…</value></data>
++  <data name="ConnectionPage_StatusNoGateway" xml:space="preserve"><value>No gateway yet</value></data>
++  <data name="ConnectionPage_StatusNoGatewayDetail" xml:space="preserve"><value>Add a gateway to get started.</value></data>
++  <data name="ConnectionPage_StatusNotConnected" xml:space="preserve"><value>Not connected</value></data>
++  <data name="ConnectionPage_StatusNotConnectedDetail" xml:space="preserve"><value>Pick a gateway below, or add a new one.</value></data>
++  <data name="ConnectionPage_StatusConnecting" xml:space="preserve"><value>Connecting…</value></data>
++  <data name="ConnectionPage_StatusReachingGateway" xml:space="preserve"><value>Reaching gateway</value></data>
++  <data name="ConnectionPage_StatusConnected" xml:space="preserve"><value>Connected</value></data>
++  <data name="ConnectionPage_StatusConnectionDegraded" xml:space="preserve"><value>Connection degraded</value></data>
++  <data name="ConnectionPage_StatusAwaitingApproval" xml:space="preserve"><value>Awaiting approval</value></data>
++  <data name="ConnectionPage_StatusAwaitingApprovalDetail" xml:space="preserve"><value>Approve this client on the gateway host. Connection will resume automatically.</value></data>
++  <data name="ConnectionPage_StatusTailscaleUnavailable" xml:space="preserve"><value>Tailscale gateway unavailable</value></data>
++  <data name="ConnectionPage_StatusLocalPortConflict" xml:space="preserve"><value>Local gateway port conflict</value></data>
++  <data name="ConnectionPage_StatusLocalPortConflictDetail" xml:space="preserve"><value>Another process is using this managed gateway address. OpenClaw will not send gateway credentials to an unverified listener.</value></data>
++  <data name="ConnectionPage_StatusAuthenticationFailed" xml:space="preserve"><value>Authentication failed</value></data>
++  <data name="ConnectionPage_StatusDeviceNeedsRepairing" xml:space="preserve"><value>Device needs re-pairing</value></data>
++  <data name="ConnectionPage_StatusInsufficientAccess" xml:space="preserve"><value>Not enough access</value></data>
++  <data name="ConnectionPage_StatusSecureConnectionFailed" xml:space="preserve"><value>Secure connection failed</value></data>
++  <data name="ConnectionPage_StatusRateLimited" xml:space="preserve"><value>Too many failed attempts</value></data>
++  <data name="ConnectionPage_StatusCannotReachGateway" xml:space="preserve"><value>Can't reach gateway</value></data>
++  <data name="ConnectionPage_ActionRestartTunnel" xml:space="preserve"><value>Restart tunnel</value></data>
++  <data name="ConnectionError_NoOperatorCredential" xml:space="preserve"><value>No operator credential available. Add a shared/bootstrap gateway token or re-pair this PC.</value></data>
++  <data name="ConnectionError_CorruptDeviceToken" xml:space="preserve"><value>No operator credential is available because the stored device token is corrupt. Re-pair this PC or add a shared/bootstrap gateway token.</value></data>
++  <data name="ConnectionError_UnreadableDeviceToken" xml:space="preserve"><value>No operator credential is available because the stored device token cannot be read. Check file permissions, re-pair this PC, or add a shared/bootstrap gateway token.</value></data>
+ </root>
+diff --git a/src/OpenClaw.Tray.WinUI/Strings/he-il/Resources.resw b/src/OpenClaw.Tray.WinUI/Strings/he-il/Resources.resw
+index ef4c6adb..138d58f0 100644
+--- a/src/OpenClaw.Tray.WinUI/Strings/he-il/Resources.resw
++++ b/src/OpenClaw.Tray.WinUI/Strings/he-il/Resources.resw
+@@ -1515,7 +1515,7 @@
+     <value>רענון</value>
+   </data>
+   <data name="ConfigPage_OpenConnection.Content" xml:space="preserve">
+-    <value>חיבור פתוח</value>
++    <value>פתיחת החיבור</value>
+   </data>
+   <data name="ConfigPage_ConnectionInfoBar.Title" xml:space="preserve">
+     <value>Gateway מנותק</value>
+@@ -3153,7 +3153,7 @@
+     <value>הצג עוד</value>
+   </data>
+   <data name="AppNotification_ActionOpenConnection" xml:space="preserve">
+-    <value>חיבור פתוח</value>
++    <value>פתיחת החיבור</value>
+   </data>
+   <data name="AppNotification_ActionOpenChannels" xml:space="preserve">
+     <value>פתח ערוצים</value>
+@@ -3165,13 +3165,13 @@
+     <value>פתח Cron</value>
+   </data>
+   <data name="AppNotification_GatewayConnectionFailed_Title" xml:space="preserve">
+-    <value>Gateway החיבור נכשל</value>
++    <value>החיבור ל־Gateway נכשל</value>
+   </data>
+   <data name="AppNotification_GatewayConnectionFailed_DefaultMessage" xml:space="preserve">
+-    <value>OpenClaw לא ניתן היה להתחבר לפעיל Gateway.</value>
++    <value>OpenClaw לא הצליח להתחבר ל־Gateway הפעיל.</value>
+   </data>
+   <data name="AppNotification_GatewayPairingRequired_Title" xml:space="preserve">
+-    <value>Gateway נדרש אישור צימוד.</value>
++    <value>נדרש אישור התאמה ל־Gateway</value>
+   </data>
+   <data name="AppNotification_GatewayPairingRequired_GenericMessage" xml:space="preserve">
+     <value>פתח את ״חיבור״ כדי להשלים את הצימוד עם ה־Gateway.</value>
+@@ -3180,10 +3180,10 @@
+     <value>פתח את החיבור כדי לאשר את המכשיר {0}.</value>
+   </data>
+   <data name="AppNotification_WindowsNodeConnectionFailed_Title" xml:space="preserve">
+-    <value>Windows Node החיבור נכשל.</value>
++    <value>החיבור ל־Windows Node נכשל</value>
+   </data>
+   <data name="AppNotification_WindowsNodeConnectionFailed_DefaultMessage" xml:space="preserve">
+-    <value>המכשיר Gateway מחובר, אך המכשיר Windows Node אינו זמין.</value>
++    <value>ה־Gateway מחובר, אך ה־Windows Node אינו זמין.</value>
+   </data>
+   <data name="AppNotification_WindowsNodeRateLimited_Title" xml:space="preserve">
+     <value>Windows Node מוגבל בקצב החיבור</value>
+@@ -4066,7 +4066,7 @@
+     <value>התחבר ל־Gateway כדי לטעון קישורים.</value>
+   </data>
+   <data name="BindingsPage_OpenConnection.Content" xml:space="preserve">
+-    <value>חיבור פתוח</value>
++    <value>פתיחת החיבור</value>
+   </data>
+   <data name="BindingsPage_LoadingBindings.Text" xml:space="preserve">
+     <value>טוען קישורים...</value>
+@@ -4156,7 +4156,7 @@
+     <value>סריקה</value>
+   </data>
+   <data name="ConnectionPage_AddGateway.Text" xml:space="preserve">
+-    <value>הוסף Gateway</value>
++    <value>הוספת Gateway</value>
+   </data>
+   <data name="ConnectionPage_NoSavedGatewaysYet.Text" xml:space="preserve">
+     <value>עדיין אין שערים שנשמרו.</value>
+@@ -4225,7 +4225,7 @@
+     <value>ws://host.local:18790</value>
+   </data>
+   <data name="ConnectionPage_SharedToken.Header" xml:space="preserve">
+-    <value>משותף token</value>
++    <value>token משותף</value>
+   </data>
+   <data name="ConnectionPage_SharedToken.PlaceholderText" xml:space="preserve">
+     <value>הדבק משותף Gateway token</value>
+@@ -4300,7 +4300,7 @@
+     <value>התחבר ל־Gateway כדי לטעון עבודות Cron.</value>
+   </dat
