@@ -1,0 +1,272 @@
+From 1e8b317213aac5e34e414322a20a7113a994162f Mon Sep 17 00:00:00 2001
+From: OpenClaw Hebrew Localization <openclaw-hebrew@users.noreply.github.com>
+Date: Wed, 2 Sep 2026 16:24:51 +0400
+Subject: [PATCH] Localize connection recovery runtime states
+
+---
+ src/OpenClaw.Tray.WinUI/App.xaml.cs           |  4 +-
+ .../Helpers/LocalizationHelper.cs             | 21 +++++++
+ .../Pages/ConnectionPage.xaml.cs              | 23 ++++++-
+ .../Pages/ConnectionPagePlan.cs               | 26 +++++++-
+ .../Strings/en-us/Resources.resw              | 26 +++++++-
+ .../Strings/fr-fr/Resources.resw              | 26 +++++++-
+ .../Strings/he-il/Resources.resw              | 60 +++++++++++++------
+ .../Strings/nl-nl/Resources.resw              | 26 +++++++-
+ .../Strings/zh-cn/Resources.resw              | 26 +++++++-
+ .../Strings/zh-tw/Resources.resw              | 26 +++++++-
+ 10 files changed, 235 insertions(+), 29 deletions(-)
+
+diff --git a/src/OpenClaw.Tray.WinUI/App.xaml.cs b/src/OpenClaw.Tray.WinUI/App.xaml.cs
+index dd696550..3f010622 100644
+--- a/src/OpenClaw.Tray.WinUI/App.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/App.xaml.cs
+@@ -294,7 +294,7 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
+             string[] allowedLocales = ["en-us", "fr-fr", "he-il", "nl-nl", "zh-cn", "zh-tw"];
+             if (allowedLocales.Contains(langOverride.ToLowerInvariant()))
+             {
+-                Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = langOverride;
++                global::Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = langOverride;
+                 LocalizationHelper.SetLanguageOverride(langOverride);
+             }
+             else
+@@ -2704,7 +2704,7 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
+             var rawError = snapshot.OperatorError;
+             message = string.IsNullOrWhiteSpace(rawError)
+                 ? LocalizationHelper.GetString("AppNotification_GatewayConnectionFailed_DefaultMessage")
+-                : rawError;
++                : LocalizationHelper.LocalizeKnownConnectionError(rawError);
+             severity = AppNotificationSeverity.Error;
+             key = $"operator-error:{rawError ?? "default"}";
+             return true;
+diff --git a/src/OpenClaw.Tray.WinUI/Helpers/LocalizationHelper.cs b/src/OpenClaw.Tray.WinUI/Helpers/LocalizationHelper.cs
+index 89ee9da4..2303156c 100644
+--- a/src/OpenClaw.Tray.WinUI/Helpers/LocalizationHelper.cs
++++ b/src/OpenClaw.Tray.WinUI/Helpers/LocalizationHelper.cs
+@@ -163,6 +163,27 @@ public static class LocalizationHelper
+         }
+     }
+ 
++    /// <summary>
++    /// Localizes stable connection-layer error messages at the UI boundary.
++    /// Unknown diagnostics are preserved verbatim so useful gateway details are not lost.
++    /// </summary>
++    public static string LocalizeKnownConnectionError(string? message)
++    {
++        if (string.IsNullOrWhiteSpace(message))
++            return message ?? string.Empty;
++
++        return message switch
++        {
++            "No operator credential available. Add a shared/bootstrap gateway token or re-pair this PC." =>
++                GetString("ConnectionError_NoOperatorCredential"),
++            "No operator credential available: stored device token is corrupt. Re-pair this PC or add a shared/bootstrap gateway token." =>
++                GetString("ConnectionError_CorruptDeviceToken"),
++            "No operator credential available: stored device token is unreadable. Check file permissions, re-pair this PC, or add a shared/bootstrap gateway token." =>
++                GetString("ConnectionError_UnreadableDeviceToken"),
++            _ => message,
++        };
++    }
++
+     public static string GetConnectionStatusText(ConnectionStatus status) => status switch
+     {
+         ConnectionStatus.Connected => GetString("StatusDisplay_Connected"),
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/ConnectionPage.xaml.cs b/src/OpenClaw.Tray.WinUI/Pages/ConnectionPage.xaml.cs
+index 50a646a4..7d206925 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/ConnectionPage.xaml.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/ConnectionPage.xaml.cs
+@@ -426,7 +426,9 @@ public sealed partial class ConnectionPage : Page
+             plan.StripPrimaryAction != ConnectionPrimaryAction.None &&
+             plan.StripPrimaryLabel != null)
+         {
+-            StripPrimaryButton.Content = plan.StripPrimaryLabel;
++            StripPrimaryButton.Content = plan.StripPrimaryLabelResourceKey is { } primaryLabelResourceKey
++                ? LocalizationHelper.GetString(primaryLabelResourceKey)
++                : plan.StripPrimaryLabel;
+             StripPrimaryButton.Visibility = Visibility.Visible;
+         }
+         else
+@@ -1197,7 +1199,7 @@ public sealed partial class ConnectionPage : Page
+         ConnectionPagePlan plan)
+     {
+         if (string.IsNullOrWhiteSpace(resourceKey))
+-            return fallback;
++            return LocalizationHelper.LocalizeKnownConnectionError(fallback);
+ 
+         var value = LocalizationHelper.GetString(resourceKey);
+         return string.Format(
+@@ -1730,16 +1732,30 @@ public sealed partial class ConnectionPage : Page
+ 
+         // Info column
+         var info = new StackPanel { VerticalAlignment = VerticalAlignment.Center, Spacing = 2 };
++        var displayNameIsUrl = string.Equals(row.DisplayName, row.Url, StringComparison.OrdinalIgnoreCase);
+         info.Children.Add(new TextBlock
+         {
+             Text = row.DisplayName,
++            FlowDirection = displayNameIsUrl ? FlowDirection.LeftToRight : LocalizationHelper.CurrentFlowDirection,
++            HorizontalAlignment = displayNameIsUrl && LocalizationHelper.CurrentFlowDirection == FlowDirection.RightToLeft
++                ? HorizontalAlignment.Right
++                : HorizontalAlignment.Stretch,
+             Style = (Style)Application.Current.Resources["BodyStrongTextBlockStyle"],
+             TextTrimming = TextTrimming.CharacterEllipsis,
+         });
+-        var sub = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 6 };
++        var sub = new StackPanel
++        {
++            Orientation = Orientation.Horizontal,
++            Spacing = 6,
++            FlowDirection = FlowDirection.LeftToRight,
++            HorizontalAlignment = LocalizationHelper.CurrentFlowDirection == FlowDirection.RightToLeft
++                ? HorizontalAlignment.Right
++                : HorizontalAlignment.Left,
++        };
+         sub.Children.Add(new TextBlock
+         {
+             Text = ConnectionCardPlanSanitizer.SanitizeGatewayUrl(row.Url),
++            FlowDirection = FlowDirection.LeftToRight,
+             Style = (Style)Application.Current.Resources["CaptionTextBlockStyle"],
+             Foreground = ResolveBrush("TextFillColorSecondaryBrush"),
+         });
+@@ -1748,6 +1764,7 @@ public sealed partial class ConnectionPage : Page
+             sub.Children.Add(new TextBlock
+             {
+                 Text = $"• {row.AuthModeLabel}",
++                FlowDirection = LocalizationHelper.CurrentFlowDirection,
+                 Style = (Style)Application.Current.Resources["CaptionTextBlockStyle"],
+                 Foreground = ResolveBrush("TextFillColorTertiaryBrush"),
+             });
+diff --git a/src/OpenClaw.Tray.WinUI/Pages/ConnectionPagePlan.cs b/src/OpenClaw.Tray.WinUI/Pages/ConnectionPagePlan.cs
+index 3f817d96..845062c6 100644
+--- a/src/OpenClaw.Tray.WinUI/Pages/ConnectionPagePlan.cs
++++ b/src/OpenClaw.Tray.WinUI/Pages/ConnectionPagePlan.cs
+@@ -146,6 +146,7 @@ internal sealed record ConnectionPagePlan
+     public int ProtocolCurrentVersion { get; init; } = GatewayProtocolContract.CurrentVersion;
+     public bool StripShowProgress { get; init; }
+     public string? StripPrimaryLabel { get; init; }
++    public string? StripPrimaryLabelResourceKey { get; init; }
+     public ConnectionPrimaryAction StripPrimaryAction { get; init; } = ConnectionPrimaryAction.None;
+     public bool AllowConnectionToggle { get; init; } = true;
+ 
+@@ -272,6 +273,7 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.Sync,
+                 StripAccent = ConnectionAccent.Neutral,
+                 StripHeadline = "Disconnecting…",
++                StripHeadlineResourceKey = "ConnectionPage_StatusDisconnecting",
+                 StripSub = displayName,
+                 StripShowProgress = true,
+                 ActiveGatewayDisplayName = displayName,
+@@ -365,7 +367,9 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.System,
+                 StripAccent = ConnectionAccent.Neutral,
+                 StripHeadline = "No gateway yet",
++                StripHeadlineResourceKey = "ConnectionPage_StatusNoGateway",
+                 StripSub = "Add a gateway to get started.",
++                StripSubResourceKey = "ConnectionPage_StatusNoGatewayDetail",
+                 NodeCard = idleNodeCard,
+             };
+         }
+@@ -378,7 +382,9 @@ internal sealed record ConnectionPagePlan
+             StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.System,
+             StripAccent = ConnectionAccent.Neutral,
+             StripHeadline = "Not connected",
++            StripHeadlineResourceKey = "ConnectionPage_StatusNotConnected",
+             StripSub = "Pick a gateway below, or add a new one.",
++            StripSubResourceKey = "ConnectionPage_StatusNotConnectedDetail",
+             NodeCard = idleNodeCard,
+             RelevantGatewayId = activeRecord?.Id,
+         };
+@@ -394,7 +400,9 @@ internal sealed record ConnectionPagePlan
+             StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.Sync, // replaced visually by ProgressRing
+             StripAccent = ConnectionAccent.Caution,
+             StripHeadline = "Connecting…",
++            StripHeadlineResourceKey = "ConnectionPage_StatusConnecting",
+             StripSub = !string.IsNullOrEmpty(url) ? url : "Reaching gateway",
++            StripSubResourceKey = string.IsNullOrEmpty(url) ? "ConnectionPage_StatusReachingGateway" : null,
+             StripShowProgress = true,
+             StripPrimaryLabel = "Cancel",
+             StripPrimaryAction = ConnectionPrimaryAction.Cancel,
+@@ -423,6 +431,7 @@ internal sealed record ConnectionPagePlan
+             StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.StatusOk,
+             StripAccent = ConnectionAccent.Success,
+             StripHeadline = "Connected",
++            StripHeadlineResourceKey = "ConnectionPage_StatusConnected",
+             StripSub = sub,
+             OperatorCard = OperatorCardState.Active,
+             NodeCard = BuildNodeCardState(snap, settings),
+@@ -463,7 +472,8 @@ internal sealed record ConnectionPagePlan
+             Mode = ConnectionPageMode.Cockpit,
+             StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.StatusWarn,
+             StripAccent = ConnectionAccent.Caution,
+-            StripHeadline = tunnelLikely ? "Connection degraded" : "Connection degraded",
++            StripHeadline = "Connection degraded",
++            StripHeadlineResourceKey = "ConnectionPage_StatusConnectionDegraded",
+             StripSub = reason,
+             StripPrimaryLabel = tunnelLikely ? "Restart tunnel" : "Reconnect",
+             StripPrimaryAction = tunnelLikely ? ConnectionPrimaryAction.RestartTunnel : ConnectionPrimaryAction.Reconnect,
+@@ -500,7 +510,9 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.Lock,
+                 StripAccent = ConnectionAccent.Caution,
+                 StripHeadline = "Awaiting approval",
++                StripHeadlineResourceKey = "ConnectionPage_StatusAwaitingApproval",
+                 StripSub = "Approve this client on the gateway host. Connection will resume automatically.",
++                StripSubResourceKey = "ConnectionPage_StatusAwaitingApprovalDetail",
+                 // No strip-level CTA here: the inline Copy button in
+                 // RecoveryApproveCmdBlock owns the copy action, and surfacing
+                 // an accent "Copy command" CTA in the strip header on top of
+@@ -543,6 +555,7 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.StatusErr,
+                 StripAccent = ConnectionAccent.Critical,
+                 StripHeadline = "Tailscale gateway unavailable",
++                StripHeadlineResourceKey = "ConnectionPage_StatusTailscaleUnavailable",
+                 StripSub = string.IsNullOrEmpty(err)
+                     ? $"Can't reach the private tailnet endpoint {url}."
+                     : err,
+@@ -565,7 +578,9 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.StatusWarn,
+                 StripAccent = ConnectionAccent.Caution,
+                 StripHeadline = "Local gateway port conflict",
++                StripHeadlineResourceKey = "ConnectionPage_StatusLocalPortConflict",
+                 StripSub = "Another process is using this managed gateway address. OpenClaw will not send gateway credentials to an unverified listener.",
++                StripSubResourceKey = "ConnectionPage_StatusLocalPortConflictDetail",
+                 StripPrimaryLabel = "Retry",
+                 StripPrimaryAction = ConnectionPrimaryAction.Retry,
+                 ActiveGatewayDisplayName = name,
+@@ -581,6 +596,7 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.StatusErr,
+                 StripAccent = ConnectionAccent.Critical,
+                 StripHeadline = "Authentication failed",
++                StripHeadlineResourceKey = "ConnectionPage_StatusAuthenticationFailed",
+                 StripSub = string.IsNullOrEmpty(err)
+                     ? $"Token for {name} is no longer valid."
+                     : err,
+@@ -606,6 +622,7 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.StatusErr,
+                 StripAccent = ConnectionAccent.Critical,
+                 StripHeadline = "Device needs re-pairing",
++                StripHeadlineResourceKey = "ConnectionPage_StatusDeviceNeedsRepairing",
+                 StripSub = string.IsNullOrEmpty(err)
+                     ? $"The saved device token for {name} is no longer trusted by the gateway."
+                     : err,
+@@ -626,6 +643,7 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.Lock,
+                 StripAccent = ConnectionAccent.Critical,
+                 StripHeadline = "Not enough access",
++                StripHeadlineResourceKey = "ConnectionPage_StatusInsufficientAccess",
+                 StripSub = string.IsNullOrEmpty(err)
+                     ? $"This device is connected but lacks the scopes it needs on {name}."
+                     : err,
+@@ -645,6 +663,7 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.StatusErr,
+                 StripAccent = ConnectionAccent.Critical,
+                 StripHeadline = "Secure connection failed",
++                StripHeadlineResourceKey = "ConnectionPage_StatusSecureConnectionFailed",
+                 StripSub = string.IsNullOrEmpty(err)
+                     ? "The gateway's transport could not be secured."
+                     : err,
+@@ -664,6 +683,7 @@ internal sealed record ConnectionPagePlan
+                 StripGlyph = OpenClawTray.Helpers.FluentIconCatalog.StatusWarn,
+                 StripAccent = ConnectionAccent.Caution,
+                 StripHeadline = "Too many failed attempts",
++                StripHeadlineResourceKey = "ConnectionPage_StatusRateLimited",
+                 StripSub = string.IsNullOrEmpty(err)
+                     ? "The gateway is temporarily limiting connection attempts from this client."
+   
