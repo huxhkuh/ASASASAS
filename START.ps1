@@ -100,6 +100,9 @@ try {
         throw "Could not configure the upgrade script to use the winget community source."
     }
     $upgradeContent = $upgradeContent.Replace(' --disable-interactivity', '')
+    $upgradeContent = $upgradeContent.Replace(
+        '& dotnet.exe test $Project --no-restore',
+        '& dotnet.exe test $Project')
     [System.IO.File]::WriteAllText($upgradeScript, $upgradeContent)
 
     foreach ($relativeSourcePath in @(
