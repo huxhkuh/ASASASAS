@@ -207,6 +207,17 @@ try {
     if (-not $upgradeContent.Contains('openclaw-hebrew-installer.log')) {
         $installStepLine = '    Write-Step "Installing Hebrew as an upgrade over the existing app"'
         $installerDiagnostics = @'
+    for ($attempt = 1; $attempt -le 5; $attempt++) {
+        $remainingTray = @(Get-Process -Name "OpenClaw.Tray.WinUI" -ErrorAction SilentlyContinue)
+        if ($remainingTray.Count -eq 0) {
+            break
+        }
+        $remainingTray | Stop-Process -Force
+        Start-Sleep -Seconds 1
+    }
+    if (Get-Process -Name "OpenClaw.Tray.WinUI" -ErrorAction SilentlyContinue) {
+        throw "OpenClaw is still running and could not be closed before installation."
+    }
     $installerLog = Join-Path $env:TEMP "openclaw-hebrew-installer.log"
     Remove-Item -LiteralPath $installerLog -Force -ErrorAction SilentlyContinue
     $installerArguments = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /CLOSEAPPLICATIONS /LOG=`"$installerLog`""
