@@ -37,6 +37,60 @@ function Ensure-Git {
     }
 }
 
+function Ensure-VCRedistBuildComponent {
+    $vsInstallerRoot = Join-Path ${env:ProgramFiles(x86)} "Microsoft Visual Studio\Installer"
+    $vsWhere = Join-Path $vsInstallerRoot "vswhere.exe"
+    $componentId = "Microsoft.VisualStudio.Component.VC.Redist.14.Latest"
+
+    if (Test-Path -LiteralPath $vsWhere) {
+        $qualifiedInstall = (& $vsWhere -latest -products * -requires $componentId -property installationPath 2>$null | Select-Object -First 1)
+        if (-not [string]::IsNullOrWhiteSpace($qualifiedInstall)) {
+            return
+        }
+    }
+
+    Write-Host "Installing the Visual C++ component required to package OpenClaw..." -ForegroundColor Cyan
+
+    $existingInstall = $null
+    if (Test-Path -LiteralPath $vsWhere) {
+        $existingInstall = (& $vsWhere -latest -products * -property installationPath 2>$null | Select-Object -First 1)
+    }
+
+    $vsSetup = Join-Path $vsInstallerRoot "setup.exe"
+    if (-not [string]::IsNullOrWhiteSpace($existingInstall) -and (Test-Path -LiteralPath $vsSetup)) {
+        $setupArguments = "modify --installPath `"$existingInstall`" --add $componentId --passive --wait --norestart"
+        $setupProcess = Start-Process -FilePath $vsSetup -ArgumentList $setupArguments -Verb RunAs -Wait -PassThru
+        if ($setupProcess.ExitCode -notin @(0, 3010)) {
+            throw "Visual Studio Installer could not add $componentId (exit code $($setupProcess.ExitCode))."
+        }
+    } else {
+        if (-not (Get-Command winget.exe -ErrorAction SilentlyContinue)) {
+            throw "Visual Studio Build Tools is required. Install its C++ Redistributable component, then run this script again."
+        }
+
+        & winget.exe install `
+            --id Microsoft.VisualStudio.2022.BuildTools `
+            --source winget `
+            -e `
+            --accept-source-agreements `
+            --accept-package-agreements `
+            --interactive `
+            --override "--wait --passive --norestart --add $componentId"
+        if ($LASTEXITCODE -ne 0) {
+            throw "winget could not install Visual Studio Build Tools with $componentId (exit code $LASTEXITCODE)."
+        }
+    }
+
+    if (-not (Test-Path -LiteralPath $vsWhere)) {
+        throw "Visual Studio Build Tools finished, but vswhere.exe was not found. Restart Windows and rerun this script."
+    }
+
+    $qualifiedInstall = (& $vsWhere -latest -products * -requires $componentId -property installationPath 2>$null | Select-Object -First 1)
+    if ([string]::IsNullOrWhiteSpace($qualifiedInstall)) {
+        throw "Visual Studio Build Tools finished without the required $componentId component."
+    }
+}
+
 try {
     Write-Host "Preparing OpenClaw Hebrew..." -ForegroundColor Magenta
     Ensure-Git
@@ -239,6 +293,8 @@ try {
             $setupDeferredLine + [Environment]::NewLine + $legacyDeferredBlock.TrimEnd())
         [System.IO.File]::WriteAllText($localizationTestsPath, $localizationTests)
     }
+
+    Ensure-VCRedistBuildComponent
 
     Write-Host "Starting the tested in-place upgrade..." -ForegroundColor Cyan
     & $upgradeScript
