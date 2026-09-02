@@ -91,6 +91,52 @@ function Ensure-VCRedistBuildComponent {
     }
 }
 
+function Ensure-CurrentSystemVCRuntime {
+    $runtimePath = Join-Path $env:SystemRoot "System32\vcruntime140.dll"
+    $minimumVersion = [version]"14.38.33130.0"
+    $currentVersion = $null
+
+    if (Test-Path -LiteralPath $runtimePath) {
+        $versionInfo = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($runtimePath)
+        $currentVersion = [version]::new(
+            $versionInfo.FileMajorPart,
+            $versionInfo.FileMinorPart,
+            $versionInfo.FileBuildPart,
+            $versionInfo.FilePrivatePart)
+    }
+
+    if ($null -ne $currentVersion -and $currentVersion -ge $minimumVersion) {
+        return
+    }
+
+    Write-Host "Installing the current Visual C++ runtime..." -ForegroundColor Cyan
+    & winget.exe install `
+        --id "Microsoft.VCRedist.2015+.x64" `
+        --source winget `
+        -e `
+        --force `
+        --accept-source-agreements `
+        --accept-package-agreements `
+        --interactive
+    if ($LASTEXITCODE -ne 0) {
+        throw "winget could not install the current x64 Visual C++ runtime (exit code $LASTEXITCODE)."
+    }
+
+    if (-not (Test-Path -LiteralPath $runtimePath)) {
+        throw "The Visual C++ runtime installation finished, but vcruntime140.dll is still missing."
+    }
+
+    $versionInfo = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($runtimePath)
+    $currentVersion = [version]::new(
+        $versionInfo.FileMajorPart,
+        $versionInfo.FileMinorPart,
+        $versionInfo.FileBuildPart,
+        $versionInfo.FilePrivatePart)
+    if ($currentVersion -lt $minimumVersion) {
+        throw "The installed Visual C++ runtime is $currentVersion; OpenClaw requires $minimumVersion or later."
+    }
+}
+
 try {
     Write-Host "Preparing OpenClaw Hebrew..." -ForegroundColor Magenta
     Ensure-Git
@@ -186,6 +232,30 @@ try {
             '<data name="SessionsPage_Refresh"',
             '<data name="SessionsPage_RefreshAction"')
         [System.IO.File]::WriteAllText($resourceFile.FullName, $resourceContent)
+    }
+
+    # The upstream publish target normally takes loose VC runtime DLLs from a
+    # full C++ toolset installation. For this local, x64-only upgrade, use the
+    # current Microsoft-signed system runtime instead. Its version is checked
+    # below before packaging, so the obsolete NuGet runtime is never shipped.
+    $directoryTargetsPath = Join-Path $workDirectory "src\Directory.Build.targets"
+    $directoryTargets = [System.IO.File]::ReadAllText($directoryTargetsPath)
+    if (-not $directoryTargets.Contains('$(SystemRoot)\System32\vcruntime140*.dll')) {
+        $runtimeErrorMarker = '    <Error Condition="''@(OpenClawVCRuntimeFiles)'' == ''''"'
+        $systemRuntimeFallback = @'
+    <ItemGroup Condition="'$(OpenClawVCRuntimeArch)' == 'x64' and '@(OpenClawVCRuntimeFiles)' == ''">
+      <OpenClawVCRuntimeFiles Include="$(SystemRoot)\System32\vcruntime140*.dll" />
+      <OpenClawVCRuntimeFiles Include="$(SystemRoot)\System32\msvcp140*.dll" />
+    </ItemGroup>
+
+'@
+        if (-not $directoryTargets.Contains($runtimeErrorMarker)) {
+            throw "Could not add the checked system Visual C++ runtime fallback."
+        }
+        $directoryTargets = $directoryTargets.Replace(
+            $runtimeErrorMarker,
+            $systemRuntimeFallback + $runtimeErrorMarker)
+        [System.IO.File]::WriteAllText($directoryTargetsPath, $directoryTargets)
     }
 
     $buildScript = Join-Path $workDirectory "build.ps1"
@@ -295,6 +365,7 @@ try {
     }
 
     Ensure-VCRedistBuildComponent
+    Ensure-CurrentSystemVCRuntime
 
     Write-Host "Starting the tested in-place upgrade..." -ForegroundColor Cyan
     & $upgradeScript
