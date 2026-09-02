@@ -144,6 +144,87 @@ try {
         '$failCount = @($buildResults.Values | Where-Object { $_ -eq $false }).Count')
     [System.IO.File]::WriteAllText($buildScript, $buildContent)
 
+    # The localization pass moved user-visible copy out of C# and into .resw.
+    # Keep source-contract tests pointed at the resource lookups rather than
+    # the former hard-coded English text. These replacements are idempotent so
+    # an interrupted upgrade can be resumed safely.
+    $contractTestFixes = @{
+        "tests\OpenClaw.Tray.Tests\ChannelsPageWebLoginRecoveryContractTests.cs" = @(
+            @('Assert.Contains("isn''t available on this gateway yet", source, StringComparison.Ordinal);', 'Assert.Contains("ChannelsPage_LinkingUnavailableFormat", source, StringComparison.Ordinal);')
+        )
+        "tests\OpenClaw.Tray.Tests\SessionActionsWiringTests.cs" = @(
+            @('Assert.Contains("\"The gateway didn''t accept the request. Try again.\"", source);', 'Assert.Contains("LocalizationHelper.GetString(\"SessionsPage_ActionRejectedMessage\")", source);')
+        )
+        "tests\OpenClaw.Tray.Tests\DiagnosticsPageContractTests.cs" = @(
+            @('Assert.Contains("CopyDiagnosticText(\"Support context\"", cs);', 'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_SupportContext\")", cs);'),
+            @('Assert.Contains("CopyDiagnosticText(\r\n            \"Summary debug bundle\"", cs);', 'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_SummaryDebugBundle\")", cs);'),
+            @('Assert.Contains("CopyDiagnosticText(\"Browser setup guidance\"", cs);', 'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_BrowserSetupGuidance\")", cs);'),
+            @('Assert.Contains("CopyDiagnosticText(\"Port diagnostics\"", cs);', 'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_PortDiagnostics\")", cs);'),
+            @('Assert.Contains("CopyDiagnosticText(\"Capability diagnostics\"", cs);', 'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_CapabilityDiagnostics\")", cs);')
+        )
+        "tests\OpenClaw.Tray.Tests\AppRefactorContractTests.cs" = @(
+            @('Assert.Contains("Check SSH tunnel settings and logs.", method);', 'Assert.Contains("LocalizationHelper.GetString(\"Toast_SshTunnelCheckSettings\")", method);'),
+            @('Assert.Contains("Retry with validated fallback {args.GatewayFallbackVersion}", complete);', 'Assert.Contains("SetupLocalization.Format(\"Setup_Complete_RetryFallbackFormat\", args.GatewayFallbackVersion)", complete);'),
+            @('Assert.Contains("Couldn''t read Windows permission status", build);', 'Assert.Contains("SetupLocalization.GetString(\"Setup_Capabilities_PermissionStatusErrorTitle\")", build);'),
+            @('Assert.Contains("Review permissions later in Settings", build);', 'Assert.Contains("SetupLocalization.Format(\"Setup_Capabilities_PermissionStatusErrorFormat\", ex.Message)", build);'),
+            @('Assert.Contains("Retry Windows integration", finalizationError);', 'Assert.Contains("SetupLocalization.GetString(\"Setup_Wizard_RetryWindows\")", finalizationError);'),
+            @('Assert.Contains("<ListView x:Name=\"GatewayChoiceSelector\"", xaml);', 'Assert.Contains("x:Name=\"GatewayChoiceSelector\"", xaml);'),
+            @('Assert.Contains("Node Sandbox unavailable", reject);', 'Assert.Contains("L(\"SandboxPage_EnableUnavailableDialogTitle\")", reject);'),
+            @('Assert.Contains("usable MXC backend", reject);', 'Assert.Contains("Lf(\"SandboxPage_EnableUnavailableDialogMessageFormat\", reasonText)", reject);')
+        )
+    }
+
+    foreach ($entry in $contractTestFixes.GetEnumerator()) {
+        $testPath = Join-Path $workDirectory $entry.Key
+        $testContent = [System.IO.File]::ReadAllText($testPath)
+        $replacementValues = @($entry.Value)
+        if (($replacementValues.Count % 2) -ne 0) {
+            throw "Invalid contract-test replacement list for $($entry.Key)."
+        }
+        for ($index = 0; $index -lt $replacementValues.Count; $index += 2) {
+            $testContent = $testContent.Replace(
+                [string]$replacementValues[$index],
+                [string]$replacementValues[$index + 1])
+        }
+        [System.IO.File]::WriteAllText($testPath, $testContent)
+    }
+
+    $localizationTestsPath = Join-Path $workDirectory "tests\OpenClaw.Tray.Tests\LocalizationValidationTests.cs"
+    $localizationTests = [System.IO.File]::ReadAllText($localizationTestsPath)
+    if (-not $localizationTests.Contains('key.StartsWith("Activation_", StringComparison.Ordinal)')) {
+        $setupDeferredLine = '        || key.StartsWith("Setup_", StringComparison.Ordinal)'
+        $legacyDeferredBlock = @'
+        // These runtime surfaces were moved from hard-coded English into .resw
+        // as part of the Hebrew localization pass. Hebrew supplies complete
+        // translations; the four legacy locale files deliberately retain the
+        // synchronized en-us fallback until their maintainers translate them.
+        || key.StartsWith("Activation_", StringComparison.Ordinal)
+        || key.StartsWith("Checkpoints_", StringComparison.Ordinal)
+        || key.StartsWith("ConfigPage_", StringComparison.Ordinal)
+        || key.StartsWith("DebugPage_", StringComparison.Ordinal)
+        || key.StartsWith("DiagnosticsBundleDialog_", StringComparison.Ordinal)
+        || key.StartsWith("SandboxPage_", StringComparison.Ordinal)
+        || key.StartsWith("SchemaConfigEditor_", StringComparison.Ordinal)
+        || key.StartsWith("SessionsPage_", StringComparison.Ordinal)
+        || key.StartsWith("SkillsPage_", StringComparison.Ordinal)
+        || key.StartsWith("Toast_", StringComparison.Ordinal)
+        || key.StartsWith("TrayMenu_", StringComparison.Ordinal)
+        || key.StartsWith("UsagePage_", StringComparison.Ordinal)
+        || key.StartsWith("VoiceSettingsPage_Inline", StringComparison.Ordinal)
+        || key.StartsWith("Common_", StringComparison.Ordinal)
+        || key.StartsWith("SettingsPage_TestNotification", StringComparison.Ordinal)
+        || key.StartsWith("SettingsPage_RemoveGatewayDialog", StringComparison.Ordinal)
+        || key.Equals("SettingsPage_AppDisplayName.Text", StringComparison.Ordinal)
+'@
+        if (-not $localizationTests.Contains($setupDeferredLine)) {
+            throw "Could not update the legacy-locale fallback policy test."
+        }
+        $localizationTests = $localizationTests.Replace(
+            $setupDeferredLine,
+            $setupDeferredLine + [Environment]::NewLine + $legacyDeferredBlock.TrimEnd())
+        [System.IO.File]::WriteAllText($localizationTestsPath, $localizationTests)
+    }
+
     Write-Host "Starting the tested in-place upgrade..." -ForegroundColor Cyan
     & $upgradeScript
     if ($LASTEXITCODE -ne 0) {
