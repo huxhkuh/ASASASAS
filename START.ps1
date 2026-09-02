@@ -102,6 +102,19 @@ try {
     $upgradeContent = $upgradeContent.Replace(' --disable-interactivity', '')
     [System.IO.File]::WriteAllText($upgradeScript, $upgradeContent)
 
+    foreach ($relativeSourcePath in @(
+        "src\OpenClaw.Tray.WinUI\App.xaml.cs",
+        "src\OpenClaw.SetupEngine.UI\SetupLocalization.cs"
+    )) {
+        $sourcePath = Join-Path $workDirectory $relativeSourcePath
+        $sourceContent = [System.IO.File]::ReadAllText($sourcePath)
+        $sourceContent = [System.Text.RegularExpressions.Regex]::Replace(
+            $sourceContent,
+            '(?<!global::)Windows\.Globalization\.',
+            'global::Windows.Globalization.')
+        [System.IO.File]::WriteAllText($sourcePath, $sourceContent)
+    }
+
     Write-Host "Starting the tested in-place upgrade..." -ForegroundColor Cyan
     & $upgradeScript
     if ($LASTEXITCODE -ne 0) {
