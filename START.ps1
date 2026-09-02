@@ -150,27 +150,42 @@ try {
     # an interrupted upgrade can be resumed safely.
     $contractTestFixes = @{
         "tests\OpenClaw.Tray.Tests\ChannelsPageWebLoginRecoveryContractTests.cs" = @(
-            @('Assert.Contains("isn''t available on this gateway yet", source, StringComparison.Ordinal);', 'Assert.Contains("ChannelsPage_LinkingUnavailableFormat", source, StringComparison.Ordinal);')
+            'Assert.Contains("isn''t available on this gateway yet", source, StringComparison.Ordinal);',
+            'Assert.Contains("ChannelsPage_LinkingUnavailableFormat", source, StringComparison.Ordinal);'
         )
         "tests\OpenClaw.Tray.Tests\SessionActionsWiringTests.cs" = @(
-            @('Assert.Contains("\"The gateway didn''t accept the request. Try again.\"", source);', 'Assert.Contains("LocalizationHelper.GetString(\"SessionsPage_ActionRejectedMessage\")", source);')
+            'Assert.Contains("\"The gateway didn''t accept the request. Try again.\"", source);',
+            'Assert.Contains("LocalizationHelper.GetString(\"SessionsPage_ActionRejectedMessage\")", source);'
         )
         "tests\OpenClaw.Tray.Tests\DiagnosticsPageContractTests.cs" = @(
-            @('Assert.Contains("CopyDiagnosticText(\"Support context\"", cs);', 'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_SupportContext\")", cs);'),
-            @('Assert.Contains("CopyDiagnosticText(\r\n            \"Summary debug bundle\"", cs);', 'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_SummaryDebugBundle\")", cs);'),
-            @('Assert.Contains("CopyDiagnosticText(\"Browser setup guidance\"", cs);', 'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_BrowserSetupGuidance\")", cs);'),
-            @('Assert.Contains("CopyDiagnosticText(\"Port diagnostics\"", cs);', 'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_PortDiagnostics\")", cs);'),
-            @('Assert.Contains("CopyDiagnosticText(\"Capability diagnostics\"", cs);', 'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_CapabilityDiagnostics\")", cs);')
+            'Assert.Contains("CopyDiagnosticText(\"Support context\"", cs);',
+            'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_SupportContext\")", cs);',
+            'Assert.Contains("CopyDiagnosticText(\r\n            \"Summary debug bundle\"", cs);',
+            'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_SummaryDebugBundle\")", cs);',
+            'Assert.Contains("CopyDiagnosticText(\"Browser setup guidance\"", cs);',
+            'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_BrowserSetupGuidance\")", cs);',
+            'Assert.Contains("CopyDiagnosticText(\"Port diagnostics\"", cs);',
+            'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_PortDiagnostics\")", cs);',
+            'Assert.Contains("CopyDiagnosticText(\"Capability diagnostics\"", cs);',
+            'Assert.Contains("LocalizationHelper.GetString(\"DebugPage_CapabilityDiagnostics\")", cs);'
         )
         "tests\OpenClaw.Tray.Tests\AppRefactorContractTests.cs" = @(
-            @('Assert.Contains("Check SSH tunnel settings and logs.", method);', 'Assert.Contains("LocalizationHelper.GetString(\"Toast_SshTunnelCheckSettings\")", method);'),
-            @('Assert.Contains("Retry with validated fallback {args.GatewayFallbackVersion}", complete);', 'Assert.Contains("SetupLocalization.Format(\"Setup_Complete_RetryFallbackFormat\", args.GatewayFallbackVersion)", complete);'),
-            @('Assert.Contains("Couldn''t read Windows permission status", build);', 'Assert.Contains("SetupLocalization.GetString(\"Setup_Capabilities_PermissionStatusErrorTitle\")", build);'),
-            @('Assert.Contains("Review permissions later in Settings", build);', 'Assert.Contains("SetupLocalization.Format(\"Setup_Capabilities_PermissionStatusErrorFormat\", ex.Message)", build);'),
-            @('Assert.Contains("Retry Windows integration", finalizationError);', 'Assert.Contains("SetupLocalization.GetString(\"Setup_Wizard_RetryWindows\")", finalizationError);'),
-            @('Assert.Contains("<ListView x:Name=\"GatewayChoiceSelector\"", xaml);', 'Assert.Contains("x:Name=\"GatewayChoiceSelector\"", xaml);'),
-            @('Assert.Contains("Node Sandbox unavailable", reject);', 'Assert.Contains("L(\"SandboxPage_EnableUnavailableDialogTitle\")", reject);'),
-            @('Assert.Contains("usable MXC backend", reject);', 'Assert.Contains("Lf(\"SandboxPage_EnableUnavailableDialogMessageFormat\", reasonText)", reject);')
+            'Assert.Contains("Check SSH tunnel settings and logs.", method);',
+            'Assert.Contains("LocalizationHelper.GetString(\"Toast_SshTunnelCheckSettings\")", method);',
+            'Assert.Contains("Retry with validated fallback {args.GatewayFallbackVersion}", complete);',
+            'Assert.Contains("SetupLocalization.Format(\"Setup_Complete_RetryFallbackFormat\", args.GatewayFallbackVersion)", complete);',
+            'Assert.Contains("Couldn''t read Windows permission status", build);',
+            'Assert.Contains("SetupLocalization.GetString(\"Setup_Capabilities_PermissionStatusErrorTitle\")", build);',
+            'Assert.Contains("Review permissions later in Settings", build);',
+            'Assert.Contains("SetupLocalization.Format(\"Setup_Capabilities_PermissionStatusErrorFormat\", ex.Message)", build);',
+            'Assert.Contains("Retry Windows integration", finalizationError);',
+            'Assert.Contains("SetupLocalization.GetString(\"Setup_Wizard_RetryWindows\")", finalizationError);',
+            'Assert.Contains("<ListView x:Name=\"GatewayChoiceSelector\"", xaml);',
+            'Assert.Contains("x:Name=\"GatewayChoiceSelector\"", xaml);',
+            'Assert.Contains("Node Sandbox unavailable", reject);',
+            'Assert.Contains("L(\"SandboxPage_EnableUnavailableDialogTitle\")", reject);',
+            'Assert.Contains("usable MXC backend", reject);',
+            'Assert.Contains("Lf(\"SandboxPage_EnableUnavailableDialogMessageFormat\", reasonText)", reject);'
         )
     }
 
