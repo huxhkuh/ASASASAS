@@ -268,6 +268,16 @@ try {
         '$failCount = @($buildResults.Values | Where-Object { $_ -eq $false }).Count')
     [System.IO.File]::WriteAllText($buildScript, $buildContent)
 
+    # Inno Setup 6.2 exposes the compatible Pascal Script helper as FileCopy.
+    # Newer upstream source used CopyFile, which does not compile on the
+    # repository's documented minimum Inno Setup version.
+    $installerScript = Join-Path $workDirectory "installer.iss"
+    $installerContent = [System.IO.File]::ReadAllText($installerScript)
+    $installerContent = $installerContent.Replace(
+        'CopyFile(SourceScriptPath, TempScriptPath, False)',
+        'FileCopy(SourceScriptPath, TempScriptPath, False)')
+    [System.IO.File]::WriteAllText($installerScript, $installerContent)
+
     # The localization pass moved user-visible copy out of C# and into .resw.
     # Keep source-contract tests pointed at the resource lookups rather than
     # the former hard-coded English text. These replacements are idempotent so
